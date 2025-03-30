@@ -9,6 +9,15 @@ export default function Home() {
       </header>
       <main className="">
         <LandingPageHero />
+        <section>
+          <h2 className="text-2xl text-[#2bcd15] italic">
+            Digital Innovation Through Technology Excellence.
+          </h2>
+          <h3 className="text-4xl text-gray-700">
+            We&apos;re more than just a technology partner &ndash; we&apos;re
+            your catalyst for digital transformation.
+          </h3>
+        </section>
       </main>
       <h1 className="text-3xl text-amber-400 mt-20">Hello Next.js</h1>
     </div>

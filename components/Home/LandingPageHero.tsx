@@ -51,35 +51,24 @@ const LandingPageHero = () => {
               {/* Dark Overlay */}
               <div className="absolute inset-0 bg-black/50"></div>
               {/* Text Content */}
-              {/* <div className="relative z-10 max-w-2xl px-6">
-                <h2 className="text-5xl font-bold text-primary-one">
-                  {slide.title}
-                </h2>
-                <p className="text-xl mt-2">{slide.subtitle}</p>
-                <p className="mt-4">{slide.description}</p>
-                <button className="mt-6 px-6 py-3 bg-purple-600 rounded text-white font-semibold hover:bg-purple-700 transition">
-                  {slide.buttonText}
-                </button>
-              </div> */}
               <div className="relative z-10 max-w-2xl px-6 text-center">
-                <motion.h2
-                  variants={textVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="text-5xl font-bold"
-                >
-                  {slide.title}
-                </motion.h2>
-
                 <motion.p
                   variants={textVariants}
                   initial="hidden"
                   animate="visible"
                   transition={{ delay: 0.2 }}
-                  className="text-xl mt-2"
+                  className="text-xl mt-2 text-[#2bcd15] italic"
                 >
                   {slide.subtitle}
                 </motion.p>
+                <motion.h2
+                  variants={textVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="text-5xl font-bold bg-primary-one"
+                >
+                  {slide.title}
+                </motion.h2>
 
                 <motion.p
                   variants={textVariants}
@@ -96,7 +85,11 @@ const LandingPageHero = () => {
                   initial="hidden"
                   animate="visible"
                   transition={{ delay: 0.6 }}
-                  className="mt-6 px-6 py-3 bg-primary-one rounded text-white font-semibold hover:bg-primary-two transition"
+                  className="mt-6 px-6 py-3 uppercase border-2 border-[#2bcd15] cursor-pointer bg-black rounded-full text-white font-semibold hover:bg-primary-two transition"
+                  onClick={() => {
+                    // Handle button click here, e.g., navigate to another page
+                    alert("Button clicked!");
+                  }}
                 >
                   {slide.buttonText}
                 </motion.button>
