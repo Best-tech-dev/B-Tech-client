@@ -4,10 +4,10 @@ import LandingPageHero from "@/components/Home/LandingPageHero";
 export default function Home() {
   return (
     <div className="bg-white">
-      <header className="hidden">
+      <header className="">
         <NavBar />
       </header>
-      <main>
+      <main className="">
         <LandingPageHero />
       </main>
       <h1 className="text-3xl text-amber-400 mt-20">Hello Next.js</h1>
