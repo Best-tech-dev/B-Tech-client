@@ -85,7 +85,7 @@ const LandingPageHero = () => {
                   initial="hidden"
                   animate="visible"
                   transition={{ delay: 0.6 }}
-                  className="mt-6 px-6 py-3 uppercase border-2 border-[#2bcd15] cursor-pointer bg-black rounded-full text-white font-semibold hover:bg-primary-two transition"
+                  className="mt-20 px-6 py-3 text-xs uppercase border-2 border-[#2bcd15] cursor-pointer bg-[#161a25] rounded-full text-white font-semibold hover:bg-primary-two transition"
                   onClick={() => {
                     // Handle button click here, e.g., navigate to another page
                     alert("Button clicked!");
@@ -111,7 +111,7 @@ const LandingPageHero = () => {
               cx="24"
               cy="24"
               r="20"
-              className="stroke-purple-500 stroke-[4] transition-all duration-100"
+              className="stroke-[#2bcd15] stroke-[4] transition-all duration-100"
               style={{
                 strokeDasharray: "126",
                 strokeDashoffset: `calc(126 * var(--progress, 1))`,
