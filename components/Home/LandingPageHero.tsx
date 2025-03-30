@@ -18,7 +18,7 @@ const LandingPageHero = () => {
   const progressCircle = useRef<SVGSVGElement | null>(null);
   const progressContent = useRef<HTMLSpanElement | null>(null);
 
-  const onAutoplayTimeLeft = (s: any, time: number, progress: number) => {
+  const onAutoplayTimeLeft = (s: unknown, time: number, progress: number) => {
     if (progressCircle.current) {
       progressCircle.current.style.setProperty("--progress", `${1 - progress}`);
     }
@@ -105,8 +105,7 @@ const LandingPageHero = () => {
             </div>
           </SwiperSlide>
         ))}
-        {/* Progress Indicator Positioned at Bottom-Right */} // This was made
-        visible by setting z-index
+        {/* Progress Indicator Positioned at Bottom-Right */}
         <div className="absolute bottom-5 right-5 bg-black p-2 rounded-full z-50">
           <svg viewBox="0 0 48 48" ref={progressCircle} className="w-12 h-12">
             <circle
