@@ -5,36 +5,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { motion } from "framer-motion";
 
-const slides = [
-  {
-    id: 1,
-    title: "Amplify Your Digital Presence",
-    subtitle: "Business Transformation",
-    description:
-      "We provide enterprises with innovative software solutions and digital marketing strategies that drive exponential growth.",
-    buttonText: "Reach Out",
-    bgImage: "/sliders/slider-01.jpg",
-  },
-  {
-    id: 2,
-    title: "Empower Your Business with Tech",
-    subtitle: "Innovative Solutions",
-    description:
-      "Leverage cutting-edge technology to enhance productivity and achieve business goals.",
-    buttonText: "Get Started",
-    bgImage: "/sliders/slider-02.jpg",
-  },
-  {
-    id: 3,
-    title: "Future-Ready Digital Strategies",
-    subtitle: "Smart Growth",
-    description:
-      "Stay ahead with data-driven insights and seamless digital transformation.",
-    buttonText: "Explore Now",
-    bgImage: "/sliders/slider-03.jpg",
-  },
-];
+import { slides } from "@/constants/landingPageHeroSlides"; // Import your slides data
+
+const textVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
 
 const LandingPageHero = () => {
   const progressCircle = useRef<SVGSVGElement | null>(null);
@@ -73,14 +51,57 @@ const LandingPageHero = () => {
               {/* Dark Overlay */}
               <div className="absolute inset-0 bg-black/50"></div>
               {/* Text Content */}
-              <div className="relative z-10 max-w-2xl px-6">
-                <h2 className="text-5xl font-bold">{slide.title}</h2>
+              {/* <div className="relative z-10 max-w-2xl px-6">
+                <h2 className="text-5xl font-bold text-primary-one">
+                  {slide.title}
+                </h2>
                 <p className="text-xl mt-2">{slide.subtitle}</p>
                 <p className="mt-4">{slide.description}</p>
                 <button className="mt-6 px-6 py-3 bg-purple-600 rounded text-white font-semibold hover:bg-purple-700 transition">
                   {slide.buttonText}
                 </button>
+              </div> */}
+              <div className="relative z-10 max-w-2xl px-6 text-center">
+                <motion.h2
+                  variants={textVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="text-5xl font-bold"
+                >
+                  {slide.title}
+                </motion.h2>
+
+                <motion.p
+                  variants={textVariants}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ delay: 0.2 }}
+                  className="text-xl mt-2"
+                >
+                  {slide.subtitle}
+                </motion.p>
+
+                <motion.p
+                  variants={textVariants}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ delay: 0.4 }}
+                  className="mt-4"
+                >
+                  {slide.description}
+                </motion.p>
+
+                <motion.button
+                  variants={textVariants}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ delay: 0.6 }}
+                  className="mt-6 px-6 py-3 bg-primary-one rounded text-white font-semibold hover:bg-primary-two transition"
+                >
+                  {slide.buttonText}
+                </motion.button>
               </div>
+              ;
             </div>
           </SwiperSlide>
         ))}
