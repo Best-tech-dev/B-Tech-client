@@ -40,7 +40,7 @@ import { HiChevronDoubleDown } from "react-icons/hi2";
 
 const ExploreServices: React.FC = () => {
   return (
-    <div className="relative w-full h-[450px] md:h-[500px] lg:h-screen flex items-center justify-center bg-gray-200 px-6">
+    <div className="relative w-full h-[450px] md:h-[500px] lg:h-screen flex items-center justify-center bg-gray-100 px-6">
       {/* Background Container (Keeps blobs inside) */}
       <div className="relative w-full max-w-[1200px] h-full flex items-center justify-center">
         {/* Background Image */}

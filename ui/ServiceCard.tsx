@@ -1,4 +1,51 @@
 "use client";
+/**
+ * @file ServiceCard.tsx
+ * @description A React functional component that renders a service card with an animated hover effect.
+ * The card includes an image, title, and truncated description, and links to a specified URL.
+ * The hover effect animates a circular background expansion from the mouse position.
+ *
+ * @module ServiceCard
+ */
+
+import React from "react";
+
+/**
+ * Props for the `ServiceCard` component.
+ *
+ * @typedef {Object} ServiceCardProps
+ * @property {string} title - The title of the service.
+ * @property {string} description - A detailed description of the service.
+ * @property {string} imageSrc - The source URL of the service image.
+ * @property {string} href - The URL to navigate to when the card is clicked.
+ */
+
+/**
+ * A React functional component that renders a service card with an animated hover effect.
+ *
+ * @component
+ * @param {ServiceCardProps} props - The props for the component.
+ * @param {string} props.title - The title of the service.
+ * @param {string} props.description - A detailed description of the service.
+ * @param {string} props.imageSrc - The source URL of the service image.
+ * @param {string} props.href - The URL to navigate to when the card is clicked.
+ *
+ * @returns {JSX.Element} The rendered service card component.
+ *
+ * @example
+ * <ServiceCard
+ *   title="Web Development"
+ *   description="We provide cutting-edge web development services to build responsive and scalable websites."
+ *   imageSrc="/images/web-development.jpg"
+ *   href="/services/web-development"
+ * />
+ *
+ * @remarks
+ * - The component uses `framer-motion` for the hover animation.
+ * - The `truncateText` utility is used to limit the description to 320 characters.
+ * - The `Image` component from `next/image` is used for optimized image rendering.
+ * - The hover effect is achieved by animating a circular background expansion from the mouse position.
+ */
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,13 +53,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import truncateText from "@/lib/TruncateText";
-
-interface ServiceCardProps {
-  title: string;
-  description: string;
-  imageSrc: string;
-  href: string;
-}
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
   title,

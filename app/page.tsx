@@ -4,6 +4,7 @@ import DigitalInnovationHero from "@/components/Home/DigitalInnovationHero";
 import OurClientsSection from "@/components/Home/OurClientsSection";
 import ExploreServices from "@/components/Home/ExploreServices";
 import ServicesGrid from "@/components/Home/ServicesGrid";
+import RecentPosts from "@/components/Home/RecentPosts";
 
 export default function Home() {
   return (
@@ -35,6 +36,10 @@ export default function Home() {
             Digital Solutions That Drive Business Growth
           </h2>
           <ServicesGrid />
+        </section>
+
+        <section>
+          <RecentPosts />
         </section>
       </main>
       <h1 className="text-3xl text-amber-400 mt-20">Hello Next.js</h1>
