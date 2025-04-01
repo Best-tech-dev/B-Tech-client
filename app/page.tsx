@@ -2,6 +2,7 @@ import NavBar from "@/components/Header/NavBar";
 import LandingPageHero from "@/components/Home/LandingPageHero";
 import DigitalInnovationHero from "@/components/Home/DigitalInnovationHero";
 import OurClientsSection from "@/components/Home/OurClientsSection";
+import ExploreServices from "@/components/Home/ExploreServices";
 
 export default function Home() {
   return (
@@ -24,6 +25,9 @@ export default function Home() {
 
         <section>
           <OurClientsSection />
+        </section>
+        <section>
+          <ExploreServices />
         </section>
       </main>
       <h1 className="text-3xl text-amber-400 mt-20">Hello Next.js</h1>

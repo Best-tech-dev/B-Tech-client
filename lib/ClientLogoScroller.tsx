@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CLIENTS } from "@/constants/clients";
@@ -22,7 +23,7 @@ const ClientLogoScroller: React.FC = () => {
             }}
           >
             {CLIENTS.map((client, index) => (
-              <a
+              <Link
                 key={index + i * CLIENTS.length}
                 href={client.url}
                 target="_blank"
@@ -34,10 +35,12 @@ const ClientLogoScroller: React.FC = () => {
                 <Image
                   src={client.logo}
                   alt={client.name}
-                  layout="fill"
-                  objectFit="contain"
+                  width={200}
+                  height={100}
+                  // layout="fill"
+                  // objectFit="contain"
                 />
-              </a>
+              </Link>
             ))}
           </motion.div>
         ))}
