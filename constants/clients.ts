@@ -1,3 +1,19 @@
+/**
+ * @fileoverview This file contains a constant array of client information used in the application.
+ * Each client object includes details such as the client's name, logo URL, and website URL.
+ *
+ * The `CLIENTS` array can be used to dynamically display client information, such as logos
+ * and links, on the website or other parts of the application.
+ *
+ * @constant
+ * @type {Array<{name: string, logo: string, url: string}>}
+ * @example
+ * // Example usage:
+ * CLIENTS.forEach(client => {
+ *   console.log(client.name); // Logs the name of each client
+ * });
+ */
+
 export const CLIENTS = [
   {
     name: "Accessible Publishers",
