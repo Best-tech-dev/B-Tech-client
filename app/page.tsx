@@ -16,14 +16,7 @@ export default function Home() {
       </header>
       <main className="">
         <LandingPageHero />
-        <section className="px-40 py-10 bg-white">
-          <h2 className="text-md text-[#2bcd15] italic text-center">
-            Digital Innovation Through Technology Excellence.
-          </h2>
-          <h3 className="text-5xl mt-2 text-center text-black font-bold">
-            We&apos;re more than just a technology partner &ndash; we&apos;re
-            your catalyst for digital transformation.
-          </h3>
+        <section className="px-4 sm:px-10 md:px-20 lg:px-40 py-10 bg-white">
           <DigitalInnovationHero />
         </section>
 

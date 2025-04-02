@@ -263,8 +263,8 @@ function ResponsiveAppBar() {
           </Box>
 
           {/* Login and Sign Up Buttons */}
-          <Box sx={{ display: "flex", gap: 2 }}>
-            <LoginButton />
+          <Box className="hidden lg:block">
+            {/* <LoginButton /> */}
             <Button
               variant="contained"
               sx={{
