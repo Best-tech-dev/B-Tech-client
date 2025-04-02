@@ -1,39 +1,44 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+/**
+ * @file ClientStats.tsx
+ * @description This file defines the `ClientStats` component, which displays
+ *              statistical information about clients and projects in a visually
+ *              appealing layout using the `StatsCounter` component.
+ * @module ClientStats
+ */
 
 import StatsCounter from "@/lib/StatsCounter"; // Importing the StatsCounter component
 
-// const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
-//   const [count, setCount] = useState(0);
-
-//   useEffect(() => {
-//     let start = 0;
-//     const duration = 2000; // Animation time in ms
-//     const stepTime = Math.abs(Math.floor(duration / value));
-
-//     const timer = setInterval(() => {
-//       start += 1;
-//       setCount(start);
-//       if (start === value) clearInterval(timer);
-//     }, stepTime);
-
-//     return () => clearInterval(timer);
-//   }, [value]);
-
-//   return (
-//     <motion.span
-//       initial={{ opacity: 0, y: 20 }}
-//       animate={{ opacity: 1, y: 0 }}
-//       transition={{ duration: 0.8 }}
-//       className="text-5xl font-bold"
-//     >
-//       {count}
-//       {suffix}
-//     </motion.span>
-//   );
-// };
+/**
+ * `ClientStats` is a React functional component that renders a section displaying
+ * various client-related statistics, such as the number of happy clients, client
+ * retention rate, projects delivered, and experienced team members. The component
+ * uses the `StatsCounter` component to display animated counters for each statistic.
+ *
+ * @component
+ * @returns {JSX.Element} A JSX element containing the client statistics layout.
+ *
+ * @example
+ * // Example usage:
+ * import ClientStats from "@/lib/ClientStats";
+ *
+ * function App() {
+ *   return (
+ *     <div>
+ *       <ClientStats />
+ *     </div>
+ *   );
+ * }
+ *
+ * @remarks
+ * - The component is styled using Tailwind CSS classes for responsive design.
+ * - The statistics are divided into two rows, each containing two items.
+ * - Dividers are used to separate the rows visually.
+ *
+ * @dependencies
+ * - `StatsCounter`: A reusable component for displaying animated counters.
+ *
+ * @see StatsCounter
+ */
 
 function ClientStats() {
   return (
