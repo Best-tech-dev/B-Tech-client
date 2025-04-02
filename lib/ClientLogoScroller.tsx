@@ -7,7 +7,7 @@ import { CLIENTS } from "@/constants/clients";
 
 const ClientLogoScroller: React.FC = () => {
   return (
-    <div className="overflow-hidden py-5 bg-white relative">
+    <div className="overflow-hidden py-2 md:py-5 bg-white relative">
       <div className="flex w-full items-center">
         {/* Two identical rows to ensure seamless looping */}
         {[0, 1].map((_, i) => (
@@ -28,7 +28,7 @@ const ClientLogoScroller: React.FC = () => {
                 href={client.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-48 h-30 flex-shrink-0 relative ${
+                className={`w-48 h-auto flex-shrink-0 relative ${
                   index === CLIENTS.length - 1 ? "mr-8" : ""
                 }`} // Add margin to last item
               >
