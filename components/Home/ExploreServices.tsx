@@ -40,7 +40,7 @@ import { HiChevronDoubleDown } from "react-icons/hi2";
 
 const ExploreServices: React.FC = () => {
   return (
-    <div className="relative w-full h-[450px] md:h-[500px] lg:h-screen flex items-center justify-center bg-gray-100 px-6">
+    <div className="relative w-full h-[450px] md:h-[500px] lg:h-screen flex items-center justify-center bg-gray-100 lg:px-6">
       {/* Background Container (Keeps blobs inside) */}
       <div className="relative w-full max-w-[1200px] h-full flex items-center justify-center">
         {/* Background Image */}
@@ -55,7 +55,7 @@ const ExploreServices: React.FC = () => {
           <div className="absolute w-full h-full bg-black/50 rounded-lg"></div>
 
           {/* Left Green Image (Fixed inside the container) */}
-          <div className="absolute left-0 bottom-[-30px] md:-left-7 md:bottom-20 z-10">
+          <div className="hidden md:block absolute left-0 bottom-[-30px] md:-left-7 md:bottom-20 z-10">
             <Image
               src="/blobs/h2-shape-2.png"
               alt="Green Design Element"
@@ -66,7 +66,7 @@ const ExploreServices: React.FC = () => {
           </div>
 
           {/* Right White Image (Fixed inside the container) */}
-          <div className="absolute right-0 top-20 md:-right-7 z-10">
+          <div className="hidden md:block absolute right-0 top-20 md:-right-7 z-10">
             <Image
               src="/blobs/shape-6.png"
               alt="White Design Element"
