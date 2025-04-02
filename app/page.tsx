@@ -6,6 +6,7 @@ import ExploreServices from "@/components/Home/ExploreServices";
 import ServicesGrid from "@/components/Home/ServicesGrid";
 import RecentPosts from "@/components/Home/RecentPosts";
 import GetInTouch from "@/components/Footer/GetInTouch";
+import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -45,6 +46,7 @@ export default function Home() {
       </main>
       <footer>
         <GetInTouch />
+        <Footer />
       </footer>
     </div>
   );
