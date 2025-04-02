@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import Link from "next/link";
 
 type FormData = {
   name: string;
