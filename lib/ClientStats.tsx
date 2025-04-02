@@ -3,35 +3,37 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
-  const [count, setCount] = useState(0);
+import StatsCounter from "@/lib/StatsCounter"; // Importing the StatsCounter component
 
-  useEffect(() => {
-    let start = 0;
-    const duration = 2000; // Animation time in ms
-    const stepTime = Math.abs(Math.floor(duration / value));
+// const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
+//   const [count, setCount] = useState(0);
 
-    const timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start === value) clearInterval(timer);
-    }, stepTime);
+//   useEffect(() => {
+//     let start = 0;
+//     const duration = 2000; // Animation time in ms
+//     const stepTime = Math.abs(Math.floor(duration / value));
 
-    return () => clearInterval(timer);
-  }, [value]);
+//     const timer = setInterval(() => {
+//       start += 1;
+//       setCount(start);
+//       if (start === value) clearInterval(timer);
+//     }, stepTime);
 
-  return (
-    <motion.span
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="text-5xl font-bold"
-    >
-      {count}
-      {suffix}
-    </motion.span>
-  );
-};
+//     return () => clearInterval(timer);
+//   }, [value]);
+
+//   return (
+//     <motion.span
+//       initial={{ opacity: 0, y: 20 }}
+//       animate={{ opacity: 1, y: 0 }}
+//       transition={{ duration: 0.8 }}
+//       className="text-5xl font-bold"
+//     >
+//       {count}
+//       {suffix}
+//     </motion.span>
+//   );
+// };
 
 function ClientStats() {
   return (
@@ -40,12 +42,20 @@ function ClientStats() {
         {/* First Row */}
         <div className="flex w-full justify-between text-center">
           <div className="flex flex-col items-center w-1/2">
-            <Counter value={75} suffix="+" />
-            <p className="text-lg">Happy Clients</p>
+            <StatsCounter
+              value={75}
+              suffix="+"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            />
+            <p className="text-sm md:text-md lg:text-lg">Happy Clients</p>
           </div>
           <div className="flex flex-col items-center w-1/2">
-            <Counter value={99} suffix="%" />
-            <p className="text-lg">Client Retention</p>
+            <StatsCounter
+              value={99}
+              suffix="%"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            />
+            <p className="text-sm md:text-md lg:text-lg">Client Retention</p>
           </div>
         </div>
 
@@ -57,12 +67,22 @@ function ClientStats() {
         {/* Second Row */}
         <div className="flex w-full justify-between text-center mt-4">
           <div className="flex flex-col items-center w-1/2">
-            <Counter value={150} suffix="+" />
-            <p className="text-lg">Projects Delivered</p>
+            <StatsCounter
+              value={150}
+              suffix="+"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            />
+            <p className="text-sm md:text-md lg:text-lg">Projects Delivered</p>
           </div>
           <div className="flex flex-col items-center w-1/2">
-            <Counter value={10} suffix="+" />
-            <p className="text-lg">Experienced Team Members</p>
+            <StatsCounter
+              value={10}
+              suffix="+"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl"
+            />
+            <p className="text-sm md:text-md lg:text-lg">
+              Experienced Team Members
+            </p>
           </div>
         </div>
 
