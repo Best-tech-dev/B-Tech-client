@@ -5,6 +5,7 @@ import OurClientsSection from "@/components/Home/OurClientsSection";
 import ExploreServices from "@/components/Home/ExploreServices";
 import ServicesGrid from "@/components/Home/ServicesGrid";
 import RecentPosts from "@/components/Home/RecentPosts";
+import GetInTouch from "@/components/Footer/GetInTouch";
 
 export default function Home() {
   return (
@@ -42,7 +43,9 @@ export default function Home() {
           <RecentPosts />
         </section>
       </main>
-      <h1 className="text-3xl text-amber-400 mt-20">Hello Next.js</h1>
+      <footer>
+        <GetInTouch />
+      </footer>
     </div>
   );
 }
