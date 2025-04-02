@@ -9,25 +9,31 @@ const Footer = () => {
   const [showScroll, setShowScroll] = useState(false);
 
   useEffect(() => {
-    const checkScroll = () => setShowScroll(window.scrollY > 300);
+    const checkScroll = () => {
+      requestAnimationFrame(() => {
+        setShowScroll(window.scrollY > 300);
+      });
+    };
+
     window.addEventListener("scroll", checkScroll);
     return () => window.removeEventListener("scroll", checkScroll);
   }, []);
 
   return (
-    <footer className="bg-[#0e1117] text-white px-10 py-4 border-t border-t-gray-500 flex justify-between items-center relative">
+    <footer className="bg-[#0e1117] text-white px-6 md:px-10 py-6 border-t border-t-gray-500 flex flex-col md:flex-row md:justify-between md:items-center text-center md:text-left">
       {/* Logo */}
-      <Link href="/">
+      <Link href="/" className="mb-4 md:mb-0">
         <Image
           src="/logo-main.png"
           alt="Best Technologies Ltd"
           width={150}
           height={20}
+          className="mx-auto md:mx-0"
         />
       </Link>
 
       {/* Policy Links */}
-      <div className="flex gap-6 text-xs">
+      <div className="flex flex-row mx-auto gap-4 text-xs">
         <Link href="/privacy-policy" className="hover:underline">
           Privacy Policy
         </Link>
@@ -37,15 +43,14 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <p className="text-xs">
-        © Copyright {new Date().getFullYear()} Best Technologies Ltd. All rights
-        reserved
+      <p className="text-xs mt-4 md:mt-0">
+        © {new Date().getFullYear()} Best Technologies Ltd. All rights reserved.
       </p>
 
       {/* Scroll to Top Button */}
       {showScroll && (
         <button
-          className="fixed bottom-6 right-6 border rounded-full p-2 text-[#7ca412] border-[#7ca412] bg-[#0e1117] hover:bg-[#7ca412] hover:text-white transition"
+          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 border rounded-full p-2 text-[#7ca412] border-[#7ca412] bg-[#0e1117] hover:bg-[#7ca412] hover:text-white transition"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <FaArrowUp size={18} />
