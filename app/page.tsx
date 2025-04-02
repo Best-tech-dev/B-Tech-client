@@ -26,10 +26,7 @@ export default function Home() {
         <section>
           <ExploreServices />
         </section>
-        <section className="w-full px-10 py-20 bg-[#111827]">
-          <h2 className="text-3xl text-white text-center font-bold mb-10">
-            Digital Solutions That Drive Business Growth
-          </h2>
+        <section className="w-full bg-[#111827]">
           <ServicesGrid />
         </section>
 
