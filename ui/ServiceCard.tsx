@@ -104,7 +104,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         </AnimatePresence>
 
         {/* Card Content */}
-        <div className="relative z-10">
+        <div className="relative z-1">
           {/* Service Image */}
           <div className="w-full h-36 rounded-lg overflow-hidden">
             <Image
