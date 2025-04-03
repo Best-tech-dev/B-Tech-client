@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { AppBar, Toolbar, Box, IconButton } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { AppBar, Toolbar, Box, IconButton, Button } from "@mui/material";
+import { BsTextIndentLeft } from "react-icons/bs";
 import CloseIcon from "@mui/icons-material/Close";
 import MobileNav from "./MobileNav";
 import NavLinks from "./NavLinks";
@@ -41,12 +41,32 @@ const Navbar = () => {
           onClick={toggleMobileNav}
           sx={{ display: { xs: "block", md: "none" } }}
         >
-          {mobileNavOpen ? <CloseIcon /> : <MenuIcon />}
+          {mobileNavOpen ? (
+            <CloseIcon />
+          ) : (
+            <BsTextIndentLeft size={24} className="text-white" />
+          )}
         </IconButton>
+
+        {/* Login and Sign Up Buttons */}
+        <Box className="hidden lg:block">
+          {/* <LoginButton /> */}
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: "#001F24",
+              "&:hover": { transform: "scale(0.95)" },
+            }}
+          >
+            Send a Brief
+          </Button>
+        </Box>
       </Toolbar>
 
       {/* Mobile Navigation Overlay */}
-      {mobileNavOpen && <MobileNav toggleMobileNav={toggleMobileNav} />}
+      {mobileNavOpen && (
+        <MobileNav isOpen={mobileNavOpen} onClose={toggleMobileNav} />
+      )}
     </AppBar>
   );
 };
