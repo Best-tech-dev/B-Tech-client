@@ -10,34 +10,35 @@ import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
   return (
-    <div className="bg-white">
-      <header className="">
-        <NavBar />
-      </header>
-      <main className="">
-        <LandingPageHero />
-        <section className="px-4 sm:px-10 md:px-20 lg:px-40 py-10 bg-white">
-          <DigitalInnovationHero />
-        </section>
+    <>
+      <NavBar />
 
-        <section>
-          <OurClientsSection />
-        </section>
-        <section>
-          <ExploreServices />
-        </section>
-        <section className="w-full bg-[#111827]">
-          <ServicesGrid />
-        </section>
+      <div className="bg-white overflow-x-hidden">
+        <main className="">
+          <LandingPageHero />
+          <section className="px-4 sm:px-10 md:px-20 lg:px-40 py-10 bg-white">
+            <DigitalInnovationHero />
+          </section>
 
-        <section>
-          <RecentPosts />
-        </section>
-      </main>
-      <footer>
-        <GetInTouch />
-        <Footer />
-      </footer>
-    </div>
+          <section>
+            <OurClientsSection />
+          </section>
+          <section>
+            <ExploreServices />
+          </section>
+          <section className="w-full bg-[#111827]">
+            <ServicesGrid />
+          </section>
+
+          <section>
+            <RecentPosts />
+          </section>
+        </main>
+        <footer>
+          <GetInTouch />
+          <Footer />
+        </footer>
+      </div>
+    </>
   );
 }
