@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { AppBar, Toolbar, Box, IconButton, Button } from "@mui/material";
+import { AppBar, Toolbar, Box, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import MobileNav from "./MobileNav";
