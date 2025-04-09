@@ -1,0 +1,18 @@
+[
+  {
+    "id": "001",
+    "slug": "john-doe",
+    "name": "John Doe",
+    "position": "Software Engineer",
+    "department": "Tech",
+    "photo": "/staff/john.jpg"
+  },
+  {
+    "id": "002",
+    "slug": "jane-smith",
+    "name": "Jane Smith",
+    "position": "Product Designer",
+    "department": "Design",
+    "photo": "/staff/jane.jpg"
+  }
+]
