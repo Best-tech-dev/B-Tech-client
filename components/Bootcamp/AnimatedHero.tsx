@@ -26,13 +26,13 @@ export default function HeroSection() {
 
       {/* Hero Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+        <h1 className="text-2xl md:text-5xl font-bold mb-6 leading-tight">
           <span className="text-white">Transform</span>{" "}
           <span className="text-white">Your Future</span>
           <br />
           <span className="text-[#a3cd39]">with Our Tech Bootcamp</span>
         </h1>
-        <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+        <p className="text-sm md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
           Accelerate your tech career in just 12 weeks. Master in-demand skills
           with industry experts and join our network of successful graduates
           working at top tech companies.
@@ -43,7 +43,7 @@ export default function HeroSection() {
             asChild
             className="bg-[#a3cd39] text-black hover:bg-[#c7f552] px-6 py-3 font-semibold"
           >
-            <Link href="/auth/trainings">Apply Now →</Link>
+            <Link href="/trainings/register">Apply Now</Link>
           </Button>
           <Button
             asChild
@@ -54,12 +54,12 @@ export default function HeroSection() {
           </Button>
         </div>
 
-        <div className="mt-10 flex justify-center items-center gap-3 text-gray-400 text-sm">
+        <div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-3 text-gray-400 text-sm">
           <div className="flex gap-2">
             {[1, 2, 3, 4].map((num) => (
               <div
                 key={num}
-                className="w-6 h-6 flex items-center justify-center rounded-full bg-[#2e3340]"
+                className="w-6 h-6 flex items-center justify-center rounded-full bg-[#2e3340] -ms-4 border border-[#a4cd39]"
               >
                 {num}
               </div>

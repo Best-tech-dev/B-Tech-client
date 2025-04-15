@@ -21,12 +21,14 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky w-full z-50 top-0 shadow-md bg-[#161a25]">
+    <header className="fixed w-full z-50 top-0 shadow-md bg-[#161a25]">
       <nav className="container mx-auto flex items-center justify-between py-4 px-6 lg:px-8 text-xs">
         <div className="flex items-center">
           <Link href="/" className="flex-shrink-0">
             <Image
               src="/logo-main.png"
+              width={100}
+              height={40}
               alt="Best Technologies Ltd"
               className="h-8"
             />
@@ -38,31 +40,31 @@ const Navbar: React.FC = () => {
           <div className="font-medium space-x-6">
             <Link
               href="/programs"
-              className="text-white hover:text-primary-two transition-colors"
+              className="text-white hover:text-[#a4cd39] transition-colors"
             >
               PROGRAMS
             </Link>
             <Link
               href="/courses"
-              className="text-white hover:text-primary-two transition-colors"
+              className="text-white hover:text-[#a4cd39] transition-colors"
             >
               COURSES
             </Link>
             <Link
               href="/resources"
-              className="text-white hover:text-primary-two transition-colors"
+              className="text-white hover:text-[#a4cd39] transition-colors"
             >
               RESOURCES
             </Link>
             <Link
               href="/tuition-dates"
-              className="text-white hover:text-primary-two transition-colors"
+              className="text-white hover:text-[#a4cd39] transition-colors"
             >
               TUITION & DATES
             </Link>
             <Link
               href="/about"
-              className="text-white hover:text-primary-two transition-colors"
+              className="text-white hover:text-[#a4cd39] transition-colors"
             >
               ABOUT
             </Link>
@@ -84,7 +86,7 @@ const Navbar: React.FC = () => {
             {isMenuOpen ? (
               <X className="h-6 w-6 text-white" />
             ) : (
-              <Menu className="h-6 w-6 text-gray-700" />
+              <Menu className="h-6 w-6 text-white" />
             )}
           </button>
         </div>
@@ -96,39 +98,42 @@ const Navbar: React.FC = () => {
           <div className="container mx-auto px-4 py-3 space-y-3">
             <Link
               href="/programs"
-              className="block py-2 text-gray-700 hover:text-primary-two"
+              className="block py-2 text-gray-700 hover:text-[#a4cd39]"
             >
               PROGRAMS
             </Link>
             <Link
               href="/courses"
-              className="block py-2 text-gray-700 hover:text-primary-two"
+              className="block py-2 text-gray-700 hover:text-[#a4cd39]"
             >
               COURSES
             </Link>
             <Link
               href="/resources"
-              className="block py-2 text-gray-700 hover:text-primary-two"
+              className="block py-2 text-gray-700 hover:text-[#a4cd39]"
             >
               RESOURCES
             </Link>
             <Link
               href="/tuition-dates"
-              className="block py-2 text-gray-700 hover:text-primary-two"
+              className="block py-2 text-gray-700 hover:text-[#a4cd39]"
             >
               TUITION & DATES
             </Link>
             <Link
               href="/about"
-              className="block py-2 text-gray-700 hover:text-primary-two"
+              className="block py-2 text-gray-700 hover:text-[#a4cd39]"
             >
               ABOUT
             </Link>
-            <div className="pt-3 flex flex-col space-y-3">
-              <Button variant="outline" className="w-full">
-                Sign In
+
+            <div className="lg:hidden text-center">
+              <Button
+                className="bg-[#71990b] hover:bg-[#a3cd39] hover:cursor-pointer text-white px-8 py-3 text-xs rounded-2xl shadow-md transition-all duration-300"
+                onClick={handleApplyNowClick}
+              >
+                Register Now
               </Button>
-              <Button className="w-full">Sign Up</Button>
             </div>
           </div>
         </div>

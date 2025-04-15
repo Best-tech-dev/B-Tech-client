@@ -216,6 +216,8 @@ const Footer = () => {
             <div className="mr-4">
               <Image
                 src="/logo-main.png"
+                width={100}
+                height={40}
                 alt="The Best Technologies Ltd. Logo"
                 className="h-12"
               />

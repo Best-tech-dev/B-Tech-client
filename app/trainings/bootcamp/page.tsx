@@ -35,7 +35,7 @@ export default function BootcampLanding() {
   return (
     <div className="bg-[#161a25] text-white min-h-screen">
       {/* Banner */}
-      {showBanner && (
+      {/* {showBanner && (
         <div className="bg-[#2bcd15] text-white flex items-center justify-between px-4 py-2">
           <div className="flex gap-4 items-center flex-wrap">
             {Object.entries(timeLeft).map(([key, value]) => (
@@ -60,19 +60,16 @@ export default function BootcampLanding() {
             </button>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Fixed Header that adjusts based on banner visibility */}
-      <div
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          showBanner ? "top-[56px]" : "top-0"
-        }`}
-      >
+      <div className={`fixed w-full z-50 transition-all duration-300 top-0`}>
         <Navbar />
       </div>
 
       {/* Push content down by height of header (+ banner if visible) */}
-      <div className={showBanner ? "pt-[136px]" : "pt-[80px]"}>
+      {/* <div className={showBanner ? "pt-[136px]" : "pt-[80px]"}></div> */}
+      <div className="pt-8 lg:pt-18">
         {/* Hero Section */}
         <AnimatedHero />
 
