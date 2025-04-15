@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/ui/Bootcamp/button";
 import { cn } from "@/lib/Bootcamp/utils";
@@ -62,19 +63,19 @@ const RegistrationForm = () => {
     },
   });
 
+  const [showModal, setShowModal] = useState(false);
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      // Use your EmailJS Service ID and Template ID
       const serviceID = "service_aa9zpom";
       const templateID = "template_ter5rl4";
 
-      // Send the email
       await emailjs.send(
         serviceID,
         templateID,
         {
           first_name: values.firstName,
-          middle_name: values.middleName || "", // Handle optional field
+          middle_name: values.middleName || "",
           last_name: values.lastName,
           email: values.email,
           phone_number: values.phoneNumber,
@@ -89,15 +90,22 @@ const RegistrationForm = () => {
         },
         "yiLVe4RkF36NThW-L"
       );
+
+      // ✅ Show the modal first
+      setShowModal(true);
+
+      // ✅ Then hide it after 5 seconds
+      setTimeout(() => setShowModal(false), 5000);
+
+      // Optional toast
+      toast({
+        title: "Form submitted!",
+        description:
+          "One of our educational advisors will call you back shortly.",
+      });
     } catch (error) {
       console.error("Error sending email:", error);
     }
-
-    toast({
-      title: "Form submitted!",
-      description:
-        "One of our educational advisors will call you back shortly.",
-    });
   }
 
   return (
@@ -282,6 +290,9 @@ const RegistrationForm = () => {
                           </SelectItem>
                           <SelectItem value="fullstack">
                             Fullstack development
+                          </SelectItem>
+                          <SelectItem value="growth-marketing">
+                            Growth Marketing
                           </SelectItem>
                           <SelectItem value="data-science">
                             Data Science
@@ -511,6 +522,26 @@ const RegistrationForm = () => {
           </p>
         </div>
       </footer>
+
+      {/* Form Submission Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg p-6 shadow-lg max-w-sm w-full text-center">
+            <h2 className="text-lg font-semibold text-green-600 mb-2">
+              Success!
+            </h2>
+            <p className="text-gray-700">
+              Your form has been submitted successfully.
+            </p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="mt-4 px-4 py-2 bg-[#2bcd15] text-white rounded hover:bg-green-700 transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

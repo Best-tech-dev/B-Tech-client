@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import AnimatedHero from "@/components/Bootcamp/AnimatedHero";
 import FeaturedCourses from "@/components/Bootcamp/FeaturedCourses";
 import LogoCloud from "@/ui/Bootcamp/logocloud";
@@ -12,25 +12,25 @@ import Footer from "@/components/Bootcamp/Footer";
 import Navbar from "@/components/Bootcamp/Navbar";
 
 export default function BootcampLanding() {
-  const [showBanner, setShowBanner] = useState(true);
-  const [timeLeft, setTimeLeft] = useState<Record<string, number>>({});
+  // const [showBanner, setShowBanner] = useState(true);
+  // const [timeLeft, setTimeLeft] = useState<Record<string, number>>({});
 
-  useEffect(() => {
-    const countdownDate = new Date("2025-05-02T00:00:00").getTime();
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = countdownDate - now;
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        ),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000),
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const countdownDate = new Date("2025-05-02T00:00:00").getTime();
+  //   const interval = setInterval(() => {
+  //     const now = new Date().getTime();
+  //     const distance = countdownDate - now;
+  //     setTimeLeft({
+  //       days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+  //       hours: Math.floor(
+  //         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  //       ),
+  //       minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+  //       seconds: Math.floor((distance % (1000 * 60)) / 1000),
+  //     });
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <div className="bg-[#161a25] text-white min-h-screen">
