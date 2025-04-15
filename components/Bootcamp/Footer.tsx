@@ -8,6 +8,7 @@ import {
   ArrowUp,
   Mail,
 } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -15,16 +16,16 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-secondary text-white">
+    <footer className="bg-[#161a25] text-white">
       <div className="container mx-auto px-6 lg:px-8 py-12">
         <div className="border-b border-gray-700 pb-8 mb-8">
           <h3 className="text-xl font-medium mb-6">Subscribe to emails</h3>
-          <Button asChild className="bg-red-600 hover:bg-red-700">
+          <Button asChild className="bg-[#a4cd39] hover:bg-[#c7f552]">
             <a href="/subscribe">GET THE LATEST INSIGHTS</a>
           </Button>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid md:grid-cols-3 gap-10 justify-items-stretch">
           <div>
             <h4 className="text-lg font-medium mb-4">PROGRAMS</h4>
             <ul className="space-y-3">
@@ -50,14 +51,6 @@ const Footer = () => {
                   className="hover:text-primary-one transition-colors"
                 >
                   Beginner Coding Bootcamp
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-primary-one transition-colors"
-                >
-                  Coding Bootcamp for Women & Non-binary Students
                 </a>
               </li>
               <li>
@@ -95,7 +88,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          {/* Courses are commented out at the moment */}
+          {/* <div>
             <h4 className="text-lg font-medium mb-4">COURSES</h4>
             <ul className="space-y-3">
               <li>
@@ -123,10 +117,12 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           <div>
-            <h4 className="text-lg font-medium mb-4">WHY FULLSTACK</h4>
+            <h4 className="text-lg font-medium mb-4 uppercase">
+              WHY Best Technologies Ltd.
+            </h4>
             <ul className="space-y-3">
               <li>
                 <a
@@ -141,11 +137,10 @@ const Footer = () => {
                   href="#"
                   className="hover:text-primary-one transition-colors"
                 >
-                  Fullstack Academy Reviews
+                  Best Technologies Ltd. Reviews
                 </a>
               </li>
             </ul>
-
             <h4 className="text-lg font-medium mt-6 mb-4">
               ADMISSIONS & EVENTS
             </h4>
@@ -185,7 +180,7 @@ const Footer = () => {
                   href="#"
                   className="hover:text-primary-one transition-colors"
                 >
-                  About Fullstack Academy
+                  About Best Technologies Ltd. Trainings
                 </a>
               </li>
               <li>
@@ -201,23 +196,7 @@ const Footer = () => {
                   href="#"
                   className="hover:text-primary-one transition-colors"
                 >
-                  Team Training
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-primary-one transition-colors"
-                >
-                  For University Partners
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-primary-one transition-colors"
-                >
-                  For Employer Partners
+                  Contact Us
                 </a>
               </li>
               <li>
@@ -235,16 +214,16 @@ const Footer = () => {
         <div className="flex justify-between items-center mt-12 pt-8 border-t border-gray-700">
           <div className="flex items-center">
             <div className="mr-4">
-              <img
-                src="/lovable-uploads/ebcddcbe-f924-472d-9604-df772e35a931.png"
-                alt="Fullstack Academy HQ"
+              <Image
+                src="/logo-main.png"
+                alt="The Best Technologies Ltd. Logo"
                 className="h-12"
               />
             </div>
             <div>
-              <p className="text-sm opacity-70">Fullstack Academy HQ</p>
-              <p className="text-sm opacity-70">249 Smith Street PMB 3004</p>
-              <p className="text-sm opacity-70">Brooklyn, NY 11231</p>
+              <p className="text-sm opacity-70">The Knowledge Hub</p>
+              <p className="text-sm opacity-70">Awolowo Highway</p>
+              <p className="text-sm opacity-70">Oke Ado, Ibadan</p>
             </div>
           </div>
 

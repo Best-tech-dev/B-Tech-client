@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Button } from "@/ui/Bootcamp/button";
+import { cn } from "@/lib/Bootcamp/utils";
 import emailjs from "@emailjs/browser";
 // import Navbar from "@/components/Bootcamp/Navbar";
 // import Footer from "@/components/Bootcamp/Footer";
@@ -26,6 +28,7 @@ import {
 } from "@/ui/Bootcamp/form";
 import { Input } from "@/ui/Bootcamp/input";
 import { Textarea } from "@/ui/Bootcamp/textarea";
+import Image from "next/image";
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters."),
@@ -60,15 +63,13 @@ const RegistrationForm = () => {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // console.log(values);
-
     try {
       // Use your EmailJS Service ID and Template ID
       const serviceID = "service_aa9zpom";
       const templateID = "template_ter5rl4";
 
       // Send the email
-      const result = await emailjs.send(
+      await emailjs.send(
         serviceID,
         templateID,
         {
@@ -102,16 +103,24 @@ const RegistrationForm = () => {
   return (
     <>
       {/* <Navbar /> */}
-      <main className="container mx-auto px-6 lg:px-8 py-32 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-black">
-            Registration Form
+      <main className="container mx-auto px-2 md:px-6 lg:px-8 py-32 bg-[#161a25]">
+        <Image
+          src={"/logo-main.png"}
+          alt="Logo"
+          width={150}
+          height={40}
+          className="mx-auto mb-10"
+        />
+
+        <div className="max-w-3xl mx-auto border rounded-2xl px-2 md:px-8 py-10 shadow-lg bg-white">
+          <h1 className="text-3xl text-center md:text-4xl font-bold mb-4 text-[#a4cd39]">
+            Start Your Application
           </h1>
-          <p className="text-xl mb-8 text-gray-700">
+          <p className="text-xl mb-8 text-gray-700 text-center">
             Fill in the form below to be called back by one of our educational
             advisors and join the course of your choice.
           </p>
-          <p className="mb-8 text-gray-600">
+          <p className="mb-8 text-gray-600 text-center">
             Once we receive your request, an advisor will call you back shortly
             to discuss about your project and help you find the best course
             adapted to your background and goals.
@@ -120,20 +129,6 @@ const RegistrationForm = () => {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
-                {/* <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-black">First name*</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter your first name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                /> */}
-
                 <FormField
                   control={form.control}
                   name="firstName"
@@ -480,8 +475,11 @@ const RegistrationForm = () => {
 
               <Button
                 type="submit"
-                className="bg-[#a4cd39] cursor-pointer hover:bg-[#a3cd39e6] mt-4 w-full md:w-auto"
-                // disabled
+                disabled={!form.formState.isValid}
+                className={cn(
+                  "bg-[#71990b] hover:bg-[#a3cd39e6] mt-4 w-full md:w-auto",
+                  !form.formState.isValid && "opacity-50 cursor-not-allowed"
+                )}
               >
                 Submit
               </Button>
@@ -490,6 +488,29 @@ const RegistrationForm = () => {
         </div>
       </main>
       {/* <Footer /> */}
+      <footer>
+        <div className="bg-[#161a25] text-white py-4 text-center">
+          <p>
+            &copy; {new Date().getFullYear()}
+            <Link href="/" className="text-[#a4cd39]">
+              {" "}
+              Best Technologies Ltd.
+            </Link>{" "}
+            All rights reserved.
+          </p>
+        </div>
+        <div className="bg-[#161a25] text-white py-4 text-center">
+          <p>
+            <Link href="/privacy-policy" className="underline text-[#a4cd39]">
+              Privacy Policy
+            </Link>{" "}
+            |{" "}
+            <Link href="/terms-of-service" className="underline text-[#a4cd39]">
+              Terms of Service
+            </Link>
+          </p>
+        </div>
+      </footer>
     </>
   );
 };

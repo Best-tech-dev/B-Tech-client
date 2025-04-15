@@ -1,8 +1,11 @@
-import React from "react";
+"use client";
 
+import { useRouter } from "next/navigation";
+import React from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/ui/Bootcamp/button";
+import Image from "next/image";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -11,15 +14,21 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const router = useRouter();
+
+  const handleApplyNowClick = () => {
+    router.push("/trainings/register");
+  };
+
   return (
-    <header className="fixed w-full z-50 top-0 shadow-md bg-white">
-      <nav className="container mx-auto flex items-center justify-between py-4 px-6 lg:px-8">
+    <header className="sticky w-full z-50 top-0 shadow-md bg-[#161a25]">
+      <nav className="container mx-auto flex items-center justify-between py-4 px-6 lg:px-8 text-xs">
         <div className="flex items-center">
           <Link href="/" className="flex-shrink-0">
-            <img
-              src="/lovable-uploads/ebcddcbe-f924-472d-9604-df772e35a931.png"
+            <Image
+              src="/logo-main.png"
               alt="Best Technologies Ltd"
-              className="h-10"
+              className="h-8"
             />
           </Link>
         </div>
@@ -29,46 +38,51 @@ const Navbar: React.FC = () => {
           <div className="font-medium space-x-6">
             <Link
               href="/programs"
-              className="text-gray-700 hover:text-primary-two transition-colors"
+              className="text-white hover:text-primary-two transition-colors"
             >
               PROGRAMS
             </Link>
             <Link
               href="/courses"
-              className="text-gray-700 hover:text-primary-two transition-colors"
+              className="text-white hover:text-primary-two transition-colors"
             >
               COURSES
             </Link>
             <Link
               href="/resources"
-              className="text-gray-700 hover:text-primary-two transition-colors"
+              className="text-white hover:text-primary-two transition-colors"
             >
               RESOURCES
             </Link>
             <Link
               href="/tuition-dates"
-              className="text-gray-700 hover:text-primary-two transition-colors"
+              className="text-white hover:text-primary-two transition-colors"
             >
               TUITION & DATES
             </Link>
             <Link
               href="/about"
-              className="text-gray-700 hover:text-primary-two transition-colors"
+              className="text-white hover:text-primary-two transition-colors"
             >
               ABOUT
             </Link>
           </div>
-          <div className="flex space-x-3">
-            <Button variant="outline">Sign In</Button>
-            <Button>Sign Up</Button>
-          </div>
+        </div>
+
+        <div className="hidden lg:block text-center">
+          <Button
+            className="bg-[#71990b] hover:bg-[#a3cd39] hover:cursor-pointer text-white px-8 py-3 text-xs rounded-2xl shadow-md transition-all duration-300"
+            onClick={handleApplyNowClick}
+          >
+            Register Now
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <button onClick={toggleMenu} className="p-2 focus:outline-none">
             {isMenuOpen ? (
-              <X className="h-6 w-6 text-gray-700" />
+              <X className="h-6 w-6 text-white" />
             ) : (
               <Menu className="h-6 w-6 text-gray-700" />
             )}
