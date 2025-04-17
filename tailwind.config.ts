@@ -1,3 +1,9 @@
+// This is a Tailwind CSS legacy configuration file for Next.js projects.
+// It is used to customize the Tailwind CSS framework with specific settings and plugins.
+// This is now done inside the global.css v4.0.0 file, so this file is not needed anymore.
+
+// PS: No config here affects the developer experience, so you can safely delete this file.
+
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],

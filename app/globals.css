@@ -6,6 +6,13 @@
   --foreground: #171717;
 }
 
+@theme {
+  --color-brand-primary: #a4cd39;
+  --color-brand-primary-accent: #2bcd15;
+  --color-brand-primary-light: #d4e1a4;
+  --color-brand-secondary: #161a25;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
