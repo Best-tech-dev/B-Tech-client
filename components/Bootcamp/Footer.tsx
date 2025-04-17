@@ -1,3 +1,4 @@
+// "use client";
 import React from "react";
 import { Button } from "@/ui/Bootcamp/button";
 import {
@@ -11,9 +12,9 @@ import {
 import Image from "next/image";
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  // const scrollToTop = () => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // };
 
   return (
     <footer className="bg-[#161a25] text-white">
@@ -247,13 +248,13 @@ const Footer = () => {
             </a>
           </div>
 
-          <button
+          {/* <button
             onClick={scrollToTop}
             className="bg-white text-secondary p-3 rounded-full hover:bg-primary-one hover:text-white transition-colors"
             aria-label="Back to top"
           >
             <ArrowUp size={20} />
-          </button>
+          </button> */}
         </div>
       </div>
     </footer>

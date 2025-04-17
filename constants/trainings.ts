@@ -16,7 +16,16 @@ export const trainings: TrainingType[] = [
     description:
       "Intensive hands-on training in frontend and backend technologies. Ideal for beginners and career switchers.",
     category: "Bootcamp",
-    image: "/images/trainings/bootcamp.jpg",
+    image: "/trainings/web-dev.jpg",
+  },
+  {
+    id: "bootcamp-002",
+    title: "Growth Marketing Bootcamp",
+    slug: "bootcamp",
+    description:
+      "A hands-on bootcamp covering digital marketing, SEO, analytics, and growth strategies. Perfect for aspiring marketers and business owners looking to scale online.",
+    category: "Bootcamp",
+    image: "/trainings/growth.jpg",
   },
   {
     id: "internship-001",
@@ -25,7 +34,7 @@ export const trainings: TrainingType[] = [
     description:
       "Real-world experience working on projects alongside experienced engineers and designers.",
     category: "Internship",
-    image: "/images/trainings/internship.jpg",
+    image: "/trainings/internship.jpg",
     comingSoon: true,
   },
   {
@@ -35,7 +44,7 @@ export const trainings: TrainingType[] = [
     description:
       "Master user experience design and modern interface principles from industry experts.",
     category: "Masterclass",
-    image: "/images/trainings/masterclass.jpg",
+    image: "/trainings/ui-ux.jpg",
   },
   {
     id: "online-001",
@@ -44,6 +53,6 @@ export const trainings: TrainingType[] = [
     description:
       "Self-paced, exam-based course to help you get certified in JavaScript fundamentals.",
     category: "Online Course",
-    image: "/images/trainings/javascript-course.jpg",
+    image: "/trainings/javascript.jpg",
   },
 ];

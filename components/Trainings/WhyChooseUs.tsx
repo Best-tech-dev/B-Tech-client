@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import clsx from "clsx";
 
@@ -15,7 +13,7 @@ const sections = [
   {
     title: "Intensive Bootcamps with Modern Facilities",
     description: [
-      "Our physical Bootcamps are hosted in a modern, tech-enabled environment designed for serious learning. Think of collaborative spaces, fast internet, dual monitors, power backup, and coffee stations — all curated for immersive learning.",
+      "Our physical Bootcamps are hosted in a modern, tech-enabled environment designed for serious learning. Think of collaborative spaces, fast internet, dual monitors, power backup, and lunch stations — all curated for immersive learning.",
       "You don’t just learn. You become part of a vibrant tech community driven by innovation, mentorship, and daily accountability.",
     ],
     image: "/imgs/bootcamp.avif",
@@ -39,7 +37,7 @@ const sections = [
   {
     title: "Free Resources That Empower",
     description: [
-      "We believe in democratizing access to quality learning. That’s why we offer a vast library of free resources, including PDF guides, cheat sheets, recorded sessions, and mini-project templates — all to keep your learning journey seamless.",
+      "We believe in democratizing access to quality learning. That’s why we offer a vast library of free resources, including PDF guides, cheat sheets, recorded sessions, mini-project templates, and in-house mini library — all to keep your learning journey seamless.",
       "No sign-up traps. No gatekeeping. Just pure value you can use right away, whether you're taking one of our programs or not.",
     ],
     image: "/imgs/free-resources.avif",

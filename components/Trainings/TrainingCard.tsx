@@ -1,46 +1,50 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TrainingType } from "@/constants/trainings";
-import { ArrowRight } from "lucide-react";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 
-type Props = {
-  training: TrainingType;
-};
+type TrainingCardProps = TrainingType;
 
-const TrainingCard: React.FC<Props> = ({ training }) => {
+export default function TrainingCard({
+  title,
+  slug,
+  description,
+  image,
+  comingSoon,
+}: TrainingCardProps) {
   return (
-    <div className="rounded-2xl bg-[#222732] shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow transform hover:scale-[1.015]">
       <Image
-        src={training.image}
-        alt={training.title}
-        width={500}
-        height={300}
-        className="h-48 w-full object-cover group-hover:scale-105 transition-transform duration-300"
+        src={image}
+        alt={title}
+        width={400}
+        height={250}
+        className="w-full h-52 object-cover"
       />
-      <div className="p-5 space-y-3">
-        <h3 className="text-xl font-bold">{training.title}</h3>
-        <p className="text-sm text-gray-300 line-clamp-3">
-          {training.description}
+      <div className="p-4">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          {title}
+          {comingSoon && (
+            <span className="ml-2 inline-block px-2 py-0.5 text-xs text-white bg-yellow-500 rounded-full">
+              Coming Soon
+            </span>
+          )}
+        </h3>
+        <p className="text-sm text-gray-600 mb-3">
+          {description.length > 120
+            ? `${description.slice(0, 117)}...`
+            : description}
         </p>
-        {training.comingSoon ? (
-          <span className="text-[#a4cd39] font-semibold text-sm">
-            Coming Soon
-          </span>
-        ) : (
+        {!comingSoon && (
           <Link
-            href={`/trainings/${training.slug}`}
-            className="inline-flex items-center gap-2 text-sm text-[#2bcd15] font-semibold hover:underline transition-all"
+            href={`/trainings/${slug}`}
+            className="text-brand-primary font-medium text-sm hover:underline"
           >
-            View Details
-            <ArrowRight size={16} />
+            Learn more
+            <MdOutlineKeyboardDoubleArrowRight className="inline-block size-4" />
           </Link>
         )}
       </div>
     </div>
   );
-};
-
-export default TrainingCard;
+}
