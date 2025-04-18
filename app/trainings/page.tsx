@@ -8,6 +8,8 @@ import Hero from "@/components/Trainings/Hero";
 import WhyChooseUs from "@/components/Trainings/WhyChooseUs";
 import ExploreTrainings from "@/components/Trainings/ExploreTrainings";
 import StudentSpotlightCarousel from "@/components/Trainings/StudentSpotlightCarousel";
+import MeetTheTeam from "@/components/Trainings/MeetTheTeam";
+import { TrainingsFAQ } from "@/components/Bootcamp/FAQs";
 
 const trainingCategories = [
   "All",
@@ -29,6 +31,12 @@ export default function TrainingsPage() {
 
       {/* Spotlight */}
       <StudentSpotlightCarousel />
+
+      {/* Meet the Team */}
+      <MeetTheTeam />
+
+      {/* FAQs */}
+      <TrainingsFAQ />
 
       <Footer />
     </div>

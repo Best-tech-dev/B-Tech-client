@@ -13,6 +13,12 @@
   --color-brand-secondary: #161a25;
 }
 
+/* Swiperjs styles overidden */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  display: none !important;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

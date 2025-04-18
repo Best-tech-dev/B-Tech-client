@@ -3,7 +3,6 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-// import { cn } from "@/lib/Bootcamp/utils";
 
 const AccordionContext = React.createContext<{
   openItem: string | null;
@@ -40,7 +39,7 @@ export function AccordionTrigger({ id, title }: { id: string; title: string }) {
 
   return (
     <button
-      className="w-full flex items-center justify-between p-4 text-left font-semibold text-lg md:text-xl text-black bg-[#a4cd39]"
+      className="w-full flex items-center justify-between p-4 text-left font-semibold text-lg md:text-xl text-black bg-brand-primary"
       onClick={() => setOpenItem(isOpen ? null : id)}
     >
       {title}

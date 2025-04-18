@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Accordion,
   AccordionItem,
@@ -7,7 +5,7 @@ import {
   AccordionTrigger,
 } from "@/ui/Bootcamp/accordion";
 
-const FAQs = () => {
+export const BootcampFAQs = () => {
   return (
     <section className="relative bg-[#f9fafb] py-24">
       {/* Background Blobs */}
@@ -86,4 +84,81 @@ const FAQs = () => {
   );
 };
 
-export default FAQs;
+export function TrainingsFAQ() {
+  return (
+    <section className="bg-[#f9fafb] py-24">
+      <div className="max-w-4xl mx-auto px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4">
+          Frequently Asked Questions
+        </h2>
+
+        <p className="text-gray-600 text-center mb-12 max-w-xl mx-auto">
+          Get answers to some of the most common questions about the Best
+          Technologies Ltd. Trainings.
+        </p>
+
+        <Accordion>
+          <AccordionItem id="1">
+            <AccordionTrigger
+              id="1"
+              title="What types of training programs do you offer?"
+            />
+            <AccordionContent id="1">
+              We offer Bootcamps, Internships, Masterclasses, and flexible
+              Online Courses — each designed to fit different learning goals,
+              time commitments, and career stages.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem id="2">
+            <AccordionTrigger
+              id="2"
+              title="Do I need a background in tech to join?"
+            />
+            <AccordionContent id="2">
+              No prior tech experience is required for most of our programs,
+              especially Bootcamps and Online Courses. We welcome both beginners
+              and career switchers — our curriculum is designed to guide you
+              from foundation to fluency.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem id="3">
+            <AccordionTrigger
+              id="3"
+              title="Are the trainings virtual or physical?"
+            />
+            <AccordionContent id="3">
+              Most of our programs are 100% virtual and flexible, but we also
+              host occasional physical sessions, especially for Masterclasses,
+              Bootcamps or special collaborations. Be sure to check each
+              program’s description for specifics.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem id="4">
+            <AccordionTrigger
+              id="4"
+              title="How do I know which training is right for me?"
+            />
+            <AccordionContent id="4">
+              That’s what we’re here for! Each program page outlines the ideal
+              candidate, but you can also reach out to our team for guidance
+              based on your goals, time availability, and experience level.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem id="5">
+            <AccordionTrigger id="5" title="Will I receive a certificate?" />
+            <AccordionContent id="5">
+              Yes! Upon successful completion of any program, you’ll receive a
+              digital certificate from Best Technologies Ltd. It reflects your
+              participation and the skills you’ve gained — a great addition to
+              your resume or LinkedIn profile.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </section>
+  );
+}

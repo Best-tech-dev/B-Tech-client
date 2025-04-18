@@ -7,7 +7,7 @@ import LogoCloud from "@/ui/Bootcamp/logocloud";
 import OutlineSection from "@/components/Bootcamp/OutlineSection";
 import TuitionDatesSection from "@/components/Bootcamp/TuitionAndDates";
 import Accreditation from "@/components/Bootcamp/Accreditation";
-import FAQs from "@/components/Bootcamp/FAQs";
+import { BootcampFAQs } from "@/components/Bootcamp/FAQs";
 import Footer from "@/components/Bootcamp/Footer";
 import Navbar from "@/components/Bootcamp/Navbar";
 
@@ -87,7 +87,7 @@ export default function BootcampLanding() {
         <Accreditation />
 
         {/* FAQs Section */}
-        <FAQs />
+        <BootcampFAQs />
 
         {/* Footer */}
         <Footer />
