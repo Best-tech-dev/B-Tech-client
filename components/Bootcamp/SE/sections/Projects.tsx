@@ -1,44 +1,46 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
 const Projects = () => {
   const projects = [
     {
-      title: "Blissful Journey",
-      description: "A travel planning website",
-      active: true,
+      title: "Acme",
+      description: "A modern invoice dashboard web app",
+      videoUrl: "https://www.youtube.com/embed/HGLTAu3y_uc?si=oQ3qzOt1KI0lKTyb",
     },
     {
-      title: "Pucker Up",
-      description: "A dating website",
+      title: "AI E-commerce Platform",
+      description: "Build complete e-commerce platform with AI",
+      videoUrl: "https://www.youtube.com/embed/hlMXobLvVB0?si=twpIeFuU8CLmZhld",
     },
     {
       title: "Tower of Zurpalen",
       description: "An adventure game",
+      videoUrl: "https://www.youtube.com/embed/HGLTAu3y_uc?si=oQ3qzOt1KI0lKTyb",
     },
   ];
 
-  return (
-    <section id="projects" className="py-12 px-4 sm:px-6 lg:px-12">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">
-        Build a Portfolio of Apps
-      </h2>
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-      <p className="text-base md:text-lg text-gray-700 mb-6 max-w-3xl">
-        By the time you graduate from the Software Engineering Bootcamp, you'll
-        have a culminating full stack capstone project in your software
-        engineering portfolio. All of your code will be housed on GitHub and
-        built out with real-world libraries and methodologies—demonstrating your
-        technical, practical, and creative skills to future employers.
+  return (
+    <section id="projects" className="py-12 px-4 sm:px-6 lg:px-12 scroll-mt-28">
+      <h2 className="text-3xl font-bold mb-6">Build a Portfolio of Apps</h2>
+
+      <p className="text-base text-gray-700 mb-6 max-w-3xl">
+        Upon graduating from the Software Engineering Bootcamp, you'll have a
+        full-stack capstone project in your portfolio, hosted on GitHub, and
+        built with real-world libraries and methodologies. This project will
+        effectively demonstrate your technical, practical, and creative skills
+        to future employers.
       </p>
 
-      <p className="text-base md:text-lg text-gray-700 mb-10 max-w-3xl">
-        Check out some of our past coding student capstone projects.
+      <p className="text-base text-gray-700 mb-10 max-w-3xl">
+        Check out some of the capstone projects you'll work on.
       </p>
 
       <div className="text-center mb-10">
-        <div className="inline-block border-b-2 border-primary-one px-8 py-3 text-xl font-medium text-gray-800">
+        <div className="inline-block border-b border-brand-primary px-8 py-3 text-xl font-medium text-gray-800">
           Capstone Projects
         </div>
       </div>
@@ -49,14 +51,15 @@ const Projects = () => {
           {projects.map((project, index) => (
             <li
               key={index}
+              onClick={() => setSelectedIndex(index)}
               className={`border-l-4 py-2 pl-4 transition-all duration-300 cursor-pointer ${
-                project.active
-                  ? "border-primary-one bg-gray-50"
-                  : "border-gray-200 hover:border-primary-one"
+                selectedIndex === index
+                  ? "border-brand-primary bg-gray-50"
+                  : "border-gray-200 hover:border-brand-primary"
               }`}
             >
-              <h3 className="font-semibold text-xl">{project.title}</h3>
-              <p className="text-gray-600">{project.description}</p>
+              <h3 className="font-semibold text-base">{project.title}</h3>
+              <p className="text-gray-600 text-sm">{project.description}</p>
             </li>
           ))}
         </ul>
@@ -66,15 +69,16 @@ const Projects = () => {
           <div className="aspect-video">
             <iframe
               className="w-full h-full rounded-lg"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Project Demo Video"
+              src={projects[selectedIndex].videoUrl}
+              title={`Demo video for ${projects[selectedIndex].title}`}
               allowFullScreen
             ></iframe>
           </div>
         </div>
       </div>
 
-      <div className="mt-16 border-t pt-12" />
+      {/* Divider */}
+      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };

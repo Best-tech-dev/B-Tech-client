@@ -65,7 +65,7 @@ const ContentSection: React.FC = () => {
             onSectionChange={handleSectionChange}
           />
         </div>
-        <div className="md:w-3/4">
+        <div className="md:w-3/4 ps-16">
           <FullstackExperience />
           <WhatYoullLearn />
           <TuitionDates />

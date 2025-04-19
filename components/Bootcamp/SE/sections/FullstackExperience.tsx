@@ -1,5 +1,9 @@
 import React from "react";
-import { Star, Briefcase, Code, Users } from "lucide-react";
+import { Star, Briefcase, Users } from "lucide-react";
+import Link from "next/link";
+import { FaUsersGear } from "react-icons/fa6";
+import { IoCheckmarkDone } from "react-icons/io5";
+import { FaCode } from "react-icons/fa";
 
 const FullstackExperience = () => {
   return (
@@ -8,26 +12,35 @@ const FullstackExperience = () => {
       className="py-12 scroll-mt-28"
       aria-labelledby="fullstack-experience-title"
     >
-      <h2
-        id="fullstack-experience-title"
-        className="text-3xl md:text-4xl font-bold mb-6"
-      >
-        The Fullstack Academy Experience
+      <h2 className="text-3xl font-bold capitalize mb-3">
+        Passionate teachers and an in-demand curriculum define the Best
+        Technologies Ltd. experience
+      </h2>
+      <p className="text-base text-gray-700 mb-10">
+        Our 8-month Full-Time Software Engineering Immersive program offers a
+        comprehensive and challenging journey for aspiring software engineers,
+        designed to rapidly advance your skills and launch your career.
+      </p>
+      <h2 id="fullstack-experience-title" className="text-3xl font-bold mb-6">
+        Our Academy Experience
       </h2>
 
       {/* First Row */}
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
+      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
         <ExperienceCard
           icon={<Star className="h-8 w-8 text-brand-primary" />}
           title="Top-Rated Full-Time Coding Bootcamp"
           description={
             <>
-              Fullstack Academy is a{" "}
+              The Best Technologies Ltd. is a{" "}
               <span className="text-primary-two font-medium">highly-rated</span>{" "}
-              coding school in the US, and our{" "}
-              <span className="text-primary-two font-medium">
+              coding school in Nigeria, and our{" "}
+              <Link
+                href="/trainings?scroll=student-spotlight"
+                className="text-brand-primary underline font-medium"
+              >
                 student reviews
-              </span>{" "}
+              </Link>{" "}
               reflect that.
             </>
           }
@@ -40,23 +53,23 @@ const FullstackExperience = () => {
       </div>
 
       {/* Second Row */}
-      <div className="grid md:grid-cols-2 gap-8 mb-12">
+      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
         <ExperienceCard
-          icon={<Code className="h-8 w-8 text-brand-primary" />}
+          icon={<FaUsersGear className="h-8 w-8 text-brand-primary" />}
           title="Industry-Experienced Instructors"
           description="Learn from passionate programmers with tech industry experience. From large open-source libraries to quantum computer simulators, they've programmed it all."
         />
         <ExperienceCard
-          icon={<Users className="h-8 w-8 text-brand-primary" />}
+          icon={<IoCheckmarkDone className="h-8 w-8 text-brand-primary" />}
           title="In-Demand Curriculum"
           description="Graduate job-ready with a rigorous curriculum built by working tech practitioners and industry-experienced professionals."
         />
       </div>
 
       {/* Third Row */}
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
         <ExperienceCard
-          icon={<Code className="h-8 w-8 text-brand-primary" />}
+          icon={<FaCode className="h-8 w-8 text-brand-primary" />}
           title="Real-World Coding Tools"
           description="Use popular developer tools like Git, GitHub, React, and VS Code. Plus, you'll learn how to integrate generative AI tech to optimize, automate, and expand your coding workflow."
         />
@@ -83,9 +96,9 @@ const ExperienceCard = ({
   description: React.ReactNode;
 }) => (
   <div>
-    <div className="flex items-center gap-4 mb-4">
+    <div className="flex flex-col items-start gap-4 mb-4">
       {icon}
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <h3 className="text-base font-semibold">{title}</h3>
     </div>
     <p className="text-gray-700 text-base leading-relaxed">{description}</p>
   </div>

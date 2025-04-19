@@ -16,7 +16,7 @@ const DailySchedule = () => {
       time: "10:30AM - 12:30PM",
       title: "Live Instruction & Demo",
       description:
-        "You'll receive live instruction from a Fullstack Academy instructor, followed by a real-time demonstration of each new tool or technology and a live Q&A.",
+        "You'll receive live instruction from a Best Technologies Ltd. instructor, followed by a real-time demonstration of each new tool or technology and a live Q&A.",
     },
     "guided-practice": {
       time: "1:30PM - 2:00PM",
@@ -27,8 +27,7 @@ const DailySchedule = () => {
     break: {
       time: "2:00PM - 3:00PM",
       title: "Break",
-      description:
-        "You'll take an hour-long break offline to recharge and refuel.",
+      description: "You'll take an hour-long break to recharge and refuel.",
     },
     support: {
       time: "3:00PM - 6:00PM",
@@ -41,30 +40,33 @@ const DailySchedule = () => {
   const tabs = Object.entries(scheduleData);
 
   return (
-    <section id="daily-schedule" className="py-12 px-4 sm:px-6 lg:px-12">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">
+    <section
+      id="daily-schedule"
+      className="py-12 px-4 sm:px-6 lg:px-12 scroll-mt-28"
+    >
+      <h2 className="text-3xl font-bold mb-6">
         Full-Time Software Engineering Immersive Daily Schedule
       </h2>
 
-      <p className="text-base md:text-lg text-gray-700 mb-10 max-w-3xl">
-        You'll get a full live online classroom experience with your classmates,
-        instructors, and teaching assistants through a mix of live instruction,
-        coding exercises, and team projects. No two days are the same, but
-        here's an example of what a typical day looks like in the Software
-        Engineering Immersive full-time schedule.
+      <p className="text-sm md:text-base text-gray-700 mb-10 max-w-3xl">
+        Every day in our Software Engineering Bootcamp is a little different,
+        but you can count on a lively on-site classroom with your classmates,
+        instructors, and teaching assistants. You&apos;ll learn through a mix of
+        live lessons, coding practice, and team projects. Here's a sample of
+        what a typical day involves.
       </p>
 
-      <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+      <div className="border border-gray-300 rounded-lg overflow-hidden shadow-sm">
         {/* Tab Navigation */}
-        <div className="flex overflow-x-auto border-b bg-gray-100">
+        <div className="flex overflow-x-auto scrollbar-hide border-b border-b-gray-300 bg-gray-100">
           {tabs.map(([key, value]) => (
             <button
               key={key}
               onClick={() => setActiveTab(key)}
               className={`whitespace-nowrap px-4 sm:px-6 py-3 text-sm sm:text-base transition-colors duration-300 border-b-2 ${
                 activeTab === key
-                  ? "border-primary-one text-primary-one bg-white font-medium"
-                  : "border-transparent text-gray-600 hover:text-primary-one"
+                  ? "border-brand-primary text-brand-primary bg-white font-medium"
+                  : "border-transparent text-gray-600 hover:text-brand-primary hover:cursor-pointer"
               }`}
             >
               {value.title}
@@ -76,24 +78,25 @@ const DailySchedule = () => {
         <div className="p-6 md:p-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-2">
             <span className="text-gray-500 text-sm uppercase tracking-wider">
-              Timeline (ET)
+              Timeline (WAT)
             </span>
-            <div className="bg-primary-one text-white text-sm px-4 py-2 rounded-full shadow inline-block">
+            <div className="bg-brand-primary text-white text-sm px-4 py-2 rounded-full shadow inline-block">
               {scheduleData[activeTab as keyof typeof scheduleData].time}
             </div>
           </div>
 
-          <h3 className="text-2xl font-semibold mb-4">
+          <h3 className="text-base font-semibold mb-4">
             {scheduleData[activeTab as keyof typeof scheduleData].title}
           </h3>
 
-          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+          <p className="text-gray-700 text-sm md:text-base leading-relaxed">
             {scheduleData[activeTab as keyof typeof scheduleData].description}
           </p>
         </div>
       </div>
 
-      <div className="mt-16 border-t pt-12" />
+      {/* Divider */}
+      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };

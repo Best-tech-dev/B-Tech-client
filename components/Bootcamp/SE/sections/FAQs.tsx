@@ -60,27 +60,30 @@ const FAQs = () => {
     {
       id: "faq8",
       question:
-        "What makes Fullstack Academy one of the best online software engineering bootcamps for learners?",
+        "What makes Best Technologies Ltd. one of the best software engineering bootcamps for learners?",
       answer:
-        "Fullstack Academy stands out for its comprehensive curriculum, experienced instructors from the industry, career support services, strong alumni network, and proven track record of graduate success. Our program emphasizes pair programming, real-world projects, and job preparation, while maintaining small class sizes to ensure personalized attention and community building.",
+        "Best Technologies Ltd. Software Engineering Bootcamp stands out for its comprehensive curriculum, experienced instructors from the industry, career support services, strong alumni network, and proven track record of graduate success. Our program emphasizes pair programming, real-world projects, and job preparation, while maintaining small class sizes to ensure personalized attention and community building.",
     },
   ];
 
   return (
-    <section id="faqs" className="py-12">
-      <h2 className="text-3xl md:text-4xl font-bold mb-8">FAQs</h2>
+    <section id="faqs" className="py-12 scroll-mt-28">
+      <h2 className="text-base md:text-3xl font-bold mb-8">FAQs</h2>
 
       <div className="space-y-4">
         {faqs.map((faq) => (
-          <div key={faq.id} className="border rounded-lg overflow-hidden">
+          <div
+            key={faq.id}
+            className="border border-gray-300 shadow-md rounded-lg overflow-hidden"
+          >
             <div
               className="flex items-center justify-between p-6 cursor-pointer bg-white"
               onClick={() => toggleFaq(faq.id)}
             >
-              <h3 className="text-lg font-medium pr-6">{faq.question}</h3>
+              <h3 className="text-base font-bold pr-6">{faq.question}</h3>
               <button className="flex-shrink-0">
                 <Plus
-                  className={`h-5 w-5 text-primary-one transition-transform ${
+                  className={`h-5 w-5 text-brand-primary transition-transform ${
                     expandedFaq === faq.id ? "rotate-45" : ""
                   }`}
                 />
@@ -88,7 +91,7 @@ const FAQs = () => {
             </div>
 
             {expandedFaq === faq.id && (
-              <div className="p-6 border-t bg-gray-50">
+              <div className="p-6 border-t border-t-gray-300 bg-gray-50">
                 <p className="text-gray-700">{faq.answer}</p>
               </div>
             )}

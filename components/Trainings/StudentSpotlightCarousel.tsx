@@ -8,10 +8,13 @@ import "swiper/css/navigation";
 import Image from "next/image";
 import { testimonials } from "@/constants/testimonials";
 import { Button } from "@/ui/Bootcamp/button";
+import useScrollToAnchor from "@/hooks/useScrollToAnchor";
 
 export default function StudentSpotlightCarousel() {
+  useScrollToAnchor(80);
+
   return (
-    <section className="w-full bg-black text-white py-8">
+    <section id="student-spotlight" className="w-full bg-black text-white py-8">
       <div className="relative max-w-6xl mx-auto group">
         <Swiper
           modules={[Navigation, Autoplay]}

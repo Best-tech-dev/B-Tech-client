@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import React, { useState } from "react";
 import { Button } from "@/ui/Bootcamp/button";
 import { Plus, Calendar } from "lucide-react";
@@ -16,18 +18,18 @@ const TuitionDates = () => {
   };
 
   return (
-    <section id="tuition-dates" className="py-12">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">Tuition and Dates</h2>
+    <section id="tuition-dates" className="py-12 scroll-mt-28">
+      <h2 className="text-3xl font-bold mb-6">Tuition and Dates</h2>
 
-      <p className="text-lg text-gray-700 mb-8">
-        Fullstack Academy is committed to making tech education more accessible,
-        which is why we offer several payment options to help you invest in your
-        bootcamp education.
+      <p className="text-base text-gray-700 mb-8">
+        Best Technologies Ltd. is committed to making tech education more
+        accessible, which is why we offer several payment options to help you
+        invest in your bootcamp education.
       </p>
 
       <div className="space-y-6">
         {/* Tuition Accordion */}
-        <div className="border rounded-lg overflow-hidden">
+        <div className="border border-gray-300 shadow-md rounded-lg overflow-hidden">
           <div
             className="flex items-center justify-between p-6 cursor-pointer bg-white"
             onClick={() => toggleAccordion("tuition")}
@@ -35,16 +37,16 @@ const TuitionDates = () => {
             aria-controls="accordion-content-tuition"
             id="accordion-header-tuition"
           >
-            <h3 className="text-xl font-medium">
+            <h3 className="text-base font-bold">
               Full-Time Coding Bootcamp Tuition
             </h3>
             <div className="flex items-center space-x-3">
-              <div className="text-2xl font-bold line-through text-gray-500">
-                ₦13,995
+              <div className="text-base font-bold line-through text-gray-500">
+                ₦200,995
               </div>
-              <div className="text-2xl font-bold">₦10,995</div>
+              <div className="text-base font-bold">₦150,995</div>
               <Plus
-                className={`h-6 w-6 text-primary-one transition-transform duration-300 ease-in-out ${
+                className={`h-4 w-4 text-gray-400 transition-transform duration-300 ease-in-out ${
                   expandedAccordion === "tuition" ? "rotate-45" : ""
                 }`}
               />
@@ -53,7 +55,7 @@ const TuitionDates = () => {
 
           {expandedAccordion === "tuition" && (
             <div
-              className="p-6 border-t animate-fadeIn"
+              className="p-6 border-t border-t-gray-300 animate-fadeIn"
               role="region"
               aria-labelledby="accordion-header-tuition"
               id="accordion-content-tuition"
@@ -75,7 +77,7 @@ const TuitionDates = () => {
         </div>
 
         {/* Financing Options Accordion */}
-        <div className="border rounded-lg overflow-hidden">
+        <div className="border border-gray-300 shadow-md rounded-lg overflow-hidden">
           <div
             className="flex items-center justify-between p-6 cursor-pointer bg-white"
             onClick={() => toggleAccordion("financing")}
@@ -83,14 +85,14 @@ const TuitionDates = () => {
             aria-controls="accordion-content-financing"
             id="accordion-header-financing"
           >
-            <h3 className="text-xl font-medium">Financing Options</h3>
+            <h3 className="text-base font-bold">Financing Options</h3>
             <div className="flex items-center">
               <div>
                 <div className="text-sm text-gray-500">As low as</div>
-                <div className="text-2xl font-bold">₦226/month</div>
+                <div className="text-base font-bold">₦226/month</div>
               </div>
               <Plus
-                className={`h-6 w-6 ml-3 text-primary-one transition-transform duration-300 ease-in-out ${
+                className={`h-4 w-4 ml-3 text-gray-400 transition-transform duration-300 ease-in-out ${
                   expandedAccordion === "financing" ? "rotate-45" : ""
                 }`}
               />
@@ -99,7 +101,7 @@ const TuitionDates = () => {
 
           {expandedAccordion === "financing" && (
             <div
-              className="p-6 border-t animate-fadeIn"
+              className="p-6 border-t border-t-gray-300 animate-fadeIn"
               role="region"
               aria-labelledby="accordion-header-financing"
               id="accordion-content-financing"
@@ -143,7 +145,7 @@ const TuitionDates = () => {
         </div>
 
         {/* Government Benefits Accordion */}
-        <div className="border rounded-lg overflow-hidden">
+        <div className="border border-gray-300 shadow-md rounded-lg overflow-hidden">
           <div
             className="flex items-center justify-between p-6 cursor-pointer bg-white"
             onClick={() => toggleAccordion("benefits")}
@@ -151,9 +153,9 @@ const TuitionDates = () => {
             aria-controls="accordion-content-benefits"
             id="accordion-header-benefits"
           >
-            <h3 className="text-xl font-medium">Government Benefits</h3>
+            <h3 className="text-base font-bold">Government Benefits</h3>
             <Plus
-              className={`h-6 w-6 text-primary-one transition-transform duration-300 ease-in-out ${
+              className={`h-4 w-4 text-gray-400 transition-transform duration-300 ease-in-out ${
                 expandedAccordion === "benefits" ? "rotate-45" : ""
               }`}
             />
@@ -161,7 +163,7 @@ const TuitionDates = () => {
 
           {expandedAccordion === "benefits" && (
             <div
-              className="p-6 border-t animate-fadeIn"
+              className="p-6 border-t border-t-gray-300 animate-fadeIn"
               role="region"
               aria-labelledby="accordion-header-benefits"
               id="accordion-content-benefits"
@@ -185,63 +187,75 @@ const TuitionDates = () => {
       </div>
 
       <div className="mt-8">
-        <Button className="bg-red-600 hover:bg-red-700">GET STARTED</Button>
+        <Link
+          href="/trainings/register"
+          className="bg-brand-primary text-white hover:bg-brand-primary/80 px-5 py-3 rounded"
+        >
+          GET STARTED
+        </Link>
       </div>
 
       <h2 className="text-3xl font-bold mt-16 mb-8">Upcoming Dates</h2>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {/* Cohort Card */}
-        <div className="bg-black text-white rounded-lg p-6">
+        <div className="bg-brand-secondary text-white rounded-lg p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Calendar className="h-6 w-6" />
-            <h3 className="text-xl font-semibold">Full-Time</h3>
+            <Calendar className="h-4 w-4 text-brand-primary" />
+            <h3 className="text-base font-bold text-brand-primary">
+              Full-Time
+            </h3>
           </div>
           <div className="mb-4">
-            <div className="text-lg">August 1, 2025</div>
+            <div className="text-lg">August Cohort</div>
             <div className="text-sm opacity-70">
-              Application Deadline: July 15, 2025
+              Application Deadline: July 15
             </div>
           </div>
-          <Button className="w-full bg-primary-one hover:bg-primary-two">
+          <Button className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80">
             Apply Now
           </Button>
         </div>
 
-        <div className="bg-black text-white rounded-lg p-6">
+        <div className="bg-brand-secondary text-white rounded-lg p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Calendar className="h-6 w-6" />
-            <h3 className="text-xl font-semibold">Full-Time</h3>
+            <Calendar className="h-4 w-4 text-brand-primary" />
+            <h3 className="text-base font-bold text-brand-primary">
+              Full-Time
+            </h3>
           </div>
           <div className="mb-4">
-            <div className="text-lg">October 3, 2025</div>
+            <div className="text-lg">January Cohort</div>
             <div className="text-sm opacity-70">
-              Application Deadline: September 15, 2025
+              Application Deadline: Sept. 15
             </div>
           </div>
-          <Button className="w-full bg-primary-one hover:bg-primary-two">
+          <Button className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80">
             Apply Now
           </Button>
         </div>
 
-        <div className="bg-black text-white rounded-lg p-6">
+        <div className="bg-brand-secondary text-white rounded-lg p-6">
           <div className="flex items-center gap-3 mb-4">
-            <Calendar className="h-6 w-6" />
-            <h3 className="text-xl font-semibold">Part-Time</h3>
+            <Calendar className="h-4 w-4 text-brand-primary" />
+            <h3 className="text-base font-bold text-brand-primary">
+              Part-Time
+            </h3>
           </div>
           <div className="mb-4">
-            <div className="text-lg">September 5, 2025</div>
+            <div className="text-lg">September Cohort</div>
             <div className="text-sm opacity-70">
-              Application Deadline: August 20, 2025
+              Application Deadline: August 20
             </div>
           </div>
-          <Button className="w-full bg-primary-one hover:bg-primary-two">
+          <Button className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80">
             Apply Now
           </Button>
         </div>
       </div>
 
-      <div className="section-divider"></div>
+      {/* Divider */}
+      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };

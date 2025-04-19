@@ -34,9 +34,9 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
         {sections.map((section) => (
           <button
             key={section.id}
-            className={`w-full text-left px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors ${
+            className={`w-full text-left px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors border-b border-b-gray-200 ${
               activeSection === section.id
-                ? "bg-gray-100 text-brand-primary font-semibold border-l-4 border-brand-pritext-brand-primary"
+                ? "bg-gray-100 text-brand-primary font-semibold border-l-4 border-brand-primary"
                 : "text-gray-700"
             }`}
             onClick={() => onSectionChange(section.id)}
@@ -45,7 +45,7 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
           </button>
         ))}
         <div className="p-4">
-          <Button className="w-full bg-brand-pritext-brand-primary hover:bg-red-700 text-white">
+          <Button className="w-full bg-brand-primary hover:bg-brand-primary/85 text-white">
             GET MY SYLLABUS
           </Button>
         </div>

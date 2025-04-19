@@ -11,17 +11,20 @@ const WhatYoullLearn = () => {
   };
 
   return (
-    <section id="what-youll-learn" className="py-12">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">What You'll Learn</h2>
+    <section id="what-youll-learn" className="py-12 scroll-mt-28">
+      <h2 className="text-base md:text-3xl font-bold mb-6">
+        What You'll Learn
+      </h2>
 
       <div className="mb-8">
-        <p className="text-lg text-gray-700 mb-4">
-          The Fullstack Academy Software Engineering Bootcamp utilizes an
+        <p className="text-base text-gray-700 mb-4">
+          Best Technologies Ltd.'s Software Engineering Bootcamp features an
           in-demand, JavaScript-based core curriculum.
         </p>
-        <p className="text-lg text-gray-700">
-          You'll also learn how to apply generative AI in web development using
-          ChatGPT, Bing AI, and more with a free elective course.
+        <p className="text-base text-gray-700">
+          You'll also have the opportunity to learn generative AI applications
+          in web development through a free elective course, exploring tools
+          such as ChatGPT and Bing AI.
         </p>
       </div>
 
@@ -86,14 +89,17 @@ const WhatYoullLearn = () => {
             ],
           },
         ].map(({ id, title, unit, content }) => (
-          <div key={id} className="relative border rounded-lg overflow-hidden">
+          <div
+            key={id}
+            className="relative border border-gray-200 rounded-lg overflow-hidden"
+          >
             <header
               role="button"
               tabIndex={0}
               aria-expanded={expandedUnit === id}
               onClick={() => toggleExpand(id)}
               onKeyDown={(e) => e.key === "Enter" && toggleExpand(id)}
-              className="flex items-center justify-between p-6 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-lg transition-colors"
+              className="flex items-center justify-between p-6 cursor-pointer focus:outline-none rounded-lg"
             >
               <div className="flex items-center space-x-8">
                 <div className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-primary/10">
@@ -117,7 +123,12 @@ const WhatYoullLearn = () => {
                   : "max-h-0 opacity-0"
               }`}
             >
-              <div className="p-6 pt-0 border-t">
+              <div className="p-6 border-t border-gray-200">
+                <header>
+                  <h4 className="text-lg font-semibold mb-2">
+                    In this unit, you will learn:
+                  </h4>
+                </header>
                 <ul className="list-disc pl-6 space-y-2">
                   {content.map((item, idx) => (
                     <li key={idx}>{item}</li>
@@ -154,14 +165,15 @@ const WhatYoullLearn = () => {
         ].map((tech) => (
           <div
             key={tech}
-            className="border rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow"
+            className="border border-gray-200 rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow"
           >
             {tech}
           </div>
         ))}
       </div>
 
-      <div className="section-divider"></div>
+      {/* Divider */}
+      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };
