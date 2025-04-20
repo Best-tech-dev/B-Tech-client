@@ -1,7 +1,7 @@
-import Link from "next/link";
+"use client";
 
 import React, { useState } from "react";
-import { Button } from "@/ui/Bootcamp/button";
+import { Button } from "@/ui/button";
 import { Plus, Calendar } from "lucide-react";
 
 const TuitionDates = () => {
@@ -187,12 +187,12 @@ const TuitionDates = () => {
       </div>
 
       <div className="mt-8">
-        <Link
+        <Button
           href="/trainings/register"
-          className="bg-brand-primary text-white hover:bg-brand-primary/80 px-5 py-3 rounded"
+          className="inline-block mt-4 text-white bg-brand-primary hover:bg-brand-primary/80"
         >
           GET STARTED
-        </Link>
+        </Button>
       </div>
 
       <h2 className="text-3xl font-bold mt-16 mb-8">Upcoming Dates</h2>
@@ -212,7 +212,10 @@ const TuitionDates = () => {
               Application Deadline: July 15
             </div>
           </div>
-          <Button className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80">
+          <Button
+            href="/trainings/register"
+            className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80"
+          >
             Apply Now
           </Button>
         </div>
@@ -230,7 +233,10 @@ const TuitionDates = () => {
               Application Deadline: Sept. 15
             </div>
           </div>
-          <Button className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80">
+          <Button
+            href="/trainings/register"
+            className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80"
+          >
             Apply Now
           </Button>
         </div>
@@ -248,7 +254,10 @@ const TuitionDates = () => {
               Application Deadline: August 20
             </div>
           </div>
-          <Button className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80">
+          <Button
+            href="/trainings/register"
+            className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80"
+          >
             Apply Now
           </Button>
         </div>

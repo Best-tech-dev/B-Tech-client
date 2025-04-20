@@ -1,33 +1,34 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 
 const testimonials = [
   {
     name: "Sam Ogunleye",
     title: "Software Engineer, Turing",
-    image: "/lovable-uploads/9fbefa06-5296-480f-adf4-546871631e12.png",
+    image: "/trainings/sam-ogunleye.jpg",
     quote:
       "Embarking on a tech career isn't easy, but it's certainly achievable. It took me about 10 months of hard work, but now I've landed my dream job!",
   },
   {
     name: "Oluwatobi Adebayo",
     title: "Fullstack Engineer, Andela",
-    image: "/lovable-uploads/fa84ff25-3494-4d71-9243-8580d62e3358.png",
+    image: "/trainings/oluwatobi-adebayo.jpg",
     quote:
       "My career coach's guidance was crucial in helping me understand the tech industry landscape and ultimately secure my role.",
   },
   {
     name: "Benedicta Okafor",
     title: "Software Engineer Intern, Moniepoint",
-    image: "/lovable-uploads/2ba955fe-7bf3-4f0d-84f7-abd9605a258a.png",
+    image: "/trainings/benedicta-okafor.jpg",
     quote:
       "The support I received was instrumental to my success. The instructors were knowledgeable and always available for questions, fostering a collaborative environment where students could learn from each other.",
   },
   {
     name: "Mubarak Olayiwola",
     title: "Software Engineer, UpWork Top Rated",
-    image: "/lovable-uploads/ce3f6188-535b-4fac-b879-d1e582520f74.png",
+    image: "/trainings/mubarak-olayiwola.jpg",
     quote:
       "I learned everything I needed to be a competitive potential candidate with an edge against my peers.",
   },
@@ -51,10 +52,12 @@ const Testimonials = () => {
               {item.quote}
             </p>
             <div className="flex items-center">
-              <img
+              <Image
                 src={item.image}
                 alt={item.name}
-                className="h-16 w-16 rounded-full mr-4 object-cover"
+                width={64}
+                height={64}
+                className="h-16 w-16 rounded-full mr-4 object-cover object-top"
               />
               <div>
                 <h4 className="font-semibold text-base">{item.name}</h4>

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Button } from "@/ui/Bootcamp/button";
+import { Button } from "@/ui/button";
 
 interface SideNavigationProps {
   activeSection: string;
@@ -45,7 +45,10 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
           </button>
         ))}
         <div className="p-4">
-          <Button className="w-full bg-brand-primary hover:bg-brand-primary/85 text-white">
+          <Button
+            href="/trainings/curriculum"
+            className="w-full bg-brand-primary hover:bg-brand-primary/85 text-white"
+          >
             GET MY SYLLABUS
           </Button>
         </div>

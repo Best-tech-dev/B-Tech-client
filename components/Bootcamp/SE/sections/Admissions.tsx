@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Button } from "@/ui/Bootcamp/button";
+import { Button } from "@/ui/button";
 import { CheckCircle, Users, LineChart } from "lucide-react";
 
 const qualities = [
@@ -66,10 +66,10 @@ const Admissions = () => {
 
       <div className="flex justify-center">
         <Button
-          asChild
+          href="/trainings/register"
           className="bg-brand-primary hover:bg-brand-primary/85 text-white text-sm md:text-base"
         >
-          <Link href="/trainings/register">START YOUR APPLICATION</Link>
+          START YOUR APPLICATION
         </Button>
       </div>
 
