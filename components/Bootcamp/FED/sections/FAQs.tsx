@@ -15,54 +15,54 @@ const FAQs = () => {
   const faqs = [
     {
       id: "faq1",
-      question: "What is a software engineering bootcamp?",
+      question: "What is a frontend development bootcamp?",
       answer:
-        "A software engineering bootcamp is an intensive, accelerated learning program designed to equip students with practical coding skills in a short timeframe, typically 12-24 weeks. These programs focus on hands-on projects and real-world applications rather than theoretical knowledge, preparing graduates for immediate entry into the tech workforce.",
+        "A frontend development bootcamp is an intensive, accelerated learning program designed to equip students with practical coding skills in a short timeframe, typically 6-12 weeks. These programs focus on hands-on projects and real-world applications rather than theoretical knowledge, preparing graduates for immediate entry into the tech workforce.",
     },
     {
       id: "faq2",
-      question: "What is covered in the software engineering bootcamp?",
+      question: "What is covered in the frontend development bootcamp?",
       answer:
-        "Our bootcamp covers full-stack web development including HTML, CSS, JavaScript, React, Node.js, Express, databases (SQL and NoSQL), RESTful APIs, authentication, deployment strategies, and modern development practices. The curriculum is regularly updated to reflect industry demands and includes both front-end and back-end technologies.",
+        "Our bootcamp covers frontend web development aspects including HTML, CSS, JavaScript, React, API integration, authentication, deployment strategies, and modern development practices. The curriculum is regularly updated to reflect industry demands.",
     },
     {
       id: "faq3",
-      question: "Are software engineering bootcamps still worth it?",
+      question: "Are frontend development bootcamps still worth it?",
       answer:
         "Absolutely! While the tech landscape evolves, the demand for skilled developers continues to grow. Our bootcamp offers focused, practical training that many employers value. With our career support services and industry connections, graduates enter the job market with real-world skills, professional portfolios, and networking opportunities that position them competitively.",
     },
     {
       id: "faq4",
-      question: "How much does a software engineering bootcamp cost?",
+      question: "How much does a frontend development bootcamp cost?",
       answer:
         "Our full-time bootcamp tuition is ₦10,995 (reduced from ₦13,995 for early registration). We offer various payment options including installment plans, loan financing, income share agreements, and scholarships to make education accessible to qualified students.",
     },
     {
       id: "faq5",
       question:
-        "Will I get a certificate after completing the  software engineering bootcamp?",
+        "Will I get a certificate after completing the frontend development bootcamp?",
       answer:
         "Yes, all graduates receive an official certificate of completion that validates their acquired skills. Additionally, you'll graduate with a comprehensive portfolio of projects that demonstrates your technical capabilities to potential employers, which many hiring managers find even more valuable than the certificate itself.",
     },
     {
       id: "faq6",
-      question: "Who should attend this software engineering bootcamp?",
+      question: "Who should attend this frontend development bootcamp?",
       answer:
         "Our bootcamp is ideal for motivated individuals who are passionate about technology and committed to an intensive learning experience. Whether you're a career changer, a college graduate seeking practical skills, or someone looking to upskill, the program is designed for those with strong problem-solving abilities and a growth mindset. No prior coding experience is required for our beginner-friendly cohorts.",
     },
     {
       id: "faq7",
       question:
-        "What is the application process for this software engineering bootcamp?",
+        "What is the application process for this frontend development bootcamp?",
       answer:
         "The application process involves submitting an online application, completing a logic assessment (no coding experience required), and participating in an interview with our admissions team. We evaluate candidates based on their problem-solving abilities, commitment, and cultural fit rather than technical background.",
     },
     {
       id: "faq8",
       question:
-        "What makes Best Technologies Ltd. one of the best software engineering bootcamps for learners?",
+        "What makes Best Technologies Ltd. one of the best frontend development bootcamps for learners?",
       answer:
-        "Best Technologies Ltd. Software Engineering Bootcamp stands out for its comprehensive curriculum, experienced instructors from the industry, career support services, strong alumni network, and proven track record of graduate success. Our program emphasizes pair programming, real-world projects, and job preparation, while maintaining small class sizes to ensure personalized attention and community building.",
+        "Best Technologies Ltd. frontend development Bootcamp stands out for its comprehensive curriculum, experienced instructors from the industry, career support services, strong alumni network, and proven track record of graduate success. Our program emphasizes pair programming, real-world projects, and job preparation, while maintaining small class sizes to ensure personalized attention and community building.",
     },
   ];
 
