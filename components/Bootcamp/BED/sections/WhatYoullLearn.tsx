@@ -16,7 +16,7 @@ const WhatYoullLearn = () => {
 
       <div className="mb-8">
         <p className="text-sm md:text-base text-gray-700 mb-4">
-          Best Technologies Ltd.'s Frontend Development Bootcamp features an
+          Best Technologies Ltd.'s Backend Development Bootcamp features an
           in-demand, JavaScript-based core curriculum.
         </p>
         <p className="text-sm md:text-base text-gray-700">
@@ -31,29 +31,31 @@ const WhatYoullLearn = () => {
         {[
           {
             id: "unit1",
-            title: "Front-End Foundations",
+            title: "Back-End Foundations",
             unit: "Unit 1",
             content: [
-              "HTML & CSS fundamentals",
-              "JavaScript programming basics",
-              "DOM manipulation",
-              "Responsive web design principles",
-              "CSS frameworks (Bootstrap, Tailwind)",
+              "Node.js fundamentals",
+              "Express.js framework",
+              "RESTful API development",
+              "Authentication and authorization",
+              "Database design (SQL & NoSQL)",
+              "ORM tools (Sequelize, Mongoose)",
+              "Server-side rendering",
               "Version control with Git",
             ],
           },
           {
             id: "unit2",
-            title: "Front-End Core",
+            title: "Back-End Core",
             unit: "Unit 2",
             content: [
-              "Advanced JavaScript concepts",
-              "ES6+ features",
-              "React fundamentals",
-              "Component-based architecture",
-              "State management",
-              "React Router",
-              "API integration",
+              "Capstone project development",
+              "Performance optimization",
+              "Deployment strategies",
+              "CI/CD pipelines",
+              "Cloud services (AWS, Firebase)",
+              "Containerization with Docker",
+              "Microservices architecture",
             ],
           },
         ].map(({ id, title, unit, content }) => (
@@ -109,23 +111,20 @@ const WhatYoullLearn = () => {
       </div>
 
       <h3 className="text-lg md:text-3xl font-semibold mt-12 mb-6">
-        Frontend Development Immersive Tools and Technologies
+        Backend Development Immersive Tools and Technologies
       </h3>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          "HTML5",
-          "CSS3",
           "JavaScript",
-          "Bootstrap",
-          "Tailwind CSS",
-          "React",
+          "Node.js",
+          "Express.js",
+          "SQL",
           "Git",
           "GitHub",
-          "Redux",
+          "MongoDB",
           "NPM/PNPM",
-          "Webpack",
-          "Jest",
+          "ORMs",
         ].map((tech) => (
           <div
             key={tech}
