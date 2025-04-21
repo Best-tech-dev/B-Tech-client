@@ -19,9 +19,9 @@ const TuitionDates = () => {
 
   return (
     <section id="tuition-dates" className="py-12 scroll-mt-28">
-      <h2 className="text-3xl font-bold mb-6">Tuition and Dates</h2>
+      <h2 className="text-lg md:text-3xl font-bold mb-6">Tuition and Dates</h2>
 
-      <p className="text-base text-gray-700 mb-8">
+      <p className="text-sm md:text-base text-gray-700 mb-8">
         Best Technologies Ltd. is committed to making tech education more
         accessible, which is why we offer several payment options to help you
         invest in your bootcamp education.
@@ -37,14 +37,14 @@ const TuitionDates = () => {
             aria-controls="accordion-content-tuition"
             id="accordion-header-tuition"
           >
-            <h3 className="text-base font-bold">
+            <h3 className="text-sm md:text-base font-bold">
               Full-Time Coding Bootcamp Tuition
             </h3>
-            <div className="flex items-center space-x-3">
-              <div className="text-base font-bold line-through text-gray-500">
+            <div className="flex flex-col md:flex-row items-center space-x-3">
+              <div className="text-sm md:text-base font-bold line-through text-gray-500">
                 ₦200,995
               </div>
-              <div className="text-base font-bold">₦150,995</div>
+              <div className="text-sm md:text-base font-bold">₦150,995</div>
               <Plus
                 className={`h-4 w-4 text-gray-400 transition-transform duration-300 ease-in-out ${
                   expandedAccordion === "tuition" ? "rotate-45" : ""

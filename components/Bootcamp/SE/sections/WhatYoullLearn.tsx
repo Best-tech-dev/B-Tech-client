@@ -12,16 +12,14 @@ const WhatYoullLearn = () => {
 
   return (
     <section id="what-youll-learn" className="py-12 scroll-mt-28">
-      <h2 className="text-base md:text-3xl font-bold mb-6">
-        What You'll Learn
-      </h2>
+      <h2 className="text-lg md:text-3xl font-bold mb-6">What You'll Learn</h2>
 
       <div className="mb-8">
-        <p className="text-base text-gray-700 mb-4">
+        <p className="text-sm md:text-base text-gray-700 mb-4">
           Best Technologies Ltd.'s Software Engineering Bootcamp features an
           in-demand, JavaScript-based core curriculum.
         </p>
-        <p className="text-base text-gray-700">
+        <p className="text-sm md:text-base text-gray-700">
           You'll also have the opportunity to learn generative AI applications
           in web development through a free elective course, exploring tools
           such as ChatGPT and Bing AI.
@@ -99,19 +97,19 @@ const WhatYoullLearn = () => {
               aria-expanded={expandedUnit === id}
               onClick={() => toggleExpand(id)}
               onKeyDown={(e) => e.key === "Enter" && toggleExpand(id)}
-              className="flex items-center justify-between p-6 cursor-pointer focus:outline-none rounded-lg"
+              className="flex flex-col-reverse items-start md:flex-row md:items-center md:justify-between p-6 cursor-pointer focus:outline-none rounded-lg"
             >
               <div className="flex items-center space-x-8">
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-primary/10">
+                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-primary/10 shrink-0">
                   <Plus
                     className={`w-6 h-6 text-brand-primary transition-transform duration-300 ${
                       expandedUnit === id ? "rotate-45" : ""
                     }`}
                   />
                 </div>
-                <h3 className="text-xl font-medium">{title}</h3>
+                <h3 className="text-sm md:text-xl font-medium">{title}</h3>
               </div>
-              <div className="rounded-full px-4 py-1 border border-brand-primary text-brand-primary text-sm">
+              <div className="rounded-full px-4 py-1 border border-brand-primary text-brand-primary text-xs md:text-sm mb-4 md:mb-0">
                 {unit}
               </div>
             </header>
@@ -125,7 +123,7 @@ const WhatYoullLearn = () => {
             >
               <div className="p-6 border-t border-gray-200">
                 <header>
-                  <h4 className="text-lg font-semibold mb-2">
+                  <h4 className="text-sm md:text-lg font-semibold mb-2">
                     In this unit, you will learn:
                   </h4>
                 </header>
@@ -140,7 +138,7 @@ const WhatYoullLearn = () => {
         ))}
       </div>
 
-      <h3 className="text-2xl font-semibold mt-12 mb-6">
+      <h3 className="text-lg md:text-3xl font-semibold mt-12 mb-6">
         Software Engineering Immersive Tools and Technologies
       </h3>
 

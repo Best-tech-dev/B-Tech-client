@@ -12,16 +12,19 @@ const FullstackExperience = () => {
       className="py-12 scroll-mt-28"
       aria-labelledby="fullstack-experience-title"
     >
-      <h2 className="text-3xl font-bold capitalize mb-3">
+      <h2 className="text-lg md:text-3xl font-bold capitalize mb-3">
         Passionate teachers and an in-demand curriculum define the Best
         Technologies Ltd. experience
       </h2>
-      <p className="text-base text-gray-700 mb-10">
+      <p className="text-sm md:text-base text-gray-700 mb-10">
         Our 8-month Full-Time Software Engineering Immersive program offers a
         comprehensive and challenging journey for aspiring software engineers,
         designed to rapidly advance your skills and launch your career.
       </p>
-      <h2 id="fullstack-experience-title" className="text-3xl font-bold mb-6">
+      <h2
+        id="fullstack-experience-title"
+        className="text-lg md:text-3xl font-bold mb-6"
+      >
         Our Academy Experience
       </h2>
 
