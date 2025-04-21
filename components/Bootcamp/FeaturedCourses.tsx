@@ -6,45 +6,68 @@ import Image from "next/image";
 const courses = [
   {
     id: 1,
-    title: "Frontend Development",
-    desc: "Master HTML, CSS, JavaScript, and React to build beautiful web interfaces.",
-    img: "/bootcamp/frontend.jpg",
+    title: "Software Engineering",
+    desc: "Master frontend and backend in our popular defacto software engineering bootcamp.",
+    img: "/bootcamp/software-development.jpg",
+    url: "/trainings/bootcamp/software-engineering",
   },
   {
     id: 2,
-    title: "Backend Development",
-    desc: "Learn Node.js, Express, databases, and APIs to build scalable backend systems.",
-    img: "/bootcamp/backend.jpg",
+    title: "Growth Marketing",
+    desc: "Learn digital marketing strategies that'll help you convert sales like a wallstreet banker.",
+    img: "/trainings/growth.jpg",
+    url: "/trainings/bootcamp/growth-marketing",
   },
   {
     id: 3,
-    title: "UI/UX Design",
-    desc: "Design intuitive user interfaces and craft exceptional user experiences.",
-    img: "/bootcamp/uiux.jpg",
+    title: "Frontend Development",
+    desc: "Master HTML, CSS, JavaScript, and React to build beautiful web interfaces.",
+    img: "/bootcamp/frontend.jpg",
+    url: "/trainings/bootcamp/frontend-development",
   },
   {
     id: 4,
-    title: "Mobile App Dev",
-    desc: "Develop cross-platform apps using Flutter or React Native.",
-    img: "/bootcamp/mobile.jpg",
+    title: "Backend Development",
+    desc: "Learn Node.js, Express, databases, and APIs to build scalable backend systems.",
+    img: "/bootcamp/backend.jpg",
+    url: "/trainings/bootcamp/backend-development",
   },
   {
     id: 5,
-    title: "Data Analytics",
-    desc: "Use tools like Excel, SQL, and Power BI to analyze and visualize data.",
-    img: "/bootcamp/data.jpg",
+    title: "UI/UX Design",
+    desc: "Design intuitive user interfaces and craft exceptional user experiences.",
+    img: "/bootcamp/uiux.jpg",
+    url: "/trainings/bootcamp/ui-ux",
   },
   {
     id: 6,
+    title: "Mobile App Dev",
+    desc: "Develop cross-platform apps using Flutter or React Native.",
+    img: "/bootcamp/mobile.jpg",
+    url: "/trainings/bootcamp/mobile-app-dev",
+  },
+  {
+    id: 7,
+    title: "Data Analytics",
+    desc: "Use tools like Excel, SQL, and Power BI to analyze and visualize data.",
+    img: "/bootcamp/data.jpg",
+    url: "/trainings/bootcamp/data-analytics",
+  },
+  {
+    id: 8,
     title: "Cloud & DevOps",
     desc: "Explore AWS, Docker, and CI/CD pipelines to deploy modern apps.",
     img: "/bootcamp/cloud.jpg",
+    url: "/trainings/bootcamp/cloud-devops",
   },
 ];
 
 const FeaturedCourses = () => {
   return (
-    <section className="relative bg-white text-white py-20 px-4 md:px-10 lg:px-20 overflow-hidden">
+    <section
+      id="explore-programs"
+      className="relative bg-white text-white py-20 px-4 md:px-10 lg:px-20 overflow-hidden"
+    >
       {/* Background Blobs */}
       <motion.div
         className="absolute w-72 h-72 bg-green-700 rounded-full top-10 left-10 opacity-10 blur-3xl"
@@ -60,7 +83,9 @@ const FeaturedCourses = () => {
       {/* Section Header */}
       <div className="text-center mb-16 z-10 relative">
         <h2 className="text-4xl md:text-5xl font-bold">
-          <span className="italic text-lime-400">Explore Our Programs</span>
+          <span className="italic text-lime-400">
+            Explore Our Bootcamp Programs
+          </span>
         </h2>
         <p className="text-black mt-4 max-w-2xl mx-auto">
           Get hands-on training in high-demand tech skills taught by experts.
@@ -89,12 +114,7 @@ const FeaturedCourses = () => {
               <h3 className="text-xl font-semibold mt-2">{course.title}</h3>
               <p className="text-gray-400 text-sm mt-2">{course.desc}</p>
               <Link
-                href={`/bootcamp/${
-                  course.title
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]+/g, "-") // replace non-alphanumeric with hyphen
-                    .replace(/^-+|-+$/g, "") // trim hyphens at start/end
-                }`}
+                href={course.url}
                 className="mt-4 inline-flex items-center gap-2 text-sm text-lime-400 hover:underline"
               >
                 Read More{" "}

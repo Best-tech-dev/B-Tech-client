@@ -50,7 +50,7 @@ export default function HeroSection() {
             variant="outline"
             className="text-white border-white hover:bg-white hover:text-black px-6 py-3"
           >
-            <Link href="#">Explore Programs</Link>
+            <Link href="#explore-programs">Explore Programs</Link>
           </Button>
         </div>
 
