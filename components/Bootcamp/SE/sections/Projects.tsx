@@ -28,15 +28,15 @@ const Projects = () => {
       <h2 className="text-3xl font-bold mb-6">Build a Portfolio of Apps</h2>
 
       <p className="text-base text-gray-700 mb-6 max-w-3xl">
-        Upon graduating from the Software Engineering Bootcamp, you'll have a
-        full-stack capstone project in your portfolio, hosted on GitHub, and
+        Upon graduating from the Software Engineering Bootcamp, you&apos;ll have
+        a full-stack capstone project in your portfolio, hosted on GitHub, and
         built with real-world libraries and methodologies. This project will
         effectively demonstrate your technical, practical, and creative skills
         to future employers.
       </p>
 
       <p className="text-base text-gray-700 mb-10 max-w-3xl">
-        Check out some of the capstone projects you'll work on.
+        Check out some of the capstone projects you&apos;ll work on.
       </p>
 
       <div className="text-center mb-10">

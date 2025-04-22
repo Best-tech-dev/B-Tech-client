@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { Button } from "@/ui/button";
 import { CheckCircle, Users, LineChart } from "lucide-react";
 
@@ -49,7 +48,7 @@ const Admissions = () => {
       </p>
 
       <p className="text-base font-bold mb-10">
-        Here's what we look for in prospective students:
+        Here&apos;s what we look for in prospective students:
       </p>
 
       <div className="grid gap-10 md:grid-cols-3 mb-16">

@@ -12,17 +12,19 @@ const WhatYoullLearn = () => {
 
   return (
     <section id="what-youll-learn" className="py-12 scroll-mt-28">
-      <h2 className="text-lg md:text-3xl font-bold mb-6">What You'll Learn</h2>
+      <h2 className="text-lg md:text-3xl font-bold mb-6">
+        What You&apos;ll Learn
+      </h2>
 
       <div className="mb-8">
         <p className="text-sm md:text-base text-gray-700 mb-4">
-          Best Technologies Ltd.'s Frontend Development Bootcamp features an
-          in-demand, JavaScript-based core curriculum.
+          Best Technologies Ltd.&apos;s Frontend Development Bootcamp features
+          an in-demand, JavaScript-based core curriculum.
         </p>
         <p className="text-sm md:text-base text-gray-700">
-          You'll also have the opportunity to learn generative AI applications
-          in web development through a free elective course, exploring tools
-          such as ChatGPT and Bing AI.
+          You&apos;ll also have the opportunity to learn generative AI
+          applications in web development through a free elective course,
+          exploring tools such as ChatGPT and Bing AI.
         </p>
       </div>
 

@@ -56,7 +56,7 @@ export default function WhyChooseUs() {
   return (
     <section className="bg-white text-[#161a25] py-20 px-4 md:px-8 lg:px-16 space-y-24">
       <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-brand-primary">
-        Here's Why We're the Right <br /> Choice For Your Training
+        Here&apos;s Why We&apos;re the Right <br /> Choice For Your Training
       </h1>
       {sections.map((item, index) => {
         const isEven = index % 2 === 0;

@@ -57,9 +57,9 @@ const CareerPrep = () => {
       </h2>
 
       <p className="text-sm md:text-base text-gray-700 mb-12 max-w-3xl">
-        Throughout bootcamp and for up to a year following graduation, you'll
-        receive professional career coaching to power your job search and land a
-        rewarding web developer role.
+        Throughout bootcamp and for up to a year following graduation,
+        you&apos;ll receive professional career coaching to power your job
+        search and land a rewarding web developer role.
       </p>
 
       <div className="grid md:grid-cols-2 gap-10 mb-16">

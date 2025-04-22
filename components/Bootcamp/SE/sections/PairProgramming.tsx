@@ -12,9 +12,9 @@ const PairProgramming = () => {
       <h2 className="text-xl md:text-3xl font-bold mb-6">Pair Programming</h2>
 
       <p className="text-sm md:text-base text-gray-700 mb-10 max-w-3xl">
-        During bootcamp, you'll engage in pair programming, collaborating with a
-        partner in assigned roles to solve programming problems and ensure code
-        quality through mutual review.
+        During bootcamp, you&apos;ll engage in pair programming, collaborating
+        with a partner in assigned roles to solve programming problems and
+        ensure code quality through mutual review.
       </p>
 
       <div className="mb-10">

@@ -1,14 +1,7 @@
 // "use client";
 import React from "react";
 import { Button } from "@/ui/Bootcamp/button";
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-  ArrowUp,
-  Mail,
-} from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Mail } from "lucide-react";
 import Image from "next/image";
 
 const Footer = () => {

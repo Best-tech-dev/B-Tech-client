@@ -1,23 +1,22 @@
-// "use client";
+"use client";
 
-// import Link from "next/link";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 import React from "react";
 import Navbar from "@/components/Bootcamp/Navbar";
 import Footer from "@/components/Bootcamp/Footer";
 import Hero from "@/components/Trainings/Hero";
 import WhyChooseUs from "@/components/Trainings/WhyChooseUs";
 import ExploreTrainings from "@/components/Trainings/ExploreTrainings";
-import StudentSpotlightCarousel from "@/components/Trainings/StudentSpotlightCarousel";
+// import StudentSpotlightCarousel from "@/components/Trainings/StudentSpotlightCarousel";
 import MeetTheTeam from "@/components/Trainings/MeetTheTeam";
 import { TrainingsFAQ } from "@/components/Bootcamp/FAQs";
 
-const trainingCategories = [
-  "All",
-  "Bootcamp",
-  "Internship",
-  "Masterclass",
-  "Online Courses",
-];
+// Dynamically import the client-only carousel
+const StudentSpotlightCarousel = dynamic(
+  () => import("@/components/Trainings/StudentSpotlightCarousel"),
+  { ssr: false }
+);
 
 export default function TrainingsPage() {
   return (
@@ -30,7 +29,9 @@ export default function TrainingsPage() {
       <ExploreTrainings />
 
       {/* Spotlight */}
-      <StudentSpotlightCarousel />
+      <Suspense fallback={null}>
+        <StudentSpotlightCarousel />
+      </Suspense>
 
       {/* Meet the Team */}
       <MeetTheTeam />
