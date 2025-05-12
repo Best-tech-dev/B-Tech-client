@@ -36,7 +36,7 @@ const LandingPageHero = () => {
         pagination={{ clickable: true }}
         modules={[Autoplay, Pagination]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
-        className="w-full 2xl:max-h-[600px] h-screen"
+        className="w-full 2xl:max-h-[800px] h-screen"
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>

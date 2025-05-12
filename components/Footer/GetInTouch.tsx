@@ -10,13 +10,13 @@ const GetInTouch = () => {
             Connect on Socials
           </p>
           <div className="flex justify-center lg:justify-start gap-4 mb-6">
-            <button className="btn bg-black border border-white rounded-full px-6 py-2">
+            <button className="btn bg-black border border-white rounded-full px-6 py-2 text-white">
               LinkedIn
             </button>
-            <button className="btn bg-black border border-white rounded-full px-6 py-2">
+            <button className="btn bg-black border border-white rounded-full px-6 py-2 text-white">
               Facebook
             </button>
-            <button className="btn bg-black border border-white rounded-full px-3 py-2">
+            <button className="btn bg-black border border-white rounded-full px-3 py-2 text-white">
               X
             </button>
           </div>
