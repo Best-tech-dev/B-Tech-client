@@ -31,7 +31,7 @@ const Counter: React.FC<CounterProps> = ({ value, suffix, className = "" }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className={`font-bold ${className}`} // Now applies dynamic className
+      className={`font-bold ${className}`} // applies dynamic className
     >
       {count}
       {suffix}

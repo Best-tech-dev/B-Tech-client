@@ -7,13 +7,13 @@ import Image from "next/image";
 const OurClientsSection: React.FC = () => {
   return (
     <>
-      <div className="hero px-4 sm:px-10 md:px-20 lg:px-40 py-10 bg-[#161a25]">
+      <div className="hero px-4 sm:px-10 md:px-20 lg:px-40 py-10 bg-brand-secondary">
         <div className="hero-content justify-between px-0 flex flex-col lg:flex-row">
           <div className="w-full lg:w-3/5 text-white">
-            <h3 className="text-xl sm:text-4xl md:text-5xl font-bold text-[#2bcd15]">
+            <h3 className="text-xl sm:text-4xl md:text-5xl font-bold text-brand-primary-accent">
               Our Clients
             </h3>
-            <p className="text-sm md:text-base py-6 text-[#a4cd39]">
+            <p className="text-sm md:text-base py-6 text-brand-primary">
               We take pride in partnering with organisations driving industry
               innovation. Our diverse portfolio spans from startups to
               enterprises and government agencies across multiple sectors.

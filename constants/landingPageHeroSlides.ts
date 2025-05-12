@@ -13,7 +13,7 @@ export const slides = [
   },
   {
     id: 2,
-    title: "Empower Your Business with Tech",
+    title: "Trusted Technology Partner in Africa",
     subtitle: "Innovative Solutions",
     description:
       "Leverage cutting-edge technology to enhance productivity and achieve business goals.",

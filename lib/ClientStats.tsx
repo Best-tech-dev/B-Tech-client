@@ -46,7 +46,7 @@ function ClientStats() {
       <div className="flex flex-col w-full">
         {/* First Row */}
         <div className="flex w-full justify-between text-center">
-          <div className="flex flex-col items-center w-1/2">
+          <div className="flex flex-col items-start w-1/2">
             <StatsCounter
               value={75}
               suffix="+"
@@ -54,7 +54,7 @@ function ClientStats() {
             />
             <p className="text-sm md:text-md lg:text-lg">Happy Clients</p>
           </div>
-          <div className="flex flex-col items-center w-1/2">
+          <div className="flex flex-col items-start w-1/2">
             <StatsCounter
               value={99}
               suffix="%"
@@ -71,7 +71,7 @@ function ClientStats() {
 
         {/* Second Row */}
         <div className="flex w-full justify-between text-center mt-4">
-          <div className="flex flex-col items-center w-1/2">
+          <div className="flex flex-col items-start w-1/2">
             <StatsCounter
               value={150}
               suffix="+"
@@ -79,7 +79,7 @@ function ClientStats() {
             />
             <p className="text-sm md:text-md lg:text-lg">Projects Delivered</p>
           </div>
-          <div className="flex flex-col items-center w-1/2">
+          <div className="flex flex-col items-start w-1/2">
             <StatsCounter
               value={10}
               suffix="+"

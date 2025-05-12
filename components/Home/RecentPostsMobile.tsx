@@ -41,6 +41,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { BsArrow90DegUp } from "react-icons/bs";
 import { blogPosts } from "@/constants/blogPosts";
 
@@ -96,6 +97,17 @@ const RecentPostsMobile: React.FC = () => {
           </Link>
         ))}
       </section>
+
+      {/* Bottom section - View all posts link */}
+      <div className="mt-8 text-left">
+        <Link
+          href="/blog"
+          className="text-brand-primary underline group inline-flex items-center"
+        >
+          View All Posts
+          <ChevronRight className="inline ml-1 group-hover:animate-pulse size-5" />
+        </Link>
+      </div>
     </article>
   );
 };

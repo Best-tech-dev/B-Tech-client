@@ -7,25 +7,25 @@ import ClientStats from "@/lib/ClientStats";
 
 const DigitalInnovationHero: React.FC = () => {
   return (
-    <>
-      <h2 className="text-sm sm:text-md md:text-lg text-[#2bcd15] italic text-left lg:text-center">
+    <div className="max-w-7xl mx-auto">
+      <h2 className="text-sm sm:text-md md:text-lg text-brand-primary italic text-left font-medium">
         Digital Innovation Through Technology Excellence.
       </h2>
-      <h3 className="text-2xl sm:text-4xl md:text-5xl mt-2 text-left lg:text-center text-black font-bold">
+      <h3 className="text-2xl sm:text-4xl md:text-[54px] mt-2 text-left text-black font-bold max-w-4xl">
         We&apos;re more than just a technology partner &ndash; we&apos;re your
         catalyst for digital transformation.
       </h3>
       <div className="hero bg-white">
         <div className="hero-content justify-between px-0 flex flex-col lg:flex-row">
           <div className="w-full lg:w-3/5 text-black text-sm">
-            <p className="pb-4 lg:py-6 lg:px-4 sm:px-0 md:text-base">
+            <p className="pb-4 lg:py-6 md:text-base">
               With a foundation built on technical excellence and customer
               satisfaction, Best Technologies Limited is at the forefront of
               digital innovation, helping businesses thrive in the digital age.
               We combine our expertise with industry best practices to deliver
               solutions that drive real business value.
             </p>
-            <p className="lg:px-4 sm:px-0 md:text-base">
+            <p className="md:text-base">
               Our approach is rooted in understanding your unique challenges and
               opportunities, ensuring that every solution we provide is aligned
               with your strategic objectives.
@@ -64,7 +64,7 @@ const DigitalInnovationHero: React.FC = () => {
       <div className="w-full h-auto bg-red-300">
         <ClientStats />
       </div>
-    </>
+    </div>
   );
 };
 

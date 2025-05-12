@@ -39,15 +39,17 @@
  */
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { blogPosts } from "@/constants/blogPosts";
 import BlogPostCard from "./BlogPostCard";
+import { ChevronRight } from "lucide-react";
 
 const RecentPostsDesktop: React.FC = () => {
   const [hoveredPost, setHoveredPost] = useState<BlogPost | null>(blogPosts[0]); // Only applied on large screens
 
   return (
-    <article className="w-full px-12 lg:px-20 py-20 bg-gray-200">
+    <article className="w-full max-w-7xl mx-auto px-12 lg:px-20 py-20 bg-gray-200">
       {/* Header Section */}
       <div className="mb-10 text-left">
         <h3 className="text-4xl text-black font-bold mb-4">
@@ -89,6 +91,17 @@ const RecentPostsDesktop: React.FC = () => {
           ))}
         </div>
       </section>
+
+      {/* Bottom section - View all posts link */}
+      <div className="mt-8 text-left">
+        <Link
+          href="/blog"
+          className="text-brand-primary underline group inline-flex items-center"
+        >
+          View All Posts
+          <ChevronRight className="inline ml-1 group-hover:animate-pulse size-5" />
+        </Link>
+      </div>
     </article>
   );
 };

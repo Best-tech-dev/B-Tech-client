@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * ExploreServices Component
  *
@@ -30,7 +32,6 @@
  * - Tailwind CSS classes are used for layout and styling.
  * - Responsive design is implemented for various screen sizes.
  */
-"use client";
 
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -79,7 +80,7 @@ const ExploreServices: React.FC = () => {
 
         {/* Centered Text & Animated Down Arrow */}
         <div className="relative text-white text-center z-10">
-          <Link href="/services">
+          <Link href="/#services">
             <h2 className="text-2xl md:text-6xl font-bold">Explore</h2>
             <h2 className="text-2xl md:text-6xl font-bold">Our Services</h2>
             <motion.div
@@ -91,7 +92,7 @@ const ExploreServices: React.FC = () => {
               }}
               className="mt-4 flex justify-center"
             >
-              <HiChevronDoubleDown className="font-bold text-4xl text-[#2bcd15]" />
+              <HiChevronDoubleDown className="font-bold text-4xl text-brand-primary-accent" />
             </motion.div>
           </Link>
         </div>

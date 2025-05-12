@@ -79,7 +79,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <Link href={href} className="block">
       <div
-        className="relative p-2 md:p-4 lg:p-6 bg-[#111827] text-white rounded-lg border-4 border-[#2bcd15] overflow-hidden cursor-pointer transition-all group"
+        className="relative p-2 md:p-4 lg:p-6 bg-[#111827] text-white rounded-lg border-4 border-brand-primary overflow-hidden cursor-pointer transition-all group"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

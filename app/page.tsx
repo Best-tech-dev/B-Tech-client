@@ -16,7 +16,7 @@ export default function Home() {
       <div className="bg-white overflow-x-hidden">
         <main className="">
           <LandingPageHero />
-          <section className="px-4 sm:px-10 md:px-20 lg:px-40 py-10 bg-white">
+          <section className="px-4 sm:px-10 md:px-20 lg:px-40 py-10 md:py-16 bg-white">
             <DigitalInnovationHero />
           </section>
 
@@ -30,11 +30,11 @@ export default function Home() {
             <ServicesGrid />
           </section>
 
-          <section>
+          <section id="blog" className="bg-gray-200 scroll-m-24">
             <RecentPosts />
           </section>
         </main>
-        <footer>
+        <footer id="contact" className="scroll-m-24">
           <GetInTouch />
           <Footer />
         </footer>

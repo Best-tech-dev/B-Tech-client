@@ -6,19 +6,13 @@ import { Box, IconButton, Button } from "@mui/material";
 import { BsChevronDown } from "react-icons/bs";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
-import {
-  productItems,
-  coursesItems,
-  portalItems,
-  otherItems,
-} from "@/constants/navLinks";
+import { serviceItems, trainingItems, signInItems } from "@/constants/navLinks";
 
 const navLinks = [
-  { title: "Home", href: "/" },
-  { title: "Our Services", subLinks: productItems },
-  { title: "Our Courses", subLinks: coursesItems },
-  { title: "Portal", subLinks: portalItems },
-  { title: "Others", subLinks: otherItems },
+  { title: "About Us", href: "/about-us" },
+  { title: "Services", subLinks: serviceItems },
+  { title: "Courses", subLinks: trainingItems },
+  { title: "Sign In", subLinks: signInItems },
 ];
 
 interface MobileNavProps {
@@ -83,7 +77,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
                 transition={{ duration: 0.3 }}
                 className="pl-4 flex flex-col gap-1 overflow-hidden"
               >
-                {subLinks.map((sub, index) => (
+                {/* {subLinks.map((sub, index) => (
                   <Link
                     key={index}
                     href="#"
@@ -91,7 +85,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
                   >
                     {sub}
                   </Link>
-                ))}
+                ))} */}
               </motion.div>
             )}
           </div>
@@ -107,7 +101,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
               fontSize: "12px",
             }}
           >
-            Send a Brief
+            Contact Us
           </Button>
         </Box>
       </div>
