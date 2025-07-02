@@ -44,15 +44,15 @@ const BootcampHero = ({
         </p>
 
         <div className="flex gap-3 flex-wrap mt-10">
-          <Button href="/trainings/register" className="text-white">
-            Register
+          <Button asChild className="text-white">
+            <Link href="/trainings/register">Register</Link>
           </Button>
           <Button
-            href="/trainings/curriculum"
+            asChild
             variant="outline"
             className="text-brand-primary bg-transparent border-brand-primary hover:bg-brand-secondary hover:text-brand-primary transition-all duration-300"
           >
-            Download Syllabus
+            <Link href="/trainings/curriculum">Download Syllabus</Link>
           </Button>
         </div>
       </div>

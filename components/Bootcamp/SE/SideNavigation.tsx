@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Button } from "@/ui/button";
 
 interface SideNavigationProps {
@@ -86,10 +87,10 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
           ))}
           <div className="p-4">
             <Button
-              href="/trainings/curriculum"
+              asChild
               className="w-full bg-brand-primary hover:bg-brand-primary/85 text-white"
             >
-              GET MY SYLLABUS
+              <Link href="/trainings/curriculum">GET MY SYLLABUS</Link>
             </Button>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/ui/button";
 import { Plus, Calendar } from "lucide-react";
 
@@ -188,10 +189,10 @@ const TuitionDates = () => {
 
       <div className="mt-8">
         <Button
-          href="/trainings/register"
+          asChild
           className="inline-block mt-4 text-white bg-brand-primary hover:bg-brand-primary/80"
         >
-          GET STARTED
+          <Link href="/trainings/register">GET STARTED</Link>
         </Button>
       </div>
 
@@ -213,10 +214,10 @@ const TuitionDates = () => {
             </div>
           </div>
           <Button
-            href="/trainings/register"
+            asChild
             className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80"
           >
-            Apply Now
+            <Link href="/trainings/register">Apply Now</Link>
           </Button>
         </div>
 
@@ -234,10 +235,10 @@ const TuitionDates = () => {
             </div>
           </div>
           <Button
-            href="/trainings/register"
+            asChild
             className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80"
           >
-            Apply Now
+            <Link href="/trainings/register">Apply Now</Link>
           </Button>
         </div>
 
@@ -255,10 +256,10 @@ const TuitionDates = () => {
             </div>
           </div>
           <Button
-            href="/trainings/register"
+            asChild
             className="w-full mt-4 bg-brand-primary hover:bg-brand-primary/80"
           >
-            Apply Now
+            <Link href="/trainings/register">Apply Now</Link>
           </Button>
         </div>
       </div>

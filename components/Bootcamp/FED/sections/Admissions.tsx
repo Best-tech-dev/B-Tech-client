@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Button } from "@/ui/button";
 import { CheckCircle, Users, LineChart } from "lucide-react";
 
@@ -64,10 +65,10 @@ const Admissions = () => {
 
       <div className="flex justify-center">
         <Button
-          href="/trainings/register"
+          asChild
           className="bg-brand-primary hover:bg-brand-primary/85 text-white text-sm md:text-base"
         >
-          START YOUR APPLICATION
+          <Link href="/trainings/register">START YOUR APPLICATION</Link>
         </Button>
       </div>
 
