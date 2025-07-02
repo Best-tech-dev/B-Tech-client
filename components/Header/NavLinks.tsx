@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Box, Button, MenuItem } from "@mui/material";
 import { motion } from "framer-motion";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { ArrowRight } from "lucide-react";
 import { serviceItems, trainingItems, signInItems } from "@/constants/navLinks";
 
 type NavItem = {
@@ -125,6 +126,17 @@ const NavLinks = () => {
                         }}
                       >
                         {group.label}
+                        <ArrowRight
+                          size={16}
+                          style={{
+                            marginLeft: "auto",
+                            transition: "transform 0.3s",
+                            transform:
+                              hoveredGroup === group.label
+                                ? "rotate(90deg)"
+                                : "rotate(0deg)",
+                          }}
+                        />
                       </Box>
 
                       {hoveredGroup === group.label && (

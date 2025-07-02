@@ -1,22 +1,15 @@
-"use client";
-
-import React from "react";
-import { useState } from "react";
-import Link from "next/link";
-import { Button } from "@/ui/Bootcamp/button";
-import { cn } from "@/lib/Bootcamp/utils";
-import emailjs from "@emailjs/browser";
+import React, { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/ui/dialog";
+import { Button } from "@/ui/button";
+import { Input } from "@/ui/input";
+import { Textarea } from "@/ui/textarea";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/ui/Bootcamp/select";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { toast } from "@/hooks/use-toast";
+} from "@/ui/select";
 import {
   Form,
   FormControl,
@@ -24,10 +17,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/ui/Bootcamp/form";
-import { Input } from "@/ui/Bootcamp/input";
-import { Textarea } from "@/ui/Bootcamp/textarea";
-import Image from "next/image";
+} from "@/ui/form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters."),
@@ -51,86 +45,86 @@ const formSchema = z.object({
     .min(1, "Please select your preferred contact method."),
 });
 
-const RegistrationForm = () => {
+interface RegistrationModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const RegistrationModal: React.FC<RegistrationModalProps> = ({
+  isOpen,
+  onClose,
+}) => {
+  const { toast } = useToast();
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      firstName: "",
       middleName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      location: "",
+      course: "",
+      skillLevel: "",
+      enrollmentGoal: "",
+      educationalStatus: "",
       referralSource: "",
       availability: "",
+      contactMethod: "",
     },
   });
 
-  const [showModal, setShowModal] = useState(false);
-
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const serviceID = "service_aa9zpom";
-      const templateID = "template_ter5rl4";
+      // Simulate form submission
+      console.log("Form submitted:", values);
 
-      await emailjs.send(
-        serviceID,
-        templateID,
-        {
-          first_name: values.firstName,
-          middle_name: values.middleName || "",
-          last_name: values.lastName,
-          email: values.email,
-          phone_number: values.phoneNumber,
-          location: values.location,
-          course: values.course,
-          skill_level: values.skillLevel,
-          goal: values.enrollmentGoal,
-          education_status: values.educationalStatus,
-          how_did_you_hear: values.referralSource,
-          available_for_call: values.availability,
-          best_way_to_reach: values.contactMethod,
-        },
-        "yiLVe4RkF36NThW-L"
-      );
+      // Show success modal
+      setShowSuccessModal(true);
 
-      //  Show the modal first
-      setShowModal(true);
+      // Hide success modal after 5 seconds
+      setTimeout(() => {
+        setShowSuccessModal(false);
+        onClose();
+        form.reset();
+      }, 5000);
 
-      //  Then hide it after 5 seconds
-      setTimeout(() => setShowModal(false), 5000);
-
-      // Optional toast
       toast({
-        title: "Form submitted!",
+        title: "Registration Submitted!",
         description:
           "One of our educational advisors will call you back shortly.",
       });
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description:
+          "There was an error submitting your registration. Please try again.",
+        variant: "destructive",
+      });
     }
   }
 
   return (
     <>
-      {/* <Navbar /> */}
-      <main className="container mx-auto px-2 md:px-6 lg:px-8 py-32 bg-[#161a25]">
-        <Image
-          src={"/logo-main.png"}
-          alt="Logo"
-          width={150}
-          height={40}
-          className="mx-auto mb-10"
-        />
-
-        <div className="max-w-3xl mx-auto border rounded-2xl px-2 md:px-8 py-10 shadow-lg bg-white">
-          <h1 className="text-3xl text-center md:text-4xl font-bold mb-4 text-[#a4cd39]">
-            Start Your Application
-          </h1>
-          <p className="text-xl mb-8 text-gray-700 text-center">
-            Fill in the form below to be called back by one of our educational
-            advisors and join the course of your choice.
-          </p>
-          <p className="mb-8 text-gray-600 text-center">
-            Once we receive your request, an advisor will call you back shortly
-            to discuss about your project and help you find the best course
-            adapted to your background and goals.
-          </p>
+      <Dialog open={isOpen} onOpenChange={onClose}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white">
+          <DialogHeader>
+            <DialogTitle className="text-3xl font-bold text-center text-brand-primary mb-4">
+              Start Your Application
+            </DialogTitle>
+            <p className="text-lg text-gray-700 text-center mb-2">
+              Fill in the form below to be called back by one of our educational
+              advisors and join the course of your choice.
+            </p>
+            <p className="text-gray-600 text-center mb-6">
+              Once we receive your request, an advisor will call you back
+              shortly to discuss your project and help you find the best course
+              adapted to your background and goals.
+            </p>
+          </DialogHeader>
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -140,13 +134,9 @@ const RegistrationForm = () => {
                   name="firstName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-black">First name*</FormLabel>
+                      <FormLabel>First name*</FormLabel>
                       <FormControl>
-                        <Input
-                          placeholder="Enter your first name"
-                          {...field}
-                          value={field.value ?? ""}
-                        />
+                        <Input placeholder="Enter your first name" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -158,7 +148,7 @@ const RegistrationForm = () => {
                   name="middleName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-black">Middle name</FormLabel>
+                      <FormLabel>Middle name</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Enter your middle name (optional)"
@@ -177,13 +167,9 @@ const RegistrationForm = () => {
                   name="lastName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-black">Last name*</FormLabel>
+                      <FormLabel>Last name*</FormLabel>
                       <FormControl>
-                        <Input
-                          placeholder="Enter your last name"
-                          {...field}
-                          value={field.value ?? ""}
-                        />
+                        <Input placeholder="Enter your last name" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -195,13 +181,12 @@ const RegistrationForm = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-black">Email*</FormLabel>
+                      <FormLabel>Email*</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Enter your email address"
                           type="email"
                           {...field}
-                          value={field.value ?? ""}
                         />
                       </FormControl>
                       <FormMessage />
@@ -216,15 +201,12 @@ const RegistrationForm = () => {
                   name="phoneNumber"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-black">
-                        Phone number*
-                      </FormLabel>
+                      <FormLabel>Phone number*</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Enter your phone number"
                           type="tel"
                           {...field}
-                          value={field.value ?? ""}
                         />
                       </FormControl>
                       <FormMessage />
@@ -237,9 +219,7 @@ const RegistrationForm = () => {
                   name="location"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-black">
-                        Pick your location*
-                      </FormLabel>
+                      <FormLabel>Pick your location*</FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -266,9 +246,7 @@ const RegistrationForm = () => {
                   name="course"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-black">
-                        Choose your preferred course*
-                      </FormLabel>
+                      <FormLabel>Choose your preferred course*</FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -310,9 +288,7 @@ const RegistrationForm = () => {
                   name="skillLevel"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-black">
-                        Select your skill level*
-                      </FormLabel>
+                      <FormLabel>Select your skill level*</FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -342,9 +318,7 @@ const RegistrationForm = () => {
                 name="enrollmentGoal"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-black">
-                      What is your goal for enrolling?*
-                    </FormLabel>
+                    <FormLabel>What is your goal for enrolling?*</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -380,7 +354,7 @@ const RegistrationForm = () => {
                 name="educationalStatus"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-black">
+                    <FormLabel>
                       Which option below best represents your educational
                       status?*
                     </FormLabel>
@@ -418,12 +392,10 @@ const RegistrationForm = () => {
                 name="referralSource"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-black">
-                      How did you hear about us?*
-                    </FormLabel>
+                    <FormLabel>How did you hear about us?*</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Tell us how you discovered our bootcamp"
+                        placeholder="Tell us how you discovered our services"
                         className="resize-none"
                         rows={3}
                         {...field}
@@ -439,9 +411,7 @@ const RegistrationForm = () => {
                 name="availability"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-black">
-                      When are you available for a call?*
-                    </FormLabel>
+                    <FormLabel>When are you available for a call?*</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="Please provide your availability for a callback"
@@ -460,9 +430,7 @@ const RegistrationForm = () => {
                 name="contactMethod"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-black">
-                      What is the best way to reach you?*
-                    </FormLabel>
+                    <FormLabel>What is the best way to reach you?*</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -482,61 +450,48 @@ const RegistrationForm = () => {
                 )}
               />
 
-              <Button
-                type="submit"
-                disabled={!form.formState.isValid}
-                className={cn(
-                  "bg-[#71990b] hover:bg-[#a3cd39e6] mt-4 w-full md:w-auto",
-                  !form.formState.isValid && "opacity-50 cursor-not-allowed"
-                )}
-              >
-                Submit
-              </Button>
+              <div className="flex gap-4 pt-6">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={onClose}
+                  className="flex-1"
+                >
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  className="flex-1 bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white hover:from-brand-primary-dark hover:to-brand-primary glow-button"
+                >
+                  Submit Application
+                </Button>
+              </div>
             </form>
           </Form>
-        </div>
-      </main>
-      {/* <Footer /> */}
-      <footer>
-        <div className="bg-[#161a25] text-white py-4 text-center">
-          <p>
-            &copy; {new Date().getFullYear()}
-            <Link href="/" className="text-[#a4cd39]">
-              {" "}
-              Best Technologies Ltd.
-            </Link>{" "}
-            All rights reserved.
-          </p>
-        </div>
-        <div className="bg-[#161a25] text-white py-4 text-center">
-          <p>
-            <Link href="/privacy-policy" className="underline text-[#a4cd39]">
-              Privacy Policy
-            </Link>{" "}
-            |{" "}
-            <Link href="/terms-of-service" className="underline text-[#a4cd39]">
-              Terms of Service
-            </Link>
-          </p>
-        </div>
-      </footer>
+        </DialogContent>
+      </Dialog>
 
-      {/* Form Submission Modal */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg p-6 shadow-lg max-w-sm w-full text-center">
-            <h2 className="text-lg font-semibold text-green-600 mb-2">
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg p-6 shadow-lg max-w-sm w-full text-center mx-4">
+            <h2 className="text-lg font-semibold text-brand-primary mb-2">
               Success!
             </h2>
-            <p className="text-gray-700">
-              Your form has been submitted successfully.
+            <p className="text-gray-700 mb-4">
+              Your application has been submitted successfully. An advisor will
+              contact you shortly.
             </p>
-            <button
-              onClick={() => setShowModal(false)}
-              className="mt-4 px-4 py-2 bg-[#2bcd15] text-white rounded hover:bg-green-700 transition"
+            <Button
+              onClick={() => {
+                setShowSuccessModal(false);
+                onClose();
+                form.reset();
+              }}
+              className="bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white hover:from-brand-primary-dark hover:to-brand-primary"
             >
               Close
-            </button>
+            </Button>
           </div>
         </div>
       )}
@@ -544,4 +499,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default RegistrationModal;

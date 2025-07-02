@@ -1,28 +1,20 @@
-// Defines the global Button component used throughout the app
-
-"use client";
-
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { useRouter } from "next/navigation";
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { cn } from "@/lib/Bootcamp/utils";
+import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm hover:cursor-pointer font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "hover:cursor-pointer text-sm font-medium rounded-md inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 ring-offset-white disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-white",
   {
     variants: {
       variant: {
-        default:
-          "bg-brand-primary text-primary-foreground hover:bg-brand-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        default: "bg-brand-primary text-white hover:bg-brand-primary-hover",
+        destructive: "bg-red-600 text-white hover:bg-red-700",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+          "border border-brand-primary text-brand-primary bg-transparent transition-transform duration-200 hover:scale-95",
+        secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
+        ghost: "hover:bg-gray-100 hover:text-gray-900",
         link: "text-brand-primary underline-offset-4 hover:underline",
       },
       size: {
@@ -43,39 +35,20 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
-  href?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    { className, variant, size, asChild = false, href, onClick, ...props },
-    ref
-  ) => {
-    const router = useRouter();
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
-
-    const handleClick = (
-      e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    ) => {
-      if (onClick) onClick(e);
-      if (href && !e.defaultPrevented) {
-        e.preventDefault(); // prevent form submit if inside one
-        router.push(href);
-      }
-    };
-
     return (
       <Comp
-        ref={ref}
-        type="button"
-        onClick={handleClick}
         className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
         {...props}
       />
     );
   }
 );
-
 Button.displayName = "Button";
 
 export { Button, buttonVariants };

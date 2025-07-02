@@ -1,0 +1,35 @@
+@tailwind utilities;
+
+@layer utilities {
+  /* Gradient Text Heading */
+  .text-gradient-heading {
+    @apply text-pretty text-[clamp(min(28px,6vw),6vw,56px)] font-bold leading-[116%] tracking-[-0.01em] md:mb-6 
+           bg-gradient-to-r from-brand-primary via-brand-accent to-[#004B23] 
+           dark:from-brand-primary dark:via-[#004B23] dark:to-brand-accent 
+           bg-clip-text text-transparent;
+  }
+
+  /* Icon Background Glow + Gradient Ring */
+  .icon-glow-bg {
+    @apply absolute inset-0 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary 
+           rounded-full blur-lg opacity-60 animate-pulse;
+  }
+
+  .icon-gradient-ring {
+    @apply relative bg-gradient-to-r from-brand-primary to-brand-accent p-3 rounded-full;
+  }
+
+  /*  Gradient Button (without group or hover states) */
+  .btn-gradient-primary {
+    @apply bg-gradient-to-r from-brand-primary to-brand-accent 
+           hover:from-brand-accent hover:to-brand-primary
+           font-semibold px-10 py-6 rounded-xl 
+           transition-all duration-300 transform hover:scale-105 
+           flex items-center gap-3 shadow-lg hover:shadow-brand-primary/25;
+  }
+
+  /* Icon inside button (hover handled in TSX via group) */
+  .btn-gradient-icon-hover {
+    @apply w-5 h-5 transition-transform duration-200;
+  }
+}
