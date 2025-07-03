@@ -67,7 +67,7 @@ const testimonials = [
 
 const HomepageTestimonials = () => {
   return (
-    <section className="relative py-32 px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+    <section className="relative py-24 md:py-32 px-4 md:px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
       {/* Subtle SVG background */}
       <div className="absolute inset-0">
         <svg
@@ -96,11 +96,11 @@ const HomepageTestimonials = () => {
       </div>
 
       <div className="relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 text-white">
             What Our Clients Say
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
             Don&apos;t just take our word for it - hear from the organizations
             we&apos;ve helped transform
           </p>
@@ -119,15 +119,15 @@ const HomepageTestimonials = () => {
                 key={testimonial.name}
                 className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 py-6"
               >
-                <div className="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brand-primary/30 hover:shadow-xl hover:shadow-brand-primary/10 relative h-full border border-brand-primary/20">
-                  <Quote className="w-8 h-8 text-brand-primary mb-4 opacity-50" />
+                <div className="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brand-primary/30 hover:shadow-xl hover:shadow-brand-primary/10 relative h-full border border-brand-primary/20">
+                  <Quote className="w-6 h-6 md:w-8 md:h-8 text-brand-primary mb-4 opacity-50" />
 
-                  <p className="text-gray-300 mb-6 leading-relaxed italic">
+                  <p className="text-sm md:text-base text-gray-300 mb-6 leading-relaxed italic">
                     &quot;{testimonial.content}&quot;
                   </p>
 
                   <div className="flex flex-col items-center text-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-accent rounded-full flex items-center justify-center text-white font-semibold">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-brand-primary to-brand-accent rounded-full flex items-center justify-center text-white font-semibold text-sm md:text-base">
                       {testimonial.name
                         .split(" ")
                         .map((n) => n[0])
@@ -135,10 +135,10 @@ const HomepageTestimonials = () => {
                     </div>
 
                     <div>
-                      <div className="font-semibold text-white">
+                      <div className="font-semibold text-white text-sm md:text-base">
                         {testimonial.name}
                       </div>
-                      <div className="text-sm text-gray-400">
+                      <div className="text-xs md:text-sm text-gray-400">
                         {testimonial.position}
                       </div>
                       <div className="text-xs text-brand-primary">
@@ -150,7 +150,7 @@ const HomepageTestimonials = () => {
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star
                           key={i}
-                          className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                          className="w-3 h-3 md:w-4 md:h-4 fill-yellow-400 text-yellow-400"
                         />
                       ))}
                     </div>

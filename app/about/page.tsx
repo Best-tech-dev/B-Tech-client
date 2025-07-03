@@ -4,17 +4,7 @@ import React from "react";
 
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
-import {
-  Users,
-  Target,
-  Award,
-  Globe,
-  Zap,
-  Heart,
-  CheckCircle,
-  ArrowRight,
-} from "lucide-react";
-import Image from "next/image";
+import { Target, Award, Globe, Zap, Heart, ArrowRight } from "lucide-react";
 
 const values = [
   {

@@ -9,6 +9,7 @@ import { useState } from "react";
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +17,6 @@ export default function NewsletterSection() {
     console.log("Newsletter signup:", email);
     setEmail("");
   };
-
   const handleNewsletterSubmit = () => {
     if (email.trim() && email.includes("@")) {
       // Handle newsletter signup
@@ -24,6 +24,7 @@ export default function NewsletterSection() {
       // Here you can add API call to submit the email
       // Example: await subscribeToNewsletter(email);
       setEmail("");
+      setShowSuccessModal(true); // Show the success modal
       // You could also show a success message here
     } else {
       console.log("Please enter a valid email address");
@@ -263,17 +264,17 @@ export default function NewsletterSection() {
         ></div>
       </div>
 
-      <div className="container mx-auto flex flex-col items-center justify-center px-4 pt-16 sm:px-6 md:pt-20">
+      <div className="container mx-auto flex flex-col items-center justify-center px-4 pt-12 sm:px-6 md:pt-20">
         {/* Logo */}
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-3 md:mb-4">
           {/* Vibrant animated logo */}
           <div className="flex justify-center relative">
-            <div className="h-[60px] w-[60px] flex items-center justify-center relative">
+            <div className="h-[50px] w-[50px] md:h-[60px] md:w-[60px] flex items-center justify-center relative">
               <div className="absolute inset-0 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary rounded-full blur-lg opacity-60 animate-pulse"></div>
-              <div className="relative bg-gradient-to-r from-brand-primary to-brand-accent p-3 rounded-full">
-                <Mail className="h-8 w-8 text-white" />
+              <div className="relative bg-gradient-to-r from-brand-primary to-brand-accent p-2 md:p-3 rounded-full">
+                <Mail className="h-6 w-6 md:h-8 md:w-8 text-white" />
               </div>
-              <Sparkles className="absolute -top-2 -right-2 h-4 w-4 text-yellow-400 animate-bounce" />
+              <Sparkles className="absolute -top-2 -right-2 h-3 w-3 md:h-4 md:w-4 text-yellow-400 animate-bounce" />
             </div>
           </div>
         </div>
@@ -287,30 +288,30 @@ export default function NewsletterSection() {
                   Unlock Amazing Content
                 </h2>
 
-                <div className="mb-8">
-                  <p className="text-slate-300 text-lg mb-6 max-w-2xl mx-auto">
+                <div className="mb-6 md:mb-8">
+                  <p className="text-slate-300 text-sm md:text-base lg:text-lg mb-4 md:mb-6 max-w-2xl mx-auto">
                     Get the latest insights, trends, and exclusive content
                     delivered straight to your inbox. Join thousands of
                     professionals who trust our newsletter.
                   </p>
 
                   {/* Feature highlights */}
-                  <div className="flex flex-wrap justify-center gap-4 mb-8">
-                    <div className="flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-4 py-2 rounded-full border border-cyan-400/30">
-                      <Zap className="h-4 w-4 text-yellow-400" />
-                      <span className="text-cyan-200 text-sm font-medium">
+                  <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-6 md:mb-8">
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-3 md:px-4 py-2 rounded-full border border-cyan-400/30">
+                      <Zap className="h-3 w-3 md:h-4 md:w-4 text-yellow-400" />
+                      <span className="text-cyan-200 text-xs md:text-sm font-medium">
                         Weekly Insights
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 px-4 py-2 rounded-full border border-purple-400/30">
-                      <Star className="h-4 w-4 text-yellow-400" />
-                      <span className="text-purple-200 text-sm font-medium">
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 px-3 md:px-4 py-2 rounded-full border border-purple-400/30">
+                      <Star className="h-3 w-3 md:h-4 md:w-4 text-yellow-400" />
+                      <span className="text-purple-200 text-xs md:text-sm font-medium">
                         Exclusive Content
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 px-4 py-2 rounded-full border border-green-400/30">
-                      <Sparkles className="h-4 w-4 text-yellow-400" />
-                      <span className="text-green-200 text-sm font-medium">
+                    <div className="flex items-center gap-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 px-3 md:px-4 py-2 rounded-full border border-green-400/30">
+                      <Sparkles className="h-3 w-3 md:h-4 md:w-4 text-yellow-400" />
+                      <span className="text-green-200 text-xs md:text-sm font-medium">
                         Early Access
                       </span>
                     </div>
@@ -318,7 +319,7 @@ export default function NewsletterSection() {
 
                   <form
                     onSubmit={handleSubmit}
-                    className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto w-full justify-center"
+                    className="flex flex-col sm:flex-row gap-3 md:gap-4 max-w-md mx-auto w-full justify-center"
                   >
                     <Input
                       type="email"
@@ -326,20 +327,42 @@ export default function NewsletterSection() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="flex-1 bg-slate-800/50 border-brand-primary text-slate-200 placeholder:text-slate-400 focus:border-brand-secondary py-6 rounded-xl transition-all duration-300 shadow-lg focus:shadow-brand-primary/25 hover:bg-slate-800/70 hover:border-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-opacity-50"
+                      className="flex-1 bg-slate-800/50 border-brand-primary text-slate-200 placeholder:text-slate-400 focus:border-brand-secondary py-4 md:py-6 rounded-xl transition-all duration-300 shadow-lg focus:shadow-brand-primary/25 hover:bg-slate-800/70 hover:border-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-secondary focus:ring-opacity-50 text-sm md:text-base"
                     />
                     <Button
                       type="submit"
-                      className="group btn-gradient-primary"
+                      className="group btn-gradient-primary px-4 md:px-6 py-4 md:py-6 text-sm md:text-base"
                       onClick={handleNewsletterSubmit}
                     >
                       Subscribe
-                      <ArrowRight className="btn-gradient-icon-hover group-hover:translate-x-1" />
+                      <ArrowRight className="btn-gradient-icon-hover group-hover:translate-x-1 w-4 h-4 md:w-5 md:h-5" />
                     </Button>
+                    {/* Success Modal */}
+                    {showSuccessModal && (
+                      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+                        <div className="bg-white rounded-lg shadow-lg p-6 md:p-8 max-w-sm w-full text-center">
+                          <div className="flex justify-center mb-4">
+                            <Sparkles className="h-6 w-6 md:h-8 md:w-8 text-green-500 animate-bounce" />
+                          </div>
+                          <h3 className="text-base md:text-lg font-semibold mb-2 text-slate-900">
+                            Subscription Successful!
+                          </h3>
+                          <p className="text-slate-600 mb-4 text-sm md:text-base">
+                            Thank you for subscribing to our newsletter.
+                          </p>
+                          <Button
+                            className="btn-gradient-primary w-full text-sm md:text-base"
+                            onClick={() => setShowSuccessModal(false)}
+                          >
+                            Close
+                          </Button>
+                        </div>
+                      </div>
+                    )}
                   </form>
                 </div>
 
-                <div className="text-xs text-slate-500 max-w-md mx-auto">
+                <div className="text-xs md:text-sm text-slate-500 max-w-md mx-auto">
                   By subscribing, you agree to our Privacy Policy and consent to
                   receive updates from our company.
                 </div>

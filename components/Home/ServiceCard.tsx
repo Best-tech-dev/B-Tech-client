@@ -1,5 +1,7 @@
 import React from "react";
-
+import Link from "next/link";
+import { Button } from "@/ui/button";
+import { ArrowRight, BookOpen } from "lucide-react";
 import Image from "next/image";
 
 // Props for text-only cards
@@ -7,6 +9,7 @@ interface TextCardProps {
   title: string;
   description: string;
   icon: React.ReactNode;
+  href: string;
   className?: string;
 }
 
@@ -16,6 +19,7 @@ interface ImageCardProps {
   description: string;
   icon: React.ReactNode;
   image: string;
+  href: string;
   imagePosition?: "top" | "bottom";
   className?: string;
 }
@@ -25,38 +29,44 @@ const TextCard: React.FC<TextCardProps> = ({
   title,
   description,
   icon,
+  href,
   className = "",
 }) => {
   return (
-    <div
-      className={`
-      bg-gray-800/80 backdrop-blur-sm 
-      border border-brand-primary/20 
-      rounded-lg 
-      p-8 
-      min-w-[280px] w-full
-      hover:border-brand-primary/40 hover:bg-gray-800/95
-      transition-all duration-300 
-      hover:transform hover:scale-105
-      shadow-lg hover:shadow-xl
-      ${className}
-    `}
-    >
-      {/* Icon */}
-      <div className="flex justify-center mb-4">
-        <div className="text-brand-primary text-2xl">{icon}</div>
+    <Link href={href} className="block group">
+      <div
+        className={`
+        bg-gray-800/80 backdrop-blur-sm 
+        border border-brand-primary/20 
+        rounded-lg 
+        p-8 
+        min-w-[280px] w-full
+        group-hover:border-brand-primary/40 group-hover:bg-gray-800/95
+        transition-all duration-300 
+        group-hover:transform group-hover:scale-105
+        shadow-lg group-hover:shadow-xl
+        cursor-pointer
+        ${className}
+      `}
+      >
+        {/* Icon */}
+        <div className="flex justify-center mb-4">
+          <div className="text-brand-primary text-2xl group-hover:scale-110 transition-transform duration-300">
+            {icon}
+          </div>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-white text-xl font-semibold mb-4 text-center group-hover:text-brand-primary transition-colors duration-300">
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-gray-300 text-sm leading-relaxed text-center">
+          {description}
+        </p>
       </div>
-
-      {/* Title */}
-      <h3 className="text-white text-xl font-semibold mb-4 text-center">
-        {title}
-      </h3>
-
-      {/* Description */}
-      <p className="text-gray-300 text-sm leading-relaxed text-center">
-        {description}
-      </p>
-    </div>
+    </Link>
   );
 };
 
@@ -66,6 +76,7 @@ const ImageCard: React.FC<ImageCardProps> = ({
   description,
   icon,
   image,
+  href,
   imagePosition = "bottom",
   className = "",
 }) => {
@@ -73,11 +84,13 @@ const ImageCard: React.FC<ImageCardProps> = ({
     <div className="p-8">
       {/* Icon */}
       <div className="flex justify-center mb-4">
-        <div className="text-brand-primary text-2xl">{icon}</div>
+        <div className="text-brand-primary text-2xl group-hover:scale-110 transition-transform duration-300">
+          {icon}
+        </div>
       </div>
 
       {/* Title */}
-      <h3 className="text-white text-xl font-semibold mb-4 text-center">
+      <h3 className="text-white text-xl font-semibold mb-4 text-center group-hover:text-brand-primary transition-colors duration-300">
         {title}
       </h3>
 
@@ -95,38 +108,41 @@ const ImageCard: React.FC<ImageCardProps> = ({
         height={200}
         src={image}
         alt={title}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
       />
     </div>
   );
 
   return (
-    <div
-      className={`
-      bg-gray-800/90 backdrop-blur-sm 
-      border border-brand-primary/20 
-      rounded-lg 
-      overflow-hidden
-      min-w-[280px] w-full
-      hover:border-brand-primary/40 hover:bg-gray-800/95
-      transition-all duration-300 
-      hover:transform hover:scale-105
-      shadow-lg hover:shadow-xl
-      ${className}
-    `}
-    >
-      {imagePosition === "top" ? (
-        <>
-          {imageElement}
-          {textContent}
-        </>
-      ) : (
-        <>
-          {textContent}
-          {imageElement}
-        </>
-      )}
-    </div>
+    <Link href={href} className="block group">
+      <div
+        className={`
+        bg-gray-800/90 backdrop-blur-sm 
+        border border-brand-primary/20 
+        rounded-lg 
+        overflow-hidden
+        min-w-[280px] w-full
+        group-hover:border-brand-primary/40 group-hover:bg-gray-800/95
+        transition-all duration-300 
+        group-hover:transform group-hover:scale-105
+        shadow-lg group-hover:shadow-xl
+        cursor-pointer
+        ${className}
+      `}
+      >
+        {imagePosition === "top" ? (
+          <>
+            {imageElement}
+            {textContent}
+          </>
+        ) : (
+          <>
+            {textContent}
+            {imageElement}
+          </>
+        )}
+      </div>
+    </Link>
   );
 };
 
@@ -282,7 +298,8 @@ const HomepageServiceCards: React.FC = () => {
         <p className="text-xl text-gray-300 max-w-2xl text-center mx-auto mb-16">
           Empowering businesses with cutting-edge digital solutions and
           AI-driven transformation for sustainable growth and competitive
-          advantage.
+          advantage. Each card below is clickable—select any service to find out
+          more about how we can help.
         </p>
 
         {/* Manual masonry layout */}
@@ -294,6 +311,7 @@ const HomepageServiceCards: React.FC = () => {
               description="Professional websites and custom solutions with responsive design and optimal performance for exceptional user experiences."
               icon={<WebDevelopmentIcon />}
               image={webDevImage}
+              href="/services/web-development"
               imagePosition="top"
             />
 
@@ -301,6 +319,7 @@ const HomepageServiceCards: React.FC = () => {
               title="Digital Marketing"
               description="Comprehensive strategies including SEO, social media management, and multi-platform advertising to amplify your online presence."
               icon={<DigitalMarketingIcon />}
+              href="/services/digital-marketing"
             />
           </div>
 
@@ -310,6 +329,7 @@ const HomepageServiceCards: React.FC = () => {
               title="AI & Machine Learning"
               description="Harness the power of AI/ML for smarter decision-making, personalized experiences, and sustainable digital transformation."
               icon={<AIMLIcon />}
+              href="/services/ai-machine-learning"
             />
 
             <ImageCard
@@ -317,6 +337,7 @@ const HomepageServiceCards: React.FC = () => {
               description="Strategic technology implementation covering digital maturity assessment, cloud migration, and IoT integration for modern operations."
               icon={<DigitalTransformationIcon />}
               image={digitalTransformationImage}
+              href="/services/digital-transformation"
               imagePosition="bottom"
             />
           </div>
@@ -328,6 +349,7 @@ const HomepageServiceCards: React.FC = () => {
               description="Modern iOS and Android applications using Flutter and React Native with exceptional UI/UX design and optimal performance."
               icon={<MobileAppIcon />}
               image={mobileAppImage}
+              href="/services/mobile-app-development"
               imagePosition="top"
             />
 
@@ -335,8 +357,32 @@ const HomepageServiceCards: React.FC = () => {
               title="Brand & Motion Design"
               description="Compelling brand identities with logo design, visual development, motion graphics, and 2D/3D animation for digital platforms."
               icon={<BrandDesignIcon />}
+              href="/services/brand-motion-design"
             />
           </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-16">
+          <Button
+            asChild
+            className="group bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary text-white font-semibold px-8 py-6 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-3 shadow-lg hover:shadow-brand-primary/25"
+          >
+            <Link href="/services">
+              View All Services
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+            </Link>
+          </Button>
+
+          <Button
+            asChild
+            className="group bg-gradient-to-r from-purple-600 to-blue-600 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-8 py-6 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-3 shadow-lg hover:shadow-purple-500/25"
+          >
+            <Link href="/trainings">
+              View Our Trainings
+              <BookOpen className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+            </Link>
+          </Button>
         </div>
       </div>
     </div>

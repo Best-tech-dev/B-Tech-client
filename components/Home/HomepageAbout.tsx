@@ -12,12 +12,15 @@ const HomepageAbout = () => {
   });
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const targetValues = {
-    projects: 150,
-    clients: 50,
-    retention: 99,
-    support: 24,
-  };
+  const targetValues = React.useMemo(
+    () => ({
+      projects: 150,
+      clients: 50,
+      retention: 99,
+      support: 24,
+    }),
+    []
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,12 +66,12 @@ const HomepageAbout = () => {
 
       return () => clearInterval(timer);
     }
-  }, [isVisible]);
+  }, [isVisible, targetValues]);
 
   return (
     <section
       id="about"
-      className="relative py-32 px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden"
+      className="relative py-24 md:py-32 px-4 md:px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden"
     >
       {/* Subtle SVG background */}
       <div className="absolute inset-0">
@@ -103,12 +106,12 @@ const HomepageAbout = () => {
       </div>
 
       <div className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 text-white">
               Driving Innovation Forward
             </h2>
-            <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+            <div className="space-y-4 md:space-y-6 text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed">
               <p>
                 With a foundation built on technical excellence and customer
                 satisfaction, Best Technologies Limited is at the forefront of
@@ -129,30 +132,38 @@ const HomepageAbout = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8" ref={sectionRef}>
-            <div className="text-center p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="text-4xl font-bold text-brand-primary mb-2">
+          <div className="grid grid-cols-2 gap-4 md:gap-8" ref={sectionRef}>
+            <div className="text-center p-4 md:p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-primary mb-2">
                 {counts.projects}+
               </div>
-              <div className="text-gray-300 text-sm">Projects Delivered</div>
+              <div className="text-gray-300 text-xs md:text-sm">
+                Projects Delivered
+              </div>
             </div>
-            <div className="text-center p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="text-4xl font-bold text-brand-primary mb-2">
+            <div className="text-center p-4 md:p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-primary mb-2">
                 {counts.clients}+
               </div>
-              <div className="text-gray-300 text-sm">Happy Clients</div>
+              <div className="text-gray-300 text-xs md:text-sm">
+                Happy Clients
+              </div>
             </div>
-            <div className="text-center p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="text-4xl font-bold text-brand-primary mb-2">
+            <div className="text-center p-4 md:p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-primary mb-2">
                 {counts.retention}%
               </div>
-              <div className="text-gray-300 text-sm">Client Retention</div>
+              <div className="text-gray-300 text-xs md:text-sm">
+                Client Retention
+              </div>
             </div>
-            <div className="text-center p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
-              <div className="text-4xl font-bold text-brand-primary mb-2">
+            <div className="text-center p-4 md:p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-brand-primary mb-2">
                 {counts.support}/7
               </div>
-              <div className="text-gray-300 text-sm">Support Available</div>
+              <div className="text-gray-300 text-xs md:text-sm">
+                Support Available
+              </div>
             </div>
           </div>
         </div>

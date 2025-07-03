@@ -34,14 +34,16 @@ const FeatureCard = ({
   title: string;
   description: string;
 }) => (
-  <div className="group bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:-translate-y-2">
-    <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-      <Icon className="w-8 h-8 text-white" />
+  <div className="group bg-gray-800/40 backdrop-blur-sm rounded-2xl p-4 md:p-6 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:-translate-y-2">
+    <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-brand-primary to-brand-accent rounded-xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
+      <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
     </div>
-    <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-brand-primary transition-colors">
+    <h3 className="text-lg md:text-xl font-semibold text-white mb-3 md:mb-4 group-hover:text-brand-primary transition-colors">
       {title}
     </h3>
-    <p className="text-gray-300 leading-relaxed">{description}</p>
+    <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+      {description}
+    </p>
   </div>
 );
 
@@ -50,13 +52,13 @@ const MarqueeItem = ({ src, index }: { src: string; index: number }) => {
 
   return (
     <div
-      className="flex-shrink-0 mx-4 relative group w-[28rem] h-[18rem]"
+      className="flex-shrink-0 mx-2 md:mx-4 relative group w-[20rem] h-[12rem] md:w-[28rem] md:h-[18rem]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
         className={`
-        w-[28rem] h-[18rem] rounded-lg overflow-hidden border border-gray-300 transition-all duration-500
+        w-[20rem] h-[12rem] md:w-[28rem] md:h-[18rem] rounded-lg overflow-hidden border border-gray-300 transition-all duration-500
         ${
           isHovered
             ? "opacity-100 scale-105 shadow-2xl shadow-brand-primary/20"
@@ -131,7 +133,7 @@ export default function HomepagePortfolioSection() {
     },
   ];
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20 px-4 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16 md:py-20 px-4 overflow-hidden">
       {/* Complex geometric background pattern inspired by fffuel.co */}
       <div className="absolute inset-0 overflow-hidden">
         <svg
@@ -172,11 +174,11 @@ export default function HomepagePortfolioSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6">
             Our Portfolio Projects
           </h2>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Explore how we&apos;ve helped digital agencies elevate their brands,
             streamline workflows, and deliver impactful digital experiences
             through innovative design and technology.
@@ -184,14 +186,14 @@ export default function HomepagePortfolioSection() {
         </div>
 
         {/* Top Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
           {topFeatures.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}
         </div>
         {/* Marquee Item size is now controlled by Tailwind classes on the MarqueeItem component */}
         {/* Marquee Section with Gradient Glows */}
-        <div className="relative mb-8">
+        <div className="relative mb-6 md:mb-8">
           {/* First Marquee - Moving Right */}
           <div className="marquee-container mb-2">
             <div className="marquee-right flex">
@@ -212,7 +214,7 @@ export default function HomepagePortfolioSection() {
         </div>
 
         {/* Bottom Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {bottomFeatures.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}

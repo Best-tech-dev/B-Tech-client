@@ -13,15 +13,6 @@ import {
   DialogDescription,
 } from "@/ui/dialog";
 
-type FormData = {
-  name: string;
-  phone: string;
-  email: string;
-  company: string;
-  projectDetails: string;
-  service: string;
-};
-
 const services = [
   "Web Development",
   "Mobile App Development",
@@ -77,7 +68,7 @@ const HomepageContact = () => {
     toast({
       title: "Message Sent!",
       description:
-        "Thank you for your inquiry. We'll get back to you within 24 hours.",
+        "Thank you for your inquiry. We&apos;ll get back to you within 24 hours.",
     });
   };
 
@@ -92,8 +83,8 @@ const HomepageContact = () => {
 
   return (
     <section
-      id="contact"
-      className="relative py-32 px-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden"
+      id="get-in-touch-form"
+      className="relative py-24 md:py-32 px-4 md:px-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden scroll-mt-24"
     >
       {/* Subtle SVG background */}
       <div className="absolute inset-0">
@@ -128,24 +119,25 @@ const HomepageContact = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 text-white">
             Get In Touch
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your business with cutting-edge technology? Let's
-            discuss your project and create something amazing together.
+          <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto">
+            Ready to transform your business with cutting-edge technology?
+            Let&apos;s discuss your project and create something amazing
+            together.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold mb-6 text-white">
+              <h3 className="text-lg md:text-xl lg:text-2xl font-semibold mb-4 md:mb-6 text-white">
                 Let&apos;s Start a Conversation
               </h3>
-              <p className="text-gray-300 leading-relaxed mb-8">
+              <p className="text-sm md:text-base text-gray-300 leading-relaxed mb-6 md:mb-8">
                 Whether you&apos;re looking to modernize your existing systems,
                 build something entirely new, or need strategic technology
                 guidance, we&apos;re here to help. Our team of experts is ready
@@ -153,34 +145,44 @@ const HomepageContact = () => {
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-brand-primary" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-primary/20 rounded-full flex items-center justify-center">
+                  <Mail className="w-5 h-5 md:w-6 md:h-6 text-brand-primary" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Email</h4>
-                  <p className="text-gray-300">hello@besttechnologiesltd.com</p>
+                  <h4 className="text-white font-semibold text-sm md:text-base">
+                    Email
+                  </h4>
+                  <p className="text-gray-300 text-sm md:text-base">
+                    hello@besttechnologiesltd.com
+                  </p>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-brand-primary" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-primary/20 rounded-full flex items-center justify-center">
+                  <Phone className="w-5 h-5 md:w-6 md:h-6 text-brand-primary" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Phone</h4>
-                  <p className="text-gray-300">+234 802 532 1179</p>
+                  <h4 className="text-white font-semibold text-sm md:text-base">
+                    Phone
+                  </h4>
+                  <p className="text-gray-300 text-sm md:text-base">
+                    +234 802 532 1179
+                  </p>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-brand-primary/20 rounded-full flex items-center justify-center">
-                  <MapPin className="w-6 h-6 text-brand-primary" />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-primary/20 rounded-full flex items-center justify-center">
+                  <MapPin className="w-5 h-5 md:w-6 md:h-6 text-brand-primary" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Location</h4>
-                  <p className="text-gray-300">
+                  <h4 className="text-white font-semibold text-sm md:text-base">
+                    Location
+                  </h4>
+                  <p className="text-gray-300 text-sm md:text-base">
                     The Knowledge Hub, Oke Ado, Ibadan, Nigeria
                   </p>
                 </div>
@@ -189,17 +191,19 @@ const HomepageContact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-brand-primary/20">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-brand-primary/20">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               {/* Services Selection */}
               <div>
-                <h4 className="text-white font-semibold mb-4">Services</h4>
-                <div className="grid grid-cols-2 gap-3">
+                <h4 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">
+                  Services
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
                   {services.map((service) => (
                     <Button
                       key={service}
                       type="button"
-                      className={`px-4 py-2 text-sm border rounded-lg transition-all duration-200 ${
+                      className={`px-3 md:px-4 py-2 text-xs md:text-sm border rounded-lg transition-all duration-200 ${
                         selectedService === service
                           ? "border-brand-primary bg-brand-primary/20 text-brand-primary"
                           : "border-gray-600 bg-gray-800/50 text-gray-300 hover:border-brand-primary/50"
@@ -221,7 +225,7 @@ const HomepageContact = () => {
                     onChange={handleChange}
                     placeholder="Your name*"
                     required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base"
                   />
                 </div>
 
@@ -232,7 +236,7 @@ const HomepageContact = () => {
                     onChange={handleChange}
                     placeholder="Your phone*"
                     required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base"
                   />
                 </div>
               </div>
@@ -245,7 +249,7 @@ const HomepageContact = () => {
                   onChange={handleChange}
                   placeholder="Your email*"
                   required
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base"
                 />
               </div>
 
@@ -255,7 +259,7 @@ const HomepageContact = () => {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Your company (optional)"
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base"
                 />
               </div>
 
@@ -266,16 +270,16 @@ const HomepageContact = () => {
                   onChange={handleChange}
                   placeholder="Tell us about your project..."
                   required
-                  className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 resize-none"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 resize-none text-sm md:text-base"
                   rows={4}
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-brand-primary to-brand-accent text-white font-semibold py-6 px-6 rounded-lg hover:from-brand-primary/90 hover:to-brand-accent/90 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-brand-primary to-brand-accent text-white font-semibold py-4 md:py-6 px-6 rounded-lg hover:from-brand-primary/90 hover:to-brand-accent/90 transition-all duration-200 flex items-center justify-center gap-2 text-sm md:text-base"
               >
-                <Send className="w-5 h-5" />
+                <Send className="w-4 h-4 md:w-5 md:h-5" />
                 Send Message
               </Button>
             </form>
@@ -294,8 +298,8 @@ const HomepageContact = () => {
               Message Sent Successfully!
             </DialogTitle>
             <DialogDescription className="text-gray-300 mt-2">
-              Thank you for reaching out to us. We've received your message and
-              will get back to you within 24 hours.
+              Thank you for reaching out to us. We&apos;ve received your message
+              and will get back to you within 24 hours.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="mt-6">
