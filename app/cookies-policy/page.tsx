@@ -3,7 +3,7 @@
 import React from "react";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
-import GetInTouch from "@/components/Footer/GetInTouch";
+import Link from "next/link";
 import {
   Cookie,
   Settings,
@@ -118,7 +118,7 @@ const CookiesPolicy = () => {
             </p>
             <div className="flex items-center justify-center mt-8 text-gray-400">
               <Clock className="w-5 h-5 mr-2" />
-              <span>Last updated: January 2025</span>
+              <span>Last updated: March 2025</span>
             </div>
           </div>
         </section>
@@ -262,20 +262,17 @@ const CookiesPolicy = () => {
               If you have questions about our use of cookies or need help
               managing your preferences, we&apos;re here to help.
             </p>
-            <a
+            <Link
               href="/contact"
-              className="bg-brand-primary text-gray-900 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40 inline-block"
+              className="bg-brand-primary text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40 inline-block"
             >
               Contact Our Team
-            </a>
+            </Link>
           </div>
         </section>
       </main>
 
-      <footer id="contact" className="scroll-m-24">
-        <GetInTouch />
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
