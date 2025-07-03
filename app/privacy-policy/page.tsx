@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
 import GetInTouch from "@/components/Footer/GetInTouch";
@@ -129,7 +130,7 @@ const PrivacyPolicy = () => {
         <section className="pt-32 pb-20 px-8">
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-20 h-20 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-brand-primary/30">
-              <Shield className="w-10 h-10 text-gray-900" />
+              <Shield className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
               Privacy Policy
@@ -141,7 +142,7 @@ const PrivacyPolicy = () => {
             </p>
             <div className="flex items-center justify-center mt-8 text-gray-400">
               <Clock className="w-5 h-5 mr-2" />
-              <span>Last updated: January 2025</span>
+              <span>Last updated: March 2025</span>
             </div>
           </div>
         </section>
@@ -157,7 +158,7 @@ const PrivacyPolicy = () => {
                 >
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-r from-brand-primary to-brand-accent rounded-xl flex items-center justify-center mr-4 group-hover:shadow-lg group-hover:shadow-brand-primary/30 transition-all duration-300">
-                      <section.icon className="w-6 h-6 text-gray-900" />
+                      <section.icon className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-2xl font-semibold text-white">
                       {section.title}
@@ -190,27 +191,24 @@ const PrivacyPolicy = () => {
               out to our team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/contact"
-                className="bg-brand-primary text-gray-900 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40"
+                className="bg-brand-primary text-white px-8 pt-[18px] rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40"
               >
                 Contact Us
-              </a>
-              <a
-                href="mailto:privacy@besttechnologies.com"
-                className="bg-transparent border-2 border-brand-primary text-brand-primary px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-brand-primary hover:text-gray-900"
+              </Link>
+              <Link
+                href="mailto:hello@besttechnologiesltd.com"
+                className="bg-transparent border-2 border-brand-primary text-brand-primary px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-brand-primary hover:text-white"
               >
                 Email Privacy Team
-              </a>
+              </Link>
             </div>
           </div>
         </section>
       </main>
 
-      <footer id="contact" className="scroll-m-24">
-        <GetInTouch />
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
