@@ -5,7 +5,7 @@ const NewLandingPageHero = () => {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-br from-black via-brand-secondary to-brand-neutral-near-black relative overflow-hidden"
+      className="min-h-screen py-20 bg-gradient-to-br from-black via-brand-secondary to-brand-neutral-near-black relative overflow-hidden flex items-center"
     >
       {/* Background elements */}
       <div className="absolute inset-0">

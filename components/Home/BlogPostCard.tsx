@@ -28,8 +28,12 @@ const BlogPostCard: React.FC<BlogPost> = ({
   return (
     <Link
       href={href}
-      className={`relative p-4 transition-all duration-300 border-b-2 border-gray-500 group 
-      ${isHovered ? "bg-[#7ca412] text-white" : ""} 
+      className={`relative p-4 transition-all duration-300 border-b-2 border-gray-600/50 group rounded-lg hover:bg-brand-primary/10 hover:border-brand-primary/30 
+      ${
+        isHovered
+          ? "bg-brand-primary/20 text-white border-brand-primary/50"
+          : "text-gray-300"
+      } 
       ${isLastItem ? "border-none" : ""} 
       md:border-none`} // Remove border on last item & for tablets+
       onMouseEnter={onHover}

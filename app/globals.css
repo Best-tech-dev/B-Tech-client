@@ -90,6 +90,30 @@
   border-bottom: 1px solid rgba(164, 205, 57, 0.2);
 }
 
+@utility bg-gradient-radial {
+  background: radial-gradient(
+    circle,
+    var(--tw-gradient-from),
+    var(--tw-gradient-to)
+  );
+}
+
+@utility bg-gradient-conic {
+  background: conic-gradient(
+    from 0deg,
+    var(--tw-gradient-from),
+    var(--tw-gradient-via, transparent),
+    var(--tw-gradient-to)
+  );
+}
+
+@utility text-gradient-heading {
+  background: linear-gradient(135deg, #9ef01a 0%, #70e000 50%, #9ef01a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Custom classes that aren't utilities */
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */

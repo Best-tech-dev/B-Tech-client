@@ -47,13 +47,13 @@ import { blogPosts } from "@/constants/blogPosts";
 
 const RecentPostsMobile: React.FC = () => {
   return (
-    <article className="w-full px-4 md:px-12 py-16 bg-gray-200">
+    <article className="w-full px-4 md:px-12 py-16 bg-transparent">
       {/* Header Section */}
       <div className="mb-8 text-left">
-        <h3 className="text-3xl text-black font-bold mb-4">
+        <h3 className="text-3xl text-white font-bold mb-4">
           Recently on our blog
         </h3>
-        <p className="text-black text-sm">
+        <p className="text-gray-300 text-sm">
           Explore our tech insights hub for expert perspectives on industry
           trends, tutorials, and digital transformation strategies.
         </p>
@@ -65,7 +65,7 @@ const RecentPostsMobile: React.FC = () => {
           <Link
             key={post.title}
             href={post.href}
-            className={`relative py-4 transition-all duration-300 group ${
+            className={`relative py-4 transition-all duration-300 group bg-white/5 backdrop-blur-sm border border-brand-primary/20 rounded-lg p-4 hover:border-brand-primary/40 hover:bg-white/10 ${
               index === 0 ? "" : ""
             }`}
           >
@@ -81,17 +81,17 @@ const RecentPostsMobile: React.FC = () => {
             </div>
 
             {/* Title */}
-            <h3 className="font-bold text-black text-md group-hover:underline transition-all">
+            <h3 className="font-bold text-white text-md group-hover:underline transition-all">
               {post.title}
             </h3>
 
             {/* Date & Category */}
-            <p className="text-xs mt-2 text-black flex items-center justify-between">
+            <p className="text-xs mt-2 text-gray-300 flex items-center justify-between">
               <span>
                 {post.date} | {post.category}
               </span>
               <span className="inline-block transition-transform duration-300 group-hover:scale-y-[-1]">
-                <BsArrow90DegUp className="inline-block ml-1 text-lg scale-x-[-1]" />
+                <BsArrow90DegUp className="inline-block ml-1 text-lg scale-x-[-1] text-brand-primary" />
               </span>
             </p>
           </Link>

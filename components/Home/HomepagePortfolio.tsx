@@ -34,12 +34,12 @@ const FeatureCard = ({
   title: string;
   description: string;
 }) => (
-  <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-6 hover:border-[#9ef01a]/30 transition-all duration-300">
-    <div className="w-12 h-12 bg-[#9ef01a]/10 rounded-lg flex items-center justify-center mb-4">
-      <Icon className="w-6 h-6 text-[#9ef01a]" />
+  <div className="bg-white/70 backdrop-blur-sm border border-brand-primary/20 rounded-xl p-6 hover:border-brand-primary/40 hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl">
+    <div className="w-12 h-12 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-4">
+      <Icon className="w-6 h-6 text-brand-primary" />
     </div>
-    <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
-    <p className="text-gray-400 leading-relaxed">{description}</p>
+    <h3 className="text-xl font-semibold text-gray-800 mb-3">{title}</h3>
+    <p className="text-gray-600 leading-relaxed">{description}</p>
   </div>
 );
 
@@ -54,11 +54,11 @@ const MarqueeItem = ({ src, index }: { src: string; index: number }) => {
     >
       <div
         className={`
-        w-[28rem] h-[18rem] rounded-lg overflow-hidden border border-gray-700 transition-all duration-500
+        w-[28rem] h-[18rem] rounded-lg overflow-hidden border border-gray-300 transition-all duration-500
         ${
           isHovered
-            ? "opacity-100 scale-105 shadow-2xl shadow-[#9ef01a]/20"
-            : "opacity-40 grayscale"
+            ? "opacity-100 scale-105 shadow-2xl shadow-brand-primary/20"
+            : "opacity-60 grayscale"
         }
       `}
       >
@@ -128,16 +128,53 @@ export default function HomepagePortfolioSection() {
         "Monitor project success with real-time analytics and actionable insights.",
     },
   ];
-
   return (
-    <section className="bg-black py-20 px-4 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-20 px-4 overflow-hidden">
+      {/* Complex geometric background pattern inspired by fffuel.co */}
+      <div className="absolute inset-0 overflow-hidden">
+        <svg
+          className="absolute inset-0 w-full h-full opacity-20"
+          viewBox="0 0 800 800"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern
+              id="hexPattern"
+              x="0"
+              y="0"
+              width="60"
+              height="60"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M30 5 L50 20 L50 40 L30 55 L10 40 L10 20 Z"
+                stroke="#9ef01a"
+                strokeWidth="1"
+                fill="none"
+                opacity="0.3"
+              />
+            </pattern>
+            <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#9ef01a" stopOpacity="0.8" />
+              <stop offset="50%" stopColor="#70e000" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hexPattern)" />
+          <circle cx="200" cy="200" r="150" fill="url(#glowGradient)" />
+          <circle cx="600" cy="600" r="200" fill="url(#glowGradient)" />
+        </svg>
+        <div className="absolute top-10 left-10 w-72 h-72 bg-brand-primary/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl animate-pulse"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-bold text-gradient-heading mb-6">
             Our Portfolio Projects
           </h2>
-          <p className="text-xl text-neutral-300 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Explore how we&apos;ve helped digital agencies elevate their brands,
             streamline workflows, and deliver impactful digital experiences
             through innovative design and technology.

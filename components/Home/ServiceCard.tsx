@@ -30,15 +30,15 @@ const TextCard: React.FC<TextCardProps> = ({
   return (
     <div
       className={`
-      bg-gradient-to-br from-slate-900/50 to-brand-primary/30 
-      backdrop-blur-sm 
+      bg-white/80 backdrop-blur-sm 
       border border-brand-primary/20 
       rounded-lg 
       p-8 
       min-w-[280px] w-full
-      hover:border-brand-primary/40 
+      hover:border-brand-primary/40 hover:bg-white/95
       transition-all duration-300 
       hover:transform hover:scale-105
+      shadow-lg hover:shadow-xl
       ${className}
     `}
     >
@@ -48,12 +48,12 @@ const TextCard: React.FC<TextCardProps> = ({
       </div>
 
       {/* Title */}
-      <h3 className="text-white text-xl font-semibold mb-4 text-center">
+      <h3 className="text-gray-800 text-xl font-semibold mb-4 text-center">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-400 text-sm leading-relaxed text-center">
+      <p className="text-gray-600 text-sm leading-relaxed text-center">
         {description}
       </p>
     </div>
@@ -77,12 +77,12 @@ const ImageCard: React.FC<ImageCardProps> = ({
       </div>
 
       {/* Title */}
-      <h3 className="text-white text-xl font-semibold mb-4 text-center">
+      <h3 className="text-gray-800 text-xl font-semibold mb-4 text-center">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-400 text-sm leading-relaxed text-center">
+      <p className="text-gray-600 text-sm leading-relaxed text-center">
         {description}
       </p>
     </div>
@@ -103,15 +103,15 @@ const ImageCard: React.FC<ImageCardProps> = ({
   return (
     <div
       className={`
-      bg-gradient-to-br from-slate-900/50 to-slate-800/30 
-      backdrop-blur-sm 
+      bg-white/90 backdrop-blur-sm 
       border border-brand-primary/20 
       rounded-lg 
       overflow-hidden
       min-w-[280px] w-full
-      hover:border-brand-primary/40 
+      hover:border-brand-primary/40 hover:bg-white/95
       transition-all duration-300 
       hover:transform hover:scale-105
+      shadow-lg hover:shadow-xl
       ${className}
     `}
     >
@@ -130,8 +130,8 @@ const ImageCard: React.FC<ImageCardProps> = ({
   );
 };
 
-// Icon components
-const EdgeIcon = () => (
+// Icon components for Best Technologies Ltd services
+const WebDevelopmentIcon = () => (
   <svg
     width="24"
     height="24"
@@ -140,13 +140,61 @@ const EdgeIcon = () => (
     stroke="currentColor"
     strokeWidth="2"
   >
-    <path d="M12 2L2 7v10l10 5 10-5V7l-10-5z" />
-    <path d="M12 12l0-10" />
-    <path d="m8 6 4-4 4 4" />
+    <polyline points="16,18 22,12 16,6" />
+    <polyline points="8,6 2,12 8,18" />
   </svg>
 );
 
-const DesignIcon = () => (
+const DigitalTransformationIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+    <polyline points="7.5,4.21 12,6.81 16.5,4.21" />
+    <polyline points="7.5,19.79 7.5,14.6 3,12" />
+    <polyline points="21,12 16.5,14.6 16.5,19.79" />
+    <polyline points="3.27,6.96 12,12.01 20.73,6.96" />
+    <line x1="12" y1="22.08" x2="12" y2="12" />
+  </svg>
+);
+
+const AIMLIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <path d="M9 12l2 2 4-4" />
+    <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3" />
+    <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3" />
+    <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3" />
+    <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3" />
+  </svg>
+);
+
+const MobileAppIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+    <line x1="12" y1="18" x2="12.01" y2="18" />
+  </svg>
+);
+
+const BrandDesignIcon = () => (
   <svg
     width="24"
     height="24"
@@ -162,7 +210,7 @@ const DesignIcon = () => (
   </svg>
 );
 
-const PerformanceIcon = () => (
+const DigitalMarketingIcon = () => (
   <svg
     width="24"
     height="24"
@@ -171,100 +219,104 @@ const PerformanceIcon = () => (
     stroke="currentColor"
     strokeWidth="2"
   >
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-  </svg>
-);
-
-const SafetyIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-  </svg>
-);
-
-const SEOIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-    <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-    <path d="m9 14 2 2 4-4" />
-  </svg>
-);
-
-const ScalabilityIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <polyline points="22,12 18,12 15,21 9,3 6,12 2,12" />
+    <path d="M3 3v18h18" />
+    <path d="M18.7 8a2 2 0 1 0-3.4 0 2 2 0 0 0 3.4 0Z" />
+    <path d="M7 12v4" />
+    <path d="M13 10v6" />
+    <path d="M9 16v2" />
   </svg>
 );
 
 // Demo component showing masonry layout
 const HomepageServiceCards: React.FC = () => {
-  // Sample images
-  const edgeImage = "/imgs/service-01.png";
-
-  const designImage = "/imgs/service-02.jpg";
-
-  const performanceImage =
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Cdefs%3E%3ClinearGradient id='tech' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300bcd4'/%3E%3Cstop offset='100%25' stop-color='%23006064'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='300' height='200' fill='%23001a1f'/%3E%3Crect x='50' y='60' width='200' height='80' rx='10' fill='url(%23tech)' opacity='0.8'/%3E%3Crect x='70' y='80' width='160' height='5' fill='%2300bcd4'/%3E%3Crect x='70' y='95' width='160' height='5' fill='%2300bcd4'/%3E%3Crect x='70' y='110' width='160' height='5' fill='%2300bcd4'/%3E%3Ccircle cx='80' cy='70' r='5' fill='%2300e5ff'/%3E%3C/svg%3E";
-
+  // Service images from Best Technologies Ltd
+  const webDevImage = "/imgs/service-banner-04.jpg";
+  const digitalTransformationImage = "/imgs/service-banner-02.jpg";
+  const mobileAppImage = "/imgs/service-banner-06.jpg";
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-8 py-24">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-white text-center mb-12">
+    <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 px-8 py-24 overflow-hidden">
+      {/* Intricate SVG background inspired by fffuel.co */}
+      <div className="absolute inset-0">
+        <svg
+          className="absolute inset-0 w-full h-full opacity-15"
+          viewBox="0 0 800 800"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern
+              id="diamondPattern"
+              x="0"
+              y="0"
+              width="100"
+              height="100"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M50 20 L80 50 L50 80 L20 50 Z"
+                stroke="#9ef01a"
+                strokeWidth="1"
+                fill="none"
+                opacity="0.3"
+              />
+              <circle cx="50" cy="50" r="5" fill="#70e000" opacity="0.4" />
+            </pattern>
+            <radialGradient id="serviceGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#9ef01a" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="transparent" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#diamondPattern)" />
+          <circle cx="150" cy="150" r="120" fill="url(#serviceGlow)" />
+          <circle cx="650" cy="350" r="150" fill="url(#serviceGlow)" />
+          <circle cx="300" cy="650" r="180" fill="url(#serviceGlow)" />
+        </svg>
+        <div className="absolute top-10 left-10 w-80 h-80 bg-brand-primary/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-brand-secondary/20 rounded-full blur-2xl animate-pulse"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <h1 className="text-4xl font-bold text-gray-800 text-center mb-8 text-gradient">
           What We Offer
         </h1>
+        <p className="text-xl text-gray-600 max-w-2xl text-center mx-auto mb-16">
+          Empowering businesses with cutting-edge digital solutions and
+          AI-driven transformation for sustainable growth and competitive
+          advantage.
+        </p>
 
         {/* Manual masonry layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-6xl mx-auto">
           {/* Column 1 */}
           <div className="space-y-8 w-full max-w-sm">
             <ImageCard
-              title="Edge"
-              description="Globally distributed servers to reduce load time and increase reliability."
-              icon={<EdgeIcon />}
-              image={edgeImage}
+              title="Web Development"
+              description="Professional websites and custom solutions with responsive design and optimal performance for exceptional user experiences."
+              icon={<WebDevelopmentIcon />}
+              image={webDevImage}
               imagePosition="top"
             />
 
             <TextCard
-              title="SEO"
-              description="Be found by those who look for you and increase the visibility of your business."
-              icon={<SEOIcon />}
+              title="Digital Marketing"
+              description="Comprehensive strategies including SEO, social media management, and multi-platform advertising to amplify your online presence."
+              icon={<DigitalMarketingIcon />}
             />
           </div>
 
           {/* Column 2 */}
           <div className="space-y-8 w-full max-w-sm">
             <TextCard
-              title="Safety"
-              description="Robustness in protecting your business and those who trust it is a priority."
-              icon={<SafetyIcon />}
+              title="AI & Machine Learning"
+              description="Harness the power of AI/ML for smarter decision-making, personalized experiences, and sustainable digital transformation."
+              icon={<AIMLIcon />}
             />
 
             <ImageCard
-              title="Design"
-              description="An impactful first impression and the materialization of the brand's identity."
-              icon={<DesignIcon />}
-              image={designImage}
+              title="Digital Transformation"
+              description="Strategic technology implementation covering digital maturity assessment, cloud migration, and IoT integration for modern operations."
+              icon={<DigitalTransformationIcon />}
+              image={digitalTransformationImage}
               imagePosition="bottom"
             />
           </div>
@@ -272,17 +324,17 @@ const HomepageServiceCards: React.FC = () => {
           {/* Column 3 */}
           <div className="space-y-8 w-full max-w-sm">
             <ImageCard
-              title="Performance"
-              description="It delivers a superior user experience and a good achieving business goals."
-              icon={<PerformanceIcon />}
-              image={performanceImage}
+              title="Mobile App Development"
+              description="Modern iOS and Android applications using Flutter and React Native with exceptional UI/UX design and optimal performance."
+              icon={<MobileAppIcon />}
+              image={mobileAppImage}
               imagePosition="top"
             />
 
             <TextCard
-              title="Scalability"
-              description="Robust infrastructure prepared to support millions of accesses."
-              icon={<ScalabilityIcon />}
+              title="Brand & Motion Design"
+              description="Compelling brand identities with logo design, visual development, motion graphics, and 2D/3D animation for digital platforms."
+              icon={<BrandDesignIcon />}
             />
           </div>
         </div>

@@ -49,22 +49,22 @@ const RecentPostsDesktop: React.FC = () => {
   const [hoveredPost, setHoveredPost] = useState<BlogPost | null>(blogPosts[0]); // Only applied on large screens
 
   return (
-    <article className="w-full max-w-7xl mx-auto px-12 lg:px-20 py-20 bg-gray-200">
+    <article className="w-full max-w-7xl mx-auto px-12 lg:px-20 py-20 bg-transparent">
       {/* Header Section */}
       <div className="mb-10 text-left">
-        <h3 className="text-4xl text-black font-bold mb-4">
+        <h3 className="text-4xl text-white font-bold mb-4">
           Recently on our blog
         </h3>
-        <p className="text-black text-md">
+        <p className="text-gray-300 text-md">
           Explore our tech insights hub for expert perspectives on industry
           trends, practical tutorials, and digital transformation strategies.
         </p>
       </div>
 
       {/* Blog Posts Section */}
-      <section className="flex gap-8 bg-gray-200 text-black">
+      <section className="flex gap-8 bg-transparent text-white">
         {/* Left side - Image */}
-        <div className="w-1/2 relative overflow-hidden rounded-lg shadow-lg">
+        <div className="w-1/2 relative overflow-hidden rounded-lg shadow-lg border border-brand-primary/20">
           <Image
             src={hoveredPost?.imageSrc ?? "/imgs/blog-placeholder.jpg"}
             alt="Blog post preview"

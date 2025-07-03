@@ -5,7 +5,6 @@ import React from "react";
 import NewHeader from "@/components/Header/NewHeader";
 import Footer from "@/components/Footer/Footer";
 
-import BackgroundAnimation from "@/components/Home/BackgroundAnimation";
 import {
   Code,
   Cloud,
@@ -131,18 +130,64 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="min-h-screen relative bg-white">
-      <BackgroundAnimation />
+    <div className="min-h-screen relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      {/* Dark theme background with SVG patterns */}
+      <div className="fixed inset-0 z-[-2]">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+
+        {/* SVG Circuit Pattern */}
+        <svg
+          className="absolute inset-0 w-full h-full opacity-10"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern
+              id="circuit"
+              x="0"
+              y="0"
+              width="20"
+              height="20"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 10,0 L 10,10 M 0,10 L 20,10 M 15,5 L 20,5 M 5,15 L 15,15"
+                stroke="#9ef01a"
+                strokeWidth="0.5"
+                fill="none"
+                opacity="0.3"
+              />
+              <circle cx="10" cy="10" r="1" fill="#9ef01a" opacity="0.4" />
+              <circle cx="5" cy="15" r="0.5" fill="#70e000" opacity="0.6" />
+              <circle cx="15" cy="5" r="0.5" fill="#70e000" opacity="0.6" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#circuit)" />
+        </svg>
+
+        {/* Animated gradients */}
+        <div
+          className="absolute inset-0 animate-pulse duration-[8s]"
+          style={{
+            background: `
+              radial-gradient(circle at 20% 30%, rgba(158, 240, 26, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(112, 224, 0, 0.12) 0%, transparent 50%),
+              radial-gradient(circle at 60% 20%, rgba(158, 240, 26, 0.08) 0%, transparent 60%)
+            `,
+          }}
+        ></div>
+      </div>
+
       <NewHeader />
 
-      <main className="pt-32">
+      <main className="pt-32 relative z-10">
         {/* Hero Section */}
-        <section className="py-20 px-8 text-center">
+        <section className="py-20 px-8 text-center relative">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-800 via-brand-primary to-brand-primary-dark bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
               Our Services
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed">
               Comprehensive technology solutions designed to transform your
               business and drive sustainable growth
             </p>
@@ -150,28 +195,58 @@ const Services = () => {
         </section>
 
         {/* Services Grid */}
-        <section className="py-20 px-8 bg-gradient-to-b from-white to-gray-50">
-          <div className="max-w-7xl mx-auto">
+        <section className="py-20 px-8 relative">
+          {/* Additional SVG background for services section */}
+          <div className="absolute inset-0 overflow-hidden">
+            <svg
+              className="absolute w-full h-full opacity-5"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <pattern
+                  id="hexagons"
+                  x="0"
+                  y="0"
+                  width="10"
+                  height="10"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <polygon
+                    points="5,1 8.66,3 8.66,7 5,9 1.34,7 1.34,3"
+                    stroke="#9ef01a"
+                    strokeWidth="0.3"
+                    fill="none"
+                    opacity="0.4"
+                  />
+                  <circle cx="5" cy="5" r="0.5" fill="#70e000" opacity="0.3" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#hexagons)" />
+            </svg>
+          </div>
+
+          <div className="max-w-7xl mx-auto relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service) => (
                 <div
                   key={service.title}
-                  className="bg-white rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-primary/10 border border-gray-100"
+                  className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-primary/20 border border-gray-700/50 hover:border-brand-primary/30 hover:bg-gray-800/60"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-primary-dark rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-brand-primary/30">
-                    <service.icon className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-accent rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-brand-primary/30">
+                    <service.icon className="w-8 h-8 text-gray-900" />
                   </div>
                   <h3 className="text-xl font-semibold mb-4 text-brand-primary">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-gray-300 leading-relaxed mb-6">
                     {service.description}
                   </p>
                   <div className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center text-sm text-gray-500"
+                        className="flex items-center text-sm text-gray-400"
                       >
                         <div className="w-1.5 h-1.5 bg-brand-primary rounded-full mr-2"></div>
                         {feature}
@@ -185,12 +260,61 @@ const Services = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-8 bg-gradient-to-r from-brand-primary to-brand-primary-dark text-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <section className="py-20 px-8 relative overflow-hidden">
+          {/* Animated background for CTA */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-secondary via-gray-800 to-brand-secondary">
+            <div className="absolute inset-0 opacity-20">
+              <svg
+                className="w-full h-full"
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <radialGradient id="ctaGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#9ef01a" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#70e000" stopOpacity="0.1" />
+                  </radialGradient>
+                </defs>
+                <circle
+                  cx="20"
+                  cy="30"
+                  r="15"
+                  fill="url(#ctaGlow)"
+                  className="animate-pulse"
+                >
+                  <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    values="0,0; 10,5; 0,0"
+                    dur="6s"
+                    repeatCount="indefinite"
+                  />
+                </circle>
+                <circle
+                  cx="80"
+                  cy="70"
+                  r="20"
+                  fill="url(#ctaGlow)"
+                  className="animate-pulse"
+                  style={{ animationDelay: "2s" }}
+                >
+                  <animateTransform
+                    attributeName="transform"
+                    type="translate"
+                    values="0,0; -8,-3; 0,0"
+                    dur="8s"
+                    repeatCount="indefinite"
+                  />
+                </circle>
+              </svg>
+            </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-xl mb-10 opacity-90">
+            <p className="text-xl mb-10 text-gray-300">
               Let&apos;s discuss how our services can help you achieve your
               technology goals
             </p>
@@ -203,7 +327,7 @@ const Services = () => {
                   window.location.href = "/#contact";
                 }
               }}
-              className="bg-white text-brand-primary px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/20"
+              className="bg-brand-primary text-gray-900 px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-primary/40 hover:bg-brand-accent"
             >
               Get Started Today
             </button>
