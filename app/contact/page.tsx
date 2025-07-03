@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
-import GetInTouch from "@/components/Footer/GetInTouch";
+import { Button } from "@/ui/button";
 import {
   Mail,
   Phone,
@@ -31,31 +32,31 @@ const Contact = () => {
     {
       title: "Email Us",
       icon: Mail,
-      primary: "hello@besttechnologies.com",
+      primary: "hello@besttechnologiesltd.com ",
       secondary: "We typically respond within 24 hours",
       color: "from-blue-500 to-cyan-500",
-      action: "mailto:hello@besttechnologies.com",
+      action: "mailto:hello@besttechnologiesltd.com",
     },
     {
       title: "Call Us",
       icon: Phone,
-      primary: "+1 (555) 123-4567",
-      secondary: "Monday - Friday, 9AM - 6PM EST",
+      primary: "+234-802-5321-179",
+      secondary: "Mon - Fri, 9AM - 5PM WAT",
       color: "from-green-500 to-emerald-500",
-      action: "tel:+15551234567",
+      action: "tel:+2348025321179",
     },
     {
       title: "Visit Us",
       icon: MapPin,
-      primary: "123 Tech District",
-      secondary: "Innovation City, TC 12345",
+      primary: "The Knowledge Hub",
+      secondary: "121/123 Obafemi Awolowo Way, Oke Ado, Ibadan",
       color: "from-purple-500 to-pink-500",
-      action: "https://maps.google.com",
+      action: "https://maps.app.goo.gl/g14CanT4L91xHNDe7",
     },
     {
       title: "Live Chat",
       icon: MessageSquare,
-      primary: "24/7 Support",
+      primary: "Round the clock support",
       secondary: "Click to start a conversation",
       color: "from-orange-500 to-red-500",
       action: "#",
@@ -176,7 +177,7 @@ const Contact = () => {
         <section className="pt-32 pb-20 px-8">
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-20 h-20 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-brand-primary/30">
-              <MessageSquare className="w-10 h-10 text-gray-900" />
+              <MessageSquare className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
               Get In Touch
@@ -197,10 +198,13 @@ const Contact = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {contactMethods.map((method) => (
-                <a
+                <Link
                   key={method.title}
                   href={method.action}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group text-center block"
+                  {...(method.title === "Visit Us"
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                 >
                   <div
                     className={`w-16 h-16 bg-gradient-to-r ${method.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg transition-all duration-300`}
@@ -210,11 +214,11 @@ const Contact = () => {
                   <h3 className="text-xl font-semibold mb-4 text-white">
                     {method.title}
                   </h3>
-                  <p className="text-brand-primary font-semibold mb-2">
+                  <p className="text-brand-primary font-semibold mb-2 break-all">
                     {method.primary}
                   </p>
                   <p className="text-gray-400 text-sm">{method.secondary}</p>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -308,7 +312,7 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white focus:border-brand-primary focus:outline-none transition-colors"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+234 (000) 123-4567"
                   />
                 </div>
 
@@ -351,11 +355,11 @@ const Contact = () => {
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white focus:border-brand-primary focus:outline-none transition-colors"
                   >
                     <option value="">Select budget range</option>
-                    <option value="under-10k">Under $10,000</option>
-                    <option value="10k-25k">$10,000 - $25,000</option>
-                    <option value="25k-50k">$25,000 - $50,000</option>
-                    <option value="50k-100k">$50,000 - $100,000</option>
-                    <option value="over-100k">Over $100,000</option>
+                    <option value="under-150k">Under ₦150,000</option>
+                    <option value="150k-250k">₦150,000 - ₦250,000</option>
+                    <option value="250k-500k">₦250,000 - ₦500,000</option>
+                    <option value="500k-1m">₦500,000 - ₦1,000,000</option>
+                    <option value="over-1m">Over ₦1,000,000</option>
                   </select>
                 </div>
               </div>
@@ -402,13 +406,13 @@ const Contact = () => {
                 />
               </div>
 
-              <button
+              <Button
                 type="submit"
-                className="w-full bg-brand-primary text-gray-900 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40 flex items-center justify-center"
+                className="w-full bg-brand-primary text-white py-6 rounded-md font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40 flex items-center justify-center"
               >
                 <Send className="w-5 h-5 mr-2" />
                 Send Message
-              </button>
+              </Button>
             </form>
           </div>
         </section>
@@ -425,7 +429,7 @@ const Contact = () => {
                 <div className="space-y-2 text-gray-300">
                   <p>Monday - Friday</p>
                   <p className="text-brand-primary font-semibold">
-                    9:00 AM - 6:00 PM EST
+                    9:00 AM - 5:00 PM WAT
                   </p>
                   <p>Weekend support available</p>
                   <p>for urgent matters</p>
@@ -466,10 +470,7 @@ const Contact = () => {
         </section>
       </main>
 
-      <footer id="footer" className="scroll-m-24">
-        <GetInTouch />
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
