@@ -3,17 +3,17 @@
 import React, { useState } from "react";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
-import GetInTouch from "@/components/Footer/GetInTouch";
 import {
   Search,
   Calendar,
   Clock,
   Tag,
-  User,
   ArrowRight,
   TrendingUp,
   BookOpen,
 } from "lucide-react";
+import { Button } from "@/ui/button";
+import Image from "next/image";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,8 +33,9 @@ const Blog = () => {
     title: "The Future of AI in Enterprise Software Development",
     excerpt:
       "Exploring how artificial intelligence is revolutionizing the way we build and deploy enterprise applications, from automated testing to intelligent code generation.",
-    author: "Sarah Johnson",
-    date: "2024-12-15",
+    author: "Oluwajuwon O.K.",
+    authorImage: "/staff/juwon.png",
+    date: "2025-03-15",
     readTime: "8 min read",
     category: "Technology",
     image: "/imgs/blog-featured.jpg",
@@ -47,8 +48,9 @@ const Blog = () => {
       title: "Migrating Legacy Systems to the Cloud: Best Practices",
       excerpt:
         "A comprehensive guide to successfully transitioning your legacy infrastructure to modern cloud platforms without disrupting business operations.",
-      author: "Michael Chen",
-      date: "2024-12-10",
+      author: "Mayowa Bernard",
+      authorImage: "/staff/mayowa.png",
+      date: "2025-03-10",
       readTime: "12 min read",
       category: "Cloud Computing",
       image: "/imgs/blog-cloud.jpg",
@@ -58,8 +60,9 @@ const Blog = () => {
       title: "Building Scalable Microservices Architecture",
       excerpt:
         "Learn the essential principles and patterns for designing microservices that can handle enterprise-scale traffic and complexity.",
-      author: "David Rodriguez",
-      date: "2024-12-05",
+      author: "Oluwajuwon O.K.",
+      authorImage: "/staff/juwon.png",
+      date: "2025-04-05",
       readTime: "10 min read",
       category: "Development",
       image: "/imgs/blog-microservices.jpg",
@@ -69,8 +72,9 @@ const Blog = () => {
       title: "Zero Trust Security: A Modern Approach to Cybersecurity",
       excerpt:
         "Understanding the zero trust model and how to implement it effectively in your organization's security strategy.",
-      author: "Emily Watson",
-      date: "2024-11-28",
+      author: "Oluwajuwon O.K.",
+      authorImage: "/staff/juwon.png",
+      date: "2025-04-28",
       readTime: "7 min read",
       category: "Cybersecurity",
       image: "/imgs/blog-security.jpg",
@@ -80,8 +84,9 @@ const Blog = () => {
       title: "Digital Transformation ROI: Measuring Success",
       excerpt:
         "Key metrics and strategies for quantifying the return on investment from your digital transformation initiatives.",
-      author: "Robert Kim",
-      date: "2024-11-20",
+      author: "Steve Oladele",
+      authorImage: "/staff/steve.png",
+      date: "2025-05-20",
       readTime: "9 min read",
       category: "Digital Transformation",
       image: "/imgs/blog-roi.jpg",
@@ -91,8 +96,9 @@ const Blog = () => {
       title: "API-First Development: Design Principles and Benefits",
       excerpt:
         "Why API-first architecture is becoming the standard for modern software development and how to implement it effectively.",
-      author: "Jessica Lee",
-      date: "2024-11-15",
+      author: "Mayowa Bernard",
+      authorImage: "/staff/mayowa.png",
+      date: "2025-06-01",
       readTime: "6 min read",
       category: "Development",
       image: "/imgs/blog-api.jpg",
@@ -198,7 +204,7 @@ const Blog = () => {
         <section className="pt-32 pb-20 px-8">
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-20 h-20 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-brand-primary/30">
-              <BookOpen className="w-10 h-10 text-gray-900" />
+              <BookOpen className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
               Tech Insights Blog
@@ -232,9 +238,9 @@ const Blog = () => {
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:cursor-pointer ${
                       selectedCategory === category.id
-                        ? "bg-brand-primary text-gray-900"
+                        ? "bg-brand-primary text-white"
                         : "bg-gray-800/40 text-gray-300 hover:bg-gray-700/50"
                     }`}
                   >
@@ -252,13 +258,19 @@ const Blog = () => {
             <div className="bg-gray-800/40 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 group">
               <div className="lg:flex">
                 <div className="lg:w-1/2">
-                  <div className="h-64 lg:h-full bg-gradient-to-br from-brand-primary/20 to-brand-accent/20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 to-brand-accent/10"></div>
-                    <div className="absolute top-4 left-4 bg-brand-primary text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="h-64 lg:h-full relative overflow-hidden">
+                    <Image
+                      src={featuredPost.image}
+                      alt={featuredPost.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20"></div>
+                    <div className="absolute top-4 left-4 bg-brand-primary text-white px-3 py-1 rounded-full text-sm font-semibold">
                       Featured
                     </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <TrendingUp className="w-24 h-24 text-brand-primary/30" />
+                    <div className="absolute top-4 right-4">
+                      <TrendingUp className="w-8 h-8 text-brand-primary" />
                     </div>
                   </div>
                 </div>
@@ -280,16 +292,28 @@ const Blog = () => {
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center text-sm text-gray-400">
-                      <User className="w-4 h-4 mr-2" />
-                      <span>{featuredPost.author}</span>
-                      <span className="mx-2">•</span>
-                      <Clock className="w-4 h-4 mr-2" />
-                      <span>{featuredPost.readTime}</span>
+                      <div className="relative w-8 h-8 mr-3">
+                        <Image
+                          src={featuredPost.authorImage}
+                          alt={featuredPost.author}
+                          fill
+                          className="rounded-full object-cover border-2 border-brand-primary/20"
+                        />
+                      </div>
+                      <div>
+                        <span className="text-white font-medium">
+                          {featuredPost.author}
+                        </span>
+                        <div className="flex items-center text-xs text-gray-400 mt-1">
+                          <Clock className="w-3 h-3 mr-1" />
+                          <span>{featuredPost.readTime}</span>
+                        </div>
+                      </div>
                     </div>
-                    <button className="bg-brand-primary text-gray-900 px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 flex items-center">
+                    <Button className="bg-brand-primary text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 flex items-center">
                       Read More
                       <ArrowRight className="w-4 h-4 ml-2" />
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -309,11 +333,14 @@ const Blog = () => {
                   key={post.id}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group"
                 >
-                  <div className="h-48 bg-gradient-to-br from-brand-primary/20 to-brand-accent/20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800/50 to-gray-900/50"></div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <BookOpen className="w-16 h-16 text-brand-primary/30" />
-                    </div>
+                  <div className="h-48 relative overflow-hidden">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <div className="absolute top-4 left-4 bg-gray-900/80 text-brand-primary px-3 py-1 rounded-full text-sm font-medium">
                       {post.category}
                     </div>
@@ -334,13 +361,22 @@ const Blog = () => {
                     </p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center text-sm text-gray-400">
-                        <User className="w-4 h-4 mr-2" />
-                        <span>{post.author}</span>
+                        <div className="relative w-6 h-6 mr-2">
+                          <Image
+                            src={post.authorImage}
+                            alt={post.author}
+                            fill
+                            className="rounded-full object-cover border border-brand-primary/20"
+                          />
+                        </div>
+                        <span className="text-white font-medium">
+                          {post.author}
+                        </span>
                       </div>
-                      <button className="text-brand-primary hover:text-brand-accent transition-colors font-semibold text-sm flex items-center">
+                      <Button className="transition-colors font-semibold text-sm flex items-center">
                         Read More
                         <ArrowRight className="w-4 h-4 ml-1" />
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </article>
@@ -378,19 +414,16 @@ const Blog = () => {
                   placeholder="Enter your email"
                   className="flex-1 px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white focus:border-brand-primary focus:outline-none transition-colors"
                 />
-                <button className="bg-brand-primary text-gray-900 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30">
+                <Button className="bg-brand-primary text-white px-6 py-6 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30">
                   Subscribe
-                </button>
+                </Button>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer id="contact" className="scroll-m-24">
-        <GetInTouch />
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
