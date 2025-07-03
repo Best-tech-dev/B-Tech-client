@@ -30,12 +30,12 @@ const TextCard: React.FC<TextCardProps> = ({
   return (
     <div
       className={`
-      bg-white/80 backdrop-blur-sm 
+      bg-gray-800/80 backdrop-blur-sm 
       border border-brand-primary/20 
       rounded-lg 
       p-8 
       min-w-[280px] w-full
-      hover:border-brand-primary/40 hover:bg-white/95
+      hover:border-brand-primary/40 hover:bg-gray-800/95
       transition-all duration-300 
       hover:transform hover:scale-105
       shadow-lg hover:shadow-xl
@@ -48,12 +48,12 @@ const TextCard: React.FC<TextCardProps> = ({
       </div>
 
       {/* Title */}
-      <h3 className="text-gray-800 text-xl font-semibold mb-4 text-center">
+      <h3 className="text-white text-xl font-semibold mb-4 text-center">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-600 text-sm leading-relaxed text-center">
+      <p className="text-gray-300 text-sm leading-relaxed text-center">
         {description}
       </p>
     </div>
@@ -77,12 +77,12 @@ const ImageCard: React.FC<ImageCardProps> = ({
       </div>
 
       {/* Title */}
-      <h3 className="text-gray-800 text-xl font-semibold mb-4 text-center">
+      <h3 className="text-white text-xl font-semibold mb-4 text-center">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-600 text-sm leading-relaxed text-center">
+      <p className="text-gray-300 text-sm leading-relaxed text-center">
         {description}
       </p>
     </div>
@@ -103,12 +103,12 @@ const ImageCard: React.FC<ImageCardProps> = ({
   return (
     <div
       className={`
-      bg-white/90 backdrop-blur-sm 
+      bg-gray-800/90 backdrop-blur-sm 
       border border-brand-primary/20 
       rounded-lg 
       overflow-hidden
       min-w-[280px] w-full
-      hover:border-brand-primary/40 hover:bg-white/95
+      hover:border-brand-primary/40 hover:bg-gray-800/95
       transition-all duration-300 
       hover:transform hover:scale-105
       shadow-lg hover:shadow-xl
@@ -276,10 +276,10 @@ const HomepageServiceCards: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <h1 className="text-4xl font-bold text-gray-800 text-center mb-8 text-gradient">
+        <h1 className="text-4xl font-bold text-white text-center mb-8">
           What We Offer
         </h1>
-        <p className="text-xl text-gray-600 max-w-2xl text-center mx-auto mb-16">
+        <p className="text-xl text-gray-300 max-w-2xl text-center mx-auto mb-16">
           Empowering businesses with cutting-edge digital solutions and
           AI-driven transformation for sustainable growth and competitive
           advantage.

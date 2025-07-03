@@ -34,12 +34,14 @@ const FeatureCard = ({
   title: string;
   description: string;
 }) => (
-  <div className="bg-white/70 backdrop-blur-sm border border-brand-primary/20 rounded-xl p-6 hover:border-brand-primary/40 hover:bg-white/90 transition-all duration-300 shadow-lg hover:shadow-xl">
-    <div className="w-12 h-12 bg-brand-primary/10 rounded-lg flex items-center justify-center mb-4">
-      <Icon className="w-6 h-6 text-brand-primary" />
+  <div className="group bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:-translate-y-2">
+    <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+      <Icon className="w-8 h-8 text-white" />
     </div>
-    <h3 className="text-xl font-semibold text-gray-800 mb-3">{title}</h3>
-    <p className="text-gray-600 leading-relaxed">{description}</p>
+    <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-brand-primary transition-colors">
+      {title}
+    </h3>
+    <p className="text-gray-300 leading-relaxed">{description}</p>
   </div>
 );
 
@@ -171,7 +173,7 @@ export default function HomepagePortfolioSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-gradient-heading mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6">
             Our Portfolio Projects
           </h2>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">

@@ -1,34 +1,114 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
 
 const HomepageAbout = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [counts, setCounts] = useState({
+    projects: 0,
+    clients: 0,
+    retention: 0,
+    support: 0,
+  });
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const targetValues = {
+    projects: 150,
+    clients: 50,
+    retention: 99,
+    support: 24,
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      const duration = 2000; // 2 seconds
+      const steps = 60; // 60 steps for smooth animation
+      const stepDuration = duration / steps;
+
+      let currentStep = 0;
+      const timer = setInterval(() => {
+        currentStep++;
+        const progress = currentStep / steps;
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+        setCounts({
+          projects: Math.floor(targetValues.projects * easeOutQuart),
+          clients: Math.floor(targetValues.clients * easeOutQuart),
+          retention: Math.floor(targetValues.retention * easeOutQuart),
+          support: Math.floor(targetValues.support * easeOutQuart),
+        });
+
+        if (currentStep >= steps) {
+          clearInterval(timer);
+          setCounts(targetValues);
+        }
+      }, stepDuration);
+
+      return () => clearInterval(timer);
+    }
+  }, [isVisible]);
+
   return (
     <section
       id="about"
-      className="relative py-32 px-8 max-w-7xl mx-auto bg-gradient-to-br from-brand-primary/10 via-white to-brand-accent/5 overflow-hidden"
+      className="relative py-32 px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden"
     >
-      {/* Decorative background elements */}
+      {/* Subtle SVG background */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 right-10 w-72 h-72 bg-brand-primary/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 left-10 w-80 h-80 bg-brand-accent/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2">
-          <svg
-            className="w-64 h-64 text-brand-primary/5"
-            fill="currentColor"
-            viewBox="0 0 100 100"
-          >
-            <path d="M10,50 Q50,10 90,50 Q50,90 10,50" />
-            <path d="M30,50 Q50,30 70,50 Q50,70 30,50" />
-          </svg>
-        </div>
+        <svg
+          className="absolute inset-0 w-full h-full opacity-10"
+          viewBox="0 0 800 800"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern
+              id="aboutPattern"
+              x="0"
+              y="0"
+              width="120"
+              height="120"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M60 20 L100 60 L60 100 L20 60 Z"
+                stroke="#9ef01a"
+                strokeWidth="1"
+                fill="none"
+                opacity="0.2"
+              />
+              <circle cx="60" cy="60" r="3" fill="#70e000" opacity="0.3" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#aboutPattern)" />
+        </svg>
+        <div className="absolute top-10 right-10 w-72 h-72 bg-brand-primary/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-brand-accent/20 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       <div className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Driving Innovation Forward
             </h2>
-            <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
+            <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
               <p>
                 With a foundation built on technical excellence and customer
                 satisfaction, Best Technologies Limited is at the forefront of
@@ -49,30 +129,30 @@ const HomepageAbout = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8">
-            <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-white/95 transition-all duration-300 shadow-lg hover:shadow-xl">
+          <div className="grid grid-cols-2 gap-8" ref={sectionRef}>
+            <div className="text-center p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
               <div className="text-4xl font-bold text-brand-primary mb-2">
-                150+
+                {counts.projects}+
               </div>
-              <div className="text-gray-600 text-sm">Projects Delivered</div>
+              <div className="text-gray-300 text-sm">Projects Delivered</div>
             </div>
-            <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-white/95 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <div className="text-center p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
               <div className="text-4xl font-bold text-brand-primary mb-2">
-                50+
+                {counts.clients}+
               </div>
-              <div className="text-gray-600 text-sm">Happy Clients</div>
+              <div className="text-gray-300 text-sm">Happy Clients</div>
             </div>
-            <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-white/95 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <div className="text-center p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
               <div className="text-4xl font-bold text-brand-primary mb-2">
-                5+
+                {counts.retention}%
               </div>
-              <div className="text-gray-600 text-sm">Years Experience</div>
+              <div className="text-gray-300 text-sm">Client Retention</div>
             </div>
-            <div className="text-center p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-white/95 transition-all duration-300 shadow-lg hover:shadow-xl">
+            <div className="text-center p-6 bg-gray-800/80 backdrop-blur-sm rounded-xl border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-gray-800/95 transition-all duration-300 shadow-lg hover:shadow-xl">
               <div className="text-4xl font-bold text-brand-primary mb-2">
-                24/7
+                {counts.support}/7
               </div>
-              <div className="text-gray-600 text-sm">Support Available</div>
+              <div className="text-gray-300 text-sm">Support Available</div>
             </div>
           </div>
         </div>

@@ -1,108 +1,122 @@
 import React from "react";
-import { Code, PenTool, Megaphone, GraduationCap } from "lucide-react";
+import Link from "next/link";
+import { Building2, Zap, Users, TrendingUp } from "lucide-react";
 
 const WhoWeAreFor = () => {
-  const targetAudience = [
+  const targetAudiences = [
     {
-      icon: Code,
-      title: "Businesses & Startups",
+      icon: Building2,
+      title: "Enterprise Companies",
       description:
-        "Empowering companies to build scalable digital products and innovative solutions.",
+        "Large organizations looking to modernize their legacy systems and embrace digital transformation.",
+      features: [
+        "Legacy System Modernization",
+        "Enterprise Architecture",
+        "Scalable Cloud Solutions",
+        "Custom ERP Systems",
+      ],
     },
     {
-      icon: PenTool,
-      title: "Brands & Marketers",
+      icon: Users,
+      title: "Educators",
       description:
-        "Helping brands grow with creative campaigns, digital marketing, and impactful storytelling.",
+        "Educational institutions and professionals seeking to enhance learning experiences through technology.",
+      features: [
+        "E-Learning Platforms",
+        "Student Information Systems",
+        "Virtual Classrooms",
+        "Education Analytics",
+      ],
     },
     {
-      icon: Megaphone,
-      title: "Enterprises",
+      icon: TrendingUp,
+      title: "Government",
       description:
-        "Delivering robust, enterprise-grade web and mobile applications for large organizations.",
+        "Government agencies aiming to improve public services and operational efficiency with digital solutions.",
+      features: [
+        "E-Government Services",
+        "Data Security & Compliance",
+        "Citizen Portals",
+        "Process Automation",
+      ],
     },
     {
-      icon: GraduationCap,
-      title: "Nonprofits & Educators",
+      icon: Zap,
+      title: "NGOs",
       description:
-        "Supporting nonprofits and educators with accessible, engaging digital experiences.",
+        "Non-governmental organizations leveraging technology to maximize impact and streamline operations.",
+      features: [
+        "Donor Management Systems",
+        "Impact Analytics",
+        "Collaboration Platforms",
+        "Mobile Outreach Solutions",
+      ],
     },
   ];
 
   return (
-    <section className="relative py-24 px-4 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 text-white overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full">
-          {/* Wireframe mesh pattern */}
-          <svg
-            className="absolute inset-0 w-full h-full opacity-5"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <pattern
-                id="mesh"
-                x="0"
-                y="0"
-                width="10"
-                height="10"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 10 0 L 0 0 0 10"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="0.5"
-                />
-              </pattern>
-            </defs>
-            <rect
-              width="100%"
-              height="100%"
-              fill="url(#mesh)"
-              className="text-brand-primary"
-            />
-          </svg>
-        </div>
-        <div className="absolute top-20 right-20 w-64 h-64 bg-brand-primary/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-brand-accent/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-brand-primary/5 to-transparent rounded-full"></div>
-      </div>
-
-      <div className="max-w-6xl mx-auto text-center relative z-10">
+    <section className="relative py-20 bg-gray-900/50">
+      <div className="max-w-7xl mx-auto px-8">
         {/* Header */}
-        <div className="mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-gradient-heading">
-            Who We Are For
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Crafted for businesses, brands, enterprises, and educators seeking
-            innovative digital solutions.
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-white mb-6">Who We Serve</h2>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            We partner with businesses of all sizes, from startups to enterprise
+            organizations, helping them achieve their digital transformation
+            goals.
           </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {targetAudience.map((audience, index) => {
+        {/* Target Audience Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {targetAudiences.map((audience, index) => {
             const IconComponent = audience.icon;
             return (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-brand-primary/10 text-left group"
+                className="group bg-gray-800/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:-translate-y-2"
               >
-                <div className="text-brand-primary mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent size={48} strokeWidth={1.5} />
+                {/* Icon */}
+                <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <IconComponent className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-lg lg:text-xl font-semibold mb-4 text-white group-hover:text-brand-primary transition-colors duration-300">
+
+                {/* Content */}
+                <h3 className="text-xl font-semibold text-white mb-4 group-hover:text-brand-primary transition-colors">
                   {audience.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed mb-6">
                   {audience.description}
                 </p>
+
+                {/* Features */}
+                <ul className="space-y-2">
+                  {audience.features.map((feature, featureIndex) => (
+                    <li
+                      key={featureIndex}
+                      className="flex items-center text-sm text-gray-400"
+                    >
+                      <div className="w-1.5 h-1.5 bg-brand-primary rounded-full mr-3 flex-shrink-0"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             );
           })}
+        </div>
+
+        {/* Call to Action */}
+        <div className="text-center mt-16">
+          <p className="text-lg text-gray-300 mb-8">
+            Ready to transform your business with cutting-edge technology?
+          </p>
+          <Link
+            href="#get-in-touch-form"
+            className="bg-brand-primary text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 inline-block"
+          >
+            Get Started Now
+          </Link>
         </div>
       </div>
     </section>

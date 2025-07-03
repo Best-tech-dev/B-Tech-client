@@ -67,38 +67,40 @@ const testimonials = [
 
 const HomepageTestimonials = () => {
   return (
-    <section className="relative py-32 px-8 max-w-7xl mx-auto bg-gradient-to-br from-slate-50 via-white to-brand-primary/5 overflow-hidden">
-      {/* Decorative background elements */}
+    <section className="relative py-32 px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
+      {/* Subtle SVG background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-brand-primary/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <svg
-            className="w-96 h-96 text-brand-primary/5"
-            fill="currentColor"
-            viewBox="0 0 100 100"
-          >
-            <circle cx="20" cy="20" r="8" />
-            <circle cx="50" cy="10" r="6" />
-            <circle cx="80" cy="20" r="10" />
-            <circle cx="15" cy="50" r="7" />
-            <circle cx="50" cy="50" r="12" />
-            <circle cx="85" cy="50" r="9" />
-            <circle cx="20" cy="80" r="11" />
-            <circle cx="50" cy="90" r="8" />
-            <circle cx="80" cy="80" r="6" />
-          </svg>
-        </div>
+        <svg
+          className="absolute inset-0 w-full h-full opacity-10"
+          viewBox="0 0 800 800"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <pattern
+              id="testimonialPattern"
+              x="0"
+              y="0"
+              width="80"
+              height="80"
+              patternUnits="userSpaceOnUse"
+            >
+              <circle cx="40" cy="40" r="2" fill="#9ef01a" opacity="0.3" />
+              <circle cx="20" cy="20" r="1.5" fill="#70e000" opacity="0.4" />
+              <circle cx="60" cy="60" r="1.5" fill="#70e000" opacity="0.4" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#testimonialPattern)" />
+        </svg>
+        <div className="absolute top-10 right-10 w-80 h-80 bg-brand-primary/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       <div className="relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-brand-accent to-brand-primary bg-clip-text text-transparent">
-              What Our Clients Say
-            </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            What Our Clients Say
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Don&apos;t just take our word for it - hear from the organizations
             we&apos;ve helped transform
           </p>
@@ -117,15 +119,15 @@ const HomepageTestimonials = () => {
                 key={testimonial.name}
                 className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 py-6"
               >
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brand-primary/30 hover:shadow-xl hover:shadow-brand-primary/10 relative h-full border border-brand-primary/20">
+                <div className="bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:border-brand-primary/30 hover:shadow-xl hover:shadow-brand-primary/10 relative h-full border border-brand-primary/20">
                   <Quote className="w-8 h-8 text-brand-primary mb-4 opacity-50" />
 
-                  <p className="text-gray-600 mb-6 leading-relaxed italic">
+                  <p className="text-gray-300 mb-6 leading-relaxed italic">
                     &quot;{testimonial.content}&quot;
                   </p>
 
                   <div className="flex flex-col items-center text-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-white font-semibold">
+                    <div className="w-12 h-12 bg-gradient-to-br from-brand-primary to-brand-accent rounded-full flex items-center justify-center text-white font-semibold">
                       {testimonial.name
                         .split(" ")
                         .map((n) => n[0])
@@ -133,10 +135,10 @@ const HomepageTestimonials = () => {
                     </div>
 
                     <div>
-                      <div className="font-semibold text-gray-800">
+                      <div className="font-semibold text-white">
                         {testimonial.name}
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <div className="text-sm text-gray-400">
                         {testimonial.position}
                       </div>
                       <div className="text-xs text-brand-primary">
@@ -157,8 +159,8 @@ const HomepageTestimonials = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-12 bg-white border-2 border-brand-primary/20 hover:bg-brand-primary hover:text-white hover:border-brand-primary" />
-          <CarouselNext className="hidden md:flex -right-12 bg-white border-2 border-brand-primary/20 hover:bg-brand-primary hover:text-white hover:border-brand-primary" />
+          <CarouselPrevious className="hidden md:flex -left-12 bg-gray-800 border-2 border-brand-primary/20 hover:bg-brand-primary hover:text-white hover:border-brand-primary" />
+          <CarouselNext className="hidden md:flex -right-12 bg-gray-800 border-2 border-brand-primary/20 hover:bg-brand-primary hover:text-white hover:border-brand-primary" />
         </Carousel>
       </div>
     </section>
