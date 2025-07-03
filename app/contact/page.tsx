@@ -11,9 +11,7 @@ import {
   Clock,
   Send,
   MessageSquare,
-  Headphones,
   Globe,
-  Calendar,
   Users,
 } from "lucide-react";
 
@@ -84,7 +82,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
-    alert("Thank you for your message! We'll get back to you soon.");
+    alert("Thank you for your message! We&apos;ll get back to you soon.");
   };
 
   return (
@@ -185,8 +183,8 @@ const Contact = () => {
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
               Ready to transform your business with cutting-edge technology?
-              Let's discuss your project and explore how we can help you achieve
-              your goals.
+              Let&apos;s discuss your project and explore how we can help you
+              achieve your goals.
             </p>
           </div>
         </section>
@@ -198,7 +196,7 @@ const Contact = () => {
               Ways to Reach Us
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {contactMethods.map((method, index) => (
+              {contactMethods.map((method) => (
                 <a
                   key={method.title}
                   href={method.action}
@@ -230,7 +228,7 @@ const Contact = () => {
                 Send Us a Message
               </h2>
               <p className="text-xl text-gray-300">
-                Tell us about your project and we'll get back to you with a
+                Tell us about your project and we&apos;ll get back to you with a
                 customized solution.
               </p>
             </div>

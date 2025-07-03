@@ -7,14 +7,10 @@ import GetInTouch from "@/components/Footer/GetInTouch";
 import {
   Briefcase,
   Users,
-  Rocket,
   Heart,
   Upload,
-  FileText,
   Mail,
   Phone,
-  MapPin,
-  Coffee,
   Lightbulb,
   Target,
 } from "lucide-react";
@@ -194,18 +190,19 @@ const Careers = () => {
               Join Our Team
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8">
-              Be part of a dynamic team that's shaping the future of technology.
-              We're looking for passionate individuals who want to make a real
-              impact in the tech industry.
+              Be part of a dynamic team that&apos;s shaping the future of
+              technology. We&apos;re looking for passionate individuals who want
+              to make a real impact in the tech industry.
             </p>
             <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-6 max-w-2xl mx-auto">
               <p className="text-orange-300 font-semibold mb-2">
                 Currently Building Our Team
               </p>
               <p className="text-gray-300">
-                While we don't have specific openings right now, we're always
-                interested in connecting with talented professionals. Submit
-                your CV and we'll reach out when the right opportunity arises.
+                While we don&apos;t have specific openings right now, we&apos;re
+                always interested in connecting with talented professionals.
+                Submit your CV and we&apos;ll reach out when the right
+                opportunity arises.
               </p>
             </div>
           </div>
@@ -218,7 +215,7 @@ const Careers = () => {
               Our Values
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value, index) => (
+              {values.map((value) => (
                 <div
                   key={value.title}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group text-center"
@@ -265,8 +262,8 @@ const Careers = () => {
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-6 text-white">Apply Now</h2>
               <p className="text-xl text-gray-300">
-                Ready to take the next step in your career? We'd love to hear
-                from you.
+                Ready to take the next step in your career? We&apos;d love to
+                hear from you.
               </p>
             </div>
 

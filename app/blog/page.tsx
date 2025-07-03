@@ -13,7 +13,6 @@ import {
   ArrowRight,
   TrendingUp,
   BookOpen,
-  Filter,
 } from "lucide-react";
 
 const Blog = () => {
@@ -305,7 +304,7 @@ const Blog = () => {
               Latest Articles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post, index) => (
+              {filteredPosts.map((post) => (
                 <article
                   key={post.id}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group"

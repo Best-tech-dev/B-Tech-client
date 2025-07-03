@@ -91,7 +91,7 @@ const OurTeam = () => {
     {
       name: "Robert Zhang",
       position: "Cybersecurity Specialist",
-      bio: "Robert protects our clients' data and systems with cutting-edge security practices and protocols.",
+      bio: "Robert protects our clients&apos; data and systems with cutting-edge security practices and protocols.",
       image: "/staff/robert-zhang.jpg",
       linkedin: "https://linkedin.com/in/robert-zhang",
       expertise: ["Penetration Testing", "Security Audits", "Compliance"],
@@ -293,7 +293,7 @@ const OurTeam = () => {
         <section className="py-20 px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
+              {stats.map((stat) => (
                 <div
                   key={stat.label}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 text-center hover:border-brand-primary/30 transition-all duration-300"
@@ -316,7 +316,7 @@ const OurTeam = () => {
               Our Values
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value, index) => (
+              {values.map((value) => (
                 <div
                   key={value.title}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group text-center"
@@ -345,7 +345,7 @@ const OurTeam = () => {
               Leadership Team
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {leadership.map((leader, index) => (
+              {leadership.map((leader) => (
                 <div
                   key={leader.name}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group"
@@ -420,7 +420,7 @@ const OurTeam = () => {
               Our Amazing Team
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
+              {teamMembers.map((member) => (
                 <div
                   key={member.name}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group"
@@ -489,7 +489,7 @@ const OurTeam = () => {
                 Want to Join Our Team?
               </h2>
               <p className="text-xl text-gray-300 mb-8">
-                We're always looking for talented individuals who share our
+                We&apos;re always looking for talented individuals who share our
                 passion for technology and innovation. Check out our current
                 openings or send us your resume.
               </p>

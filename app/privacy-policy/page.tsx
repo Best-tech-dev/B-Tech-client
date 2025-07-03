@@ -4,7 +4,7 @@ import React from "react";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
 import GetInTouch from "@/components/Footer/GetInTouch";
-import { Shield, Eye, Lock, FileText, Clock, Globe } from "lucide-react";
+import { Shield, Eye, Lock, FileText, Clock } from "lucide-react";
 
 const PrivacyPolicy = () => {
   const sections = [
@@ -150,7 +150,7 @@ const PrivacyPolicy = () => {
         <section className="py-20 px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {sections.map((section, index) => (
+              {sections.map((section) => (
                 <div
                   key={section.title}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group"
@@ -185,9 +185,9 @@ const PrivacyPolicy = () => {
               Questions About Our Privacy Policy?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              We're committed to transparency. If you have any questions about
-              how we handle your data, please don't hesitate to reach out to our
-              team.
+              We&apos;re committed to transparency. If you have any questions
+              about how we handle your data, please don&apos;t hesitate to reach
+              out to our team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

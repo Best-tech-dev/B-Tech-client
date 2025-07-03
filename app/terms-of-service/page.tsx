@@ -194,10 +194,10 @@ const TermsOfService = () => {
               </h2>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
                 Welcome to Best Technologies Ltd. These Terms of Service
-                ("Terms") govern your access to and use of our technology
-                services, including custom software development, cloud
-                solutions, digital transformation, and related professional
-                services.
+                (&quot;Terms&quot;) govern your access to and use of our
+                technology services, including custom software development,
+                cloud solutions, digital transformation, and related
+                professional services.
               </p>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
                 By engaging our services or using our website, you agree to be
@@ -222,7 +222,7 @@ const TermsOfService = () => {
               Key Terms & Conditions
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {terms.map((term, index) => (
+              {terms.map((term) => (
                 <div
                   key={term.title}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group"

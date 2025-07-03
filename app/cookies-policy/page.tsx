@@ -114,7 +114,7 @@ const CookiesPolicy = () => {
             <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
               We use cookies and similar technologies to enhance your browsing
               experience, analyze site traffic, and provide personalized
-              content. Here's everything you need to know.
+              content. Here&apos;s everything you need to know.
             </p>
             <div className="flex items-center justify-center mt-8 text-gray-400">
               <Clock className="w-5 h-5 mr-2" />
@@ -141,8 +141,8 @@ const CookiesPolicy = () => {
               </p>
               <p className="text-gray-300 text-lg leading-relaxed">
                 These files contain information that is transferred to your
-                device's hard drive and allow us to recognize your device and
-                gather information about your browsing patterns.
+                device&apos;s hard drive and allow us to recognize your device
+                and gather information about your browsing patterns.
               </p>
             </div>
           </div>
@@ -155,7 +155,7 @@ const CookiesPolicy = () => {
               Types of Cookies We Use
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {cookieTypes.map((type, index) => (
+              {cookieTypes.map((type) => (
                 <div
                   key={type.title}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group"
@@ -260,7 +260,7 @@ const CookiesPolicy = () => {
             </h2>
             <p className="text-xl text-gray-300 mb-8">
               If you have questions about our use of cookies or need help
-              managing your preferences, we're here to help.
+              managing your preferences, we&apos;re here to help.
             </p>
             <a
               href="/contact"
