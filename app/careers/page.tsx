@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/ui/button";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
-import GetInTouch from "@/components/Footer/GetInTouch";
 import {
   Briefcase,
   Users,
@@ -184,7 +185,7 @@ const Careers = () => {
         <section className="pt-32 pb-20 px-8">
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-20 h-20 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-brand-primary/30">
-              <Briefcase className="w-10 h-10 text-gray-900" />
+              <Briefcase className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
               Join Our Team
@@ -221,7 +222,7 @@ const Careers = () => {
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group text-center"
                 >
                   <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg group-hover:shadow-brand-primary/30 transition-all duration-300">
-                    <value.icon className="w-8 h-8 text-gray-900" />
+                    <value.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold mb-4 text-white">
                     {value.title}
@@ -443,12 +444,12 @@ const Careers = () => {
                 />
               </div>
 
-              <button
+              <Button
                 type="submit"
-                className="w-full bg-brand-primary text-gray-900 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40"
+                className="w-full bg-brand-primary py-6 font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40"
               >
                 Submit Application
-              </button>
+              </Button>
             </form>
           </div>
         </section>
@@ -464,29 +465,26 @@ const Careers = () => {
               opportunities at Best Technologies Ltd.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="mailto:careers@besttechnologies.com"
-                className="bg-brand-primary text-gray-900 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40 flex items-center justify-center"
+              <Link
+                href="mailto:hello@besttechnologiesltd.com"
+                className="bg-brand-primary text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40 flex items-center justify-center"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Email HR Team
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/contact"
-                className="bg-transparent border-2 border-brand-primary text-brand-primary px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-brand-primary hover:text-gray-900 flex items-center justify-center"
+                className="bg-transparent border-2 border-brand-primary text-brand-primary px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-brand-primary hover:text-white flex items-center justify-center"
               >
                 <Phone className="w-5 h-5 mr-2" />
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
         </section>
       </main>
 
-      <footer id="contact" className="scroll-m-24">
-        <GetInTouch />
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
