@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
-import GetInTouch from "@/components/Footer/GetInTouch";
+
 import {
   FileText,
   Scale,
@@ -180,7 +181,7 @@ const TermsOfService = () => {
             </p>
             <div className="flex items-center justify-center mt-8 text-gray-400">
               <Clock className="w-5 h-5 mr-2" />
-              <span>Last updated: January 2025</span>
+              <span>Last updated: March 2025</span>
             </div>
           </div>
         </section>
@@ -229,7 +230,7 @@ const TermsOfService = () => {
                 >
                   <div className="flex items-center mb-6">
                     <div className="w-12 h-12 bg-gradient-to-r from-brand-primary to-brand-accent rounded-xl flex items-center justify-center mr-4 group-hover:shadow-lg group-hover:shadow-brand-primary/30 transition-all duration-300">
-                      <term.icon className="w-6 h-6 text-gray-900" />
+                      <term.icon className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-2xl font-semibold text-white">
                       {term.title}
@@ -320,27 +321,24 @@ const TermsOfService = () => {
               and discuss how they apply to your specific situation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <Link
                 href="/contact"
-                className="bg-brand-primary text-gray-900 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40"
+                className="bg-brand-primary text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40"
               >
                 Contact Legal Team
-              </a>
-              <a
-                href="mailto:legal@besttechnologies.com"
-                className="bg-transparent border-2 border-brand-primary text-brand-primary px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-brand-primary hover:text-gray-900"
+              </Link>
+              <Link
+                href="mailto:hello@besttechnologiesltd.com"
+                className="bg-transparent border-2 border-brand-primary text-brand-primary px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-brand-primary hover:text-white"
               >
                 Email Legal Department
-              </a>
+              </Link>
             </div>
           </div>
         </section>
       </main>
 
-      <footer id="contact" className="scroll-m-24">
-        <GetInTouch />
-        <Footer />
-      </footer>
+      <Footer />
     </div>
   );
 };
