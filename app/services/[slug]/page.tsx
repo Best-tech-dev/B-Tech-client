@@ -282,6 +282,64 @@ const services = [
       "Ongoing Maintenance",
     ],
   },
+  {
+    slug: "digital-marketing",
+    title: "Digital Marketing",
+    description:
+      "Comprehensive digital marketing strategies to boost your online presence, attract new customers, and grow your brand.",
+    icon: Globe,
+    features: [
+      "SEO Optimization",
+      "Social Media Marketing",
+      "Content Creation",
+      "Pay-Per-Click Advertising",
+    ],
+    longDescription:
+      "Expand your reach and grow your business with our digital marketing services. We craft data-driven strategies that increase visibility, engage your audience, and drive measurable results across all digital channels.",
+    benefits: [
+      "Increased online visibility",
+      "Targeted audience engagement",
+      "Higher conversion rates",
+      "Brand growth",
+      "Measurable ROI",
+    ],
+    process: [
+      "Market Research & Analysis",
+      "Strategy Development",
+      "Campaign Execution",
+      "Performance Tracking",
+      "Optimization & Reporting",
+    ],
+  },
+  {
+    slug: "brand-motion-design",
+    title: "Brand & Motion Design",
+    description:
+      "Creative branding and motion design services to help your business stand out and communicate effectively.",
+    icon: Settings,
+    features: [
+      "Logo & Visual Identity",
+      "Brand Guidelines",
+      "Animated Explainers",
+      "Motion Graphics",
+    ],
+    longDescription:
+      "Elevate your brand with compelling visual identities and engaging motion graphics. Our team delivers creative solutions that capture attention, communicate your message, and leave a lasting impression.",
+    benefits: [
+      "Stronger brand recognition",
+      "Professional visual presence",
+      "Engaging animations",
+      "Consistent brand messaging",
+      "Improved audience retention",
+    ],
+    process: [
+      "Brand Discovery",
+      "Concept Development",
+      "Design & Animation",
+      "Feedback & Revisions",
+      "Final Delivery & Support",
+    ],
+  },
 ];
 
 interface ServiceDetailPageProps {

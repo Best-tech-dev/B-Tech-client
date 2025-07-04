@@ -12,19 +12,10 @@ import NewsletterSection from "@/components/Home/Newsletter";
 import HomepageContact from "@/components/Home/HomepageContact";
 import NavBar from "@/components/Header/NavBar";
 
-// Unused imports
-// import BackgroundAnimation from "@/components/Home/BackgroundAnimation";
-// import HomepageServices from "@/components/Home/HomepageServices";
-// import HomeWhyChooseUs from "@/components/Home/HomeWhyChooseUs";
-// import NewHeader from "@/components/Header/NewHeader";
-
 export default function Home() {
   return (
     <>
       <NavBar />
-      {/* <BackgroundAnimation /> */}
-      {/* <NewHeader /> */}
-
       <div className="overflow-x-hidden">
         <main className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
           <NewLandingPageHero />

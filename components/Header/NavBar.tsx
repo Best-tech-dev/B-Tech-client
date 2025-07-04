@@ -121,13 +121,17 @@ const Navbar = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
                   align="end"
-                  className="bg-white/95 backdrop-blur-lg border-white/20 rounded-xl shadow-xl mt-2"
+                  className="bg-gray-900 backdrop-blur-lg border-white/20 rounded-xl shadow-xl mt-2"
                 >
                   {signInItems.map((item) => (
-                    <DropdownMenuItem key={item.href} asChild>
+                    <DropdownMenuItem
+                      key={item.href}
+                      asChild
+                      className="focus:bg-transparent hover:bg-transparent"
+                    >
                       <Link
                         href={item.href}
-                        className="cursor-pointer hover:bg-brand-primary/15 hover:text-brand-primary transition-colors duration-200"
+                        className="cursor-pointer hover:text-brand-primary transition-colors duration-200"
                       >
                         {item.label}
                       </Link>

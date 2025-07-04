@@ -11,57 +11,57 @@ import {
 const testimonials = [
   {
     name: "Olugbenga Agboola",
-    position: "CTO, Flutterwave",
-    company: "Flutterwave",
+    position: "Principal, Valencia",
+    company: "Valencia High School",
     avatar: "/placeholder.svg",
     rating: 5,
     content:
-      "Best Technologies transformed our entire infrastructure. Their expertise in cloud migration and system integration helped us scale from a startup to serving millions of users. Exceptional team!",
+      "Best Technologies' capstone project for our school management system has been a game-changer. Their attention to detail and commitment to quality is unmatched.",
   },
   {
-    name: "Emeka Adeyemi",
-    position: "Digital Director, Interswitch",
-    company: "Interswitch",
+    name: "Emeka Julius",
+    position: "Founder, ClassyMate",
+    company: "ClassyMate Furnitures",
     avatar: "/placeholder.svg",
     rating: 5,
     content:
-      "Working with Best Technologies on our digital transformation was a game-changer. They delivered beyond expectations and their ongoing support has been invaluable to our success.",
+      "Ecommerce is the future, and Best Technologies helped us build a robust online platform that has significantly increased our sales.",
   },
   {
     name: "Aisha Bello",
-    position: "Founder, Lifebank",
-    company: "Lifebank",
+    position: "Minister for Education",
+    company: "UBEC, Kano State",
     avatar: "/placeholder.svg",
     rating: 5,
     content:
-      "The custom healthcare platform they built for us has revolutionized how we serve our patients. Their attention to security and compliance requirements was outstanding.",
+      "Best Technologies' commitment to excellence is evident in every aspect of their work. They took the time to understand our unique challenges and delivered a solution that exceeded our expectations.",
   },
   {
     name: "Tunde Balogun",
-    position: "IT Manager, Dangote Group",
-    company: "Dangote Group",
+    position: "IT Manager, BIPA",
+    company: "Best In Print Academy",
     avatar: "/placeholder.svg",
     rating: 5,
     content:
-      "Best Technologies delivered our ERP system on time and within budget. The integration with our existing processes was seamless, and the training they provided was comprehensive.",
+      "Best Technologies' expertise in AI and data analytics has transformed our operations. Their solutions are not just innovative, but also practical and effective for our needs.",
   },
   {
     name: "Ngozi Nwosu",
-    position: "COO, Andela",
-    company: "Andela",
+    position: "Class Teacher, Evergreen High School",
+    company: "Evergreen High School, Port Harcourt",
     avatar: "/placeholder.svg",
     rating: 5,
     content:
-      "Our online learning platform has been a tremendous success thanks to Best Technologies. The AI-powered features they implemented have significantly improved student engagement.",
+      "Best Technologies has been a fantastic partner in our digital transformation journey. Their team is responsive, knowledgeable, and truly cares about our success.",
   },
   {
     name: "Ifeanyi Eze",
-    position: "CEO, Paystack",
-    company: "Paystack",
+    position: "Parent, Starlight Academy",
+    company: "Starlight Academy, Lagos",
     avatar: "/placeholder.svg",
     rating: 5,
     content:
-      "The analytics dashboard they created for us provides real-time insights that have transformed our decision-making process. Truly a partnership that drives results.",
+      "I can easily say that Best Technologies has been a game-changer for our school. Their solutions have made learning more engaging and accessible for my child. James is now more excited about his studies, and I attribute a lot of that to the innovative tools Best Technologies has implemented.",
   },
 ];
 

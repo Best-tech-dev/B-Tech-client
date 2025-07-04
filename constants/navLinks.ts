@@ -25,18 +25,8 @@ export type NavItem = { label: string; href: string };
 
 export const signInItems: NavItem[] = [
   { label: "Student", href: "/auth/login/student" },
-  { label: "Instructor", href: "/auth/login/instructor" },
+  { label: "Staff", href: "/auth/login/staff" },
 ];
-
-// export const signInItems: NavGroup[] = [
-//   {
-//     label: "",
-//     items: [
-//       { label: "Student", href: "/auth/student" },
-//       { label: "Instructor", href: "/auth/instructor" },
-//     ],
-//   },
-// ];
 
 export const serviceItems: NavGroup[] = [
   {

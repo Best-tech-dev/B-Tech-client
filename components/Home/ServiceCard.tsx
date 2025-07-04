@@ -329,7 +329,7 @@ const HomepageServiceCards: React.FC = () => {
               title="AI & Machine Learning"
               description="Harness the power of AI/ML for smarter decision-making, personalized experiences, and sustainable digital transformation."
               icon={<AIMLIcon />}
-              href="/services/ai-machine-learning"
+              href="/services/ai-integration-and-automation"
             />
 
             <ImageCard
@@ -349,7 +349,7 @@ const HomepageServiceCards: React.FC = () => {
               description="Modern iOS and Android applications using Flutter and React Native with exceptional UI/UX design and optimal performance."
               icon={<MobileAppIcon />}
               image={mobileAppImage}
-              href="/services/mobile-app-development"
+              href="/services/mobile-development"
               imagePosition="top"
             />
 
