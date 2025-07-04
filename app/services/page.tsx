@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import { Button } from "@/ui/button";
 
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
@@ -32,18 +34,6 @@ const services = [
     ],
   },
   {
-    title: "Cloud Solutions",
-    description:
-      "Seamless migration to cloud platforms, infrastructure optimization, and managed cloud services for enhanced scalability.",
-    icon: Cloud,
-    features: [
-      "Cloud Migration",
-      "Infrastructure as Code",
-      "DevOps Implementation",
-      "Cloud Security",
-    ],
-  },
-  {
     title: "Digital Transformation",
     description:
       "Strategic guidance and implementation support to modernize your operations and embrace digital-first approaches.",
@@ -56,15 +46,51 @@ const services = [
     ],
   },
   {
-    title: "System Integration",
+    title: "Web Development",
     description:
-      "Connecting disparate systems and applications to create unified, efficient workflows across your organization.",
-    icon: Settings,
+      "Modern, responsive websites and web applications built with the latest technologies and best practices.",
+    icon: Globe,
     features: [
-      "API Integration",
-      "Data Migration",
-      "Workflow Automation",
-      "Third-party Integrations",
+      "Responsive Design",
+      "E-commerce Solutions",
+      "CMS Development",
+      "Software as a Service (SaaS)",
+    ],
+  },
+  {
+    title: "Mobile Development",
+    description:
+      "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
+    icon: Smartphone,
+    features: [
+      "iOS Development",
+      "Android Development",
+      "React Native",
+      "Flutter Development",
+    ],
+  },
+  {
+    title: "AI Integration & Automation",
+    description:
+      "Leverage artificial intelligence to automate business processes, enhance decision-making, and unlock new efficiencies.",
+    icon: Zap,
+    features: [
+      "Process Automation",
+      "AI Chatbots",
+      "Predictive Analytics",
+      "Machine Learning Solutions",
+    ],
+  },
+  {
+    title: "Cloud Solutions",
+    description:
+      "Seamless migration to cloud platforms, infrastructure optimization, and managed cloud services for enhanced scalability.",
+    icon: Cloud,
+    features: [
+      "Cloud Migration",
+      "Infrastructure as Code",
+      "DevOps Implementation",
+      "Cloud Security",
     ],
   },
   {
@@ -92,18 +118,6 @@ const services = [
     ],
   },
   {
-    title: "Mobile Development",
-    description:
-      "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.",
-    icon: Smartphone,
-    features: [
-      "iOS Development",
-      "Android Development",
-      "React Native",
-      "Flutter Development",
-    ],
-  },
-  {
     title: "Database Solutions",
     description:
       "Database design, optimization, and management services to ensure your data is secure, accessible, and performant.",
@@ -113,18 +127,6 @@ const services = [
       "Performance Tuning",
       "Data Analytics",
       "Backup & Recovery",
-    ],
-  },
-  {
-    title: "Web Development",
-    description:
-      "Modern, responsive websites and web applications built with the latest technologies and best practices.",
-    icon: Globe,
-    features: [
-      "Responsive Design",
-      "E-commerce Solutions",
-      "CMS Development",
-      "Progressive Web Apps",
     ],
   },
 ];
@@ -167,12 +169,12 @@ const Services = () => {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-8">
+        <section className="pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
               Our Services
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
               Comprehensive technology solutions designed to drive your business
               forward. From custom software development to digital
               transformation, we have the expertise to deliver results.
@@ -181,70 +183,146 @@ const Services = () => {
         </section>
 
         {/* Services Grid */}
-        <section className="py-20 px-8">
+        <section className="py-12 md:py-16 lg:py-20 px-4 md:px-8">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {services.map((service, index) => {
                 const IconComponent = service.icon;
+                const serviceSlug = service.title
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/&/g, "and");
                 return (
-                  <div
+                  <Link
                     key={index}
-                    className="group bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:-translate-y-2"
+                    href={`/services/${serviceSlug}`}
+                    className="group bg-gray-800/40 backdrop-blur-sm rounded-2xl md:rounded-3xl p-6 md:p-8 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:-translate-y-2 block"
                   >
-                    <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-8 h-8 text-white" />
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-brand-primary to-brand-accent rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-white" />
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-brand-primary transition-colors">
+                    <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-3 md:mb-4 group-hover:text-brand-primary transition-colors">
                       {service.title}
                     </h3>
 
-                    <p className="text-gray-300 leading-relaxed mb-6">
+                    <p className="text-sm md:text-base text-gray-300 leading-relaxed mb-4 md:mb-6">
                       {service.description}
                     </p>
 
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8">
                       {service.features.map((feature, featureIndex) => (
                         <li
                           key={featureIndex}
-                          className="flex items-center text-gray-400"
+                          className="flex items-center text-sm md:text-base text-gray-400"
                         >
-                          <CheckCircle className="w-4 h-4 text-brand-primary mr-3 flex-shrink-0" />
+                          <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-brand-primary mr-2 md:mr-3 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
                     </ul>
 
-                    <button className="w-full bg-gray-700/50 hover:bg-brand-primary/20 text-white py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center group-hover:bg-brand-primary group-hover:text-gray-900">
+                    <Button className="w-full bg-gray-700/50 hover:bg-brand-primary/20 text-white py-2.5 md:py-6 rounded-lg md:rounded-xl font-semibold transition-all duration-300 flex items-center justify-center group-hover:bg-brand-primary text-sm md:text-base">
                       Learn More
-                      <ArrowRight className="w-5 h-5 ml-2" />
-                    </button>
-                  </div>
+                      <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2" />
+                    </Button>
+                  </Link>
                 );
               })}
             </div>
           </div>
         </section>
 
+        {/* Training Advertisement Section */}
+        <section className="py-12 md:py-16 lg:py-20 px-4 md:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-gradient-to-r from-brand-primary/10 via-brand-accent/10 to-brand-primary/10 rounded-2xl md:rounded-3xl p-8 md:p-12 border border-brand-primary/20 backdrop-blur-sm">
+              <div className="text-center max-w-3xl mx-auto">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-6 md:mb-8">
+                  <Users className="w-8 h-8 md:w-10 md:h-10 text-white" />
+                </div>
+
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+                  Invest in Your Future with Our Training Programs
+                </h2>
+
+                <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed mb-6 md:mb-8">
+                  Empower yourself and your loved ones with cutting-edge
+                  technology skills. Our comprehensive training programs are
+                  designed to prepare you for the digital future, whether you're
+                  starting your career or advancing your expertise.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-10 text-sm md:text-base">
+                  <div className="flex items-center justify-center text-gray-300">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-brand-primary mr-2 md:mr-3" />
+                    Industry-Expert Instructors
+                  </div>
+                  <div className="flex items-center justify-center text-gray-300">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-brand-primary mr-2 md:mr-3" />
+                    Hands-on Projects
+                  </div>
+                  <div className="flex items-center justify-center text-gray-300">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-brand-primary mr-2 md:mr-3" />
+                    Career Support
+                  </div>
+                </div>
+
+                <Button
+                  onClick={() => (window.location.href = "/trainings")}
+                  className="bg-brand-primary hover:bg-brand-primary/80 text-white px-6 md:px-8 py-3 md:py-6 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 text-sm md:text-base"
+                >
+                  Explore Training Programs
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5 ml-2" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
-        <section className="py-20 px-8">
+        <section className="py-12 md:py-16 lg:py-20 px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-brand-secondary/20 via-gray-800/80 to-brand-secondary/20 rounded-3xl p-12 border border-brand-primary/20 text-center">
-              <h2 className="text-3xl font-bold mb-6 text-white">
+            <div className="bg-gradient-to-r from-brand-secondary/20 via-gray-800/80 to-brand-secondary/20 rounded-2xl md:rounded-3xl p-8 md:p-12 border border-brand-primary/20 text-center">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-white">
                 Ready to Get Started?
               </h2>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
                 Let&apos;s discuss how our services can help transform your
                 business and drive growth through innovative technology
                 solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-brand-primary text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30">
+                <Button
+                  onClick={() => {
+                    window.location.href = "/#get-in-touch-form";
+                    setTimeout(() => {
+                      const element =
+                        document.getElementById("get-in-touch-form");
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }, 100);
+                  }}
+                  className="bg-brand-primary hover:bg-brand-primary/80 text-white px-6 md:px-8 py-3 md:py-6 lg:py-6 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 text-sm md:text-base"
+                >
                   Start Your Project
-                </button>
-                <button className="bg-gray-700/50 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-gray-600/50 border border-gray-600">
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    window.location.href = "/contact#contact-form";
+                    setTimeout(() => {
+                      const element = document.getElementById("contact-form");
+                      if (element) {
+                        element.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }, 100);
+                  }}
+                  className="bg-gray-700/50 hover:bg-gray-600/50 text-white border-gray-600 hover:border-gray-500 px-6 md:px-8 py-3 md:py-6 lg:py-6 rounded-xl font-semibold transition-all duration-300 text-sm md:text-base"
+                >
                   Schedule Consultation
-                </button>
+                </Button>
               </div>
             </div>
           </div>
