@@ -4,8 +4,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Linkedin, Twitter, Github, Mail } from "lucide-react";
-import { FaArrowUp } from "react-icons/fa";
+import { Linkedin, Twitter, Github, Instagram } from "lucide-react";
+import { FaArrowUp, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -29,202 +29,108 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-[rgba(10,10,10,0.9)] border-t border-white/10 py-16 px-8 relative overflow-hidden">
-      {/* SVG Background */}
-      <div className="absolute top-0 -right-2/5 w-full h-full opacity-30 pointer-events-none">
+    <footer className="relative overflow-hidden bg-gray-900">
+      {/* Skyline Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url(/imgs/footer-skyline.jpg)",
+        }}
+      />
+
+      {/* Dark Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/60" />
+
+      {/* Wavy Gradient Overlay - Inspired by Swiper.js */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 overflow-hidden pointer-events-none">
         <svg
+          className="absolute bottom-0 left-0 w-full h-full"
+          viewBox="0 0 1440 400"
+          preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 800 800"
-          className="w-full h-full"
         >
-          <g transform="matrix(1,0,0,1,0,0)">
-            <rect
-              width="100"
-              height="100"
-              x="634"
-              y="634"
-              strokeWidth="4"
-              stroke="#d9f99d"
-              fill="none"
-              opacity="0.1"
-              transform="rotate(100, 400, 400)"
-            ></rect>
-            <rect
-              width="116.66666666666667"
-              height="116.66666666666667"
-              x="602"
-              y="602"
-              strokeWidth="5"
-              stroke="#d5f897"
-              fill="none"
-              opacity="0.175"
-              transform="rotate(91.66666666666667, 400, 400)"
-            ></rect>
-            <rect
-              width="133.33333333333334"
-              height="133.33333333333334"
-              x="570"
-              y="570"
-              strokeWidth="6"
-              stroke="#d0f890"
-              fill="none"
-              opacity="0.25"
-              transform="rotate(83.33333333333333, 400, 400)"
-            ></rect>
-            <rect
-              width="150"
-              height="150"
-              x="538"
-              y="538"
-              strokeWidth="7"
-              stroke="#ccf789"
-              fill="none"
-              opacity="0.32499999999999996"
-              transform="rotate(75, 400, 400)"
-            ></rect>
-            <rect
-              width="166.66666666666669"
-              height="166.66666666666669"
-              x="506"
-              y="506"
-              strokeWidth="8"
-              stroke="#c7f681"
-              fill="none"
-              opacity="0.4"
-              transform="rotate(66.66666666666666, 400, 400)"
-            ></rect>
-            <rect
-              width="183.33333333333334"
-              height="183.33333333333334"
-              x="473.99999999999994"
-              y="473.99999999999994"
-              strokeWidth="9"
-              stroke="#c3f579"
-              fill="none"
-              opacity="0.475"
-              transform="rotate(58.33333333333333, 400, 400)"
-            ></rect>
-            <rect
-              width="200"
-              height="200"
-              x="442"
-              y="442"
-              strokeWidth="10"
-              stroke="#bef571"
-              fill="none"
-              opacity="0.5499999999999999"
-              transform="rotate(50, 400, 400)"
-            ></rect>
-            <rect
-              width="216.66666666666669"
-              height="216.66666666666669"
-              x="409.9999999999999"
-              y="409.9999999999999"
-              strokeWidth="11"
-              stroke="#b9f467"
-              fill="none"
-              opacity="0.625"
-              transform="rotate(41.666666666666664, 400, 400)"
-            ></rect>
-            <rect
-              width="233.33333333333334"
-              height="233.33333333333334"
-              x="377.99999999999994"
-              y="377.99999999999994"
-              strokeWidth="12"
-              stroke="#b4f35d"
-              fill="none"
-              opacity="0.7"
-              transform="rotate(33.33333333333333, 400, 400)"
-            ></rect>
-            <rect
-              width="250"
-              height="250"
-              x="346"
-              y="346"
-              strokeWidth="13"
-              stroke="#aff252"
-              fill="none"
-              opacity="0.7749999999999999"
-              transform="rotate(25, 400, 400)"
-            ></rect>
-            <rect
-              width="266.6666666666667"
-              height="266.6666666666667"
-              x="314"
-              y="314"
-              strokeWidth="14"
-              stroke="#a9f244"
-              fill="none"
-              opacity="0.85"
-              transform="rotate(16.666666666666657, 400, 400)"
-            ></rect>
-            <rect
-              width="283.33333333333337"
-              height="283.33333333333337"
-              x="281.99999999999994"
-              y="281.99999999999994"
-              strokeWidth="15"
-              stroke="#a4f134"
-              fill="none"
-              opacity="0.9249999999999999"
-              transform="rotate(8.333333333333329, 400, 400)"
-            ></rect>
-            <rect
-              width="300"
-              height="300"
-              x="250"
-              y="250"
-              strokeWidth="16"
-              stroke="#9ef01a"
-              fill="none"
-              opacity="0.9999999999999999"
-              transform="rotate(0, 400, 400)"
-            ></rect>
-          </g>
+          <defs>
+            <linearGradient
+              id="wave-gradient"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="#a4cd39" stopOpacity="0.4" />
+              <stop offset="50%" stopColor="#7ca412" stopOpacity="0.7" />
+              <stop offset="100%" stopColor="#0f172a" stopOpacity="0.9" />
+            </linearGradient>
+            <linearGradient
+              id="wave-gradient-2"
+              x1="0%"
+              y1="0%"
+              x2="0%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="#7ca412" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#0f172a" stopOpacity="0.95" />
+            </linearGradient>
+          </defs>
+
+          {/* First wave layer - taller and more prominent */}
+          <path
+            d="M0,120 C240,80 480,160 720,120 C960,80 1200,160 1440,120 L1440,400 L0,400 Z"
+            fill="url(#wave-gradient)"
+          />
+
+          {/* Second wave layer - covers more area */}
+          <path
+            d="M0,180 C360,140 720,200 1080,160 C1260,150 1350,155 1440,160 L1440,400 L0,400 Z"
+            fill="url(#wave-gradient-2)"
+          />
+
+          {/* Bottom solid layer - ensures full coverage to bottom */}
+          <path
+            d="M0,240 C480,200 960,260 1440,220 L1440,400 L0,400 Z"
+            fill="#0f172a"
+          />
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div className="max-w-7xl mx-auto relative z-30 py-16 px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {/* Services */}
           <div>
             <h4 className="text-[#a4cd39] text-xl font-semibold mb-6">
               Services
             </h4>
             <div className="space-y-3">
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              <Link
+                href="/services/web-development"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Web Development
-              </a>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/services/mobile-development"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Mobile Development
-              </a>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/services/cloud-solutions"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Cloud Solutions
-              </a>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/services/digital-transformation"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Digital Transformation
-              </a>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/services/cybersecurity"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Cybersecurity
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -234,36 +140,36 @@ const Footer = () => {
               Industries
             </h4>
             <div className="space-y-3">
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              <Link
+                href="/industries/healthcare"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Healthcare
-              </a>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/industries/finance"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Finance
-              </a>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/industries/education"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Education
-              </a>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/industries/government"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Government
-              </a>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/industries/retail"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Retail
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -273,36 +179,36 @@ const Footer = () => {
               Company
             </h4>
             <div className="space-y-3">
-              <button
-                onClick={() => scrollToSection("about")}
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors text-left"
+              <Link
+                href="/about"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 About Us
-              </button>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/our-team"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Our Team
-              </a>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/careers"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Careers
-              </a>
-              <a
-                href="#"
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors"
+              </Link>
+              <Link
+                href="/blog"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Blog
-              </a>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="block text-gray-300 hover:text-[#a4cd39] transition-colors text-left"
+              </Link>
+              <Link
+                href="/#contact"
+                className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Contact
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -313,39 +219,56 @@ const Footer = () => {
             </h4>
             <div className="space-y-4">
               <a
-                href="#"
-                className="flex items-center gap-3 text-gray-300 hover:text-[#a4cd39] transition-colors"
+                href="https://www.linkedin.com/company/best-technologies-limited"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 <Linkedin className="w-5 h-5" />
                 LinkedIn
               </a>
               <a
-                href="#"
-                className="flex items-center gap-3 text-gray-300 hover:text-[#a4cd39] transition-colors"
+                href="https://x.com/besttech_ltd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 <Twitter className="w-5 h-5" />
                 Twitter
               </a>
               <a
-                href="#"
-                className="flex items-center gap-3 text-gray-300 hover:text-[#a4cd39] transition-colors"
+                href="https://www.tiktok.com/@besttechltd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
+              >
+                <FaTiktok className="w-5 h-5" />
+                TikTok
+              </a>
+              <a
+                href="https://www.instagram.com/besttechnologiesltd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
+              >
+                <Instagram className="w-5 h-5" />
+                Instagram
+              </a>
+              <a
+                href="https://github.com/Best-tech-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 <Github className="w-5 h-5" />
                 GitHub
-              </a>
-              <a
-                href="#"
-                className="flex items-center gap-3 text-gray-300 hover:text-[#a4cd39] transition-colors"
-              >
-                <Mail className="w-5 h-5" />
-                Email Us
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="text-white px-6 md:px-10 flex flex-col md:flex-row md:justify-between md:items-center text-center md:text-left max-w-7xl mx-auto border-t border-brand-primary/10 pt-8 md:pt-12 relative z-10">
+      <div className="text-white px-6 md:px-10 flex flex-col md:flex-row md:justify-between md:items-center text-center md:text-left max-w-7xl mx-auto border-t border-gray-600/30 pt-8 pb-8 relative z-30">
         {/* Logo */}
         <Link href="/" className="mb-4 md:mb-0">
           <Image
@@ -358,17 +281,23 @@ const Footer = () => {
         </Link>
         {/* Policy Links */}
         <div className="flex flex-row mx-auto gap-4 text-xs">
-          <Link href="/privacy-policy" className="hover:underline">
+          <Link
+            href="/privacy-policy"
+            className="hover:underline cursor-pointer"
+          >
             Privacy Policy
           </Link>
-          <Link href="/cookies-policy" className="hover:underline">
+          <Link
+            href="/cookies-policy"
+            className="hover:underline cursor-pointer"
+          >
             Cookies Policy
           </Link>
-          <Link href="/terms-of-service" className="hover:underline">
+          <Link
+            href="/terms-of-service"
+            className="hover:underline cursor-pointer"
+          >
             Terms of Service
-          </Link>
-          <Link href="/about-us#faqs" className="hover:underline">
-            FAQs
           </Link>
         </div>
         {/* Copyright */}
@@ -379,7 +308,7 @@ const Footer = () => {
         {/* Scroll to Top Button */}
         {showScroll && (
           <button
-            className="fixed z-10 bottom-4 right-4 md:bottom-6 md:right-6 border rounded-full p-2 text-[#7ca412] border-[#7ca412] bg-[#0e1117] hover:bg-[#7ca412] hover:text-white transition"
+            className="fixed z-50 bottom-4 right-4 md:bottom-6 md:right-6 border rounded-full p-2 text-[#7ca412] border-[#7ca412] bg-[#0e1117] hover:bg-[#7ca412] hover:text-white transition"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <FaArrowUp size={18} />

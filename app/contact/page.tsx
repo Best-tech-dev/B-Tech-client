@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
+import useSmoothScroll from "@/hooks/useSmoothScroll";
 import { Button } from "@/ui/button";
 import {
   Mail,
@@ -17,6 +18,9 @@ import {
 } from "lucide-react";
 
 const Contact = () => {
+  // Initialize smooth scroll hook to handle hash navigation
+  useSmoothScroll();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
