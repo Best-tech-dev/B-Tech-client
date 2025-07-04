@@ -10,7 +10,6 @@ import {
   Code,
   Cloud,
   Zap,
-  Settings,
   Shield,
   Users,
   Smartphone,
@@ -249,8 +248,8 @@ const Services = () => {
                 <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed mb-6 md:mb-8">
                   Empower yourself and your loved ones with cutting-edge
                   technology skills. Our comprehensive training programs are
-                  designed to prepare you for the digital future, whether you're
-                  starting your career or advancing your expertise.
+                  designed to prepare you for the digital future, whether
+                  you&apos;re starting your career or advancing your expertise.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-10 text-sm md:text-base">

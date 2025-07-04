@@ -129,8 +129,8 @@ export default function IndustryDetailClient({
             Ready to Transform Your {industry.title} Operations?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Let's discuss how our specialized solutions can address your unique
-            challenges and drive growth.
+            Let&apos;s discuss how our specialized solutions can address your
+            unique challenges and drive growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

@@ -131,8 +131,8 @@ export default function IndustriesPage() {
               Ready to Transform Your Industry?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Let's discuss how our technology solutions can drive innovation in
-              your sector.
+              Let&apos;s discuss how our technology solutions can drive
+              innovation in your sector.
             </p>
             <button
               onClick={handleContactClick}

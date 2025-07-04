@@ -8,13 +8,6 @@ import { Linkedin, Twitter, Github, Instagram } from "lucide-react";
 import { FaArrowUp, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const [showScroll, setShowScroll] = useState(false);
 
   useEffect(() => {

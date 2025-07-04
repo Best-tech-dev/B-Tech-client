@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useState } from "react";
-import Link from "next/link";
 import { Button } from "@/ui/Bootcamp/button";
 import { cn } from "@/lib/Bootcamp/utils";
 import emailjs from "@emailjs/browser";
@@ -27,7 +26,6 @@ import {
 } from "@/ui/Bootcamp/form";
 import { Input } from "@/ui/Bootcamp/input";
 import { Textarea } from "@/ui/Bootcamp/textarea";
-import Image from "next/image";
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters."),

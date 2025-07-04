@@ -166,13 +166,14 @@ const industries: Record<string, IndustryData> = {
 };
 
 interface PageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function IndustryDetailPage({ params }: PageProps) {
-  const industry = industries[params.slug];
+export default async function IndustryDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const industry = industries[slug];
 
   if (!industry) {
     notFound();
