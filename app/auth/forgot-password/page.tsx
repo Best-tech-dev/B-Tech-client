@@ -24,7 +24,7 @@ const ForgotPasswordPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
@@ -73,26 +73,26 @@ const ForgotPasswordPage = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-400 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
-              
+
               <h1 className="text-2xl md:text-3xl font-bold mb-4 text-white">
                 Check Your Email
               </h1>
-              
+
               <p className="text-gray-300 mb-6 leading-relaxed">
-                We&apos;ve sent a password reset link to <span className="text-brand-primary font-medium">{email}</span>. 
-                Please check your email and follow the instructions to reset your password.
+                We&apos;ve sent a password reset link to{" "}
+                <span className="text-brand-primary font-medium">{email}</span>.
+                Please check your email and follow the instructions to reset
+                your password.
               </p>
-              
+
               <div className="space-y-4">
                 <Button
                   asChild
                   className="w-full bg-brand-primary hover:bg-brand-primary/80 text-white py-3 rounded-xl font-semibold transition-all duration-300"
                 >
-                  <Link href={`/auth/login/${userType}`}>
-                    Back to Sign In
-                  </Link>
+                  <Link href={`/auth/login/${userType}`}>Back to Sign In</Link>
                 </Button>
-                
+
                 <Button
                   onClick={() => setIsSubmitted(false)}
                   variant="ghost"
@@ -101,11 +101,11 @@ const ForgotPasswordPage = () => {
                   Try Different Email
                 </Button>
               </div>
-              
+
               <div className="mt-8 pt-6 border-t border-gray-700/50">
                 <p className="text-gray-400 text-sm">
                   Didn&apos;t receive the email? Check your spam folder or{" "}
-                  <button 
+                  <button
                     onClick={() => setIsSubmitted(false)}
                     className="text-brand-primary hover:text-brand-accent transition-colors"
                   >
@@ -180,7 +180,8 @@ const ForgotPasswordPage = () => {
                 Reset Password
               </h1>
               <p className="text-gray-400">
-                Enter your email address and we&apos;ll send you a link to reset your password
+                Enter your email address and we&apos;ll send you a link to reset
+                your password
               </p>
             </div>
 
@@ -279,9 +280,10 @@ const ForgotPasswordPage = () => {
               <AlertCircle className="w-4 h-4 mr-2 text-brand-primary mt-0.5 flex-shrink-0" />
               <div>
                 <p className="font-medium text-white mb-1">Need help?</p>
-                <p>If you continue to have trouble accessing your account, please{" "}
-                  <Link 
-                    href="/contact" 
+                <p>
+                  If you continue to have trouble accessing your account, please{" "}
+                  <Link
+                    href="/contact"
                     className="text-brand-primary hover:text-brand-accent transition-colors"
                   >
                     contact our support team

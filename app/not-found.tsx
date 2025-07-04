@@ -5,13 +5,7 @@ import Link from "next/link";
 import { Button } from "@/ui/button";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
-import {
-  Home,
-  ArrowLeft,
-  Search,
-  FileQuestion,
-  Lightbulb,
-} from "lucide-react";
+import { Home, ArrowLeft, Search, FileQuestion, Lightbulb } from "lucide-react";
 
 const NotFoundPage = () => {
   const popularPages = [
@@ -83,8 +77,9 @@ const NotFoundPage = () => {
               Oops! Page Not Found
             </h2>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              It seems like the page you&apos;re looking for has moved, been deleted, or doesn&apos;t exist. 
-              But don&apos;t worry, we&apos;re here to help you find what you need!
+              It seems like the page you&apos;re looking for has moved, been
+              deleted, or doesn&apos;t exist. But don&apos;t worry, we&apos;re
+              here to help you find what you need!
             </p>
           </div>
 
@@ -159,9 +154,7 @@ const NotFoundPage = () => {
               variant="ghost"
               className="text-brand-primary hover:text-brand-accent hover:bg-brand-primary/10 transition-all duration-200"
             >
-              <Link href="/contact">
-                Contact Our Support Team
-              </Link>
+              <Link href="/contact">Contact Our Support Team</Link>
             </Button>
           </div>
         </div>

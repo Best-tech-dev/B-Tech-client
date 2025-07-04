@@ -108,435 +108,461 @@ const RegistrationForm = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
-      <main className="container mx-auto px-2 md:px-6 lg:px-8 py-32 bg-[#161a25]">
-        <Image
-          src={"/logo-main.png"}
-          alt="Logo"
-          width={150}
-          height={40}
-          className="mx-auto mb-10"
-        />
+      <section className="pt-24 md:pt-32 pb-16 md:pb-20 px-4 md:px-8">
+        <div className="max-w-5xl mx-auto">
+          {/* Header Section */}
+          <div className="text-center mb-12 md:mb-16">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+              Start Your Application
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-6">
+              Fill in the form below to be called back by one of our educational
+              advisors and join the course of your choice.
+            </p>
+            <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+              Once we receive your request, an advisor will call you back
+              shortly to discuss about your project and help you find the best
+              course adapted to your background and goals.
+            </p>
+          </div>
 
-        <div className="max-w-3xl mx-auto border rounded-2xl px-2 md:px-8 py-10 shadow-lg bg-white">
-          <h1 className="text-3xl text-center md:text-4xl font-bold mb-4 text-[#a4cd39]">
-            Start Your Application
-          </h1>
-          <p className="text-xl mb-8 text-gray-700 text-center">
-            Fill in the form below to be called back by one of our educational
-            advisors and join the course of your choice.
-          </p>
-          <p className="mb-8 text-gray-600 text-center">
-            Once we receive your request, an advisor will call you back shortly
-            to discuss about your project and help you find the best course
-            adapted to your background and goals.
-          </p>
-
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <FormField
-                  control={form.control}
-                  name="firstName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-black">First name*</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Enter your first name"
-                          {...field}
-                          value={field.value ?? ""}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="middleName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-black">Middle name</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Enter your middle name (optional)"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <FormField
-                  control={form.control}
-                  name="lastName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-black">Last name*</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Enter your last name"
-                          {...field}
-                          value={field.value ?? ""}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-black">Email*</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Enter your email address"
-                          type="email"
-                          {...field}
-                          value={field.value ?? ""}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <FormField
-                  control={form.control}
-                  name="phoneNumber"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-black">
-                        Phone number*
-                      </FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Enter your phone number"
-                          type="tel"
-                          {...field}
-                          value={field.value ?? ""}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="location"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-black">
-                        Pick your location*
-                      </FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select your preferred location" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="online">Online</SelectItem>
-                          <SelectItem value="onsite">Onsite</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                <FormField
-                  control={form.control}
-                  name="course"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-black">
-                        Choose your preferred course*
-                      </FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select your preferred course" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="ui-ux">UI & UX</SelectItem>
-                          <SelectItem value="frontend">
-                            Frontend development
-                          </SelectItem>
-                          <SelectItem value="backend">
-                            Backend development
-                          </SelectItem>
-                          <SelectItem value="fullstack">
-                            Fullstack development
-                          </SelectItem>
-                          <SelectItem value="growth-marketing">
-                            Growth Marketing
-                          </SelectItem>
-                          <SelectItem value="data-science">
-                            Data Science
-                          </SelectItem>
-                          <SelectItem value="cybersecurity">
-                            Cybersecurity
-                          </SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="skillLevel"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-black">
-                        Select your skill level*
-                      </FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select your skill level" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="beginner">Beginner</SelectItem>
-                          <SelectItem value="basic">Basic</SelectItem>
-                          <SelectItem value="intermediate">
-                            Intermediate
-                          </SelectItem>
-                          <SelectItem value="advanced">Advanced</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <FormField
-                control={form.control}
-                name="enrollmentGoal"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-black">
-                      What is your goal for enrolling?*
-                    </FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select your goal" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="find-job">Find a job</SelectItem>
-                        <SelectItem value="improve-role">
-                          Improve in my current role
-                        </SelectItem>
-                        <SelectItem value="personal-project">
-                          Launch my personal project
-                        </SelectItem>
-                        <SelectItem value="freelancer">
-                          Become a freelancer
-                        </SelectItem>
-                        <SelectItem value="skills">
-                          Learn practical skills to my studies
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="educationalStatus"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-black">
-                      Which option below best represents your educational
-                      status?*
-                    </FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select your educational status" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="high-school">
-                          High School Student
-                        </SelectItem>
-                        <SelectItem value="higher-institution">
-                          Higher Institution Student
-                        </SelectItem>
-                        <SelectItem value="self-employed">
-                          Self-employed/freelancer
-                        </SelectItem>
-                        <SelectItem value="working-professional">
-                          Working professional
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="referralSource"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-black">
-                      How did you hear about us?*
-                    </FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Tell us how you discovered our bootcamp"
-                        className="resize-none"
-                        rows={3}
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="availability"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-black">
-                      When are you available for a call?*
-                    </FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Please provide your availability for a callback"
-                        className="resize-none"
-                        rows={3}
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="contactMethod"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-black">
-                      What is the best way to reach you?*
-                    </FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select your preferred contact method" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="phone">Phone call</SelectItem>
-                        <SelectItem value="whatsapp">WhatsApp</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <Button
-                type="submit"
-                disabled={!form.formState.isValid}
-                className={cn(
-                  "bg-[#71990b] hover:bg-[#a3cd39e6] mt-4 w-full md:w-auto",
-                  !form.formState.isValid && "opacity-50 cursor-not-allowed"
-                )}
+          {/* Form Container */}
+          <div className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-gray-700/50 shadow-2xl">
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-8"
               >
-                Submit
-              </Button>
-            </form>
-          </Form>
+                {/* Personal Information Section */}
+                <div className="space-y-6">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 pb-3 border-b border-gray-700/50">
+                    Personal Information
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white font-medium">
+                            First name*
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Enter your first name"
+                              {...field}
+                              value={field.value ?? ""}
+                              className="bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-brand-primary focus:ring-brand-primary/20"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="middleName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white font-medium">
+                            Middle name
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Enter your middle name (optional)"
+                              {...field}
+                              className="bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-brand-primary focus:ring-brand-primary/20"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white font-medium">
+                            Last name*
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Enter your last name"
+                              {...field}
+                              value={field.value ?? ""}
+                              className="bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-brand-primary focus:ring-brand-primary/20"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white font-medium">
+                            Email*
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Enter your email address"
+                              type="email"
+                              {...field}
+                              value={field.value ?? ""}
+                              className="bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-brand-primary focus:ring-brand-primary/20"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="phoneNumber"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white font-medium">
+                            Phone number*
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              placeholder="Enter your phone number"
+                              type="tel"
+                              {...field}
+                              value={field.value ?? ""}
+                              className="bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-brand-primary focus:ring-brand-primary/20"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="location"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white font-medium">
+                            Pick your location*
+                          </FormLabel>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white focus:border-brand-primary focus:ring-brand-primary/20">
+                                <SelectValue placeholder="Select your preferred location" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-gray-800 border-gray-600">
+                              <SelectItem value="online">Online</SelectItem>
+                              <SelectItem value="onsite">Onsite</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                </div>
+                {/* Course and Program Preferences */}
+                <div className="space-y-6">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 pb-3 border-b border-gray-700/50">
+                    Course & Program Preferences
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormField
+                      control={form.control}
+                      name="course"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white font-medium">
+                            Choose your preferred course*
+                          </FormLabel>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white focus:border-brand-primary focus:ring-brand-primary/20">
+                                <SelectValue placeholder="Select your preferred course" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-gray-800 border-gray-600">
+                              <SelectItem value="ui-ux">UI & UX</SelectItem>
+                              <SelectItem value="frontend">
+                                Frontend development
+                              </SelectItem>
+                              <SelectItem value="backend">
+                                Backend development
+                              </SelectItem>
+                              <SelectItem value="fullstack">
+                                Fullstack development
+                              </SelectItem>
+                              <SelectItem value="growth-marketing">
+                                Growth Marketing
+                              </SelectItem>
+                              <SelectItem value="data-science">
+                                Data Science
+                              </SelectItem>
+                              <SelectItem value="cybersecurity">
+                                Cybersecurity
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <FormField
+                      control={form.control}
+                      name="skillLevel"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white font-medium">
+                            Select your skill level*
+                          </FormLabel>
+                          <Select
+                            onValueChange={field.onChange}
+                            defaultValue={field.value}
+                          >
+                            <FormControl>
+                              <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white focus:border-brand-primary focus:ring-brand-primary/20">
+                                <SelectValue placeholder="Select your skill level" />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent className="bg-gray-800 border-gray-600">
+                              <SelectItem value="beginner">Beginner</SelectItem>
+                              <SelectItem value="basic">Basic</SelectItem>
+                              <SelectItem value="intermediate">
+                                Intermediate
+                              </SelectItem>
+                              <SelectItem value="advanced">Advanced</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+
+                  <FormField
+                    control={form.control}
+                    name="enrollmentGoal"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white font-medium">
+                          What is your goal for enrolling?*
+                        </FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white focus:border-brand-primary focus:ring-brand-primary/20">
+                              <SelectValue placeholder="Select your goal" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-gray-800 border-gray-600">
+                            <SelectItem value="find-job">Find a job</SelectItem>
+                            <SelectItem value="improve-role">
+                              Improve in my current role
+                            </SelectItem>
+                            <SelectItem value="personal-project">
+                              Launch my personal project
+                            </SelectItem>
+                            <SelectItem value="freelancer">
+                              Become a freelancer
+                            </SelectItem>
+                            <SelectItem value="skills">
+                              Learn practical skills to my studies
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="educationalStatus"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white font-medium">
+                          Which option below best represents your educational
+                          status?*
+                        </FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white focus:border-brand-primary focus:ring-brand-primary/20">
+                              <SelectValue placeholder="Select your educational status" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-gray-800 border-gray-600">
+                            <SelectItem value="high-school">
+                              High School Student
+                            </SelectItem>
+                            <SelectItem value="higher-institution">
+                              Higher Institution Student
+                            </SelectItem>
+                            <SelectItem value="self-employed">
+                              Self-employed/freelancer
+                            </SelectItem>
+                            <SelectItem value="working-professional">
+                              Working professional
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Additional Information Section */}
+                <div className="space-y-6">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 pb-3 border-b border-gray-700/50">
+                    Additional Information
+                  </h3>
+
+                  <FormField
+                    control={form.control}
+                    name="referralSource"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white font-medium">
+                          How did you hear about us?*
+                        </FormLabel>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Tell us how you discovered our bootcamp"
+                            className="resize-none bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-brand-primary focus:ring-brand-primary/20"
+                            rows={3}
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="availability"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white font-medium">
+                          When are you available for a call?*
+                        </FormLabel>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Please provide your availability for a callback"
+                            className="resize-none bg-gray-700/50 border-gray-600 text-white placeholder-gray-400 focus:border-brand-primary focus:ring-brand-primary/20"
+                            rows={3}
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="contactMethod"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white font-medium">
+                          What is the best way to reach you?*
+                        </FormLabel>
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white focus:border-brand-primary focus:ring-brand-primary/20">
+                              <SelectValue placeholder="Select your preferred contact method" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-gray-800 border-gray-600">
+                            <SelectItem value="phone">Phone call</SelectItem>
+                            <SelectItem value="whatsapp">WhatsApp</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <div className="pt-6 border-t border-gray-700/50">
+                  <Button
+                    type="submit"
+                    disabled={!form.formState.isValid}
+                    className={cn(
+                      "bg-brand-primary hover:bg-brand-primary/80 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 w-full md:w-auto",
+                      !form.formState.isValid && "opacity-50 cursor-not-allowed"
+                    )}
+                  >
+                    Submit Application
+                  </Button>
+                </div>
+              </form>
+            </Form>
+          </div>
         </div>
-      </main>
-      {/* <Footer /> */}
-      <footer>
-        <div className="bg-[#161a25] text-white py-4 text-center">
-          <p>
-            &copy; {new Date().getFullYear()}
-            <Link href="/" className="text-[#a4cd39]">
-              {" "}
-              Best Technologies Ltd.
-            </Link>{" "}
-            All rights reserved.
-          </p>
-        </div>
-        <div className="bg-[#161a25] text-white py-4 text-center">
-          <p>
-            <Link href="/privacy-policy" className="underline text-[#a4cd39]">
-              Privacy Policy
-            </Link>{" "}
-            |{" "}
-            <Link href="/terms-of-service" className="underline text-[#a4cd39]">
-              Terms of Service
-            </Link>
-          </p>
-        </div>
-      </footer>
+      </section>
 
       {/* Form Submission Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg p-6 shadow-lg max-w-sm w-full text-center">
-            <h2 className="text-lg font-semibold text-green-600 mb-2">
-              Success!
-            </h2>
-            <p className="text-gray-700">
-              Your form has been submitted successfully.
+          <div className="bg-gray-800/90 backdrop-blur-sm rounded-2xl p-8 shadow-2xl max-w-md w-full mx-4 text-center border border-gray-700/50">
+            <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-400 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-white mb-4">Success!</h2>
+            <p className="text-gray-300 mb-6">
+              Your application has been submitted successfully. One of our
+              educational advisors will contact you shortly.
             </p>
-            <button
+            <Button
               onClick={() => setShowModal(false)}
-              className="mt-4 px-4 py-2 bg-[#2bcd15] text-white rounded hover:bg-green-700 transition"
+              className="bg-brand-primary hover:bg-brand-primary/80 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300"
             >
               Close
-            </button>
+            </Button>
           </div>
         </div>
       )}

@@ -26,7 +26,7 @@ const StudentLoginPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
@@ -188,7 +188,9 @@ const StudentLoginPage = () => {
             {/* Additional Options */}
             <div className="mt-8 pt-6 border-t border-gray-700/50">
               <div className="text-center">
-                <p className="text-gray-400 mb-4">Don&apos;t have an account?</p>
+                <p className="text-gray-400 mb-4">
+                  Don&apos;t have an account?
+                </p>
                 <div className="space-y-2">
                   <Link
                     href="/trainings/register"
