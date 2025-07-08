@@ -1,42 +1,52 @@
 "use client";
 
 import React from "react";
-
+import Image from "next/image";
+import { Button } from "@/ui/button";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
-import { Target, Award, Globe, Zap, Heart, ArrowRight } from "lucide-react";
+import useSmoothScroll from "@/hooks/useSmoothScroll";
+import { Target, Award, Zap, Users, ChartLine, Lightbulb } from "lucide-react";
 
 const values = [
   {
+    title: "Collaboration",
+    description:
+      "We believe in the power of teamwork, fostering a culture of open communication and shared success.",
+    icon: Users,
+  },
+  {
     title: "Innovation",
     description:
-      "We stay at the forefront of technology to deliver cutting-edge solutions.",
-    icon: Target,
+      "We embrace AI and new ideas, constantly seeking creative solutions to complex challenges and staying ahead of industry trends.",
+    icon: Lightbulb,
   },
   {
-    title: "Client-Centric",
+    title: "Growth",
     description:
-      "Your success is our priority. We build lasting partnerships with our clients.",
-    icon: Heart,
+      "We are committed to continuous learning and development, helping our clients and team members achieve their full potential.",
+    icon: ChartLine,
   },
   {
-    title: "Excellence",
+    title: "Integrity",
     description:
-      "We maintain the highest standards in every project we undertake.",
+      "We act with honesty, transparency, and accountability in all our interactions, building trust with clients and partners.",
     icon: Award,
-  },
-  {
-    title: "Global Perspective",
-    description: "We bring international best practices to local market needs.",
-    icon: Globe,
   },
 ];
 
 export default function About() {
+  const { navigateAndScroll } = useSmoothScroll();
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigateAndScroll("/contact", "contact-form", 120);
+  };
+
   const stats = [
-    { number: "50+", label: "Projects Delivered" },
-    { number: "25+", label: "Happy Clients" },
-    { number: "5+", label: "Years Experience" },
+    { number: "150+", label: "Projects Delivered" },
+    { number: "50+", label: "Happy Clients" },
+    { number: "99%", label: "Client Retention" },
     { number: "15+", label: "Team Members" },
   ];
 
@@ -73,12 +83,28 @@ export default function About() {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+        <section className="relative pt-40 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/imgs/footer-skyline.jpg"
+              alt="Best Technologies Ltd - About Us"
+              fill
+              className="object-cover"
+              quality={100}
+              priority
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-800/85 to-gray-900/95"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent drop-shadow-lg">
               About Us
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-gray-100 leading-relaxed max-w-3xl mx-auto drop-shadow-md">
               We are Best Technologies Ltd., a forward-thinking digital agency
               committed to empowering businesses through innovative technology
               solutions.
@@ -87,7 +113,7 @@ export default function About() {
         </section>
 
         {/* Company Story */}
-        <section className="py-20 px-8">
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
@@ -106,12 +132,6 @@ export default function About() {
                   principle, delivering solutions that drive real business
                   value.
                 </p>
-                <div className="flex items-center">
-                  <button className="bg-brand-primary text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 flex items-center">
-                    Learn More
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </button>
-                </div>
               </div>
               <div className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50">
                 <div className="grid grid-cols-2 gap-8">
@@ -132,7 +152,7 @@ export default function About() {
         </section>
 
         {/* Mission & Vision */}
-        <section className="py-20 px-8 bg-gray-900/50">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900/50">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50">
@@ -143,9 +163,11 @@ export default function About() {
                   Our Mission
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  To empower businesses with innovative technology solutions
-                  that drive growth, efficiency, and competitive advantage in
-                  the digital age.
+                  To transform businesses through innovative digital solutions
+                  that unlock growth potential, leveraging cutting-edge AI tools
+                  and deep client partnerships while cultivating an environment
+                  where creative excellence drives transformative results for
+                  every client we serve.
                 </p>
               </div>
 
@@ -157,9 +179,9 @@ export default function About() {
                   Our Vision
                 </h3>
                 <p className="text-gray-300 leading-relaxed">
-                  To be the leading technology partner for businesses seeking
-                  digital transformation and sustainable growth through
-                  cutting-edge solutions.
+                  To empower businesses and individuals in Africa and beyond
+                  with cutting-edge, AI-driven technology solutions that drive
+                  growth and innovation.
                 </p>
               </div>
             </div>
@@ -167,7 +189,7 @@ export default function About() {
         </section>
 
         {/* Our Values */}
-        <section className="py-20 px-8">
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-white mb-6">Our Values</h2>
@@ -202,23 +224,23 @@ export default function About() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-8">
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-r from-brand-secondary/20 via-gray-800/80 to-brand-secondary/20 rounded-3xl p-12 border border-brand-primary/20 text-center">
               <h2 className="text-3xl font-bold mb-6 text-white">
-                Ready to Work Together?
+                Let&pos;s Work Together
               </h2>
               <p className="text-xl text-gray-300 mb-8">
                 Let&apos;s discuss how we can help transform your business with
                 innovative technology solutions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-brand-primary text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30">
+                <Button
+                  onClick={handleContactClick}
+                  className="bg-brand-primary text-white px-8 py-6 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30"
+                >
                   Get In Touch
-                </button>
-                <button className="bg-gray-700/50 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-gray-600/50 border border-gray-600">
-                  View Our Work
-                </button>
+                </Button>
               </div>
             </div>
           </div>

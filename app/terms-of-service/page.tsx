@@ -166,8 +166,20 @@ const TermsOfService = () => {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-8">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="relative pt-32 pb-20 px-8 min-h-[60vh] flex items-center">
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/imgs/gavel-bg.jpg')",
+            }}
+          />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60" />
+
+          {/* Content */}
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
             <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-blue-500/30">
               <Scale className="w-10 h-10 text-white" />
             </div>
@@ -306,33 +318,6 @@ const TermsOfService = () => {
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section className="py-20 px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6 text-white">
-              Questions About These Terms?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Our legal team is available to clarify any aspects of these terms
-              and discuss how they apply to your specific situation.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="bg-brand-primary text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40"
-              >
-                Contact Legal Team
-              </Link>
-              <Link
-                href="mailto:hello@besttechnologiesltd.com"
-                className="bg-transparent border-2 border-brand-primary text-brand-primary px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-brand-primary hover:text-white"
-              >
-                Email Legal Department
-              </Link>
             </div>
           </div>
         </section>

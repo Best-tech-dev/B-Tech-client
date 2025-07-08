@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+import Image from "next/image";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
 import { Button } from "@/ui/button";
 
@@ -10,6 +10,7 @@ interface IndustryData {
   title: string;
   description: string;
   fullDescription: string;
+  image: string;
   challenges: string[];
   solutions: string[];
   benefits: string[];
@@ -32,21 +33,37 @@ export default function IndustryDetailClient({
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative pt-40 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={industry.image}
+            alt={`${industry.title} industry solutions`}
+            fill
+            className="object-cover"
+            quality={100}
+            priority
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900/85 via-gray-800/80 to-gray-900/90"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
               {industry.title}{" "}
               <span className="bg-gradient-to-r from-[#a4cd39] to-[#7ca412] bg-clip-text text-transparent">
                 Solutions
               </span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-100 max-w-3xl mx-auto mb-8 drop-shadow-md">
               {industry.fullDescription}
             </p>
             <Button
               onClick={handleContactClick}
-              className="inline-flex items-center px-8 py-6 bg-gradient-to-r from-[#a4cd39] to-[#7ca412] text-white font-semibold rounded-full hover:from-[#7ca412] hover:to-[#a4cd39] transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center px-8 py-6 bg-gradient-to-r from-[#a4cd39] to-[#7ca412] text-white font-semibold rounded-full hover:from-[#7ca412] hover:to-[#a4cd39] transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Get Started
               <svg
@@ -118,46 +135,6 @@ export default function IndustryDetailClient({
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Transform Your {industry.title} Operations?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Let&apos;s discuss how our specialized solutions can address your
-            unique challenges and drive growth.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              onClick={handleContactClick}
-              className="inline-flex items-center justify-center px-8 py-6 bg-gradient-to-r from-[#a4cd39] to-[#7ca412] text-white font-semibold rounded-full hover:from-[#7ca412] hover:to-[#a4cd39] transition-all duration-300 transform hover:scale-105"
-            >
-              Start Your Project
-              <svg
-                className="ml-2 w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </Button>
-            <Link
-              href="/industries"
-              className="inline-flex items-center justify-center px-8 py-2 border-2 border-[#a4cd39] text-[#a4cd39] font-semibold rounded-full hover:bg-[#a4cd39] hover:text-white transition-all duration-300"
-            >
-              View All Industries
-            </Link>
           </div>
         </div>
       </section>

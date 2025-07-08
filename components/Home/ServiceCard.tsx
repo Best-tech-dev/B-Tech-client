@@ -1,7 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/ui/button";
-import { ArrowRight, BookOpen } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  Code,
+  BrainCircuit,
+  Smartphone,
+  ChartLine,
+  Codesandbox,
+  PenTool,
+} from "lucide-react";
 import Image from "next/image";
 
 // Props for text-only cards
@@ -146,108 +155,11 @@ const ImageCard: React.FC<ImageCardProps> = ({
   );
 };
 
-// Icon components for Best Technologies Ltd services
-const WebDevelopmentIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <polyline points="16,18 22,12 16,6" />
-    <polyline points="8,6 2,12 8,18" />
-  </svg>
-);
-
-const DigitalTransformationIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-    <polyline points="7.5,4.21 12,6.81 16.5,4.21" />
-    <polyline points="7.5,19.79 7.5,14.6 3,12" />
-    <polyline points="21,12 16.5,14.6 16.5,19.79" />
-    <polyline points="3.27,6.96 12,12.01 20.73,6.96" />
-    <line x1="12" y1="22.08" x2="12" y2="12" />
-  </svg>
-);
-
-const AIMLIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M9 12l2 2 4-4" />
-    <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3" />
-    <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3" />
-    <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3" />
-    <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3" />
-  </svg>
-);
-
-const MobileAppIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-    <line x1="12" y1="18" x2="12.01" y2="18" />
-  </svg>
-);
-
-const BrandDesignIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M12 19l7-7 3 3-7 7-3-3z" />
-    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-    <path d="M2 2l7.586 7.586" />
-    <circle cx="11" cy="11" r="2" />
-  </svg>
-);
-
-const DigitalMarketingIcon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <path d="M3 3v18h18" />
-    <path d="M18.7 8a2 2 0 1 0-3.4 0 2 2 0 0 0 3.4 0Z" />
-    <path d="M7 12v4" />
-    <path d="M13 10v6" />
-    <path d="M9 16v2" />
-  </svg>
-);
-
 // Demo component showing masonry layout
 const HomepageServiceCards: React.FC = () => {
   // Service images from Best Technologies Ltd
   const webDevImage = "/imgs/service-banner-04.jpg";
-  const digitalTransformationImage = "/imgs/service-banner-02.jpg";
+  const digitalTransformationImage = "/imgs/service-banner-05.jpg";
   const mobileAppImage = "/imgs/service-banner-06.jpg";
   return (
     <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 px-8 py-24 overflow-hidden">
@@ -309,7 +221,7 @@ const HomepageServiceCards: React.FC = () => {
             <ImageCard
               title="Web Development"
               description="Professional websites and custom solutions with responsive design and optimal performance for exceptional user experiences."
-              icon={<WebDevelopmentIcon />}
+              icon={<Code />}
               image={webDevImage}
               href="/services/web-development"
               imagePosition="top"
@@ -318,7 +230,7 @@ const HomepageServiceCards: React.FC = () => {
             <TextCard
               title="Digital Marketing"
               description="Comprehensive strategies including SEO, social media management, and multi-platform advertising to amplify your online presence."
-              icon={<DigitalMarketingIcon />}
+              icon={<ChartLine />}
               href="/services/digital-marketing"
             />
           </div>
@@ -328,16 +240,16 @@ const HomepageServiceCards: React.FC = () => {
             <TextCard
               title="AI & Machine Learning"
               description="Harness the power of AI/ML for smarter decision-making, personalized experiences, and sustainable digital transformation."
-              icon={<AIMLIcon />}
+              icon={<BrainCircuit />}
               href="/services/ai-integration-and-automation"
             />
 
             <ImageCard
-              title="Digital Transformation"
-              description="Strategic technology implementation covering digital maturity assessment, cloud migration, and IoT integration for modern operations."
-              icon={<DigitalTransformationIcon />}
+              title="Brand & Motion Design"
+              description="Compelling brand identities with logo design, visual development, motion graphics, and 2D/3D animation for digital platforms."
+              icon={<PenTool />}
               image={digitalTransformationImage}
-              href="/services/digital-transformation"
+              href="/services/brand-motion-design"
               imagePosition="bottom"
             />
           </div>
@@ -347,17 +259,17 @@ const HomepageServiceCards: React.FC = () => {
             <ImageCard
               title="Mobile App Development"
               description="Modern iOS and Android applications using Flutter and React Native with exceptional UI/UX design and optimal performance."
-              icon={<MobileAppIcon />}
+              icon={<Smartphone />}
               image={mobileAppImage}
               href="/services/mobile-development"
               imagePosition="top"
             />
 
             <TextCard
-              title="Brand & Motion Design"
-              description="Compelling brand identities with logo design, visual development, motion graphics, and 2D/3D animation for digital platforms."
-              icon={<BrandDesignIcon />}
-              href="/services/brand-motion-design"
+              title="Digital Transformation"
+              description="Strategic technology implementation covering digital maturity assessment, cloud migration, and IoT integration for modern operations."
+              icon={<Codesandbox />}
+              href="/services/digital-transformation"
             />
           </div>
         </div>

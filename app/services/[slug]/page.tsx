@@ -565,21 +565,6 @@ const ServiceDetailPage = ({ params }: ServiceDetailPageProps) => {
                 >
                   Start Your Project
                 </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    window.location.href = "/contact#contact-form";
-                    setTimeout(() => {
-                      const element = document.getElementById("contact-form");
-                      if (element) {
-                        element.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }, 100);
-                  }}
-                  className="bg-gray-700/50 hover:bg-gray-600/50 text-white border-gray-600 hover:border-gray-500 px-6 md:px-8 py-3 md:py-4 lg:py-6 rounded-xl font-semibold transition-all duration-300"
-                >
-                  Schedule Consultation
-                </Button>
               </div>
             </div>
           </div>

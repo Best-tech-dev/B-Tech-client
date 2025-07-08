@@ -103,8 +103,20 @@ const CookiesPolicy = () => {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-8">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="relative pt-32 pb-20 px-8 min-h-[60vh] flex items-center">
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/imgs/gavel-bg.jpg')",
+            }}
+          />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-black/60" />
+
+          {/* Content */}
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
             <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-orange-500/30">
               <Cookie className="w-10 h-10 text-white" />
             </div>
@@ -249,25 +261,6 @@ const CookiesPolicy = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section className="py-20 px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6 text-white">
-              Questions About Cookies?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              If you have questions about our use of cookies or need help
-              managing your preferences, we&apos;re here to help.
-            </p>
-            <Link
-              href="/contact"
-              className="bg-brand-primary text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40 inline-block"
-            >
-              Contact Our Team
-            </Link>
           </div>
         </section>
       </main>

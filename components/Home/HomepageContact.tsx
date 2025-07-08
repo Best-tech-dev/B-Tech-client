@@ -289,15 +289,15 @@ const HomepageContact = () => {
 
       {/* Success Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="bg-gray-800 border-gray-700 text-white max-w-md">
+        <DialogContent className="bg-white border-gray-700 text-black max-w-md">
           <DialogHeader className="text-center">
             <div className="mx-auto mb-4 w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center">
-              <CheckCircle className="w-8 h-8 text-green-400" />
+              <CheckCircle className="w-8 h-8 text-green-600" />
             </div>
-            <DialogTitle className="text-2xl font-bold text-white">
+            <DialogTitle className="text-2xl font-bold text-gray-900 text-center">
               Message Sent Successfully!
             </DialogTitle>
-            <DialogDescription className="text-gray-300 mt-2">
+            <DialogDescription className="text-gray-700 mt-2 text-center">
               Thank you for reaching out to us. We&apos;ve received your message
               and will get back to you within 24 hours.
             </DialogDescription>

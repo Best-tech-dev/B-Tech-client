@@ -3,44 +3,52 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/ui/button";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
 
 const industries = [
   {
+    slug: "branding",
+    title: "Branding",
+    description:
+      "Elevating brands with creative and strategic solutions. We help businesses define their identity, communicate their values, and stand out in a crowded marketplace through innovative branding strategies and visual storytelling.",
+    image: "/imgs/industries-branding.jpg",
+  },
+  {
     slug: "healthcare",
     title: "Healthcare",
     description:
-      "Transforming healthcare through innovative technology solutions, including patient management systems, telemedicine platforms, and secure health data management.",
+      "Transforming healthcare through innovative technology solutions, including patient management systems, telemedicine platforms, and secure health data management. Our expertise enables healthcare providers to improve patient outcomes, streamline operations, and ensure regulatory compliance.",
     image: "/imgs/industries-healthcare.jpg",
   },
   {
     slug: "finance",
     title: "Finance",
     description:
-      "Empowering financial institutions with secure, scalable solutions including fintech applications, payment systems, and regulatory compliance tools.",
+      "Empowering financial institutions with secure, scalable solutions including fintech applications, payment systems, and regulatory compliance tools. We help banks, insurers, and fintech startups modernize their services, enhance security, and deliver seamless digital experiences to their customers.",
     image: "/imgs/industries-finance.jpg",
   },
   {
     slug: "education",
     title: "Education",
     description:
-      "Revolutionizing education with learning management systems, virtual classrooms, and educational technology platforms for modern learning.",
+      "Revolutionizing education with learning management systems, virtual classrooms, and educational technology platforms for modern learning. Our solutions foster collaboration, personalized learning, and accessibility, supporting educators and learners in achieving their goals.",
     image: "/imgs/industries-education.jpg",
   },
   {
     slug: "government",
     title: "Government",
     description:
-      "Modernizing government services with digital transformation solutions, citizen portals, and efficient public administration systems.",
+      "Modernizing government services with digital transformation solutions, citizen portals, and efficient public administration systems. We enable governments to deliver transparent, accessible, and efficient services to citizens while ensuring data security and compliance.",
     image: "/imgs/industries-government.jpg",
   },
   {
     slug: "retail",
     title: "Retail",
     description:
-      "Enhancing retail experiences with e-commerce platforms, inventory management systems, and customer engagement solutions.",
+      "Enhancing retail experiences with e-commerce platforms, inventory management systems, and customer engagement solutions. Our technology empowers retailers to optimize operations, personalize customer journeys, and drive growth in a competitive market.",
     image: "/imgs/industries-retail.jpg",
   },
 ];
@@ -134,9 +142,9 @@ export default function IndustriesPage() {
               Let&apos;s discuss how our technology solutions can drive
               innovation in your sector.
             </p>
-            <button
+            <Button
               onClick={handleContactClick}
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#a4cd39] to-[#7ca412] text-white font-semibold rounded-full hover:from-[#7ca412] hover:to-[#a4cd39] transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center px-8 py-6 bg-gradient-to-r from-[#a4cd39] to-[#7ca412] text-white font-semibold rounded-full hover:from-[#7ca412] hover:to-[#a4cd39] transition-all duration-300 transform hover:scale-105"
             >
               Get Started Today
               <svg
@@ -152,7 +160,7 @@ export default function IndustriesPage() {
                   d="M13 7l5 5m0 0l-5 5m5-5H6"
                 />
               </svg>
-            </button>
+            </Button>
           </div>
         </section>
       </div>

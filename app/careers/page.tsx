@@ -2,21 +2,25 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/ui/button";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
 import {
   Briefcase,
   Users,
-  Heart,
+  ChartLine,
   Upload,
+  Award,
   Mail,
   Phone,
   Lightbulb,
-  Target,
+  PartyPopper,
+  X,
 } from "lucide-react";
 
 const Careers = () => {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,28 +34,32 @@ const Careers = () => {
 
   const values = [
     {
-      title: "Innovation First",
-      icon: Lightbulb,
+      title: "Collaboration",
       description:
-        "We push boundaries and embrace cutting-edge technologies to deliver exceptional solutions.",
-    },
-    {
-      title: "Collaborative Spirit",
+        "We believe the best solutions come from diverse perspectives working together.",
       icon: Users,
-      description:
-        "We believe in the power of teamwork and foster an environment of mutual support and growth.",
+      color: "from-green-500 to-emerald-500",
     },
     {
-      title: "Client Success",
-      icon: Target,
+      title: "Innovation",
       description:
-        "Our clients' success is our success. We go above and beyond to exceed expectations.",
+        "We constantly push boundaries and embrace new technologies to solve complex problems.",
+      icon: Lightbulb,
+      color: "from-yellow-500 to-orange-500",
     },
     {
-      title: "Work-Life Balance",
-      icon: Heart,
+      title: "Growth",
       description:
-        "We value personal well-being and promote a healthy balance between work and life.",
+        "We foster an environment of continuous learning and improvement.",
+      icon: ChartLine,
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      title: "Integrity",
+      description:
+        "We build trust through transparency, honesty, and ethical business practices.",
+      icon: Award,
+      color: "from-purple-500 to-pink-500",
     },
   ];
 
@@ -84,7 +92,22 @@ const Careers = () => {
     e.preventDefault();
     // Handle form submission
     console.log("Form submitted:", formData);
-    alert("Thank you for your application! We'll be in touch soon.");
+    setShowSuccessModal(true);
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      position: "",
+      experience: "",
+      portfolio: "",
+      coverLetter: "",
+      resume: null,
+    });
+  };
+
+  const closeModal = () => {
+    setShowSuccessModal(false);
   };
 
   return (
@@ -182,24 +205,40 @@ const Careers = () => {
 
       <main className="relative z-10">
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-8">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="relative pt-40 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/staff/best-tech-team.jpg"
+              alt="Best Technologies Ltd Team"
+              fill
+              className="object-cover"
+              quality={100}
+              priority
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-800/85 to-gray-900/95"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
             <div className="w-20 h-20 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg shadow-brand-primary/30">
               <Briefcase className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-brand-primary to-brand-accent bg-clip-text text-transparent drop-shadow-lg">
               Join Our Team
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-100 leading-relaxed max-w-3xl mx-auto mb-8 drop-shadow-md">
               Be part of a dynamic team that&apos;s shaping the future of
               technology. We&apos;re looking for passionate individuals who want
               to make a real impact in the tech industry.
             </p>
-            <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-6 max-w-2xl mx-auto">
+            <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-6 max-w-2xl mx-auto backdrop-blur-sm">
               <p className="text-orange-300 font-semibold mb-2">
-                Currently Building Our Team
+                Always Looking for Exceptional Talent
               </p>
-              <p className="text-gray-300">
+              <p className="text-gray-100">
                 While we don&apos;t have specific openings right now, we&apos;re
                 always interested in connecting with talented professionals.
                 Submit your CV and we&apos;ll reach out when the right
@@ -210,7 +249,7 @@ const Careers = () => {
         </section>
 
         {/* Company Values */}
-        <section className="py-20 px-8">
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mb-16 text-white">
               Our Values
@@ -221,7 +260,9 @@ const Careers = () => {
                   key={value.title}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group text-center"
                 >
-                  <div className="w-16 h-16 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg group-hover:shadow-brand-primary/30 transition-all duration-300">
+                  <div
+                    className={`w-16 h-16 bg-gradient-to-r ${value.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg transition-all duration-300`}
+                  >
                     <value.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold mb-4 text-white">
@@ -261,7 +302,9 @@ const Careers = () => {
         <section className="py-20 px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-6 text-white">Apply Now</h2>
+              <h2 className="text-4xl font-bold mb-6 text-white">
+                Join Our Waitlist
+              </h2>
               <p className="text-xl text-gray-300">
                 Ready to take the next step in your career? We&apos;d love to
                 hear from you.
@@ -466,23 +509,53 @@ const Careers = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="mailto:hello@besttechnologiesltd.com"
+                href="mailto:info@besttechnologiesltd.com"
                 className="bg-brand-primary text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40 flex items-center justify-center"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 Email HR Team
               </Link>
-              <Link
-                href="/contact"
-                className="bg-transparent border-2 border-brand-primary text-brand-primary px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-brand-primary hover:text-white flex items-center justify-center"
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                Contact Us
-              </Link>
             </div>
           </div>
         </section>
       </main>
+
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full border border-gray-700 relative animate-in fade-in zoom-in duration-300">
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-brand-primary hover:bg-gray-600 hover:cursor-pointer transition-colors"
+            >
+              <X className="w-4 h-4 text-white" />
+            </button>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-r from-brand-primary to-brand-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                <PartyPopper className="w-10 h-10 text-white" />
+              </div>
+
+              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
+                Application Submitted Successfully!
+              </h3>
+
+              <p className="text-gray-900 text-base mb-6 leading-relaxed text-center">
+                Thank you for your interest in joining our team!. We&apos;ll be
+                in touch as soon as we have open opportunities that align with
+                your skills.
+              </p>
+
+              <Button
+                onClick={closeModal}
+                className="w-full bg-brand-primary hover:bg-brand-primary/90 transition-all duration-300"
+              >
+                Continue Exploring
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>

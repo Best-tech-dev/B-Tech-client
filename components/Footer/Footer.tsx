@@ -197,7 +197,7 @@ const Footer = () => {
                 Blog
               </Link>
               <Link
-                href="/#contact"
+                href="/contact"
                 className="block text-gray-300 hover:text-[#a4cd39] transition-colors cursor-pointer"
               >
                 Contact

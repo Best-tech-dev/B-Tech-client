@@ -9,6 +9,7 @@ interface IndustryData {
   title: string;
   description: string;
   fullDescription: string;
+  image: string;
   challenges: string[];
   solutions: string[];
   benefits: string[];
@@ -20,11 +21,41 @@ interface IndustryData {
 }
 
 const industries: Record<string, IndustryData> = {
+  branding: {
+    slug: "branding",
+    title: "Branding",
+    description: "Elevating brands with creative and strategic solutions",
+    image: "/imgs/industries-branding.jpg",
+    fullDescription:
+      "Branding is essential for businesses to stand out in a crowded marketplace. We offer comprehensive branding services that help define your identity, communicate your values, and connect with your target audience through innovative design and strategy.",
+    challenges: [
+      "Establishing a unique brand identity",
+      "Maintaining brand consistency across channels",
+      "Adapting to changing market trends",
+      "Building brand loyalty and trust",
+      "Differentiating from competitors",
+    ],
+    solutions: [
+      "Brand strategy and positioning",
+      "Logo and visual identity design",
+      "Brand guidelines development",
+      "Digital and print collateral creation",
+      "Brand messaging and storytelling",
+    ],
+    benefits: [
+      "Stronger brand recognition",
+      "Consistent brand experience",
+      "Increased customer loyalty",
+      "Improved market positioning",
+      "Enhanced business credibility",
+    ],
+  },
   healthcare: {
     slug: "healthcare",
     title: "Healthcare",
     description:
       "Transforming healthcare through innovative technology solutions",
+    image: "/imgs/industries-healthcare.jpg",
     fullDescription:
       "The healthcare industry is rapidly evolving with digital transformation at its core. We provide comprehensive technology solutions that improve patient care, streamline operations, and ensure compliance with healthcare regulations while maintaining the highest security standards.",
     challenges: [
@@ -54,6 +85,7 @@ const industries: Record<string, IndustryData> = {
     title: "Finance",
     description:
       "Empowering financial institutions with secure, scalable solutions",
+    image: "/imgs/industries-finance.jpg",
     fullDescription:
       "In the fast-paced financial sector, technology is crucial for competitive advantage. We deliver robust fintech solutions that enhance security, improve customer experience, and ensure regulatory compliance while driving innovation in financial services.",
     challenges: [
@@ -82,6 +114,7 @@ const industries: Record<string, IndustryData> = {
     slug: "education",
     title: "Education",
     description: "Revolutionizing education with modern learning platforms",
+    image: "/imgs/industries-education.jpg",
     fullDescription:
       "Education technology is reshaping how we learn and teach. We create innovative solutions that enhance learning experiences, improve educational outcomes, and make quality education more accessible to learners worldwide.",
     challenges: [
@@ -111,6 +144,7 @@ const industries: Record<string, IndustryData> = {
     title: "Government",
     description:
       "Modernizing government services through digital transformation",
+    image: "/imgs/industries-government.jpg",
     fullDescription:
       "Government organizations need efficient, transparent, and secure systems to serve citizens effectively. We develop solutions that modernize public services, improve citizen engagement, and enhance operational efficiency while ensuring data security and compliance.",
     challenges: [
@@ -139,6 +173,7 @@ const industries: Record<string, IndustryData> = {
     slug: "retail",
     title: "Retail",
     description: "Enhancing retail experiences with cutting-edge technology",
+    image: "/imgs/industries-retail.jpg",
     fullDescription:
       "The retail landscape is continuously evolving with e-commerce and omnichannel experiences driving growth. We provide comprehensive retail technology solutions that enhance customer experiences, optimize operations, and drive sales growth.",
     challenges: [
@@ -190,6 +225,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
 
 export async function generateStaticParams() {
   return [
+    { slug: "branding" },
     { slug: "healthcare" },
     { slug: "finance" },
     { slug: "education" },

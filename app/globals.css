@@ -2,6 +2,16 @@
 @plugin "daisyui";
 @import "../styles/utilities.css"; /* Custom utilities */
 
+/* Hide scrollbar for webkit browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   /* --background: #ffffff;
   --foreground: #171717; */
@@ -115,13 +125,13 @@
 }
 
 /* Custom classes that aren't utilities */
-.scrollbar-hide {
+/* .scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.scrollbar-hide::-webkit-scrollbar {
+scrollbar-width: none; /* Firefox */
+*/
+/* .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
-}
+ */
 
 /* Swiperjs styles overridden */
 .swiper-button-prev::after,
