@@ -776,8 +776,8 @@ const Blog = () => {
                   onMouseDown={(e) => {
                     const container = e.currentTarget;
                     let isDown = true;
-                    let startX = e.pageX - container.offsetLeft;
-                    let scrollLeft = container.scrollLeft;
+                    const startX = e.pageX - container.offsetLeft;
+                    const scrollLeft = container.scrollLeft;
 
                     container.style.cursor = "grabbing";
 
@@ -815,8 +815,8 @@ const Blog = () => {
                   }}
                   onTouchStart={(e) => {
                     const container = e.currentTarget;
-                    let startX = e.touches[0].pageX - container.offsetLeft;
-                    let scrollLeft = container.scrollLeft;
+                    const startX = e.touches[0].pageX - container.offsetLeft;
+                    const scrollLeft = container.scrollLeft;
 
                     const handleTouchMove = (e: TouchEvent) => {
                       if (e.touches.length > 1) return;

@@ -3,7 +3,6 @@
 import React from "react";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
-import Link from "next/link";
 import {
   Cookie,
   Settings,

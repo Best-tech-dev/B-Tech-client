@@ -13,7 +13,6 @@ import {
   Upload,
   Award,
   Mail,
-  Phone,
   Lightbulb,
   PartyPopper,
   X,

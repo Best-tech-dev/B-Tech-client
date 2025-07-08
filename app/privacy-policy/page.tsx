@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import NavBar from "@/components/Header/NavBar";
 import Footer from "@/components/Footer/Footer";
 import { Shield, Eye, Lock, FileText, Clock } from "lucide-react";

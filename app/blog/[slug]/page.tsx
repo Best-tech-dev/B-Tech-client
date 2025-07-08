@@ -17,10 +17,8 @@ import {
   Facebook,
   Linkedin,
   Link as LinkIcon,
-  CheckCircle,
   ArrowRight,
   Tag,
-  User,
 } from "lucide-react";
 import { Button } from "@/ui/button";
 import Image from "next/image";
@@ -517,7 +515,7 @@ const BlogPostDetail = () => {
                   Comments section coming soon...
                 </p>
                 <p className="text-gray-500 text-sm mt-2">
-                  We're working on bringing you an interactive comments
+                  We&apos;re working on bringing you an interactive comments
                   experience.
                 </p>
               </div>
