@@ -10,6 +10,8 @@ import {
   Code,
   Cloud,
   Zap,
+  BrainCircuit,
+  ChartNoAxesCombined,
   Shield,
   Users,
   Smartphone,
@@ -33,15 +35,15 @@ const services = [
     ],
   },
   {
-    title: "Digital Transformation",
+    title: "Digital Marketing",
     description:
-      "Strategic guidance and implementation support to modernize your operations and embrace digital-first approaches.",
-    icon: Zap,
+      "Comprehensive digital marketing strategies to enhance your online presence and drive engagement.",
+    icon: ChartNoAxesCombined,
     features: [
-      "Process Automation",
+      "Search Engine Optimization (SEO)",
       "Digital Strategy",
-      "Change Management",
-      "Technology Roadmaps",
+      "Content Marketing",
+      "Social Media Management",
     ],
   },
   {
@@ -72,7 +74,7 @@ const services = [
     title: "AI Integration & Automation",
     description:
       "Leverage artificial intelligence to automate business processes, enhance decision-making, and unlock new efficiencies.",
-    icon: Zap,
+    icon: BrainCircuit,
     features: [
       "Process Automation",
       "AI Chatbots",
@@ -90,6 +92,18 @@ const services = [
       "Infrastructure as Code",
       "DevOps Implementation",
       "Cloud Security",
+    ],
+  },
+  {
+    title: "Digital Transformation",
+    description:
+      "Strategic guidance and implementation support to modernize your operations and embrace digital-first approaches.",
+    icon: Zap,
+    features: [
+      "Process Automation",
+      "Digital Strategy",
+      "Change Management",
+      "Technology Roadmaps",
     ],
   },
   {
