@@ -121,14 +121,23 @@ const FeatureCard = ({
   </div>
 );
 
+// Define the project type
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  category: string;
+  tech: string[];
+}
+
 // Portfolio Card Design - Side-by-side layout with image and content
 const MarqueeItemCard = ({
   project,
-  index,
   onHover,
 }: {
-  project: any;
-  index: number;
+  project: Project;
   onHover: (isHovered: boolean) => void;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -353,7 +362,6 @@ export default function HomepagePortfolioSection() {
                   <MarqueeItemCard
                     key={`card-${index}`}
                     project={project}
-                    index={index}
                     onHover={setIsMarqueePaused}
                   />
                 )
