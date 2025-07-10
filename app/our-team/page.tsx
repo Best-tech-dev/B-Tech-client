@@ -21,24 +21,24 @@ const OurTeam = () => {
       name: "Mayowa Bernard",
       position: "Senior Software Developer",
       bio: "Mayowa specializes in full-stack development, building scalable and robust applications.",
-      image: "/staff/mayowa.png",
-      linkedin: "https://linkedin.com/in/mayowa-bernard",
-      github: "https://github.com/mayowa-bernard",
+      image: "/staff/mayowa_portrait.png",
+      linkedin: "https://linkedin.com/in/maximusz",
+      github: "https://github.com/maxi-musz",
       expertise: ["Nest.js", "Node.js", "TypeScript"],
     },
     {
       name: "Steve Oladele",
-      position: "Growth Marketer",
+      position: "Fullstack Growth Marketer",
       bio: "Steve drives our marketing strategy with data-driven insights and innovative campaigns.",
-      image: "/staff/steve.png",
-      linkedin: "https://linkedin.com/in/lisa-wang",
+      image: "/staff/steve_portrait.jpg",
+      linkedin: "https://www.linkedin.com/in/growthmarketingwithstevenola/",
       expertise: ["Digital Marketing", "lorem", "ipsum"],
     },
     {
       name: "Esther Bamgboje",
       position: "Creative Admin",
       bio: "Esther ensures our operations run smoothly, managing schedules and supporting team members.",
-      image: "/staff/esther.png",
+      image: "/staff/esther_portrait.jpg",
       linkedin: "https://linkedin.com/in/james-thompson",
       expertise: ["UI Design", "UX Research", "Prototyping"],
     },
@@ -46,7 +46,7 @@ const OurTeam = () => {
       name: "Vanilla Monyei",
       position: "Social Media Manager",
       bio: "Vanilla crafts engaging content and manages our online presence across platforms, building strong connections with our audience.",
-      image: "/staff/vanilla.png",
+      image: "/staff/vanilla_portrait.jpg",
       linkedin: "https://linkedin.com/in/ana-martinez",
       expertise: ["Content Creation", "Change", "Expertise"],
     },
@@ -54,7 +54,7 @@ const OurTeam = () => {
       name: "Oluwapelumi Akindele",
       position: "Project Manager",
       bio: "Oluwapelumi coordinates project timelines, resources, and communication to ensure successful delivery of client solutions. With a keen eye for detail and a passion for teamwork, Oluwapelumi keeps projects on track and stakeholders informed.",
-      image: "/staff/pelumi.png",
+      image: "/staff/pelumi_portrait.jpg",
       linkedin: "https://linkedin.com/in/robert-zhang",
       expertise: ["UI/UX", "Change", "Expertise"],
     },
@@ -62,7 +62,7 @@ const OurTeam = () => {
       name: "Oluwajuwon Kayode",
       position: "Web Dev",
       bio: "Juwon is a skilled web developer focused on creating responsive and user-friendly websites that enhance user experience.",
-      image: "/staff/juwon.png",
+      image: "/staff/juwon_portrait.jpg",
       linkedin: "https://linkedin.com/in/oluwajuwon-kayode",
       github: "https://github.com/Ola-Oluwajuwon",
       expertise: ["Next.js", "API Integration", "Accessibility"],
@@ -302,12 +302,13 @@ const OurTeam = () => {
                   key={member.name}
                   className="bg-gray-800/40 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group"
                 >
-                  <div className="h-48 bg-gradient-to-br from-brand-primary/20 to-brand-accent/20 relative overflow-hidden">
+                  <div className="h-64 bg-gradient-to-br from-brand-primary/20 to-brand-accent/20 relative overflow-hidden">
                     <Image
                       src={member.image}
                       alt={`${member.name} - ${member.position}`}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="object-cover object-top group-hover:scale-110 transition-transform duration-300"
+                      style={{ objectPosition: "center 15%" }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent"></div>
                   </div>
