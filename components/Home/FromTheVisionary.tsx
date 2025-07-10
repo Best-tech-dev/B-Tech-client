@@ -28,8 +28,8 @@ const FromTheVisionary = () => {
             {/* Quote Content */}
             <div className="flex-1">
               <blockquote className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed mb-6 sm:mb-8 italic text-center lg:text-left">
-                &quot;At Best Technologies Ltd., we believe that technology—
-                especially the power of AI—should be a catalyst for growth, not
+                &quot;At Best Technologies Ltd., we believe that technology,
+                especially the power of AI, should be a catalyst for growth, not
                 a barrier. Our mission is to empower businesses with innovative
                 solutions, harnessing artificial intelligence to drive real
                 results and create lasting impact in the digital age.&quot;
