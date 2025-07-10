@@ -10,19 +10,93 @@ import {
   FileText,
   RefreshCw,
   Eye,
+  ExternalLink,
+  ArrowRight,
 } from "lucide-react";
 
+import Link from "next/link";
 import Image from "next/image";
 
-const portfolioImages = [
-  "/portfolio/portfolio-01.png",
-  "/portfolio/portfolio-02.png",
-  "/portfolio/portfolio-03.png",
-  "/portfolio/portfolio-04.png",
-  "/portfolio/portfolio-05.png",
-  "/portfolio/portfolio-06.png",
-  "/portfolio/portfolio-07.png",
-  "/portfolio/portfolio-08.png",
+const portfolioProjects = [
+  {
+    id: 1,
+    title: "Learning Management System",
+    description:
+      "Interactive online education platform with video streaming and assessments.",
+    image: "/portfolio/portfolio-01.png",
+    link: "https://smarteduhub.vercel.app/",
+    category: "Education",
+    tech: ["Next.js", "Nest.js", "Postgres"],
+  },
+  {
+    id: 2,
+    title: "FinTech Platform",
+    description: "Comprehensive financial transactions and analytics platform.",
+    image: "/portfolio/portfolio-02.png",
+    link: "https://payflex-frontend-personal-copy.vercel.app/",
+    category: "Finance",
+    tech: ["React", "React Native", "Nest.js"],
+  },
+  {
+    id: 3,
+    title: "Oxygen FM website",
+    description:
+      "A platform for managing and streaming audio content for Oxygen FM lovers.",
+    image: "/portfolio/portfolio-07.png",
+    link: "https://oxygenfm.com",
+    category: "Media",
+    tech: ["PHP", "JavaScript", "MySQL"],
+  },
+  {
+    id: 4,
+    title: "AccessSeller Ecommerce and Referral Platform",
+    description:
+      "A comprehensive platform for online shopping and affiliate marketing.",
+    image: "/portfolio/portfolio-04.png",
+    link: "https://access-sellr-dusky.vercel.app/",
+    category: "Ecommerce",
+    tech: ["Next.js", "Express.js", "MongoDB"],
+  },
+  {
+    id: 5,
+    title: "Best In Print Academy (BIPA)",
+    description:
+      "Engage with the BIPA website to register, explore courses, and more.",
+    image: "/portfolio/portfolio-05.png",
+    link: "https://bestinprintacademy.com/",
+    category: "Upskill",
+    tech: ["JavaScript", "PHP", "MySQL"],
+  },
+  {
+    id: 6,
+    title: "Staff Management System for Enterprise",
+    description:
+      "Comprehensive staff management system for enterprise-level organizations.",
+    image: "/portfolio/portfolio-03.png",
+    link: "https://besttechnologiesltd-dashboard.vercel.app",
+    category: "Management",
+    tech: ["Next.js", "Nest.js", "MongoDB"],
+  },
+  {
+    id: 7,
+    title: "Accessible Publishers",
+    description:
+      "A platform for promoting and distributing accessible literature.",
+    image: "/portfolio/portfolio-06.png",
+    link: "https://example-logistics.com",
+    category: "Web Development",
+    tech: ["PHP", "JavaScript", "MongoDB"],
+  },
+  // {
+  //   id: 8,
+  //   title: "Restaurant Management",
+  //   description:
+  //     "Complete restaurant operations system with ordering and inventory management",
+  //   image: "/portfolio/portfolio-07.png",
+  //   link: "https://example-restaurant.com",
+  //   category: "Hospitality",
+  //   tech: ["React Native", "Firebase", "Stripe"],
+  // },
 ];
 
 const FeatureCard = ({
@@ -47,38 +121,102 @@ const FeatureCard = ({
   </div>
 );
 
-const MarqueeItem = ({ src, index }: { src: string; index: number }) => {
+// Portfolio Card Design - Side-by-side layout with image and content
+const MarqueeItemCard = ({
+  project,
+  index,
+  onHover,
+}: {
+  project: any;
+  index: number;
+  onHover: (isHovered: boolean) => void;
+}) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    onHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    onHover(false);
+  };
 
   return (
     <div
-      className="flex-shrink-0 mx-2 md:mx-4 relative group w-[20rem] h-[12rem] md:w-[28rem] md:h-[18rem]"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className="flex-shrink-0 mx-2 md:mx-4 relative group"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <div
         className={`
-        w-[20rem] h-[12rem] md:w-[28rem] md:h-[18rem] rounded-lg overflow-hidden border border-gray-300 transition-all duration-500
+        w-[22rem] md:w-[32rem] bg-gray-800/60 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 transition-all duration-500
         ${
           isHovered
-            ? "opacity-100 scale-105 shadow-2xl shadow-brand-primary/20"
-            : "opacity-60 grayscale"
+            ? "border-brand-primary/30 shadow-2xl shadow-brand-primary/10 transform scale-105"
+            : "border-gray-700/50"
         }
       `}
       >
-        <Image
-          width={448}
-          height={288}
-          src={src || "/placeholder.svg"}
-          alt={`Portfolio project ${index + 1}`}
-          className="w-full h-full object-cover"
-        />
+        {/* Image Section */}
+        <div className="h-48 md:h-56 relative overflow-hidden">
+          <Image
+            width={512}
+            height={224}
+            src={project.image || "/placeholder.svg"}
+            alt={project.title}
+            className={`w-full h-full object-cover transition-all duration-500 ${
+              isHovered ? "scale-110" : "scale-100 grayscale"
+            }`}
+          />
+          <div className="absolute top-3 left-3">
+            <span className="text-xs px-2 py-1 bg-brand-primary/90 backdrop-blur-sm rounded-full text-white font-medium">
+              {project.category}
+            </span>
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="p-4 md:p-5">
+          <h3 className="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-sm md:text-base text-gray-300 mb-3 line-clamp-2 leading-relaxed">
+            {project.description}
+          </p>
+
+          {/* Tech Stack */}
+          <div className="flex flex-wrap gap-1 mb-4">
+            {project.tech.slice(0, 3).map((tech: string, idx: number) => (
+              <span
+                key={idx}
+                className="text-xs px-2 py-1 bg-gray-700/60 text-gray-300 rounded border border-gray-600/50"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <Link
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-brand-primary/10 border border-brand-primary/30 text-brand-primary hover:bg-brand-primary/20 hover:border-brand-primary/50 transition-all duration-300 rounded-lg font-medium group/btn"
+          >
+            <span className="text-sm md:text-base">View Project</span>
+            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
 export default function HomepagePortfolioSection() {
+  const [isMarqueePaused, setIsMarqueePaused] = useState(false);
+
   const topFeatures = [
     {
       icon: Sparkles,
@@ -191,24 +329,35 @@ export default function HomepagePortfolioSection() {
             <FeatureCard key={index} {...feature} />
           ))}
         </div>
-        {/* Marquee Item size is now controlled by Tailwind classes on the MarqueeItem component */}
-        {/* Marquee Section with Gradient Glows */}
-        <div className="relative mb-6 md:mb-8">
-          {/* First Marquee - Moving Right */}
-          <div className="marquee-container mb-2">
-            <div className="marquee-right flex">
-              {[...portfolioImages, ...portfolioImages].map((src, index) => (
-                <MarqueeItem key={`right-${index}`} src={src} index={index} />
-              ))}
+        {/* Portfolio Showcase */}
+        <div className="relative mb-8 md:mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl md:text-2xl font-bold text-white">
+              Portfolio Showcase
+            </h3>
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <ExternalLink className="w-4 h-4" />
+              <span>Click to visit</span>
             </div>
           </div>
 
-          {/* Second Marquee - Moving Left */}
+          {/* Portfolio Marquee */}
           <div className="marquee-container">
-            <div className="marquee-left flex">
-              {[...portfolioImages, ...portfolioImages].map((src, index) => (
-                <MarqueeItem key={`left-${index}`} src={src} index={index} />
-              ))}
+            <div
+              className={`marquee-right flex ${
+                isMarqueePaused ? "paused" : ""
+              }`}
+            >
+              {[...portfolioProjects, ...portfolioProjects].map(
+                (project, index) => (
+                  <MarqueeItemCard
+                    key={`card-${index}`}
+                    project={project}
+                    index={index}
+                    onHover={setIsMarqueePaused}
+                  />
+                )
+              )}
             </div>
           </div>
         </div>
@@ -228,11 +377,19 @@ export default function HomepagePortfolioSection() {
         }
 
         .marquee-right {
-          animation: scroll-right 30s linear infinite;
+          animation: scroll-right 40s linear infinite;
+        }
+
+        .marquee-right.paused {
+          animation-play-state: paused;
         }
 
         .marquee-left {
-          animation: scroll-left 25s linear infinite;
+          animation: scroll-left 35s linear infinite;
+        }
+
+        .marquee-left.paused {
+          animation-play-state: paused;
         }
 
         @keyframes scroll-right {
@@ -255,10 +412,8 @@ export default function HomepagePortfolioSection() {
 
         .rotating-gradient-top {
           background: conic-gradient(
-            f r om 0deg,
-
-            #9ef 0 1a,
-
+            from 0deg,
+            #9ef01a,
             #70e000,
             #d9f99d,
             #004b23,
