@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 // import React, { useState, useEffect } from "react";
 import AnimatedHero from "@/components/Bootcamp/AnimatedHero";
@@ -8,7 +8,8 @@ import OutlineSection from "@/components/Bootcamp/OutlineSection";
 import TuitionDatesSection from "@/components/Bootcamp/TuitionAndDates";
 import Accreditation from "@/components/Bootcamp/Accreditation";
 import { BootcampFAQs } from "@/components/Bootcamp/FAQs";
-import Footer from "@/components/Bootcamp/Footer";
+// import Footer from "@/components/Bootcamp/Footer";
+import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Bootcamp/Navbar";
 
 export default function BootcampLanding() {
