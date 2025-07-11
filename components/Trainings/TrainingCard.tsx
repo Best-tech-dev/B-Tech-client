@@ -3,7 +3,6 @@ import Link from "next/link";
 import { TrainingType } from "@/constants/trainings";
 
 export default function TrainingCard({
-  id,
   title,
   slug,
   description,

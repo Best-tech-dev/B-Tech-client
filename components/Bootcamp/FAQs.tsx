@@ -154,7 +154,7 @@ export function TrainingsFAQ() {
                 Most of our programs are 100% virtual and flexible, but we also
                 host occasional physical sessions, especially for Masterclasses,
                 Bootcamps or special collaborations. Be sure to check each
-                program's description for specifics.
+                program&pos;s description for specifics.
               </AccordionContent>
             </AccordionItem>
 
@@ -164,19 +164,20 @@ export function TrainingsFAQ() {
                 title="How do I know which training is right for me?"
               />
               <AccordionContent id="4">
-                That's what we're here for! Each program page outlines the ideal
-                candidate, but you can also reach out to our team for guidance
-                based on your goals, time availability, and experience level.
+                That&pos;s what we&pos;re here for! Each program page outlines
+                the ideal candidate, but you can also reach out to our team for
+                guidance based on your goals, time availability, and experience
+                level.
               </AccordionContent>
             </AccordionItem>
 
             <AccordionItem id="5">
               <AccordionTrigger id="5" title="Will I receive a certificate?" />
               <AccordionContent id="5">
-                Yes! Upon successful completion of any program, you'll receive a
-                digital certificate from Best Technologies Ltd. It reflects your
-                participation and the skills you've gained — a great addition to
-                your resume or LinkedIn profile.
+                Yes! Upon successful completion of any program, you&pos;ll
+                receive a digital certificate from Best Technologies Ltd. It
+                reflects your participation and the skills you&pos;ve gained — a
+                great addition to your resume or LinkedIn profile.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

@@ -66,8 +66,8 @@ export default function WhyChooseUs() {
             </span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            We're not just another training provider. We're your partners in
-            transformation,
+            We&apos;re not just another training provider. We&apos;re your
+            partners in transformation,
             <br className="hidden sm:block" /> committed to your success every
             step of the way.
           </p>

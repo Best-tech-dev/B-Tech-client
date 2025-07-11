@@ -60,7 +60,7 @@ export default function StudentSpotlightCarousel() {
 
         {/* Testimonials Grid */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          {nigerianTestimonials.map((student, index) => (
+          {nigerianTestimonials.map((student) => (
             <div key={student.id} className="relative group">
               {/* Glassmorphism Card */}
               <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-primary/10">
@@ -88,7 +88,7 @@ export default function StudentSpotlightCarousel() {
 
                 {/* Quote */}
                 <blockquote className="text-gray-200 text-lg leading-relaxed mb-6 italic">
-                  "{student.quote}"
+                  &quot;{student.quote}&quot;
                 </blockquote>
 
                 {/* Rating Stars */}
