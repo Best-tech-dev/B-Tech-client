@@ -34,7 +34,7 @@ export default function BootcampLanding() {
   // }, []);
 
   return (
-    <div className="bg-[#161a25] text-white min-h-screen">
+    <div className="bg-white text-[#161a25]">
       {/* Banner */}
       {/* {showBanner && (
         <div className="bg-[#2bcd15] text-white flex items-center justify-between px-4 py-2">
@@ -62,21 +62,17 @@ export default function BootcampLanding() {
           </div>
         </div>
       )} */}
+      <Navbar />
 
-      {/* Fixed Header that adjusts based on banner visibility */}
-      <div className={`fixed w-full z-50 transition-all duration-300 top-0`}>
-        <Navbar />
-      </div>
+      {/* Hero Section */}
+      <AnimatedHero />
+
+      {/* Featured Courses Section */}
+      <FeaturedCourses />
 
       {/* Push content down by height of header (+ banner if visible) */}
       {/* <div className={showBanner ? "pt-[136px]" : "pt-[80px]"}></div> */}
       <div className="pt-8 lg:pt-18">
-        {/* Hero Section */}
-        <AnimatedHero />
-
-        {/* Featured Courses Section */}
-        <FeaturedCourses />
-
         {/* Learning Outline Section */}
         <LogoCloud />
         <OutlineSection />

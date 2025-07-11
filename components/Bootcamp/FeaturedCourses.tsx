@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowBigRight } from "lucide-react";
+import { ArrowRight, Clock, Users, Award } from "lucide-react";
 import Image from "next/image";
 
 const courses = [
@@ -12,6 +12,8 @@ const courses = [
     desc: "Master frontend and backend in our popular defacto software engineering bootcamp.",
     img: "/bootcamp/software-development.jpg",
     url: "/trainings/bootcamp/software-engineering",
+    duration: "6 months",
+    level: "Beginner to Advanced",
   },
   {
     id: 2,
@@ -19,6 +21,8 @@ const courses = [
     desc: "Learn digital marketing strategies that'll help you convert sales like a wallstreet banker.",
     img: "/trainings/growth.jpg",
     url: "/trainings/bootcamp/growth-marketing",
+    duration: "4 months",
+    level: "Intermediate",
   },
   {
     id: 3,
@@ -26,6 +30,8 @@ const courses = [
     desc: "Master HTML, CSS, JavaScript, and React to build beautiful web interfaces.",
     img: "/bootcamp/frontend.jpg",
     url: "/trainings/bootcamp/frontend-development",
+    duration: "4 months",
+    level: "Beginner",
   },
   {
     id: 4,
@@ -33,6 +39,8 @@ const courses = [
     desc: "Learn Node.js, Express, databases, and APIs to build scalable backend systems.",
     img: "/bootcamp/backend.jpg",
     url: "/trainings/bootcamp/backend-development",
+    duration: "4 months",
+    level: "Intermediate",
   },
   {
     id: 5,
@@ -40,13 +48,17 @@ const courses = [
     desc: "Design intuitive user interfaces and craft exceptional user experiences.",
     img: "/bootcamp/uiux.jpg",
     url: "/trainings/bootcamp/ui-ux",
+    duration: "3 months",
+    level: "Beginner",
   },
   {
     id: 6,
-    title: "Mobile App Dev",
+    title: "Mobile App Development",
     desc: "Develop cross-platform apps using Flutter or React Native.",
     img: "/bootcamp/mobile.jpg",
     url: "/trainings/bootcamp/mobile-app-dev",
+    duration: "5 months",
+    level: "Intermediate",
   },
   {
     id: 7,
@@ -54,6 +66,8 @@ const courses = [
     desc: "Use tools like Excel, SQL, and Power BI to analyze and visualize data.",
     img: "/bootcamp/data.jpg",
     url: "/trainings/bootcamp/data-analytics",
+    duration: "4 months",
+    level: "Beginner",
   },
   {
     id: 8,
@@ -61,6 +75,8 @@ const courses = [
     desc: "Explore AWS, Docker, and CI/CD pipelines to deploy modern apps.",
     img: "/bootcamp/cloud.jpg",
     url: "/trainings/bootcamp/cloud-devops",
+    duration: "5 months",
+    level: "Advanced",
   },
 ];
 
@@ -68,63 +84,101 @@ const FeaturedCourses = () => {
   return (
     <section
       id="explore-programs"
-      className="relative bg-white text-white py-20 px-4 md:px-10 lg:px-20 overflow-hidden"
+      className="relative bg-gradient-to-br from-gray-50 to-white text-gray-900 py-16 sm:py-20 lg:py-24 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-20 overflow-hidden"
     >
       {/* Background Blobs */}
       <motion.div
-        className="absolute w-72 h-72 bg-green-700 rounded-full top-10 left-10 opacity-10 blur-3xl"
+        className="absolute w-64 h-64 sm:w-72 sm:h-72 bg-brand-primary/10 rounded-full top-10 left-10 blur-3xl"
         animate={{ x: [0, 50, 0], y: [0, 20, 0] }}
         transition={{ repeat: Infinity, duration: 10, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute w-96 h-96 bg-green-500 rounded-full bottom-0 right-0 opacity-10 blur-3xl"
+        className="absolute w-80 h-80 sm:w-96 sm:h-96 bg-brand-accent/10 rounded-full bottom-0 right-0 blur-3xl"
         animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
         transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
       />
 
       {/* Section Header */}
-      <div className="text-center mb-16 z-10 relative">
-        <h2 className="text-4xl md:text-5xl font-bold">
-          <span className="italic text-lime-400">
+      <div className="text-center mb-12 sm:mb-16 z-10 relative max-w-4xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+          <span className="bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary bg-clip-text text-transparent">
             Explore Our Bootcamp Programs
           </span>
         </h2>
-        <p className="text-black mt-4 max-w-2xl mx-auto">
-          Get hands-on training in high-demand tech skills taught by experts.
-          Find your path below.
+        <p className="text-gray-600 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
+          Get hands-on training in high-demand tech skills taught by industry
+          experts. Find your perfect career path below.
         </p>
       </div>
 
       {/* Grid */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 relative z-10">
-        {courses.map((course) => (
-          <div
+      <div className="grid gap-4 sm:gap-6 lg:gap-8 grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 relative z-10 max-w-7xl mx-auto">
+        {courses.map((course, index) => (
+          <motion.div
             key={course.id}
-            className="bg-[#161a25] rounded-xl overflow-hidden shadow-lg transition transform hover:scale-[1.015]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+            className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] border border-gray-100"
           >
-            <Image
-              src={course.img}
-              alt={course.title}
-              width={500}
-              height={200}
-              className="h-48 w-full object-cover"
-            />
-            <div className="p-5">
-              <span className="text-sm font-bold text-lime-400">
-                0{course.id}
-              </span>
-              <h3 className="text-xl font-semibold mt-2">{course.title}</h3>
-              <p className="text-gray-400 text-sm mt-2">{course.desc}</p>
+            <div className="relative overflow-hidden">
+              <Image
+                src={course.img}
+                alt={course.title}
+                width={500}
+                height={200}
+                className="h-32 sm:h-48 lg:h-52 w-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+              <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-brand-primary/90 text-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-lg text-xs font-semibold">
+                #{course.id.toString().padStart(2, "0")}
+              </div>
+            </div>
+
+            <div className="p-3 sm:p-5 lg:p-6">
+              <h3 className="text-sm sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900 line-clamp-1">
+                {course.title}
+              </h3>
+
+              <p className="text-gray-600 text-xs sm:text-sm lg:text-base mb-3 sm:mb-4 line-clamp-2 leading-relaxed">
+                {course.desc}
+              </p>
+
+              {/* Course Details */}
+              <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-4 text-xs text-gray-500">
+                <div className="flex items-center gap-1">
+                  <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="text-xs sm:text-sm">{course.duration}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Award className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="text-xs sm:text-sm">{course.level}</span>
+                </div>
+              </div>
+
               <Link
                 href={course.url}
-                className="mt-4 inline-flex items-center gap-2 text-sm text-lime-400 hover:underline"
+                className="inline-flex items-center gap-1 sm:gap-2 text-xs sm:text-sm lg:text-base text-brand-primary hover:text-brand-accent font-semibold transition-colors duration-200 group"
               >
-                Read More{" "}
-                <ArrowBigRight size={16} className="hover:underline" />
+                Learn More
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>
             </div>
-          </div>
+          </motion.div>
         ))}
+      </div>
+
+      {/* CTA Section */}
+      <div className="text-center mt-12 sm:mt-16 relative z-10">
+        <p className="text-gray-600 mb-6 text-sm sm:text-base">
+          Can't find what you're looking for?
+        </p>
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-2 bg-brand-primary hover:bg-brand-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-brand-primary/25 text-sm sm:text-base"
+        >
+          Contact Us for Custom Programs
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+        </Link>
       </div>
     </section>
   );
