@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, Users, Award } from "lucide-react";
+import { ArrowRight, Clock, Award } from "lucide-react";
 import Image from "next/image";
 
 const courses = [
@@ -170,7 +170,7 @@ const FeaturedCourses = () => {
       {/* CTA Section */}
       <div className="text-center mt-12 sm:mt-16 relative z-10">
         <p className="text-gray-600 mb-6 text-sm sm:text-base">
-          Can't find what you're looking for?
+          Can&apos;t find what you&apos;re looking for?
         </p>
         <Link
           href="/contact"
