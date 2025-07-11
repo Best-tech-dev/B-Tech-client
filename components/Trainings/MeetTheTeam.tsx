@@ -1,112 +1,36 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const teamMembers = [
-  {
-    role: "Software Engineer / Team Lead",
-    image: "/staff/mayowa.png",
-    message:
-      "At Best Technologies Ltd., we don't just teach code — we build problem solvers. It's my joy to guide learners through the journey of becoming confident, capable engineers.",
-  },
-  {
-    role: "Marketing Lead / Assistant Team Lead",
-    image: "/staff/steve.png",
-    message:
-      "We’re passionate about helping people discover life-changing tech opportunities. I help shape how the world sees our vision — and I’m excited to welcome you to it!",
-  },
-  {
-    role: "Creative Admin / Customer Support",
-    image: "/staff/esther.png",
-    message:
-      "From guiding inquiries to making your learning experience smooth and friendly, I’m here to support you. We're more than a tech company — we’re a community.",
-  },
-  {
-    role: "Social Media Manager",
-    image: "/staff/vanilla.png",
-    message:
-      "I tell the story of your journey before you even start — through content that inspires and educates. Join us and become part of a growing movement in tech.",
-  },
-  {
-    role: "Web Developer / Designer",
-    image: "/staff/juwon.png",
-    message:
-      "I get to build and design the very platforms you’ll be learning on. If it looks smooth and works seamlessly — that's my touch. Let’s create something beautiful together!",
-  },
-  {
-    role: "Principal Consultant",
-    image: "/staff/consultant.jpg",
-    message:
-      "Every learner’s path is unique. With years of industry insight, I help align your goals with real-world impact. You're not just learning — you’re preparing to lead.",
-  },
-  {
-    role: "Managing Director",
-    image: "/staff/director.jpg",
-    message:
-      "At Best Technologies Ltd., our heartbeat is transformation. From passion to profession, we equip our students to thrive in tech and in life. Welcome aboard.",
-  },
-];
+import Link from "next/link";
+import { Users } from "lucide-react";
 
 export default function MeetTheTeam() {
   return (
-    <section className="py-16 bg-white relative">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl text-center text-brand-primary font-bold uppercase font-cursive">
-          Meet Some of the Team Members
-        </h2>
-        <div className="flex justify-between items-end mb-8">
-          <div className="flex gap-2">
-            <div className="swiper-button-prev cursor-pointer">
-              <ChevronLeft className="w-8 h-8 text-brand-primary" />
-            </div>
-            <div className="swiper-button-next cursor-pointer">
-              <ChevronRight className="w-8 h-8 text-brand-primary" />
-            </div>
+    <section className="py-12 md:py-16 lg:py-20 px-4 md:px-8 bg-white">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="bg-gradient-to-r from-gray-50 via-white to-gray-50 rounded-2xl md:rounded-3xl p-8 md:p-12 border border-gray-200 shadow-lg">
+          <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl flex items-center justify-center mx-auto mb-6 md:mb-8">
+            <Users className="w-8 h-8 md:w-10 md:h-10 text-white" />
+          </div>
+
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-green-600 via-brand-primary to-brand-accent bg-clip-text text-transparent">
+            Meet Our Expert Team
+          </h2>
+
+          <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
+            Get to know the passionate professionals behind your learning
+            journey. Our experienced team is dedicated to helping you succeed in
+            your tech career.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/our-team"
+              className="bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary text-white px-6 md:px-8 py-3 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 inline-block"
+            >
+              Meet the Team
+            </Link>
           </div>
         </div>
-
-        <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
-          loop={true}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
-          modules={[Navigation]}
-          className="meet-the-team-swiper"
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-        >
-          {teamMembers.map((member, index) => (
-            <SwiperSlide key={index}>
-              <div className="bg-gray-50 rounded-xl shadow p-6 mb-5 h-full flex flex-col items-center text-center">
-                <Image
-                  src={member.image}
-                  alt={member.role}
-                  width={80}
-                  height={80}
-                  className="rounded-full object-cover mb-4"
-                />
-                <p className="text-sm italic text-gray-700 mb-4">
-                  {member.message}
-                </p>
-                <h4 className="text-sm font-semibold text-brand-primary mt-auto">
-                  {member.role}
-                </h4>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
       </div>
     </section>
   );

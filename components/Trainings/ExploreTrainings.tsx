@@ -22,8 +22,11 @@ export default function ExploreTrainings() {
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      <h1 className="text-4xl font-bold text-center mb-12 text-brand-primary">
-        Explore Our Trainings
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-10 text-center">
+        Explore Our{" "}
+        <span className="bg-gradient-to-r from-brand-accent via-brand-primary to-brand-accent bg-clip-text text-transparent">
+          Trainings
+        </span>
       </h1>
 
       {/* Category Tabs */}
