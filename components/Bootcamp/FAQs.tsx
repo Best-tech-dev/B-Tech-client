@@ -143,7 +143,7 @@ export const BootcampFAQs = () => {
   );
 };
 
-export function TrainingsFAQ() {
+export const TrainingsFAQ = () => {
   return (
     <section className="relative bg-gradient-to-br from-gray-50 via-white to-gray-50 py-16 sm:py-20 lg:py-24 overflow-hidden">
       {/* Background Decorative Elements */}
@@ -258,4 +258,6 @@ export function TrainingsFAQ() {
       </div>
     </section>
   );
-}
+};
+
+export default BootcampFAQs;

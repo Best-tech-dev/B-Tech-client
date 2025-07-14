@@ -12,7 +12,7 @@ const courses = [
     desc: "Master frontend and backend in our popular defacto software engineering bootcamp.",
     img: "/bootcamp/software-development.jpg",
     url: "/trainings/bootcamp/software-engineering",
-    duration: "6 months",
+    duration: "9 months",
     level: "Beginner to Advanced",
   },
   {
@@ -21,7 +21,7 @@ const courses = [
     desc: "Learn digital marketing strategies that'll help you convert sales like a wallstreet banker.",
     img: "/trainings/growth.jpg",
     url: "/trainings/bootcamp/growth-marketing",
-    duration: "4 months",
+    duration: "6 months",
     level: "Intermediate",
   },
   {
@@ -30,7 +30,7 @@ const courses = [
     desc: "Master HTML, CSS, JavaScript, and React to build beautiful web interfaces.",
     img: "/bootcamp/frontend.jpg",
     url: "/trainings/bootcamp/frontend-development",
-    duration: "4 months",
+    duration: "6 months",
     level: "Beginner",
   },
   {
@@ -39,7 +39,7 @@ const courses = [
     desc: "Learn Node.js, Express, databases, and APIs to build scalable backend systems.",
     img: "/bootcamp/backend.jpg",
     url: "/trainings/bootcamp/backend-development",
-    duration: "4 months",
+    duration: "6 months",
     level: "Intermediate",
   },
   {
@@ -48,7 +48,7 @@ const courses = [
     desc: "Design intuitive user interfaces and craft exceptional user experiences.",
     img: "/bootcamp/uiux.jpg",
     url: "/trainings/bootcamp/ui-ux",
-    duration: "3 months",
+    duration: "6 months",
     level: "Beginner",
   },
   {
@@ -57,7 +57,7 @@ const courses = [
     desc: "Develop cross-platform apps using Flutter or React Native.",
     img: "/bootcamp/mobile.jpg",
     url: "/trainings/bootcamp/mobile-app-dev",
-    duration: "5 months",
+    duration: "6 months",
     level: "Intermediate",
   },
   {
@@ -75,7 +75,7 @@ const courses = [
     desc: "Explore AWS, Docker, and CI/CD pipelines to deploy modern apps.",
     img: "/bootcamp/cloud.jpg",
     url: "/trainings/bootcamp/cloud-devops",
-    duration: "5 months",
+    duration: "6 months",
     level: "Advanced",
   },
 ];

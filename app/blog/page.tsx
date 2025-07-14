@@ -516,7 +516,7 @@ const Blog = () => {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: "url('/imgs/gavel-bg.jpg')",
+              backgroundImage: "url('/imgs/blog-bg.jpg')",
             }}
           />
 
@@ -535,42 +535,6 @@ const Blog = () => {
               Stay updated with the latest trends, best practices, and insights
               in technology, software development, and digital transformation.
             </p>
-          </div>
-        </section>
-
-        {/* Search and Filter */}
-        <section className="py-8 md:py-10 px-4 md:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
-              {/* Search */}
-              <div className="relative flex-1 max-w-md w-full lg:w-auto">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <input
-                  type="text"
-                  placeholder="Search articles..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 bg-gray-800/40 border border-gray-700/50 rounded-xl text-white focus:border-brand-primary focus:outline-none transition-colors"
-                />
-              </div>
-
-              {/* Categories */}
-              <div className="flex flex-wrap gap-3 justify-center">
-                {categories.map((category) => (
-                  <button
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:cursor-pointer ${
-                      selectedCategory === category.id
-                        ? "bg-brand-primary text-white"
-                        : "bg-gray-800/40 text-gray-300 hover:bg-gray-700/50"
-                    }`}
-                  >
-                    {category.name} ({category.count})
-                  </button>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
@@ -650,84 +614,44 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Blog Posts Grid */}
-        <section className="py-16 md:py-20 px-4 md:px-8">
-          <div className="max-w-6xl mx-auto">
+        {/* Search and Filter */}
+        <section className="py-8 md:py-10 px-4 md:px-8">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-white">
               Latest Articles By Categories
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {filteredPosts.map((post) => (
-                <Link
-                  key={post.id}
-                  href={`/blog/${post.title
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]+/g, "-")
-                    .replace(/^-+|-+$/g, "")}`}
-                >
-                  <article className="bg-gray-800/40 backdrop-blur-sm rounded-2xl md:rounded-3xl overflow-hidden border border-gray-700/50 hover:border-brand-primary/30 transition-all duration-500 hover:transform hover:scale-105 group cursor-pointer">
-                    <div className="h-40 md:h-48 relative overflow-hidden">
-                      <Image
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                      <div className="absolute top-4 left-4 bg-gray-900/80 text-brand-primary px-3 py-1 rounded-full text-sm font-medium">
-                        {post.category}
-                      </div>
-                    </div>
-                    <div className="p-4 md:p-6">
-                      <div className="flex items-center text-xs md:text-sm text-gray-400 mb-2 md:mb-3">
-                        <Calendar className="w-3 h-3 md:w-4 md:h-4 mr-2" />
-                        <span>{new Date(post.date).toLocaleDateString()}</span>
-                        <span className="mx-2">•</span>
-                        <Clock className="w-3 h-3 md:w-4 md:h-4 mr-2" />
-                        <span>{post.readTime}</span>
-                      </div>
-                      <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-white group-hover:text-brand-primary transition-colors line-clamp-2">
-                        {post.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-gray-300 leading-relaxed mb-3 md:mb-4 line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center text-xs md:text-sm text-gray-400">
-                          <div className="relative w-5 h-5 md:w-6 md:h-6 mr-2">
-                            <Image
-                              src={post.authorImage}
-                              alt={post.author}
-                              fill
-                              className="rounded-full object-cover border border-brand-primary/20"
-                            />
-                          </div>
-                          <span className="text-white font-medium text-xs md:text-sm">
-                            {post.author}
-                          </span>
-                        </div>
-                        <Button className="transition-colors font-semibold text-xs md:text-sm flex items-center">
-                          Read More
-                          <ArrowRight className="w-3 h-3 md:w-4 md:h-4 ml-1" />
-                        </Button>
-                      </div>
-                    </div>
-                  </article>
-                </Link>
-              ))}
-            </div>
-
-            {filteredPosts.length === 0 && (
-              <div className="text-center py-16 md:py-20">
-                <Search className="w-12 h-12 md:w-16 md:h-16 text-gray-500 mx-auto mb-4" />
-                <h3 className="text-xl md:text-2xl font-semibold text-gray-400 mb-2">
-                  No articles found
-                </h3>
-                <p className="text-gray-500 text-sm md:text-base">
-                  Try adjusting your search or filter criteria.
-                </p>
+            <div className="flex flex-col gap-6">
+              {/* Search */}
+              <div className="flex justify-start">
+                <div className="relative max-w-md w-full lg:w-96">
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <input
+                    type="text"
+                    placeholder="Search articles..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full pl-12 pr-4 py-3 bg-gray-800/40 border border-gray-700/50 rounded-xl text-white focus:border-brand-primary focus:outline-none transition-colors"
+                  />
+                </div>
               </div>
-            )}
+
+              {/* Categories */}
+              <div className="flex flex-wrap gap-3">
+                {categories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.id)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:cursor-pointer ${
+                      selectedCategory === category.id
+                        ? "bg-brand-primary text-white"
+                        : "bg-gray-800/40 text-gray-300 hover:bg-gray-700/50"
+                    }`}
+                  >
+                    {category.name} ({category.count})
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -736,7 +660,7 @@ const Blog = () => {
           <div className="max-w-7xl mx-auto">
             {marqueeCategories.map((category) => (
               <div key={category.id} className="mb-16 md:mb-20">
-                <div className="flex items-center justify-between mb-6 md:mb-8">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 md:mb-8 gap-4">
                   <Link
                     href={`/blog/category/${category.id}`}
                     className="group"
@@ -745,7 +669,7 @@ const Blog = () => {
                       {category.name}
                     </h2>
                   </Link>
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center justify-between sm:justify-end space-x-3">
                     <Link
                       href={`/blog/category/${category.id}`}
                       className="text-sm font-medium text-brand-primary hover:text-brand-accent transition-colors px-3 py-1 rounded-full border border-brand-primary/30 hover:bg-brand-primary/10"
