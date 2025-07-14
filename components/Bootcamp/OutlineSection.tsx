@@ -1,10 +1,23 @@
+"use client";
+
+import Link from "next/link";
+
 import {
   Accordion,
   AccordionItem,
   AccordionContent,
   AccordionTrigger,
 } from "@/ui/Bootcamp/accordion";
-import { BookOpen } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/ui/dialog";
+import { BookOpen, Info, Mail } from "lucide-react";
+import { Button } from "@/ui/button";
 
 export default function OutlineSection() {
   return (
@@ -204,18 +217,125 @@ export default function OutlineSection() {
           </Accordion>
         </div>
 
+        {/* Pilot Program Note */}
+        <div className="bg-brand-primary/5 border border-brand-primary/20 rounded-xl p-6 sm:p-8 mt-8 sm:mt-12">
+          <div className="flex items-start gap-4">
+            <div className="flex-shrink-0">
+              <Info className="w-6 h-6 text-brand-primary mt-1" />
+            </div>
+            <div className="flex-1">
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-4">
+                <strong>Note:</strong> The outline above is a general one for
+                our programs. If you want to enroll in our pilot program, click
+                the button below to see the learning outline.
+              </p>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="bg-white/80 hover:bg-brand-primary hover:text-white border-brand-primary/30 text-brand-primary font-medium transition-all duration-300"
+                  >
+                    View Pilot Program Outline
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[500px]">
+                  <DialogHeader>
+                    <DialogTitle className="flex items-center gap-2 text-xl font-bold">
+                      <BookOpen className="w-5 h-5 text-brand-primary" />
+                      Pilot Program Outline
+                    </DialogTitle>
+                    <DialogDescription className="text-base text-gray-600 mt-2">
+                      Our intensive 4-week pilot program designed for rapid
+                      skill acquisition
+                    </DialogDescription>
+                  </DialogHeader>
+
+                  <div className="mt-6 space-y-6">
+                    {/* Program Duration */}
+                    <div className="bg-gradient-to-r from-brand-primary/10 to-brand-accent/10 rounded-lg p-4">
+                      <h4 className="font-semibold text-lg text-gray-800 mb-2">
+                        Program Duration
+                      </h4>
+                      <p className="text-gray-700">
+                        <strong>4 Weeks</strong> of intensive, hands-on learning
+                      </p>
+                    </div>
+
+                    {/* Program Focus */}
+                    <div>
+                      <h4 className="font-semibold text-lg text-gray-800 mb-3">
+                        Program Focus
+                      </h4>
+                      <ul className="space-y-2 text-gray-700">
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-brand-primary rounded-full mt-2 flex-shrink-0"></div>
+                          <span>Accelerated learning methodology</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-brand-primary rounded-full mt-2 flex-shrink-0"></div>
+                          <span>Core technology fundamentals</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-brand-primary rounded-full mt-2 flex-shrink-0"></div>
+                          <span>Project-based learning approach</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-brand-primary rounded-full mt-2 flex-shrink-0"></div>
+                          <span>Industry-relevant skills development</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Contact Information */}
+                    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                      <h4 className="font-semibold text-lg text-gray-800 mb-3 flex items-center gap-2">
+                        <Mail className="w-4 h-4 text-brand-primary" />
+                        For Detailed Outline
+                      </h4>
+                      <p className="text-gray-700 mb-3">
+                        Contact us for a comprehensive breakdown of the pilot
+                        program curriculum:
+                      </p>
+                      <Link
+                        href="mailto:hello@besttechnologiesltd.com"
+                        className="inline-flex items-center gap-2 text-brand-primary hover:text-brand-accent font-medium transition-colors duration-200"
+                      >
+                        <Mail className="w-4 h-4" />
+                        hello@besttechnologiesltd.com
+                      </Link>
+                    </div>
+
+                    {/* CTA */}
+                    <div className="pt-4 border-t border-gray-200">
+                      <Button
+                        asChild
+                        className="w-full bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary text-white font-medium"
+                      >
+                        <Link href="/trainings/register">
+                          Enroll in Pilot Program
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
+          </div>
+        </div>
+
         {/* Call to Action */}
         <div className="text-center mt-12 sm:mt-16">
           <div className="inline-flex items-center gap-4 bg-white/60 backdrop-blur-sm border border-gray-200/50 rounded-full px-6 sm:px-8 py-4 shadow-md">
             <span className="text-gray-600 text-sm sm:text-base">
               Ready to start your journey?
             </span>
-            <a
+            <Link
               href="/trainings/register"
               className="bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-accent hover:to-brand-primary px-4 sm:px-6 py-2 rounded-full text-white text-sm sm:text-base font-medium transition-all duration-300 hover:scale-105"
             >
               Enroll Now
-            </a>
+            </Link>
           </div>
         </div>
       </div>
