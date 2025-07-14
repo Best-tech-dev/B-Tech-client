@@ -32,15 +32,15 @@ const OurTeam = () => {
       bio: "Steve drives our marketing strategy with data-driven insights and innovative campaigns.",
       image: "/staff/steve_portrait.jpg",
       linkedin: "https://www.linkedin.com/in/growthmarketingwithstevenola/",
-      expertise: ["Digital Marketing", "lorem", "ipsum"],
+      expertise: ["Digital Marketing", "SEO & Analytics", "Content Strategy"],
     },
     {
       name: "Esther Bamgboje",
       position: "Creative Admin",
       bio: "Esther ensures our operations run smoothly, managing schedules and supporting team members.",
       image: "/staff/esther_portrait.jpg",
-      linkedin: "https://linkedin.com/in/james-thompson",
-      expertise: ["UI Design", "UX Research", "Prototyping"],
+      // linkedin: "https://linkedin.com/in/james-thompson",
+      expertise: ["Administration", "Organization", "Communication"],
     },
     {
       name: "Vanilla Monyei",
@@ -48,7 +48,11 @@ const OurTeam = () => {
       bio: "Vanilla crafts engaging content and manages our online presence across platforms, building strong connections with our audience.",
       image: "/staff/vanilla_portrait.JPG",
       linkedin: "https://linkedin.com/in/ana-martinez",
-      expertise: ["Content Creation", "Change", "Expertise"],
+      expertise: [
+        "Content Creation",
+        "Social Media Strategy",
+        "Community Engagement",
+      ],
     },
     {
       name: "Oluwapelumi Akindele",
@@ -56,7 +60,7 @@ const OurTeam = () => {
       bio: "Oluwapelumi coordinates project timelines, resources, and communication to ensure successful delivery of client solutions. With a keen eye for detail and a passion for teamwork, Oluwapelumi keeps projects on track and stakeholders informed.",
       image: "/staff/pelumi_portrait.jpg",
       linkedin: "https://linkedin.com/in/robert-zhang",
-      expertise: ["UI/UX", "Change", "Expertise"],
+      expertise: ["UI/UX", "Prototyping", "UX Research"],
     },
     {
       name: "Oluwajuwon Kayode",
@@ -65,7 +69,7 @@ const OurTeam = () => {
       image: "/staff/juwon_portrait.JPG",
       linkedin: "https://linkedin.com/in/oluwajuwon-kayode",
       github: "https://github.com/Ola-Oluwajuwon",
-      expertise: ["Next.js", "API Integration", "Accessibility"],
+      expertise: ["Next.js", "API Integration", "PWAs"],
     },
   ];
 

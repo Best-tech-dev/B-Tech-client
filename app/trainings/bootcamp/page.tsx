@@ -3,9 +3,9 @@
 // import React, { useState, useEffect } from "react";
 import AnimatedHero from "@/components/Bootcamp/AnimatedHero";
 import FeaturedCourses from "@/components/Bootcamp/FeaturedCourses";
-import LogoCloud from "@/ui/Bootcamp/logocloud";
+// import LogoCloud from "@/ui/Bootcamp/logocloud";
+// import TuitionDatesSection from "@/components/Bootcamp/TuitionAndDates";
 import OutlineSection from "@/components/Bootcamp/OutlineSection";
-import TuitionDatesSection from "@/components/Bootcamp/TuitionAndDates";
 import Accreditation from "@/components/Bootcamp/Accreditation";
 import { BootcampFAQs } from "@/components/Bootcamp/FAQs";
 // import Footer from "@/components/Bootcamp/Footer";
