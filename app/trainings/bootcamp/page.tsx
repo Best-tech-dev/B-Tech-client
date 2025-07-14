@@ -71,7 +71,7 @@ export default function BootcampLanding() {
       <FeaturedCourses />
 
       {/* Learning Outline Section */}
-      <LogoCloud />
+      {/* <LogoCloud /> */}
       <OutlineSection />
 
       {/* Push content down by height of header (+ banner if visible) */}
