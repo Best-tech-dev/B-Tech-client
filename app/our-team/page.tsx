@@ -15,6 +15,39 @@ import {
   ChartLine,
 } from "lucide-react";
 
+// Custom SVG components for Medium and Stack Overflow
+const MediumIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 -55 256 256"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid"
+    fill="currentColor"
+  >
+    <g>
+      <path d="M72.2009141,1.42108547e-14 C112.076502,1.42108547e-14 144.399375,32.5485469 144.399375,72.6964154 C144.399375,112.844284 112.074049,145.390378 72.2009141,145.390378 C32.327779,145.390378 0,112.844284 0,72.6964154 C0,32.5485469 32.325326,1.42108547e-14 72.2009141,1.42108547e-14 Z M187.500628,4.25836743 C207.438422,4.25836743 223.601085,34.8960455 223.601085,72.6964154 L223.603538,72.6964154 C223.603538,110.486973 207.440875,141.134463 187.503081,141.134463 C167.565287,141.134463 151.402624,110.486973 151.402624,72.6964154 C151.402624,34.9058574 167.562834,4.25836743 187.500628,4.25836743 Z M243.303393,11.3867175 C250.314,11.3867175 256,38.835526 256,72.6964154 C256,106.547493 250.316453,134.006113 243.303393,134.006113 C236.290333,134.006113 230.609239,106.554852 230.609239,72.6964154 C230.609239,38.837979 236.292786,11.3867175 243.303393,11.3867175 Z" />
+    </g>
+  </svg>
+);
+
+const StackOverflowIcon = ({ className }: { className?: string }) => (
+  <svg
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 128 128"
+    fill="currentColor"
+  >
+    <path
+      fill="currentColor"
+      d="M101.072 82.51h11.378V128H10.05V82.51h11.377v34.117h79.644zm0 0"
+    />
+    <path
+      fill="#f58025"
+      d="m33.826 79.13 55.88 11.738 2.348-11.166-55.876-11.745Zm7.394-26.748 51.765 24.1 4.824-10.349-51.768-24.1Zm14.324-25.384L99.428 63.53l7.309-8.775-43.885-36.527ZM83.874 0l-9.167 6.81 34.08 45.802 9.163-6.81Zm-51.07 105.254h56.89V93.881h-56.89Zm0 0"
+    />
+  </svg>
+);
+
 const OurTeam = () => {
   const teamMembers = [
     {
@@ -43,11 +76,12 @@ const OurTeam = () => {
       expertise: ["Administration", "Organization", "Communication"],
     },
     {
-      name: "Vanilla Monyei",
+      name: "Monyei Ifeoma Vanilla",
       position: "Social Media Manager",
-      bio: "Vanilla crafts engaging content and manages our online presence across platforms, building strong connections with our audience.",
+      bio: "Vanilla is a results-driven digital creative with a passion for building engaging, relevant, and impactful content. With a strong understanding of social media dynamics and audience behavior, she brings clarity, structure, and creativity to every project. Her approach blends strategic thinking with creative execution to help brands communicate effectively and grow with intention.",
       image: "/staff/vanilla_portrait.JPG",
-      linkedin: "https://linkedin.com/in/ana-martinez",
+      linkedin: "linkedin.com/in/monyei-ifeoma-vanilla",
+      instagram: "https://www.instagram.com/your_type_of_flavor/",
       expertise: [
         "Content Creation",
         "Social Media Strategy",
@@ -56,10 +90,10 @@ const OurTeam = () => {
     },
     {
       name: "Oluwapelumi Akindele",
-      position: "Project Manager",
-      bio: "Oluwapelumi coordinates project timelines, resources, and communication to ensure successful delivery of client solutions. With a keen eye for detail and a passion for teamwork, Oluwapelumi keeps projects on track and stakeholders informed.",
+      position: "UI/UX Designer",
+      bio: "Oluwapelumi is a talented UI/UX designer with a passion for creating intuitive and user-friendly interfaces.",
       image: "/staff/pelumi_portrait.jpg",
-      linkedin: "https://linkedin.com/in/robert-zhang",
+      // linkedin: "https://linkedin.com/in/robert-zhang",
       expertise: ["UI/UX", "Prototyping", "UX Research"],
     },
     {
@@ -69,6 +103,9 @@ const OurTeam = () => {
       image: "/staff/juwon_portrait.JPG",
       linkedin: "https://linkedin.com/in/oluwajuwon-kayode",
       github: "https://github.com/Ola-Oluwajuwon",
+      medium: "https://medium.com/@kayodeoluwajuwon9",
+      stackoverflow:
+        "https://stackexchange.com/users/30253396/ola-oluwajuwon-kayode",
       expertise: ["Next.js", "API Integration", "PWAs"],
     },
   ];
@@ -355,6 +392,22 @@ const OurTeam = () => {
                           className="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center hover:bg-brand-primary hover:text-white transition-all duration-300"
                         >
                           <Github className="w-4 h-4" />
+                        </Link>
+                      )}
+                      {member.medium && (
+                        <Link
+                          href={member.medium}
+                          className="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center hover:bg-brand-primary hover:text-white transition-all duration-300"
+                        >
+                          <MediumIcon className="w-4 h-4" />
+                        </Link>
+                      )}
+                      {member.stackoverflow && (
+                        <Link
+                          href={member.stackoverflow}
+                          className="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center hover:bg-brand-primary hover:text-white transition-all duration-300"
+                        >
+                          <StackOverflowIcon className="w-4 h-4" />
                         </Link>
                       )}
                     </div>
