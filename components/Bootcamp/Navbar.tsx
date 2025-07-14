@@ -114,18 +114,18 @@ const Navbar: React.FC = () => {
               </Link>
 
               <Link
-                href="/trainings/tuition-dates"
-                className="text-white/90 hover:text-white hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2"
-              >
-                <span className="relative z-10">Tuition & Dates</span>
-                <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
-              </Link>
-
-              <Link
                 href="/trainings/about"
                 className="text-white/90 hover:text-white hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2"
               >
                 <span className="relative z-10">About</span>
+                <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
+              </Link>
+
+              <Link
+                href="/auth/login/student"
+                className="text-white/90 hover:text-white hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2"
+              >
+                <span className="relative z-10">Sign In</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
               </Link>
             </div>

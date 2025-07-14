@@ -198,12 +198,7 @@ const StudentLoginPage = () => {
                   >
                     Register for Training Programs
                   </Link>
-                  <Link
-                    href="/auth/login/staff"
-                    className="block text-gray-300 hover:text-white transition-colors"
-                  >
-                    Staff Login
-                  </Link>
+
                   <Link
                     href="/contact"
                     className="block text-gray-300 hover:text-white transition-colors"

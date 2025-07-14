@@ -1,18 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, X } from "lucide-react";
+import { X } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/ui/button";
-import { signInItems } from "@/constants/navLinks";
 
 const navLinks = [
   { title: "Services", href: "/services" },
   { title: "Trainings", href: "/trainings" },
   { title: "About Us", href: "/about" },
-  { title: "Sign In", subLinks: signInItems },
   { title: "Blog", href: "/blog" },
+  { title: "Sign In", href: "/auth/login/student" },
 ];
 
 interface MobileNavProps {
@@ -21,12 +20,6 @@ interface MobileNavProps {
 }
 
 const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
-  const [openMenu, setOpenMenu] = useState<string | null>(null);
-
-  const toggleSubMenu = (title: string) => {
-    setOpenMenu((prev) => (prev === title ? null : title));
-  };
-
   return (
     <motion.div
       initial={{ x: "-100%" }}
@@ -49,53 +42,15 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
 
       {/* Navigation Links */}
       <div className="flex flex-col gap-2 px-6 py-4 overflow-y-auto max-h-[85vh]">
-        {navLinks.map(({ title, href, subLinks }) => (
+        {navLinks.map(({ title, href }) => (
           <div key={title}>
-            {subLinks ? (
-              // Parent link with sub-links
-              <button
-                className="w-full flex justify-between items-center py-3 text-left text-white hover:text-brand-primary transition-colors duration-200 font-medium"
-                onClick={() => toggleSubMenu(title)}
-              >
-                {title}
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform duration-200 ${
-                    openMenu === title ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-            ) : (
-              // Normal link
-              <Link
-                href={href || "#"}
-                className="block py-3 text-white hover:text-brand-primary transition-colors duration-200 font-medium"
-                onClick={onClose}
-              >
-                {title}
-              </Link>
-            )}
-
-            {/* Sub-links */}
-            {openMenu === title && subLinks && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="pl-6 flex flex-col gap-2 overflow-hidden border-l border-brand-primary/30 ml-2"
-              >
-                {subLinks.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="block py-2 text-gray-300 hover:text-white transition-colors duration-200 text-sm"
-                    onClick={onClose}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </motion.div>
-            )}
+            <Link
+              href={href || "#"}
+              className="block py-3 text-white hover:text-brand-primary transition-colors duration-200 font-medium"
+              onClick={onClose}
+            >
+              {title}
+            </Link>
           </div>
         ))}
 

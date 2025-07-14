@@ -191,12 +191,6 @@ const StaffLoginPage = () => {
                 <p className="text-gray-400 mb-4">Need access?</p>
                 <div className="space-y-2">
                   <Link
-                    href="/auth/login/student"
-                    className="block text-brand-primary hover:text-brand-accent transition-colors"
-                  >
-                    Student Login
-                  </Link>
-                  <Link
                     href="/contact"
                     className="block text-gray-300 hover:text-white transition-colors"
                   >

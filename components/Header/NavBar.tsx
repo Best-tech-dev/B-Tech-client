@@ -108,43 +108,20 @@ const Navbar = () => {
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
               </Link>
 
-              {/* Sign In Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    className="text-white/90 hover:text-white hover:bg-brand-primary/20 hover:scale-105 font-medium flex items-center gap-1 transition-all duration-200 px-3 py-2"
-                  >
-                    Sign In
-                    <ChevronDown className="h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  align="end"
-                  className="bg-gray-900 backdrop-blur-lg border-white/20 rounded-xl shadow-xl mt-2"
-                >
-                  {signInItems.map((item) => (
-                    <DropdownMenuItem
-                      key={item.href}
-                      asChild
-                      className="focus:bg-transparent hover:bg-transparent"
-                    >
-                      <Link
-                        href={item.href}
-                        className="cursor-pointer hover:text-brand-primary transition-colors duration-200"
-                      >
-                        {item.label}
-                      </Link>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-
               <Link
                 href="/blog"
                 className="text-white/90 hover:text-white hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2"
               >
                 <span className="relative z-10">Blog</span>
+                <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
+              </Link>
+
+              {/* Sign In Dropdown */}
+              <Link
+                href="/auth/login/student"
+                className="text-white/90 hover:text-white hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2"
+              >
+                <span className="relative z-10">Sign In</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
               </Link>
             </div>
