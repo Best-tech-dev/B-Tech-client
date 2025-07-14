@@ -13,7 +13,7 @@ export const trainings: TrainingType[] = [
   {
     id: "bootcamp-001",
     title: "Fullstack Web Development Bootcamp",
-    slug: "bootcamp",
+    slug: "bootcamp/fullstack-web-development",
     description:
       "Intensive hands-on training in frontend and backend technologies. Ideal for beginners and career switchers.",
     category: "Bootcamp",
@@ -22,7 +22,7 @@ export const trainings: TrainingType[] = [
   {
     id: "bootcamp-002",
     title: "Front-End Development Bootcamp",
-    slug: "bootcamp",
+    slug: "bootcamp/frontend-development",
     description:
       "Master modern frontend technologies including React, Vue, and responsive design. Perfect for aspiring frontend developers.",
     category: "Bootcamp",
@@ -31,7 +31,7 @@ export const trainings: TrainingType[] = [
   {
     id: "bootcamp-003",
     title: "Back-End Development Bootcamp",
-    slug: "bootcamp",
+    slug: "bootcamp/backend-development",
     description:
       "Deep dive into server-side technologies, databases, and API development. Build robust backend systems from scratch.",
     category: "Bootcamp",
@@ -40,7 +40,7 @@ export const trainings: TrainingType[] = [
   {
     id: "bootcamp-004",
     title: "Growth Marketing Bootcamp",
-    slug: "bootcamp",
+    slug: "bootcamp/growth-marketing",
     description:
       "A hands-on bootcamp covering growth marketing, SEO, analytics, and growth strategies. Perfect for aspiring marketers and business owners looking to scale online.",
     category: "Bootcamp",
@@ -49,7 +49,7 @@ export const trainings: TrainingType[] = [
   {
     id: "bootcamp-005",
     title: "UI/UX Design Bootcamp",
-    slug: "bootcamp",
+    slug: "bootcamp/ui-ux",
     description:
       "Comprehensive design training covering user research, wireframing, prototyping, and modern design tools. Create stunning user experiences.",
     category: "Bootcamp",
@@ -58,7 +58,7 @@ export const trainings: TrainingType[] = [
   {
     id: "bootcamp-006",
     title: "Data Analytics Bootcamp",
-    slug: "bootcamp",
+    slug: "bootcamp/data-analytics",
     description:
       "Learn data analysis, visualization, and statistical methods. Master tools like Python, R, and SQL to make data-driven decisions.",
     category: "Bootcamp",
@@ -67,7 +67,7 @@ export const trainings: TrainingType[] = [
   {
     id: "bootcamp-007",
     title: "Mobile App Development Bootcamp",
-    slug: "bootcamp",
+    slug: "bootcamp/mobile-app-dev",
     description:
       "Learn mobile app development using React Native and Expo. Build cross-platform apps for iOS and Android.",
     category: "Bootcamp",
@@ -76,7 +76,7 @@ export const trainings: TrainingType[] = [
   {
     id: "bootcamp-008",
     title: "Cloud & DevOps Bootcamp",
-    slug: "bootcamp",
+    slug: "bootcamp/cloud-devops",
     description:
       "Learn cloud infrastructure design, deployment strategies, and DevOps practices. Master tools like AWS, Docker, and Kubernetes.",
     category: "Bootcamp",

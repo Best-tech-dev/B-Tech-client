@@ -67,68 +67,68 @@ const Blog = () => {
     featured: true,
   };
 
-  const blogPosts = [
-    {
-      id: 2,
-      title: "Migrating Legacy Systems to the Cloud: Best Practices",
-      excerpt:
-        "A comprehensive guide to successfully transitioning your legacy infrastructure to modern cloud platforms without disrupting business operations.",
-      author: "Mayowa Bernard",
-      authorImage: "/staff/mayowa.png",
-      date: "2025-03-10",
-      readTime: "12 min read",
-      category: "Cloud Computing",
-      image: "/imgs/blog-cloud.jpg",
-    },
-    {
-      id: 3,
-      title: "Building Scalable Microservices Architecture",
-      excerpt:
-        "Learn the essential principles and patterns for designing microservices that can handle enterprise-scale traffic and complexity.",
-      author: "Oluwajuwon O.K.",
-      authorImage: "/staff/juwon.png",
-      date: "2025-04-05",
-      readTime: "10 min read",
-      category: "Development",
-      image: "/imgs/blog-microservices.jpg",
-    },
-    {
-      id: 4,
-      title: "Zero Trust Security: A Modern Approach to Cybersecurity",
-      excerpt:
-        "Understanding the zero trust model and how to implement it effectively in your organization's security strategy.",
-      author: "Oluwajuwon O.K.",
-      authorImage: "/staff/juwon.png",
-      date: "2025-04-28",
-      readTime: "7 min read",
-      category: "Cybersecurity",
-      image: "/imgs/blog-security.jpg",
-    },
-    {
-      id: 5,
-      title: "Digital Transformation ROI: Measuring Success",
-      excerpt:
-        "Key metrics and strategies for quantifying the return on investment from your digital transformation initiatives.",
-      author: "Steve Oladele",
-      authorImage: "/staff/steve.png",
-      date: "2025-05-20",
-      readTime: "9 min read",
-      category: "Digital Transformation",
-      image: "/imgs/blog-roi.jpg",
-    },
-    {
-      id: 6,
-      title: "API-First Development: Design Principles and Benefits",
-      excerpt:
-        "Why API-first architecture is becoming the standard for modern software development and how to implement it effectively.",
-      author: "Mayowa Bernard",
-      authorImage: "/staff/mayowa.png",
-      date: "2025-06-01",
-      readTime: "6 min read",
-      category: "Development",
-      image: "/imgs/blog-api.jpg",
-    },
-  ];
+  // const blogPosts = [
+  //   {
+  //     id: 2,
+  //     title: "Migrating Legacy Systems to the Cloud: Best Practices",
+  //     excerpt:
+  //       "A comprehensive guide to successfully transitioning your legacy infrastructure to modern cloud platforms without disrupting business operations.",
+  //     author: "Mayowa Bernard",
+  //     authorImage: "/staff/mayowa.png",
+  //     date: "2025-03-10",
+  //     readTime: "12 min read",
+  //     category: "Cloud Computing",
+  //     image: "/imgs/blog-cloud.jpg",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Building Scalable Microservices Architecture",
+  //     excerpt:
+  //       "Learn the essential principles and patterns for designing microservices that can handle enterprise-scale traffic and complexity.",
+  //     author: "Oluwajuwon O.K.",
+  //     authorImage: "/staff/juwon.png",
+  //     date: "2025-04-05",
+  //     readTime: "10 min read",
+  //     category: "Development",
+  //     image: "/imgs/blog-microservices.jpg",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Zero Trust Security: A Modern Approach to Cybersecurity",
+  //     excerpt:
+  //       "Understanding the zero trust model and how to implement it effectively in your organization's security strategy.",
+  //     author: "Oluwajuwon O.K.",
+  //     authorImage: "/staff/juwon.png",
+  //     date: "2025-04-28",
+  //     readTime: "7 min read",
+  //     category: "Cybersecurity",
+  //     image: "/imgs/blog-security.jpg",
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Digital Transformation ROI: Measuring Success",
+  //     excerpt:
+  //       "Key metrics and strategies for quantifying the return on investment from your digital transformation initiatives.",
+  //     author: "Steve Oladele",
+  //     authorImage: "/staff/steve.png",
+  //     date: "2025-05-20",
+  //     readTime: "9 min read",
+  //     category: "Digital Transformation",
+  //     image: "/imgs/blog-roi.jpg",
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "API-First Development: Design Principles and Benefits",
+  //     excerpt:
+  //       "Why API-first architecture is becoming the standard for modern software development and how to implement it effectively.",
+  //     author: "Mayowa Bernard",
+  //     authorImage: "/staff/mayowa.png",
+  //     date: "2025-06-01",
+  //     readTime: "6 min read",
+  //     category: "Development",
+  //     image: "/imgs/blog-api.jpg",
+  //   },
+  // ];
 
   const categoryPosts = {
     software: [
@@ -415,15 +415,15 @@ const Blog = () => {
     setIsSubscriptionModalOpen(false);
   };
 
-  const filteredPosts = blogPosts.filter((post) => {
-    const matchesSearch =
-      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory =
-      selectedCategory === "all" ||
-      post.category.toLowerCase().replace(/\s+/g, "-") === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  // const filteredPosts = blogPosts.filter((post) => {
+  //   const matchesSearch =
+  //     post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  //     post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+  //   const matchesCategory =
+  //     selectedCategory === "all" ||
+  //     post.category.toLowerCase().replace(/\s+/g, "-") === selectedCategory;
+  //   return matchesSearch && matchesCategory;
+  // });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">

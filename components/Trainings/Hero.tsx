@@ -67,7 +67,7 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="/trainings/continue"
+              href="/auth/login/student"
               className="group border-2 border-brand-primary/50 hover:border-brand-primary text-white hover:text-white font-semibold px-6 sm:px-10 py-3 sm:py-[10px] text-sm sm:text-base rounded-xl transition-all duration-300 hover:bg-brand-primary/5 flex items-center justify-center w-full sm:w-auto"
             >
               Already Started? Continue
