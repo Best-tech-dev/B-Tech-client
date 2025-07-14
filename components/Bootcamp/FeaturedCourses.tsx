@@ -144,7 +144,7 @@ const FeaturedCourses = () => {
               </p>
 
               {/* Course Details */}
-              <div className="flex items-center gap-2 sm:gap-4 mb-3 sm:mb-4 text-xs text-gray-500">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 mb-3 sm:mb-4 text-xs text-gray-500">
                 <div className="flex items-center gap-1">
                   <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span className="text-xs sm:text-sm">{course.duration}</span>

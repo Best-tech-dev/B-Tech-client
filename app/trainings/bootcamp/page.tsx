@@ -70,15 +70,15 @@ export default function BootcampLanding() {
       {/* Featured Courses Section */}
       <FeaturedCourses />
 
+      {/* Learning Outline Section */}
+      <LogoCloud />
+      <OutlineSection />
+
       {/* Push content down by height of header (+ banner if visible) */}
       {/* <div className={showBanner ? "pt-[136px]" : "pt-[80px]"}></div> */}
       <div className="pt-8 lg:pt-18">
-        {/* Learning Outline Section */}
-        <LogoCloud />
-        <OutlineSection />
-
         {/* Tuition and Dates Section */}
-        <TuitionDatesSection />
+        {/* <TuitionDatesSection /> */}
 
         {/* Accreditation Section */}
         <Accreditation />
