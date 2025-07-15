@@ -3,17 +3,10 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import MobileNav from "./MobileNav";
-import { signInItems } from "@/constants/navLinks";
 
 const Navbar = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
