@@ -6,7 +6,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
   DialogFooter,
 } from "@/ui/dialog";
 import { Button } from "@/ui/button";
@@ -26,7 +25,7 @@ const PricingModal: React.FC<PricingModalProps> = ({ isOpen, onClose }) => {
             <Info className="h-5 w-5 text-blue-600" />
             Pilot Program Pricing Notice
           </DialogTitle>
-          <DialogDescription className="text-left">
+          <div className="text-left">
             <div className="space-y-4 mt-4">
               <p className="text-gray-700">
                 The prices listed on this page are our{" "}
@@ -50,7 +49,7 @@ const PricingModal: React.FC<PricingModalProps> = ({ isOpen, onClose }) => {
                 cohorts.
               </p>
             </div>
-          </DialogDescription>
+          </div>
         </DialogHeader>
         <DialogFooter>
           <Button onClick={onClose} className="w-full">

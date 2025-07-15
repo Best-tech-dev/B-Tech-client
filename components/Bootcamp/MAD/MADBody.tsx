@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import SideNavigation from "./SideNavigation";
 import MobileExperience from "./sections/MobileExperience";
@@ -22,7 +24,7 @@ import TuitionDates from "./sections/TuitionDates";
 //   // { id: "faqs", title: "FAQs" },
 // ];
 
-export const MADBody = () => {
+const ContentSection: React.FC = () => {
   const [activeSection, setActiveSection] = useState("mobile-experience");
 
   const handleSectionChange = (section: string) => {
@@ -42,42 +44,46 @@ export const MADBody = () => {
         // Add more sections as they're created
       ];
 
-      const currentSection = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
+      const scrollPosition = window.scrollY + 200;
 
-      if (currentSection) {
-        setActiveSection(currentSection);
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
-    <div className="flex">
-      <SideNavigation
-        activeSection={activeSection}
-        onSectionChange={handleSectionChange}
-      />
-
-      <main className="flex-1 ml-64 px-6">
-        <MobileExperience />
-        <WhatYoullLearn />
-        <TuitionDates />
-        {/* Add more sections as they're created */}
-        {/* <Projects />
-        <DailySchedule />
-        <CareerPrep />
-        <Admissions />
-        <FAQs /> */}
-      </main>
+    <div className="container mx-auto px-2 md:px-6 lg:px-8 pb-16">
+      <div className="flex flex-col lg:flex-row gap-8 mt-8">
+        <div className="w-full lg:w-1/4">
+          <SideNavigation
+            activeSection={activeSection}
+            onSectionChange={handleSectionChange}
+          />
+        </div>
+        <div className="w-full lg:w-3/4 lg:ps-16">
+          <MobileExperience />
+          <WhatYoullLearn />
+          <TuitionDates />
+          {/* Add more sections as they're created */}
+          {/* <Projects />
+          <DailySchedule />
+          <CareerPrep />
+          <Admissions />
+          <FAQs /> */}
+        </div>
+      </div>
     </div>
   );
 };
+
+export default ContentSection;

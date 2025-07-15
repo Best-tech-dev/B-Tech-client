@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Bootcamp/Navbar";
 import BootcampOverlay from "@/components/Bootcamp/BootcampOverlay";
 import { BarChart3 } from "lucide-react";
-import Footer from "@/components/Bootcamp/Footer";
+import Footer from "@/components/Footer/Footer";
 import ContentSection from "@/components/Bootcamp/DA/DABody";
 import PricingModal from "@/components/Bootcamp/PricingModal";
 

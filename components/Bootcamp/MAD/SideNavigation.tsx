@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/ui/button";
 
 interface SideNavigationProps {
   activeSection: string;
@@ -24,45 +25,57 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
   activeSection,
   onSectionChange,
 }) => {
-  const handleSectionClick = (sectionId: string) => {
-    onSectionChange(sectionId);
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <div className="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 shadow-sm overflow-y-auto z-10">
-      <div className="p-6">
-        <h3 className="font-semibold text-gray-900 mb-6">Navigation</h3>
-        <nav>
-          <ul className="space-y-2">
-            {sections.map((section) => (
-              <li key={section.id}>
-                <button
-                  onClick={() => handleSectionClick(section.id)}
-                  className={`w-full text-left px-3 py-2 rounded-md transition-colors duration-200 flex items-center justify-between group ${
-                    activeSection === section.id
-                      ? "bg-green-50 text-green-700 font-medium"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                  }`}
-                >
-                  <span className="text-sm">{section.title}</span>
-                  <ChevronRight
-                    className={`h-4 w-4 transition-transform duration-200 ${
-                      activeSection === section.id
-                        ? "text-green-700"
-                        : "text-gray-400 group-hover:text-gray-600"
-                    }`}
-                  />
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </div>
+    <>
+      {/* Horizontal scrollable nav for mobile/tablet */}
+      <nav className="lg:hidden sticky top-20 bg-white z-50 border-b border-gray-200 shadow-sm overflow-x-auto">
+        <ul className="flex space-x-6 px-4 py-2 whitespace-nowrap overflow-x-scroll scrollbar-hide">
+          {sections.map((section) => (
+            <li
+              key={section.id}
+              className={`cursor-pointer pb-2 border-b-2 transition-colors duration-300 ${
+                activeSection === section.id
+                  ? "text-brand-primary border-brand-primary font-semibold"
+                  : "border-transparent text-gray-700 hover:text-brand-primary"
+              }`}
+              onClick={() => onSectionChange(section.id)}
+            >
+              {section.title}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Stacked nav for desktop */}
+      <aside className="hidden lg:block sticky top-24 lg:top-[116px]">
+        <div className="mb-4 uppercase tracking-wider text-gray-600 text-sm font-semibold px-2">
+          Learn More
+        </div>
+        <div className="bg-white shadow rounded-lg overflow-hidden border border-gray-200">
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              className={`w-full text-left px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors border-b border-b-gray-200 ${
+                activeSection === section.id
+                  ? "bg-gray-100 text-brand-primary font-semibold border-l-4 border-brand-primary"
+                  : "text-gray-700"
+              }`}
+              onClick={() => onSectionChange(section.id)}
+            >
+              {section.title}
+            </button>
+          ))}
+          <div className="p-4">
+            <Button
+              asChild
+              className="w-full bg-brand-primary hover:bg-brand-primary/85 text-white"
+            >
+              <Link href="/trainings/curriculum">GET MY SYLLABUS</Link>
+            </Button>
+          </div>
+        </div>
+      </aside>
+    </>
   );
 };
 

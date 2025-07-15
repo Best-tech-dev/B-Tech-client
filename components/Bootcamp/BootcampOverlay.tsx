@@ -27,7 +27,7 @@ const BootcampHero = ({
       {/* Content */}
       <div className="relative z-20 max-w-5xl mt-10 md:mt-0">
         <Link
-          href="/bootcamp"
+          href="/trainings/bootcamp"
           className="inline-block mb-3 sm:mb-4 text-white text-sm sm:text-base hover:text-brand-primary transition-colors duration-300"
         >
           <MdKeyboardArrowLeft className="inline-block w-6 h-6" /> Back to

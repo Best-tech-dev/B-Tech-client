@@ -8,7 +8,7 @@ import FeaturedCourses from "@/components/Bootcamp/FeaturedCourses";
 import OutlineSection from "@/components/Bootcamp/OutlineSection";
 import Accreditation from "@/components/Bootcamp/Accreditation";
 import { BootcampFAQs } from "@/components/Bootcamp/FAQs";
-// import Footer from "@/components/Bootcamp/Footer";
+// import Footer from "@/components/Footer/Footer";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Bootcamp/Navbar";
 

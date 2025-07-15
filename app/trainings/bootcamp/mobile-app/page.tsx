@@ -4,9 +4,9 @@ import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Bootcamp/Navbar";
 import BootcampOverlay from "@/components/Bootcamp/BootcampOverlay";
 import { Smartphone } from "lucide-react";
-import Footer from "@/components/Bootcamp/Footer";
+import Footer from "@/components/Footer/Footer";
 import PricingModal from "@/components/Bootcamp/PricingModal";
-import { MADBody } from "@/components/Bootcamp/MAD/MADBody";
+import ContentSection from "@/components/Bootcamp/MAD/MADBody";
 
 export default function MobileAppDevBootcampPage() {
   const [showPricingModal, setShowPricingModal] = useState(false);
@@ -26,10 +26,10 @@ export default function MobileAppDevBootcampPage() {
         title="Mobile App Development"
         description="Build native and cross-platform mobile applications using React Native, Flutter, and modern mobile development practices"
         icon={<Smartphone className="text-white text-base md:text-2xl" />}
-        backgroundImage="/bootcamp/mobile-app.jpg"
+        backgroundImage="/bootcamp/mobile.jpg"
       />
 
-      <MADBody />
+      <ContentSection />
 
       <Footer />
 

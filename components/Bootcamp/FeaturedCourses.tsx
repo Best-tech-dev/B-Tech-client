@@ -56,7 +56,7 @@ const courses = [
     title: "Mobile App Development",
     desc: "Develop cross-platform apps using Flutter or React Native.",
     img: "/bootcamp/mobile.jpg",
-    url: "/trainings/bootcamp/mobile-app-dev",
+    url: "/trainings/bootcamp/mobile-app",
     duration: "6 months",
     level: "Intermediate",
   },

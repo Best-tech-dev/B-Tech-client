@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Bootcamp/Navbar";
 import BootcampOverlay from "@/components/Bootcamp/BootcampOverlay";
 import { FaLaptopCode } from "react-icons/fa";
-import Footer from "@/components/Bootcamp/Footer";
+import Footer from "@/components/Footer/Footer";
 import ContentSection from "@/components/Bootcamp/FED/FEDBody";
 import PricingModal from "@/components/Bootcamp/PricingModal";
 

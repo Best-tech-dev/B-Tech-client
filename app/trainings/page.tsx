@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import React from "react";
 import Navbar from "@/components/Bootcamp/Navbar";
-// import Footer from "@/components/Bootcamp/Footer";
+// import Footer from "@/components/Footer/Footer";
 import Hero from "@/components/Trainings/Hero";
 import WhyChooseUs from "@/components/Trainings/WhyChooseUs";
 import ExploreTrainings from "@/components/Trainings/ExploreTrainings";
