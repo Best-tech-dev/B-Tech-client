@@ -8,8 +8,8 @@ import Image from "next/image";
 const courses = [
   {
     id: 1,
-    title: "Software Engineering",
-    desc: "Master frontend and backend in our popular defacto software engineering bootcamp.",
+    title: "Fullstack Web Development",
+    desc: "Master frontend and backend in our popular defacto fullstack bootcamp.",
     img: "/bootcamp/software-development.jpg",
     url: "/trainings/bootcamp/fullstack-web-development",
     duration: "9 months",
