@@ -26,7 +26,7 @@ export default function UiUxBootcampPage() {
         title="UI/UX Design"
         description="Master the art of user interface and user experience design through hands-on training and real-world projects designed to prepare you for the tech industry"
         icon={<Palette className="text-white text-base md:text-2xl" />}
-        backgroundImage="/bootcamp/ui-ux.jpg"
+        backgroundImage="/bootcamp/uiux.jpg"
       />
       <ContentSection />
       <Footer />

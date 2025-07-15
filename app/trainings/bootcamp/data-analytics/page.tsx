@@ -26,7 +26,7 @@ export default function DataAnalyticsBootcampPage() {
         title="Data Analytics"
         description="Master data analysis, visualization, and business intelligence through hands-on training with real datasets and industry-standard tools"
         icon={<BarChart3 className="text-white text-base md:text-2xl" />}
-        backgroundImage="/bootcamp/data-analytics.jpg"
+        backgroundImage="/bootcamp/data.jpg"
       />
       <ContentSection />
       <Footer />

@@ -26,7 +26,7 @@ export default function CloudDevOpsBootcampPage() {
         title="Cloud & DevOps"
         description="Master cloud computing and DevOps practices with hands-on training in AWS, Azure, Docker, Kubernetes, and CI/CD pipelines"
         icon={<Cloud className="text-white text-base md:text-2xl" />}
-        backgroundImage="/bootcamp/cloud-devops.jpg"
+        backgroundImage="/bootcamp/cloud.jpg"
       />
 
       <ContentSection />
