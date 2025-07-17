@@ -1,79 +1,83 @@
-"use client";
-
 import React from "react";
-import Link from "next/link";
-import { Button } from "@/ui/button";
-import { CheckCircle, Users, LineChart } from "lucide-react";
+import { GraduationCap, Clock, FileCheck, Brain } from "lucide-react";
 
-const qualities = [
-  {
-    icon: <CheckCircle className="h-8 w-8 text-brand-primary" />,
-    title: "Commitment",
-    description:
-      "You demonstrate a commitment to learning advanced material within a rigorous, accelerated bootcamp environment.",
-  },
-  {
-    icon: <Users className="h-8 w-8 text-brand-primary" />,
-    title: "Culture Add",
-    description:
-      "You possess qualities such as consideration, dedication, creativity, and a team-oriented mindset.",
-  },
-  {
-    icon: <LineChart className="h-8 w-8 text-brand-primary" />,
-    title: "Growth Mindset",
-    description:
-      "You're committed to continuous learning and growth, adapting to your evolving interests.",
-  },
-];
+const Admissions: React.FC = () => {
+  const requirements = [
+    {
+      title: "Technical Aptitude",
+      description:
+        "Basic computer skills and logical thinking ability (no coding experience required)",
+      icon: <Brain className="h-6 w-6 text-blue-600" />,
+    },
+    {
+      title: "Time Commitment",
+      description: "Ability to dedicate 20-25 hours per week for 10 weeks",
+      icon: <Clock className="h-6 w-6 text-green-600" />,
+    },
+    {
+      title: "Application Materials",
+      description:
+        "Completed application form, CV, and personal motivation statement",
+      icon: <FileCheck className="h-6 w-6 text-purple-600" />,
+    },
+    {
+      title: "Educational Background",
+      description: "Minimum of SSCE or equivalent qualification",
+      icon: <GraduationCap className="h-6 w-6 text-orange-600" />,
+    },
+  ];
 
-const Admissions = () => {
   return (
-    <section
-      id="admissions"
-      className="py-16 px-4 sm:px-6 lg:px-12 scroll-mt-28"
-    >
-      <h2 className="text-base md:text-3xl font-bold mb-6">Admissions</h2>
+    <section id="admissions" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Admissions Process
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          We welcome aspiring developers from all backgrounds. No prior
+          programming experience is required - just enthusiasm for learning and
+          building amazing web applications.
+        </p>
 
-      <p className="text-sm md:text-base text-gray-700 mb-6 max-w-3xl">
-        This Frontend Development Bootcamp, with its in-depth curriculum
-        covering computer science fundamentals to front-end and API integration,
-        is designed for motivated students passionate about technology.
-      </p>
+        <div className="grid md:grid-cols-2 gap-6 mb-10">
+          {requirements.map((requirement, index) => (
+            <div
+              key={index}
+              className="flex items-start space-x-4 p-6 bg-white border border-gray-200 rounded-xl"
+            >
+              <div className="flex-shrink-0 p-2 bg-gray-50 rounded-lg">
+                {requirement.icon}
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  {requirement.title}
+                </h4>
+                <p className="text-gray-600">{requirement.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
 
-      <p className="text-sm md:text-base text-gray-700 mb-6 max-w-3xl">
-        The Frontend Development Immersive&apos;s accelerated timeline is
-        designed to engage and challenge students. Our thoughtful application
-        process ensures that prospective students are well-suited for the
-        program, and vice-versa.
-      </p>
-
-      <p className="text-base font-bold mb-10">
-        Here&apos;s what we look for in prospective students:
-      </p>
-
-      <div className="grid gap-10 md:grid-cols-3 mb-16">
-        {qualities.map((item, idx) => (
-          <div key={idx} className="text-left px-4">
-            <div className="flex justify-start mb-4">{item.icon}</div>
-            <h3 className="text-base md:text-lg text-brand-primary font-semibold mb-3">
-              {item.title}
-            </h3>
-            <p className="text-gray-700 text-base">{item.description}</p>
+        <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
+          <h4 className="font-semibold text-blue-900 mb-4">
+            What We Look For in Applicants
+          </h4>
+          <div className="space-y-2 text-blue-800">
+            <p>
+              • <strong>Problem-solving mindset</strong> and analytical thinking
+            </p>
+            <p>
+              • <strong>Attention to detail</strong> and commitment to quality
+            </p>
+            <p>
+              • <strong>Collaborative spirit</strong> and teamwork abilities
+            </p>
+            <p>
+              • <strong>Dedication</strong> to completing the intensive program
+            </p>
           </div>
-        ))}
+        </div>
       </div>
-
-      <div className="flex justify-center">
-        <Button
-          asChild
-          className="bg-brand-primary hover:bg-brand-primary/85 text-white text-sm md:text-base"
-        >
-          <Link href="/trainings/register">START YOUR APPLICATION</Link>
-        </Button>
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };

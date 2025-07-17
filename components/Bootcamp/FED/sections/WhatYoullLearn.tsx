@@ -1,145 +1,92 @@
-"use client";
+import React from "react";
+import { CheckCircle } from "lucide-react";
 
-import React, { useState } from "react";
-import { Plus } from "lucide-react";
-
-const WhatYoullLearn = () => {
-  const [expandedUnit, setExpandedUnit] = useState<string | null>(null);
-
-  const toggleExpand = (unit: string) => {
-    setExpandedUnit((prev) => (prev === unit ? null : unit));
-  };
+const WhatYoullLearn: React.FC = () => {
+  const learningModules = [
+    {
+      category: "Design Fundamentals",
+      skills: [
+        "HTML5 semantic structure",
+        "CSS Grid and Flexbox layouts",
+        "Responsive design principles",
+        "Web accessibility standards",
+      ],
+    },
+    {
+      category: "JavaScript & Programming",
+      skills: [
+        "JavaScript fundamentals and ES6+",
+        "DOM manipulation and events",
+        "Asynchronous programming",
+        "API integration and HTTP requests",
+      ],
+    },
+    {
+      category: "Modern Frameworks & Libraries",
+      skills: [
+        "React components and hooks",
+        "State management with Redux",
+        "Single Page Applications (SPAs)",
+        "Component testing and debugging",
+      ],
+    },
+    {
+      category: "Development Tools & Workflow",
+      skills: [
+        "Git version control",
+        "Package managers (npm/yarn)",
+        "Build tools and bundlers",
+        "Browser developer tools",
+      ],
+    },
+  ];
 
   return (
-    <section id="what-youll-learn" className="py-12 scroll-mt-28">
-      <h2 className="text-lg md:text-3xl font-bold mb-6">
-        What You&apos;ll Learn
-      </h2>
-
-      <div className="mb-8">
-        <p className="text-sm md:text-base text-gray-700 mb-4">
-          Best Technologies Ltd.&apos;s Frontend Development Bootcamp features
-          an in-demand, JavaScript-based core curriculum.
+    <section id="what-youll-learn" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          What You&apos;ll Learn
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Our curriculum is designed by senior engineers from top tech companies
+          and covers both fundamental and advanced concepts. You&apos;ll master
+          the complete frontend development stack from basic web technologies to
+          modern frameworks.
         </p>
-        <p className="text-sm md:text-base text-gray-700">
-          You&apos;ll also have the opportunity to learn generative AI
-          applications in web development through a free elective course,
-          exploring tools such as ChatGPT and Bing AI.
-        </p>
-      </div>
 
-      <div className="space-y-8">
-        {/* Accordion Unit Block */}
-        {[
-          {
-            id: "unit1",
-            title: "Front-End Foundations",
-            unit: "Unit 1",
-            content: [
-              "HTML & CSS fundamentals",
-              "JavaScript programming basics",
-              "DOM manipulation",
-              "Responsive web design principles",
-              "CSS frameworks (Bootstrap, Tailwind)",
-              "Version control with Git",
-            ],
-          },
-          {
-            id: "unit2",
-            title: "Front-End Core",
-            unit: "Unit 2",
-            content: [
-              "Advanced JavaScript concepts",
-              "ES6+ features",
-              "React fundamentals",
-              "Component-based architecture",
-              "State management",
-              "React Router",
-              "API integration",
-            ],
-          },
-        ].map(({ id, title, unit, content }) => (
-          <div
-            key={id}
-            className="relative border border-gray-200 rounded-lg overflow-hidden"
-          >
-            <header
-              role="button"
-              tabIndex={0}
-              aria-expanded={expandedUnit === id}
-              onClick={() => toggleExpand(id)}
-              onKeyDown={(e) => e.key === "Enter" && toggleExpand(id)}
-              className="flex flex-col-reverse items-start md:flex-row md:items-center md:justify-between p-6 cursor-pointer focus:outline-none rounded-lg"
-            >
-              <div className="flex items-center space-x-8">
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-primary/10 shrink-0">
-                  <Plus
-                    className={`w-6 h-6 text-brand-primary transition-transform duration-300 ${
-                      expandedUnit === id ? "rotate-45" : ""
-                    }`}
-                  />
-                </div>
-                <h3 className="text-sm md:text-xl font-medium">{title}</h3>
-              </div>
-              <div className="rounded-full px-4 py-1 border border-brand-primary text-brand-primary text-xs md:text-sm mb-4 md:mb-0">
-                {unit}
-              </div>
-            </header>
-
+        <div className="space-y-8">
+          {learningModules.map((module, index) => (
             <div
-              className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                expandedUnit === id
-                  ? "max-h-[1000px] opacity-100"
-                  : "max-h-0 opacity-0"
-              }`}
+              key={index}
+              className="bg-white border border-gray-200 rounded-xl p-6"
             >
-              <div className="p-6 border-t border-gray-200">
-                <header>
-                  <h4 className="text-sm md:text-lg font-semibold mb-2">
-                    In this unit, you will learn:
-                  </h4>
-                </header>
-                <ul className="list-disc pl-6 space-y-2">
-                  {content.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                {module.category}
+              </h3>
+              <div className="grid md:grid-cols-2 gap-3">
+                {module.skills.map((skill, skillIndex) => (
+                  <div key={skillIndex} className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                    <span className="text-gray-700">{skill}</span>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <div className="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-100">
+          <h3 className="text-lg font-semibold text-blue-900 mb-3">
+            Portfolio-Driven Learning
+          </h3>
+          <p className="text-blue-800">
+            Every project you complete becomes part of your professional
+            portfolio. By graduation, you&apos;ll have 4-6 real-world
+            applications showcasing your development skills and problem-solving
+            abilities that you can confidently present to employers.
+          </p>
+        </div>
       </div>
-
-      <h3 className="text-lg md:text-3xl font-semibold mt-12 mb-6">
-        Frontend Development Immersive Tools and Technologies
-      </h3>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          "HTML5",
-          "CSS3",
-          "JavaScript",
-          "Bootstrap",
-          "Tailwind CSS",
-          "React",
-          "Git",
-          "GitHub",
-          "Redux",
-          "NPM/PNPM",
-          "Webpack",
-          "Jest",
-        ].map((tech) => (
-          <div
-            key={tech}
-            className="border border-gray-200 rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow"
-          >
-            {tech}
-          </div>
-        ))}
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };

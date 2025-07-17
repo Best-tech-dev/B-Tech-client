@@ -30,31 +30,6 @@ const FAQs: React.FC = () => {
       answer:
         "We offer portfolio reviews, interview preparation, design challenge practice, and direct introductions to hiring partners. Our career services team supports you until you land a design role.",
     },
-    {
-      question: "Can I work full-time while attending the bootcamp?",
-      answer:
-        "Yes! Our evening schedule (6:00 PM - 9:00 PM) accommodates working professionals. The program requires 15-20 hours per week including class time and design work.",
-    },
-    {
-      question: "Do you provide design software licenses?",
-      answer:
-        "Yes, we provide access to premium design software and tools during the bootcamp. We also help you set up educational accounts for continued learning after graduation.",
-    },
-    {
-      question: "What types of companies hire your graduates?",
-      answer:
-        "Our graduates work at fintech companies (Flutterwave, Paystack), tech startups, design agencies, banks, and international companies. The demand for UI/UX designers spans across all industries.",
-    },
-    {
-      question: "Is the program suitable for career changers?",
-      answer:
-        "Absolutely! Many of our successful graduates come from non-design backgrounds including business, engineering, psychology, and marketing. We help you leverage your existing skills in your new design career.",
-    },
-    {
-      question: "Do you offer any scholarships or payment plans?",
-      answer:
-        "Yes, we offer merit-based scholarships, need-based financial aid, and flexible payment plans. We also have early bird discounts and occasionally partner with organizations for sponsored training.",
-    },
   ];
 
   const toggleFAQ = (index: number) => {

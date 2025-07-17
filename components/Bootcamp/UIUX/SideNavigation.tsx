@@ -24,6 +24,17 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
     { id: "faqs", label: "FAQs" },
   ];
 
+  const handleSectionClick = (sectionId: string) => {
+    onSectionChange(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const yOffset = -80; // Negative value to add space at the top
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="sticky top-8">
       <nav className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
@@ -32,7 +43,7 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
           {navigationItems.map((item) => (
             <li key={item.id}>
               <button
-                onClick={() => onSectionChange(item.id)}
+                onClick={() => handleSectionClick(item.id)}
                 className={`w-full text-left px-3 py-2 rounded-md transition-colors duration-200 flex items-center justify-between group ${
                   activeSection === item.id
                     ? "bg-purple-50 text-purple-700 font-medium"

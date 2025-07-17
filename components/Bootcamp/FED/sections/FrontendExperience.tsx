@@ -1,110 +1,80 @@
 import React from "react";
-import { Star, Briefcase, Users } from "lucide-react";
-import Link from "next/link";
-import { FaUsersGear } from "react-icons/fa6";
-import { IoCheckmarkDone } from "react-icons/io5";
-import { FaCode } from "react-icons/fa";
+import { Code, Smartphone, Wrench, Layers } from "lucide-react";
 
-const FrontendExperience = () => {
+const FrontendExperience: React.FC = () => {
+  const highlights = [
+    {
+      icon: <Code className="h-6 w-6 text-blue-600" />,
+      title: "Modern Web Technologies",
+      description:
+        "Learn HTML5, CSS3, and JavaScript ES6+ with modern development practices",
+    },
+    {
+      icon: <Layers className="h-6 w-6 text-green-600" />,
+      title: "React & Component Architecture",
+      description:
+        "Master React hooks, state management, and component-based development",
+    },
+    {
+      icon: <Smartphone className="h-6 w-6 text-purple-600" />,
+      title: "Responsive Design",
+      description:
+        "Build mobile-first, accessible websites that work across all devices",
+    },
+    {
+      icon: <Wrench className="h-6 w-6 text-orange-600" />,
+      title: "Development Tools",
+      description:
+        "Use Git, npm, webpack, and professional development workflows",
+    },
+  ];
+
   return (
-    <section
-      id="frontend-experience"
-      className="py-12 scroll-mt-28"
-      aria-labelledby="frontend-experience-title"
-    >
-      <h2 className="text-lg md:text-3xl font-bold capitalize mb-3">
-        Passionate teachers and an in-demand curriculum define the Best
-        Technologies Ltd. experience
-      </h2>
-      <p className="text-sm md:text-base text-gray-700 mb-10">
-        Our 3-month Full-Time Frontend Development Immersive program offers a
-        comprehensive and challenging journey for aspiring frontend developers,
-        designed to rapidly advance your skills and launch your career.
-      </p>
-      <h2
-        id="frontend-experience-title"
-        className="text-lg md:text-3xl font-bold mb-6"
-      >
-        Our Academy Experience
-      </h2>
+    <section id="frontend-experience" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Frontend Development Bootcamp
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Transform your passion for technology into a lucrative career in
+          frontend development. Our comprehensive bootcamp covers everything
+          from HTML fundamentals to modern React frameworks, preparing you for
+          roles at leading tech companies and innovative startups.
+        </p>
 
-      {/* First Row */}
-      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
-        <ExperienceCard
-          icon={<Star className="h-8 w-8 text-brand-primary" />}
-          title="Top-Rated Full-Time Coding Bootcamp"
-          description={
-            <>
-              The Best Technologies Ltd. is a{" "}
-              <span className="text-primary-two font-medium">highly-rated</span>{" "}
-              coding school in Nigeria, and our{" "}
-              <Link
-                href="/trainings?scroll=student-spotlight"
-                className="text-brand-primary underline font-medium"
-              >
-                student reviews
-              </Link>{" "}
-              reflect that.
-            </>
-          }
-        />
-        <ExperienceCard
-          icon={<Briefcase className="h-8 w-8 text-brand-primary" />}
-          title="Get 1:1 Personalized Career Coaching and Job-Search Support"
-          description="Receive tailored career coaching and job search support to help you secure your ideal tech role."
-        />
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {highlights.map((highlight, index) => (
+            <div
+              key={index}
+              className="flex items-start space-x-4 p-6 bg-gray-50 rounded-xl"
+            >
+              <div className="flex-shrink-0">{highlight.icon}</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {highlight.title}
+                </h3>
+                <p className="text-gray-600">{highlight.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-xl border border-blue-100">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            Why Choose Frontend Development?
+          </h3>
+          <p className="text-gray-700 leading-relaxed">
+            Frontend development is one of the fastest-growing fields in tech.
+            As businesses prioritize user experience and digital presence, the
+            demand for skilled developers who can create fast, interactive, and
+            visually appealing web applications continues to surge. Our program
+            prepares you for this dynamic field with real-world projects and
+            industry-standard practices.
+          </p>
+        </div>
       </div>
-
-      {/* Second Row */}
-      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
-        <ExperienceCard
-          icon={<FaUsersGear className="h-8 w-8 text-brand-primary" />}
-          title="Industry-Experienced Instructors"
-          description="Learn from passionate programmers with tech industry experience. From large open-source libraries to quantum computer simulators, they've programmed it all."
-        />
-        <ExperienceCard
-          icon={<IoCheckmarkDone className="h-8 w-8 text-brand-primary" />}
-          title="In-Demand Curriculum"
-          description="Graduate job-ready with a rigorous curriculum built by working tech practitioners and industry-experienced professionals."
-        />
-      </div>
-
-      {/* Third Row */}
-      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
-        <ExperienceCard
-          icon={<FaCode className="h-8 w-8 text-brand-primary" />}
-          title="Real-World Coding Tools"
-          description="Use popular developer tools like Git, GitHub, React, and VS Code. Plus, you'll learn how to integrate generative AI tech to optimize, automate, and expand your coding workflow."
-        />
-        <ExperienceCard
-          icon={<Users className="h-8 w-8 text-brand-primary" />}
-          title="Culture of Collaboration"
-          description="Work with others to improve your code and learn how to present it at the same time."
-        />
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };
-
-const ExperienceCard = ({
-  icon,
-  title,
-  description,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: React.ReactNode;
-}) => (
-  <div>
-    <div className="flex flex-col items-start gap-4 mb-4">
-      {icon}
-      <h3 className="text-base font-semibold">{title}</h3>
-    </div>
-    <p className="text-gray-700 text-base leading-relaxed">{description}</p>
-  </div>
-);
 
 export default FrontendExperience;
