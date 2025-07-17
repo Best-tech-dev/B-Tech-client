@@ -1,7 +1,6 @@
 import React from "react";
-import Link from "next/link";
-import { Button } from "@/ui/button";
-import { Calendar, Clock, DollarSign } from "lucide-react";
+
+import { Calendar, Clock } from "lucide-react";
 
 const TuitionDates: React.FC = () => {
   const upcomingCohorts = [

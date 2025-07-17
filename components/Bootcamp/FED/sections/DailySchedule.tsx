@@ -49,8 +49,8 @@ const DailySchedule: React.FC = () => {
         <p className="text-lg text-gray-700 mb-8 leading-relaxed">
           Every day in our Frontend Development Bootcamp is a little different,
           but you can count on a lively on-site classroom with your classmates,
-          instructors, and teaching assistants. You'll learn through a mix of
-          live lessons, coding practice, and team projects.
+          instructors, and teaching assistants. You&apos;ll learn through a mix
+          of live lessons, coding practice, and team projects.
         </p>
 
         <div className="space-y-4">
