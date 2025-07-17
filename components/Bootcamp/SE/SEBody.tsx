@@ -7,7 +7,6 @@ import WhatYoullLearn from "./sections/WhatYoullLearn";
 import TuitionDates from "./sections/TuitionDates";
 import Projects from "./sections/Projects";
 import DailySchedule from "./sections/DailySchedule";
-import PairProgramming from "./sections/PairProgramming";
 import CareerPrep from "./sections/CareerPrep";
 import Admissions from "./sections/Admissions";
 import Testimonials from "./sections/Testimonials";
@@ -32,7 +31,6 @@ const ContentSection: React.FC = () => {
         "tuition-dates",
         "projects",
         "daily-schedule",
-        "pair-programming",
         "career-prep",
         "admissions",
         "testimonials",
@@ -71,7 +69,6 @@ const ContentSection: React.FC = () => {
           <TuitionDates />
           <Projects />
           <DailySchedule />
-          <PairProgramming />
           <CareerPrep />
           <Admissions />
           <Testimonials />

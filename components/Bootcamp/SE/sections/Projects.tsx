@@ -1,84 +1,131 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import { Code, Database, Globe, Smartphone, Monitor } from "lucide-react";
 
 const Projects = () => {
   const projects = [
     {
-      title: "Acme",
-      description: "A modern invoice dashboard web app",
-      videoUrl: "https://www.youtube.com/embed/HGLTAu3y_uc?si=oQ3qzOt1KI0lKTyb",
+      title: "E-Commerce Platform",
+      description:
+        "Full-stack marketplace with payment integration, user authentication, and admin dashboard",
+      icon: <Monitor className="h-6 w-6 text-blue-600" />,
+      duration: "Weeks 3-5",
+      deliverables: [
+        "User authentication system",
+        "Payment processing integration",
+        "Admin dashboard interface",
+        "Product catalog management",
+      ],
     },
     {
-      title: "AI E-commerce Platform",
-      description: "Build complete e-commerce platform with AI",
-      videoUrl: "https://www.youtube.com/embed/hlMXobLvVB0?si=twpIeFuU8CLmZhld",
+      title: "Task Management App",
+      description:
+        "Collaborative project management tool with real-time updates and team features",
+      icon: <Smartphone className="h-6 w-6 text-green-600" />,
+      duration: "Weeks 6-8",
+      deliverables: [
+        "Real-time collaboration features",
+        "Task assignment system",
+        "Progress tracking dashboard",
+        "Team communication tools",
+      ],
     },
     {
-      title: "Tower of Zurpalen",
-      description: "An adventure game",
-      videoUrl: "https://www.youtube.com/embed/HGLTAu3y_uc?si=oQ3qzOt1KI0lKTyb",
+      title: "Social Media Dashboard",
+      description:
+        "Analytics platform for managing multiple social media accounts with automated posting",
+      icon: <Globe className="h-6 w-6 text-purple-600" />,
+      duration: "Weeks 9-11",
+      deliverables: [
+        "Multi-platform API integration",
+        "Analytics and reporting",
+        "Content scheduling system",
+        "Performance metrics tracking",
+      ],
+    },
+    {
+      title: "Learning Management System",
+      description:
+        "Educational platform with course creation, progress tracking, and interactive content",
+      icon: <Code className="h-6 w-6 text-orange-600" />,
+      duration: "Weeks 12-14",
+      deliverables: [
+        "Course creation interface",
+        "Student progress tracking",
+        "Interactive content delivery",
+        "Assessment and grading system",
+      ],
+    },
+    {
+      title: "Real Estate Portal",
+      description:
+        "Property listing platform with advanced search, virtual tours, and agent tools",
+      icon: <Database className="h-6 w-6 text-red-600" />,
+      duration: "Weeks 15-17",
+      deliverables: [
+        "Property search and filtering",
+        "Agent management system",
+        "Virtual tour integration",
+        "Lead generation tools",
+      ],
     },
   ];
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
   return (
-    <section id="projects" className="py-12 px-4 sm:px-6 lg:px-12 scroll-mt-28">
-      <h2 className="text-3xl font-bold mb-6">Build a Portfolio of Apps</h2>
+    <section id="projects" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Hands-on Projects
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Build a portfolio of real-world projects that demonstrate your
+          full-stack development skills and problem-solving abilities. Each
+          project follows industry standards and best practices.
+        </p>
 
-      <p className="text-base text-gray-700 mb-6 max-w-3xl">
-        Upon graduating from the Software Engineering Bootcamp, you&apos;ll have
-        a full-stack capstone project in your portfolio, hosted on GitHub, and
-        built with real-world libraries and methodologies. This project will
-        effectively demonstrate your technical, practical, and creative skills
-        to future employers.
-      </p>
-
-      <p className="text-base text-gray-700 mb-10 max-w-3xl">
-        Check out some of the capstone projects you&apos;ll work on.
-      </p>
-
-      <div className="text-center mb-10">
-        <div className="inline-block border-b border-brand-primary px-8 py-3 text-xl font-medium text-gray-800">
-          Capstone Projects
-        </div>
-      </div>
-
-      <div className="grid gap-10 md:grid-cols-2 items-start">
-        {/* Project List */}
-        <ul className="space-y-6">
+        <div className="space-y-6">
           {projects.map((project, index) => (
-            <li
+            <div
               key={index}
-              onClick={() => setSelectedIndex(index)}
-              className={`border-l-4 py-2 pl-4 transition-all duration-300 cursor-pointer ${
-                selectedIndex === index
-                  ? "border-brand-primary bg-gray-50"
-                  : "border-gray-200 hover:border-brand-primary"
-              }`}
+              className="bg-white border border-gray-200 rounded-xl p-6"
             >
-              <h3 className="font-semibold text-base">{project.title}</h3>
-              <p className="text-gray-600 text-sm">{project.description}</p>
-            </li>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 p-3 bg-gray-50 rounded-lg">
+                  {project.icon}
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      {project.title}
+                    </h3>
+                    <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                      {project.duration}
+                    </span>
+                  </div>
+                  <p className="text-gray-700 mb-4">{project.description}</p>
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-2">
+                      Key Deliverables:
+                    </h4>
+                    <ul className="grid md:grid-cols-2 gap-2">
+                      {project.deliverables.map((deliverable, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-center text-gray-600"
+                        >
+                          <div className="h-1.5 w-1.5 bg-blue-600 rounded-full mr-3"></div>
+                          {deliverable}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
-
-        {/* Video Preview */}
-        <div className="w-full rounded-xl overflow-hidden shadow-lg">
-          <div className="aspect-video">
-            <iframe
-              className="w-full h-full rounded-lg"
-              src={projects[selectedIndex].videoUrl}
-              title={`Demo video for ${projects[selectedIndex].title}`}
-              allowFullScreen
-            ></iframe>
-          </div>
         </div>
       </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };

@@ -49,13 +49,13 @@ const WhatYoullLearn: React.FC = () => {
     <section id="what-youll-learn" className="mb-16">
       <div className="max-w-4xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">
-          What You'll Learn
+          What You&apos;ll Learn
         </h2>
         <p className="text-lg text-gray-700 mb-8 leading-relaxed">
           Our curriculum is designed by mobile development experts from leading
           tech companies and covers both native and cross-platform development.
-          You'll master the complete mobile development lifecycle from concept
-          to app store deployment.
+          You&apos;ll master the complete mobile development lifecycle from
+          concept to app store deployment.
         </p>
 
         <div className="space-y-8">
@@ -85,7 +85,7 @@ const WhatYoullLearn: React.FC = () => {
           </h3>
           <p className="text-green-800">
             Every app you develop becomes part of your professional portfolio.
-            By graduation, you'll have 4-5 published mobile applications
+            By graduation, you&apos;ll have 4-5 published mobile applications
             demonstrating your coding skills, design thinking, and ability to
             solve real-world problems that you can showcase to employers.
           </p>

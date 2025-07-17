@@ -1,74 +1,102 @@
-"use client";
-
-import Image from "next/image";
 import React from "react";
+import { Star, Quote } from "lucide-react";
 
-const testimonials = [
-  {
-    name: "Sam Ogunleye",
-    title: "Software Engineer, Turing",
-    image: "/trainings/sam-ogunleye.jpg",
-    quote:
-      "Embarking on a tech career isn't easy, but it's certainly achievable. It took me about 10 months of hard work, but now I've landed my dream job!",
-  },
-  {
-    name: "Oluwatobi Adebayo",
-    title: "Fullstack Engineer, Andela",
-    image: "/trainings/oluwatobi-adebayo.jpg",
-    quote:
-      "My career coach's guidance was crucial in helping me understand the tech industry landscape and ultimately secure my role.",
-  },
-  {
-    name: "Benedicta Okafor",
-    title: "Software Engineer Intern, Moniepoint",
-    image: "/trainings/benedicta-okafor.jpg",
-    quote:
-      "The support I received was instrumental to my success. The instructors were knowledgeable and always available for questions, fostering a collaborative environment where students could learn from each other.",
-  },
-  {
-    name: "Mubarak Olayiwola",
-    title: "Software Engineer, UpWork Top Rated",
-    image: "/trainings/mubarak-olayiwola.jpg",
-    quote:
-      "I learned everything I needed to be a competitive potential candidate with an edge against my peers.",
-  },
-];
-
-const Testimonials = () => {
+const Testimonials: React.FC = () => {
+  const testimonials = [
+    {
+      name: "Adebayo Thompson",
+      role: "Full-Stack Developer at Flutterwave",
+      company: "Flutterwave",
+      rating: 5,
+      testimonial:
+        "The full-stack bootcamp gave me everything I needed to transition from marketing to tech. Now I'm building payment solutions at one of Africa's leading fintech companies!",
+      highlight: "Career transformation success",
+    },
+    {
+      name: "Chioma Okwu",
+      role: "Software Engineer at Andela",
+      company: "Andela",
+      rating: 5,
+      testimonial:
+        "Learning both frontend and backend in one program was game-changing. The projects we built gave me the confidence to tackle any full-stack challenge in my new role.",
+      highlight: "Strong full-stack foundation",
+    },
+    {
+      name: "Kemi Adeleke",
+      role: "Full-Stack Developer at Kuda Bank",
+      company: "Kuda Bank",
+      rating: 5,
+      testimonial:
+        "From zero coding experience to building complete web applications in 20 weeks. The instructors made complex concepts accessible and the career support was outstanding.",
+      highlight: "Portfolio led to job success",
+    },
+  ];
   return (
-    <section
-      id="testimonials"
-      className="py-16 px-4 sm:px-6 lg:px-12 scroll-mt-28"
-    >
-      <h2 className="text-base md:text-3xl font-bold mb-10">Testimonials</h2>
+    <section id="testimonials" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Student Success Stories
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Our graduates are now working at leading tech companies across Nigeria
+          and globally, creating robust and scalable applications.
+        </p>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {testimonials.map((item, idx) => (
-          <div
-            key={idx}
-            className="bg-white border border-gray-300 rounded-xl shadow-md p-8"
-          >
-            <p className="text-sm md:text-base text-gray-800 mb-6 leading-relaxed">
-              {item.quote}
-            </p>
-            <div className="flex items-center">
-              <Image
-                src={item.image}
-                alt={item.name}
-                width={64}
-                height={64}
-                className="h-16 w-16 rounded-full mr-4 object-cover object-top"
-              />
-              <div>
-                <h4 className="font-semibold text-base">{item.name}</h4>
-                <p className="text-gray-600 text-sm">{item.title}</p>
+        <div className="space-y-8">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="bg-white border border-gray-200 rounded-xl p-8 relative"
+            >
+              <Quote className="absolute top-6 right-6 h-8 w-8 text-gray-200" />
+
+              <div className="flex items-start space-x-6">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-lg">
+                    {testimonial.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </div>
+                </div>
+
+                <div className="flex-1">
+                  <div className="flex items-center mb-2">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="h-4 w-4 text-yellow-400 fill-current"
+                      />
+                    ))}
+                  </div>
+
+                  <blockquote className="text-gray-700 text-lg mb-4 leading-relaxed">
+                    &quot;{testimonial.testimonial}&quot;
+                  </blockquote>
+
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="font-semibold text-gray-900">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-gray-600">{testimonial.role}</div>
+                      <div className="text-sm text-blue-600 font-medium">
+                        {testimonial.company}
+                      </div>
+                    </div>
+
+                    <div className="text-right">
+                      <div className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                        {testimonial.highlight}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-
-      <div className="h-px bg-gray-200 mt-16" />
     </section>
   );
 };

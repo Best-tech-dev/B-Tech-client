@@ -1,110 +1,77 @@
 import React from "react";
-import { Star, Briefcase, Users } from "lucide-react";
-import Link from "next/link";
-import { FaUsersGear } from "react-icons/fa6";
-import { IoCheckmarkDone } from "react-icons/io5";
-import { FaCode } from "react-icons/fa";
+import { Code, Database, Globe, Zap } from "lucide-react";
 
 const FullstackExperience = () => {
+  const highlights = [
+    {
+      icon: <Code className="h-8 w-8 text-green-600" />,
+      title: "Frontend Mastery",
+      description:
+        "Build responsive, interactive user interfaces with React and modern CSS",
+    },
+    {
+      icon: <Database className="h-8 w-8 text-purple-600" />,
+      title: "Backend Development",
+      description:
+        "Create robust APIs and server-side logic with Node.js and Express",
+    },
+    {
+      icon: <Globe className="h-8 w-8 text-blue-600" />,
+      title: "Full-Stack Integration",
+      description: "Connect frontend and backend for complete web applications",
+    },
+    {
+      icon: <Zap className="h-8 w-8 text-orange-600" />,
+      title: "Modern Deployment",
+      description: "Deploy production-ready applications with cloud platforms",
+    },
+  ];
+
   return (
-    <section
-      id="fullstack-experience"
-      className="py-12 scroll-mt-28"
-      aria-labelledby="fullstack-experience-title"
-    >
-      <h2 className="text-lg md:text-3xl font-bold capitalize mb-3">
-        Passionate teachers and an in-demand curriculum define the Best
-        Technologies Ltd. experience
-      </h2>
-      <p className="text-sm md:text-base text-gray-700 mb-10">
-        Our 8-month Full-Time Software Engineering Immersive program offers a
-        comprehensive and challenging journey for aspiring software engineers,
-        designed to rapidly advance your skills and launch your career.
-      </p>
-      <h2
-        id="fullstack-experience-title"
-        className="text-lg md:text-3xl font-bold mb-6"
-      >
-        Our Academy Experience
-      </h2>
+    <section id="fullstack-experience" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Complete Full-Stack Development Experience
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Master both frontend and backend development to build complete web
+          applications from conception to deployment. Graduate with the skills
+          to work on any part of the technology stack.
+        </p>
 
-      {/* First Row */}
-      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
-        <ExperienceCard
-          icon={<Star className="h-8 w-8 text-brand-primary" />}
-          title="Top-Rated Full-Time Coding Bootcamp"
-          description={
-            <>
-              The Best Technologies Ltd. is a{" "}
-              <span className="text-primary-two font-medium">highly-rated</span>{" "}
-              coding school in Nigeria, and our{" "}
-              <Link
-                href="/trainings?scroll=student-spotlight"
-                className="text-brand-primary underline font-medium"
-              >
-                student reviews
-              </Link>{" "}
-              reflect that.
-            </>
-          }
-        />
-        <ExperienceCard
-          icon={<Briefcase className="h-8 w-8 text-brand-primary" />}
-          title="Get 1:1 Personalized Career Coaching and Job-Search Support"
-          description="Receive tailored career coaching and job search support to help you secure your ideal tech role."
-        />
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {highlights.map((highlight, index) => (
+            <div
+              key={index}
+              className="flex items-start space-x-4 p-6 bg-gray-50 rounded-xl"
+            >
+              <div className="flex-shrink-0">{highlight.icon}</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {highlight.title}
+                </h3>
+                <p className="text-gray-600">{highlight.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-8 rounded-xl border border-purple-100">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            Why Choose Full-Stack Development?
+          </h3>
+          <p className="text-gray-700 leading-relaxed">
+            Full-stack development is one of the most versatile and in-demand
+            skills in the tech industry. As companies need developers who can
+            work across the entire technology stack, full-stack developers are
+            highly valued for their ability to build complete applications from
+            frontend to backend. Our program prepares you for this exciting
+            field with hands-on projects and industry-standard technologies.
+          </p>
+        </div>
       </div>
-
-      {/* Second Row */}
-      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
-        <ExperienceCard
-          icon={<FaUsersGear className="h-8 w-8 text-brand-primary" />}
-          title="Industry-Experienced Instructors"
-          description="Learn from passionate programmers with tech industry experience. From large open-source libraries to quantum computer simulators, they've programmed it all."
-        />
-        <ExperienceCard
-          icon={<IoCheckmarkDone className="h-8 w-8 text-brand-primary" />}
-          title="In-Demand Curriculum"
-          description="Graduate job-ready with a rigorous curriculum built by working tech practitioners and industry-experienced professionals."
-        />
-      </div>
-
-      {/* Third Row */}
-      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
-        <ExperienceCard
-          icon={<FaCode className="h-8 w-8 text-brand-primary" />}
-          title="Real-World Coding Tools"
-          description="Use popular developer tools like Git, GitHub, React, and VS Code. Plus, you'll learn how to integrate generative AI tech to optimize, automate, and expand your coding workflow."
-        />
-        <ExperienceCard
-          icon={<Users className="h-8 w-8 text-brand-primary" />}
-          title="Culture of Collaboration"
-          description="Work with others to improve your code and learn how to present it at the same time."
-        />
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };
-
-const ExperienceCard = ({
-  icon,
-  title,
-  description,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: React.ReactNode;
-}) => (
-  <div>
-    <div className="flex flex-col items-start gap-4 mb-4">
-      {icon}
-      <h3 className="text-base font-semibold">{title}</h3>
-    </div>
-    <p className="text-gray-700 text-base leading-relaxed">{description}</p>
-  </div>
-);
 
 export default FullstackExperience;

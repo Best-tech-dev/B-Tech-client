@@ -1,102 +1,123 @@
 import React, { useState } from "react";
-import { Plus } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
-const FAQs = () => {
-  const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
-
-  const toggleFaq = (id: string) => {
-    if (expandedFaq === id) {
-      setExpandedFaq(null);
-    } else {
-      setExpandedFaq(id);
-    }
-  };
+const FAQs: React.FC = () => {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(0);
 
   const faqs = [
     {
-      id: "faq1",
-      question: "What is a software engineering bootcamp?",
-      answer:
-        "A software engineering bootcamp is an intensive, accelerated learning program designed to equip students with practical coding skills in a short timeframe, typically 12-24 weeks. These programs focus on hands-on projects and real-world applications rather than theoretical knowledge, preparing graduates for immediate entry into the tech workforce.",
-    },
-    {
-      id: "faq2",
-      question: "What is covered in the software engineering bootcamp?",
-      answer:
-        "Our bootcamp covers full-stack web development including HTML, CSS, JavaScript, React, Node.js, Express, databases (SQL and NoSQL), RESTful APIs, authentication, deployment strategies, and modern development practices. The curriculum is regularly updated to reflect industry demands and includes both front-end and back-end technologies.",
-    },
-    {
-      id: "faq3",
-      question: "Are software engineering bootcamps still worth it?",
-      answer:
-        "Absolutely! While the tech landscape evolves, the demand for skilled developers continues to grow. Our bootcamp offers focused, practical training that many employers value. With our career support services and industry connections, graduates enter the job market with real-world skills, professional portfolios, and networking opportunities that position them competitively.",
-    },
-    {
-      id: "faq4",
-      question: "How much does a software engineering bootcamp cost?",
-      answer:
-        "Our full-time bootcamp tuition is ₦10,995 (reduced from ₦13,995 for early registration). We offer various payment options including installment plans, loan financing, income share agreements, and scholarships to make education accessible to qualified students.",
-    },
-    {
-      id: "faq5",
       question:
-        "Will I get a certificate after completing the  software engineering bootcamp?",
+        "Do I need prior coding experience to join the full-stack bootcamp?",
       answer:
-        "Yes, all graduates receive an official certificate of completion that validates their acquired skills. Additionally, you'll graduate with a comprehensive portfolio of projects that demonstrates your technical capabilities to potential employers, which many hiring managers find even more valuable than the certificate itself.",
+        "No prior experience is needed. We start from the basics and guide you through real-world full-stack projects. All you need is a strong desire to learn and build complete web applications.",
     },
     {
-      id: "faq6",
-      question: "Who should attend this software engineering bootcamp?",
+      question: "What programming languages will I learn during the bootcamp?",
       answer:
-        "Our bootcamp is ideal for motivated individuals who are passionate about technology and committed to an intensive learning experience. Whether you're a career changer, a college graduate seeking practical skills, or someone looking to upskill, the program is designed for those with strong problem-solving abilities and a growth mindset. No prior coding experience is required for our beginner-friendly cohorts.",
+        "You'll work with industry-relevant languages like JavaScript, TypeScript, and SQL, along with frameworks like React for frontend and Node.js/Express for backend development.",
     },
     {
-      id: "faq7",
-      question:
-        "What is the application process for this software engineering bootcamp?",
+      question: "Will I have a GitHub portfolio by the end of the bootcamp?",
       answer:
-        "The application process involves submitting an online application, completing a logic assessment (no coding experience required), and participating in an interview with our admissions team. We evaluate candidates based on their problem-solving abilities, commitment, and cultural fit rather than technical background.",
+        "Absolutely! You'll build 5–7 full-stack web applications and publish them on GitHub to showcase your complete development skills to employers.",
     },
     {
-      id: "faq8",
-      question:
-        "What makes Best Technologies Ltd. one of the best software engineering bootcamps for learners?",
+      question: "How is this different from free online coding tutorials?",
       answer:
-        "Best Technologies Ltd. Software Engineering Bootcamp stands out for its comprehensive curriculum, experienced instructors from the industry, career support services, strong alumni network, and proven track record of graduate success. Our program emphasizes pair programming, real-world projects, and job preparation, while maintaining small class sizes to ensure personalized attention and community building.",
+        "This bootcamp offers structured mentorship, hands-on full-stack projects, personalized feedback, and real-world scenarios that go far beyond generic video tutorials.",
+    },
+    {
+      question: "What career support do you provide after graduation?",
+      answer:
+        "You'll get job placement help, resume and GitHub reviews, mock interviews, and access to a tech hiring network specifically for full-stack positions.",
+    },
+    {
+      question: "Can I work full-time while attending the bootcamp?",
+      answer:
+        "Yes, our weekday evening schedule (6:00 PM – 9:00 PM WAT) is designed for working professionals who want to transition into full-stack development.",
+    },
+    {
+      question: "Do you provide development software and hosting accounts?",
+      answer:
+        "We provide guidance on setting up your full-stack development environment and accessing necessary tools for both frontend and backend development.",
+    },
+    {
+      question: "What types of companies hire your graduates?",
+      answer:
+        "Our graduates work at fintech companies, e-commerce platforms, startups, and tech agencies building complete web solutions across various industries.",
+    },
+    {
+      question: "Is the program suitable for career changers?",
+      answer:
+        "Absolutely! Many of our successful graduates transition from non-technical backgrounds. The program is designed to take you from beginner to job-ready full-stack developer.",
+    },
+    {
+      question: "Do you offer any scholarships or payment plans?",
+      answer:
+        "We offer need-based scholarships and flexible payment plans to make the program accessible. Contact our admissions team to discuss available financial assistance options.",
     },
   ];
 
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
   return (
-    <section id="faqs" className="py-12 scroll-mt-28">
-      <h2 className="text-base md:text-3xl font-bold mb-8">FAQs</h2>
+    <section id="faqs" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Frequently Asked Questions
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Have questions about our Full-Stack Development bootcamp? Here are
+          answers to the most common questions from prospective students.
+        </p>
 
-      <div className="space-y-4">
-        {faqs.map((faq) => (
-          <div
-            key={faq.id}
-            className="border border-gray-300 shadow-md rounded-lg overflow-hidden"
-          >
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
             <div
-              className="flex items-center justify-between p-6 cursor-pointer bg-white"
-              onClick={() => toggleFaq(faq.id)}
+              key={index}
+              className="bg-white border border-gray-200 rounded-xl"
             >
-              <h3 className="text-base font-bold pr-6">{faq.question}</h3>
-              <button className="flex-shrink-0">
-                <Plus
-                  className={`h-5 w-5 text-brand-primary transition-transform ${
-                    expandedFaq === faq.id ? "rotate-45" : ""
-                  }`}
-                />
+              <button
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                onClick={() => toggleFAQ(index)}
+              >
+                <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                  {faq.question}
+                </h3>
+                {openFAQ === index ? (
+                  <ChevronUp className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                )}
               </button>
+              {openFAQ === index && (
+                <div className="px-6 pb-4">
+                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                </div>
+              )}
             </div>
+          ))}
+        </div>
 
-            {expandedFaq === faq.id && (
-              <div className="p-6 border-t border-t-gray-300 bg-gray-50">
-                <p className="text-gray-700">{faq.answer}</p>
-              </div>
-            )}
+        <div className="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-200 text-center">
+          <h4 className="font-semibold text-blue-900 mb-3">
+            Ready to Start Your Full-Stack Journey?
+          </h4>
+          <p className="text-blue-800 mb-4">
+            Join our next cohort and transform your career with comprehensive
+            full-stack development skills.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              Apply Now
+            </button>
+            <button className="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+              Download Curriculum
+            </button>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

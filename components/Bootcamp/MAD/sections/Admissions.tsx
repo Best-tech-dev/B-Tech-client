@@ -71,19 +71,14 @@ const Admissions: React.FC = () => {
             What We Look For in Applicants
           </h4>
           <div className="space-y-2 text-green-800">
-            <p>
-              • <strong>Creative problem-solving</strong> and innovative
-              thinking
-            </p>
-            <p>
-              • <strong>Attention to detail</strong> and user-focused mindset
-            </p>
-            <p>
-              • <strong>Collaborative approach</strong> and teamwork skills
-            </p>
-            <p>
-              • <strong>Commitment</strong> to completing the intensive program
-            </p>
+            {criteria.map((criterion, index) => (
+              <p key={index}>
+                • <strong>{criterion.split(" and ")[0]}</strong>
+                {criterion.includes(" and ")
+                  ? ` and ${criterion.split(" and ").slice(1).join(" and ")}`
+                  : ""}
+              </p>
+            ))}
           </div>
         </div>
       </div>
