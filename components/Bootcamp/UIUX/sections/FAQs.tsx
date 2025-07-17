@@ -51,27 +51,23 @@ const FAQs: React.FC = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden"
+              className="bg-white border border-gray-200 rounded-xl"
             >
               <button
-                className="w-full text-left p-6 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-inset"
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 onClick={() => toggleFAQ(index)}
               >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                    {faq.question}
-                  </h3>
-                  <div className="flex-shrink-0">
-                    {openFAQ === index ? (
-                      <ChevronUp className="h-5 w-5 text-gray-500" />
-                    ) : (
-                      <ChevronDown className="h-5 w-5 text-gray-500" />
-                    )}
-                  </div>
-                </div>
+                <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                  {faq.question}
+                </h3>
+                {openFAQ === index ? (
+                  <ChevronUp className="h-5 w-5 text-purple-600 flex-shrink-0" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 text-purple-600 flex-shrink-0" />
+                )}
               </button>
               {openFAQ === index && (
-                <div className="px-6 pb-6">
+                <div className="px-6 pb-4">
                   <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
                 </div>
               )}

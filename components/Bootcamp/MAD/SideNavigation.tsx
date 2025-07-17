@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/ui/button";
+import { ChevronRight } from "lucide-react";
 
 interface SideNavigationProps {
   activeSection: string;
@@ -13,18 +14,30 @@ const sections = [
   { id: "mobile-experience", title: "Mobile Experience" },
   { id: "what-youll-learn", title: "What You'll Learn" },
   { id: "tuition-dates", title: "Tuition & Dates" },
-  // Add more sections as they're created
-  // { id: "projects", title: "Projects" },
-  // { id: "daily-schedule", title: "Daily Schedule" },
-  // { id: "career-prep", title: "Career Prep" },
-  // { id: "admissions", title: "Admissions" },
-  // { id: "faqs", title: "FAQs" },
+  { id: "projects", title: "Projects" },
+  { id: "daily-schedule", title: "Daily Schedule" },
+  { id: "career-prep", title: "Career Prep" },
+  { id: "admissions", title: "Admissions" },
+  { id: "testimonials", title: "Testimonials" },
+  { id: "faqs", title: "FAQs" },
 ];
 
 const SideNavigation: React.FC<SideNavigationProps> = ({
   activeSection,
   onSectionChange,
 }) => {
+  const handleSectionClick = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 80; // Adjust for header
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+    onSectionChange(sectionId);
+  };
+
   return (
     <>
       {/* Horizontal scrollable nav for mobile/tablet */}
@@ -35,10 +48,10 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
               key={section.id}
               className={`cursor-pointer pb-2 border-b-2 transition-colors duration-300 ${
                 activeSection === section.id
-                  ? "text-brand-primary border-brand-primary font-semibold"
-                  : "border-transparent text-gray-700 hover:text-brand-primary"
+                  ? "text-green-600 border-green-600 font-semibold"
+                  : "border-transparent text-gray-700 hover:text-green-600"
               }`}
-              onClick={() => onSectionChange(section.id)}
+              onClick={() => handleSectionClick(section.id)}
             >
               {section.title}
             </li>
@@ -49,26 +62,33 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
       {/* Stacked nav for desktop */}
       <aside className="hidden lg:block sticky top-24 lg:top-[116px]">
         <div className="mb-4 uppercase tracking-wider text-gray-600 text-sm font-semibold px-2">
-          Learn More
+          Contents
         </div>
         <div className="bg-white shadow rounded-lg overflow-hidden border border-gray-200">
           {sections.map((section) => (
             <button
               key={section.id}
-              className={`w-full text-left px-4 py-3 text-sm font-medium hover:bg-gray-100 transition-colors border-b border-b-gray-200 ${
+              className={`w-full text-left px-4 py-3 text-sm font-medium hover:bg-gray-50 transition-colors border-b border-b-gray-100 flex items-center justify-between group cursor-pointer ${
                 activeSection === section.id
-                  ? "bg-gray-100 text-brand-primary font-semibold border-l-4 border-brand-primary"
+                  ? "bg-green-50 text-green-700 font-semibold border-l-4 border-green-600"
                   : "text-gray-700"
               }`}
-              onClick={() => onSectionChange(section.id)}
+              onClick={() => handleSectionClick(section.id)}
             >
-              {section.title}
+              <span>{section.title}</span>
+              <ChevronRight
+                className={`h-4 w-4 transition-colors ${
+                  activeSection === section.id
+                    ? "text-green-600"
+                    : "text-gray-400 group-hover:text-gray-600"
+                }`}
+              />
             </button>
           ))}
           <div className="p-4">
             <Button
               asChild
-              className="w-full bg-brand-primary hover:bg-brand-primary/85 text-white"
+              className="w-full bg-green-600 hover:bg-green-700 text-white"
             >
               <Link href="/trainings/curriculum">GET MY SYLLABUS</Link>
             </Button>

@@ -5,24 +5,12 @@ import SideNavigation from "./SideNavigation";
 import MobileExperience from "./sections/MobileExperience";
 import WhatYoullLearn from "./sections/WhatYoullLearn";
 import TuitionDates from "./sections/TuitionDates";
-// Import other sections when created
-// import Projects from "./sections/Projects";
-// import DailySchedule from "./sections/DailySchedule";
-// import CareerPrep from "./sections/CareerPrep";
-// import Admissions from "./sections/Admissions";
-// import FAQs from "./sections/FAQs";
-
-// const sections = [
-//   { id: "mobile-experience", title: "Mobile Experience" },
-//   { id: "what-youll-learn", title: "What You'll Learn" },
-//   { id: "tuition-dates", title: "Tuition & Dates" },
-//   // Add more sections as they're created
-//   // { id: "projects", title: "Projects" },
-//   // { id: "daily-schedule", title: "Daily Schedule" },
-//   // { id: "career-prep", title: "Career Prep" },
-//   // { id: "admissions", title: "Admissions" },
-//   // { id: "faqs", title: "FAQs" },
-// ];
+import Projects from "./sections/Projects";
+import DailySchedule from "./sections/DailySchedule";
+import CareerPrep from "./sections/CareerPrep";
+import Admissions from "./sections/Admissions";
+import Testimonials from "./sections/Testimonials";
+import FAQs from "./sections/FAQs";
 
 const ContentSection: React.FC = () => {
   const [activeSection, setActiveSection] = useState("mobile-experience");
@@ -41,7 +29,12 @@ const ContentSection: React.FC = () => {
         "mobile-experience",
         "what-youll-learn",
         "tuition-dates",
-        // Add more sections as they're created
+        "projects",
+        "daily-schedule",
+        "career-prep",
+        "admissions",
+        "testimonials",
+        "faqs",
       ];
 
       const scrollPosition = window.scrollY + 200;
@@ -74,12 +67,12 @@ const ContentSection: React.FC = () => {
           <MobileExperience />
           <WhatYoullLearn />
           <TuitionDates />
-          {/* Add more sections as they're created */}
-          {/* <Projects />
+          <Projects />
           <DailySchedule />
           <CareerPrep />
           <Admissions />
-          <FAQs /> */}
+          <Testimonials />
+          <FAQs />
         </div>
       </div>
     </div>
