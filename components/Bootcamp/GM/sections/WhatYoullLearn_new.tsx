@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Target,
-  BarChart3,
-  Users,
-  Zap,
-  Lightbulb,
-  TrendingUp,
-} from "lucide-react";
+import { Target, BarChart3, Users, Zap, TrendingUp } from "lucide-react";
 
 const WhatYoullLearn: React.FC = () => {
   const learningModules = [
@@ -65,12 +58,12 @@ const WhatYoullLearn: React.FC = () => {
     <section id="what-youll-learn" className="py-16 bg-gray-50">
       <div className="max-w-4xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">
-          What You'll Learn
+          What You&apos;ll Learn
         </h2>
         <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-          We don't expose the full lesson plan here - but you'll leave this
-          bootcamp able to drive real growth. The program is hands-on and each
-          week builds toward a final growth sprint project tailored to your
+          We don&apos;t expose the full lesson plan here - but you&apos;ll leave
+          this bootcamp able to drive real growth. The program is hands-on and
+          each week builds toward a final growth sprint project tailored to your
           industry or a simulated scenario.
         </p>
 
@@ -102,11 +95,11 @@ const WhatYoullLearn: React.FC = () => {
           <div className="flex items-center space-x-3 mb-6">
             <TrendingUp className="h-6 w-6 text-green-600" />
             <h3 className="text-xl font-semibold text-gray-900">
-              What You'll Walk Away With
+              What You&apos;ll Walk Away With
             </h3>
           </div>
           <p className="text-gray-700 mb-6">
-            After 12 weeks, you'll be able to:
+            After 12 weeks, you&apos;ll be able to:
           </p>
           <div className="grid md:grid-cols-2 gap-4">
             {outcomes.map((outcome, index) => (
@@ -161,15 +154,17 @@ const WhatYoullLearn: React.FC = () => {
         </div>
 
         <div className="mt-10 bg-gray-900 text-white p-8 rounded-xl">
-          <h3 className="text-xl font-semibold mb-4">Who You'll Learn From</h3>
+          <h3 className="text-xl font-semibold mb-4">
+            Who You&apos;ll Learn From
+          </h3>
           <p className="text-gray-300 mb-4">
-            Your instructors are growth operators, not theorists. They've built
-            and scaled marketing engines at startups, marketplaces, SaaS
+            Your instructors are growth operators, not theorists. They&apos;ve
+            built and scaled marketing engines at startups, marketplaces, SaaS
             platforms, and VC-backed tech companies across Africa, US, UAE, and
             Europe.
           </p>
           <p className="text-gray-300">
-            You'll also get access to our curated guest sessions from
+            You&apos;ll also get access to our curated guest sessions from
             experienced growth marketers in product-led companies, agencies, and
             high-growth verticals.
           </p>

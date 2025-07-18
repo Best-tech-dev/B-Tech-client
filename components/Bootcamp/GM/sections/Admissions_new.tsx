@@ -65,8 +65,8 @@ const Admissions: React.FC = () => {
           Admissions Process
         </h2>
         <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-          We're looking for motivated professionals ready to master growth
-          marketing. Our selective admission process ensures you'll learn
+          We&apos;re looking for motivated professionals ready to master growth
+          marketing. Our selective admission process ensures you&apos;ll learn
           alongside driven peers.
         </p>
 

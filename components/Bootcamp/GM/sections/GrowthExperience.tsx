@@ -63,11 +63,11 @@ const GrowthExperience: React.FC = () => {
             Why Choose Growth Marketing?
           </h3>
           <p className="text-gray-700 leading-relaxed">
-            Growth marketing isn't about guesswork - it's a system. Whether
-            you're working at a startup, scaling an existing product, or
-            pivoting into a performance-driven role, this program equips you
-            with proven frameworks, channel strategies, and optimization tactics
-            used by modern growth teams.
+            Growth marketing isn&apos;t about guesswork - it&apos;s a system.
+            Whether you&apos;re working at a startup, scaling an existing
+            product, or pivoting into a performance-driven role, this program
+            equips you with proven frameworks, channel strategies, and
+            optimization tactics used by modern growth teams.
           </p>
         </div>
       </div>
