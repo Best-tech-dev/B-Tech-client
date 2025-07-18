@@ -5,25 +5,27 @@ const GrowthExperience: React.FC = () => {
   const highlights = [
     {
       icon: <TrendingUp className="h-6 w-6 text-green-600" />,
-      title: "Exponential Growth Strategies",
-      description: "Learn data-driven approaches to scale businesses rapidly",
+      title: "Full-Funnel Growth Frameworks",
+      description:
+        "Apply proven growth frameworks to real products and scale revenue systematically",
     },
     {
       icon: <Users className="h-6 w-6 text-blue-600" />,
-      title: "Customer Acquisition",
+      title: "Data-Driven Campaigns",
       description:
-        "Master the art of acquiring and retaining customers cost-effectively",
+        "Launch paid and organic acquisition campaigns that convert with clear performance metrics",
     },
     {
       icon: <Target className="h-6 w-6 text-purple-600" />,
-      title: "Performance Marketing",
-      description: "Execute high-ROI campaigns across digital channels",
+      title: "Growth Experimentation",
+      description:
+        "Run growth experiments and A/B tests with clear hypotheses and actionable insights",
     },
     {
       icon: <BarChart3 className="h-6 w-6 text-orange-600" />,
-      title: "Analytics & Optimization",
+      title: "Cross-Functional Collaboration",
       description:
-        "Use data to make informed marketing decisions and optimize funnels",
+        "Collaborate effectively with product and sales teams to drive business growth",
     },
   ];
 
@@ -34,10 +36,9 @@ const GrowthExperience: React.FC = () => {
           Growth Marketing Experience
         </h2>
         <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-          Dive into the world of growth marketing where data meets creativity.
-          Our comprehensive bootcamp is designed to transform you into a growth
-          marketing expert capable of driving sustainable business growth
-          through innovative strategies and data-driven decision making.
+          Transform your marketing approach into a systematic growth engine. Our
+          comprehensive bootcamp covers everything from acquisition strategies
+          to optimization tactics used by modern growth teams.
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -62,11 +63,11 @@ const GrowthExperience: React.FC = () => {
             Why Choose Growth Marketing?
           </h3>
           <p className="text-gray-700 leading-relaxed">
-            Growth marketing is at the heart of every successful startup and
-            scale-up. It combines traditional marketing with product
-            development, data analysis, and customer psychology to create
-            sustainable growth engines. Our program prepares you for high-demand
-            roles in the fastest-growing companies worldwide.
+            Growth marketing isn't about guesswork - it's a system. Whether
+            you're working at a startup, scaling an existing product, or
+            pivoting into a performance-driven role, this program equips you
+            with proven frameworks, channel strategies, and optimization tactics
+            used by modern growth teams.
           </p>
         </div>
       </div>

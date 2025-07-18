@@ -9,53 +9,27 @@ const FAQs: React.FC = () => {
       question:
         "Do I need prior marketing experience to join the Growth Marketing bootcamp?",
       answer:
-        "No prior marketing experience is required. Our program is designed for beginners and includes foundational concepts. However, basic computer literacy and enthusiasm for data-driven marketing are essential. We welcome participants from diverse backgrounds including business, psychology, communications, and even technical fields.",
+        "No prior growth marketing experience is required. Our program starts with fundamentals and gradually builds up to advanced concepts. We welcome participants from all backgrounds - the only requirement is curiosity about growth and willingness to learn.",
     },
     {
-      question: "What tools and software will I learn during the bootcamp?",
+      question: "What marketing tools will I learn during the bootcamp?",
       answer:
-        "You'll gain hands-on experience with industry-standard tools including Google Analytics 4, Google Ads, Facebook Ads Manager, HubSpot, Mailchimp, SEMrush, Ahrefs, Hotjar, Mixpanel, Canva, and various A/B testing platforms. We also cover marketing automation tools and CRM systems commonly used in the industry.",
+        "You'll master industry-standard tools including Google Analytics, Facebook Ads Manager, Google Ads, Mixpanel, Hotjar, Mailchimp, and various A/B testing platforms. We provide access to premium tools during the course.",
     },
     {
-      question: "Can I work full-time while attending the bootcamp?",
+      question: "Will I have a portfolio by the end of the bootcamp?",
       answer:
-        "Yes! Our evening schedule (6:00 PM - 9:00 PM) is specifically designed for working professionals. The program requires 15-20 hours per week including class time and assignments. We also provide recorded sessions and flexible assignment deadlines to accommodate your work schedule.",
+        "Absolutely! You'll complete 3-5 comprehensive case studies that showcase your growth process, campaign optimization skills, and measurable results. Our instructors provide detailed feedback to ensure your portfolio meets industry standards.",
     },
     {
-      question: "What kind of support do you provide for job placement?",
+      question: "How is this different from online marketing courses?",
       answer:
-        "We offer comprehensive career support including resume optimization, portfolio development, interview preparation, and direct introductions to our hiring partners. Our career services team works with you until you land a role, with a 6-month job placement guarantee for qualified graduates.",
+        "Our bootcamp provides live mentorship, real-time campaign critiques, collaborative projects, and structured portfolio development. You'll work on actual growth challenges and receive personalized feedback that online courses can't provide.",
     },
     {
-      question: "Are there payment plan options available?",
+      question: "What career support do you provide after graduation?",
       answer:
-        "Yes, we offer flexible payment options including a 3-installment plan. You can pay ₦300,000 upfront and the remaining balance in two installments. We also offer early bird discounts for students who register 4 weeks before the cohort starts.",
-    },
-    {
-      question: "What makes this program different from online courses?",
-      answer:
-        "Our bootcamp provides live instruction, real-time feedback, peer collaboration, and hands-on projects with actual businesses. You'll work on real campaigns with measurable results, receive personalized mentorship, and build a professional network. The structured environment and accountability ensure higher completion rates and better outcomes.",
-    },
-    {
-      question: "Do you provide certificates upon completion?",
-      answer:
-        "Yes, graduates receive a certificate of completion from Best Technologies Ltd. Additionally, we help you prepare for industry certifications like Google Ads, Facebook Blueprint, and HubSpot certifications, which are highly valued by employers.",
-    },
-    {
-      question: "Can I attend if I'm based outside Lagos?",
-      answer:
-        "Currently, our bootcamp is delivered online, making it accessible to students across Nigeria and internationally. All you need is a stable internet connection and a computer. We accommodate different time zones and provide recorded sessions for make-up classes.",
-    },
-    {
-      question:
-        "What happens if I miss classes due to work or personal commitments?",
-      answer:
-        "All sessions are recorded and available for later review. We also offer make-up sessions and one-on-one catch-up sessions with instructors. Our learning management system ensures you can stay on track even if you miss a few live sessions.",
-    },
-    {
-      question: "Do you offer any scholarship or financial aid programs?",
-      answer:
-        "We occasionally offer merit-based scholarships and need-based financial aid. We also partner with organizations to sponsor employees for professional development. Contact our admissions team to learn about current opportunities and eligibility criteria.",
+        "We offer portfolio reviews, interview preparation, growth challenge practice, and direct introductions to hiring partners. Our career services team supports you until you land a growth marketing role.",
     },
   ];
 
@@ -78,27 +52,23 @@ const FAQs: React.FC = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200 rounded-xl overflow-hidden"
+              className="bg-white border border-gray-200 rounded-xl"
             >
               <button
-                className="w-full text-left p-6 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 onClick={() => toggleFAQ(index)}
               >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
-                    {faq.question}
-                  </h3>
-                  <div className="flex-shrink-0">
-                    {openFAQ === index ? (
-                      <ChevronUp className="h-5 w-5 text-gray-500" />
-                    ) : (
-                      <ChevronDown className="h-5 w-5 text-gray-500" />
-                    )}
-                  </div>
-                </div>
+                <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                  {faq.question}
+                </h3>
+                {openFAQ === index ? (
+                  <ChevronUp className="h-5 w-5 text-green-600 flex-shrink-0" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 text-green-600 flex-shrink-0" />
+                )}
               </button>
               {openFAQ === index && (
-                <div className="px-6 pb-6">
+                <div className="px-6 pb-4">
                   <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
                 </div>
               )}
@@ -106,20 +76,20 @@ const FAQs: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-200 text-center">
-          <h4 className="font-semibold text-blue-900 mb-3">
-            Still Have Questions?
+        <div className="mt-8 bg-green-50 p-6 rounded-xl border border-green-200 text-center">
+          <h4 className="font-semibold text-green-900 mb-3">
+            Ready to Start Your Growth Journey?
           </h4>
-          <p className="text-blue-800 mb-4">
-            Our admissions team is here to help you make an informed decision
-            about your career journey.
+          <p className="text-green-800 mb-4">
+            Join our next cohort and transform your curiosity into a rewarding
+            career in growth marketing.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-              Schedule a Call
+            <button className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors">
+              Apply Now
             </button>
-            <button className="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-              Send Message
+            <button className="border border-green-600 text-green-600 px-6 py-2 rounded-lg font-medium hover:bg-green-50 transition-colors">
+              Download Curriculum
             </button>
           </div>
         </div>

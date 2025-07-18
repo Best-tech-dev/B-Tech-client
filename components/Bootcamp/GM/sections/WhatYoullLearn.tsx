@@ -4,43 +4,43 @@ import { CheckCircle } from "lucide-react";
 const WhatYoullLearn: React.FC = () => {
   const learningModules = [
     {
-      category: "Growth Fundamentals",
+      category: "Growth Frameworks & Strategy",
       skills: [
-        "Growth hacking methodologies",
-        "Customer acquisition funnels",
-        "Retention and churn analysis",
-        "Product-market fit validation",
-        "Viral marketing strategies",
+        "Apply full-funnel growth frameworks to real products",
+        "Create growth roadmaps aligned with business goals",
+        "Build scalable, repeatable growth systems",
+        "Develop hypothesis-driven growth strategies",
+        "Strategic growth thinking and planning",
       ],
     },
     {
-      category: "Digital Marketing Channels",
+      category: "Campaign Management & Optimization",
       skills: [
-        "Search Engine Optimization (SEO)",
-        "Pay-Per-Click (PPC) advertising",
-        "Social media marketing",
-        "Email marketing automation",
-        "Content marketing strategy",
+        "Launch paid and organic acquisition campaigns that convert",
+        "Optimize landing pages, email flows, and user journeys",
+        "Track and interpret performance metrics that actually matter",
+        "Run growth experiments and A/B tests with clear hypotheses",
+        "Cross-channel growth campaign optimization",
       ],
     },
     {
-      category: "Analytics & Data",
+      category: "Cross-Functional Collaboration",
       skills: [
-        "Google Analytics 4 & GTM",
-        "Conversion rate optimization",
-        "A/B testing methodologies",
-        "Cohort analysis",
-        "Marketing attribution models",
+        "Collaborate cross-functionally with product and sales teams",
+        "Present insights backed by real data",
+        "Align marketing efforts with business objectives",
+        "Build cross-departmental growth processes",
+        "Lead growth initiatives across teams",
       ],
     },
     {
-      category: "Tools & Technologies",
+      category: "Tools & Analytics",
       skills: [
-        "Marketing automation platforms",
-        "CRM systems (HubSpot, Salesforce)",
-        "Analytics tools (Mixpanel, Amplitude)",
-        "Design tools (Figma, Canva)",
-        "Landing page builders",
+        "Practical exposure to paid media tools",
+        "Analytics and landing page testing platforms",
+        "CRM and experimentation tools",
+        "Growth stack optimization",
+        "Data-driven decision making tools",
       ],
     },
   ];
@@ -52,9 +52,9 @@ const WhatYoullLearn: React.FC = () => {
           What You&apos;ll Learn
         </h2>
         <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-          Our curriculum is designed by industry experts and covers everything
-          you need to become a proficient growth marketer. From strategy to
-          execution, you&apos;ll master the complete growth marketing toolkit.
+          Our curriculum is designed by growth operators from leading companies
+          and covers the complete growth marketing process. You&apos;ll master
+          data-driven strategies from experimentation to scaling.
         </p>
 
         <div className="space-y-8">
@@ -78,15 +78,15 @@ const WhatYoullLearn: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-100">
-          <h3 className="text-lg font-semibold text-blue-900 mb-3">
-            Hands-on Learning Approach
+        <div className="mt-8 bg-green-50 p-6 rounded-xl border border-green-100">
+          <h3 className="text-lg font-semibold text-green-900 mb-3">
+            Project-Driven Learning
           </h3>
-          <p className="text-blue-800">
-            Every concept is reinforced through practical exercises, real
-            campaign analysis, and live project work. You&apos;ll graduate with
-            a portfolio of actual growth marketing campaigns and measurable
-            results.
+          <p className="text-green-800">
+            Every strategy you learn becomes part of your professional
+            portfolio. By graduation, you&apos;ll have a capstone growth project
+            showcasing your strategic thinking, experimentation process, and
+            results that you can confidently present to employers.
           </p>
         </div>
       </div>

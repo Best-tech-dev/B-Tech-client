@@ -4,46 +4,46 @@ import { Calendar, Clock, DollarSign } from "lucide-react";
 const TuitionDates: React.FC = () => {
   const upcomingCohorts = [
     {
-      cohort: "Cohort 3",
-      startDate: "March 15, 2025",
-      endDate: "June 7, 2025",
-      schedule: "Weekdays (Mon-Fri)",
-      time: "6:00 PM - 9:00 PM WAT",
+      cohort: "Cohort 1",
+      startDate: "August 12, 2025",
+      endDate: "November 4, 2025",
+      schedule: "Remote-first, Global-friendly",
+      time: "6–8 hours/week commitment",
       status: "Open for Registration",
     },
     {
-      cohort: "Cohort 4",
-      startDate: "June 21, 2025",
-      endDate: "September 12, 2025",
-      schedule: "Weekdays (Mon-Fri)",
-      time: "6:00 PM - 9:00 PM WAT",
+      cohort: "Cohort 2",
+      startDate: "November 18, 2025",
+      endDate: "February 10, 2026",
+      schedule: "Remote-first, Global-friendly",
+      time: "6–8 hours/week commitment",
       status: "Early Bird Available",
     },
   ];
 
   const pricingOptions = [
     {
-      plan: "Full Payment",
-      price: "₦850,000",
+      plan: "Early Cohort Rate",
+      price: "₦150,000",
       savings: "Save ₦50,000",
       features: [
-        "Complete bootcamp access",
-        "All course materials",
-        "1-on-1 mentorship sessions",
-        "Job placement assistance",
-        "Lifetime alumni network access",
+        "12 weeks of live instructions",
+        "All recordings, templates, and resources",
+        "Dedicated mentorship",
+        "Lifetime access to alumni network",
+        "Certificate of Completion",
       ],
     },
     {
-      plan: "Installment Plan",
-      price: "₦300,000 × 3",
-      savings: "Total: ₦900,000",
+      plan: "Standard Tuition",
+      price: "₦200,000",
+      savings: "Regular pricing",
       features: [
-        "Pay in 3 installments",
-        "Complete bootcamp access",
-        "All course materials",
-        "1-on-1 mentorship sessions",
-        "Job placement assistance",
+        "12 weeks of live instructions",
+        "All recordings, templates, and resources",
+        "Dedicated mentorship",
+        "Lifetime access to alumni network",
+        "Certificate of Completion",
       ],
     },
   ];
@@ -91,7 +91,7 @@ const TuitionDates: React.FC = () => {
                       className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
                         cohort.status === "Open for Registration"
                           ? "bg-green-100 text-green-800"
-                          : "bg-blue-100 text-blue-800"
+                          : "bg-green-100 text-green-800"
                       }`}
                     >
                       {cohort.status}
@@ -140,16 +140,16 @@ const TuitionDates: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-8 bg-yellow-50 p-6 rounded-xl border border-yellow-200">
+        <div className="mt-8 bg-green-50 p-6 rounded-xl border border-green-200">
           <div className="flex items-start">
-            <DollarSign className="h-6 w-6 text-yellow-600 mr-3 mt-1" />
+            <DollarSign className="h-6 w-6 text-green-600 mr-3 mt-1" />
             <div>
-              <h4 className="font-semibold text-yellow-900 mb-2">
+              <h4 className="font-semibold text-green-900 mb-2">
                 Early Bird Discount Available
               </h4>
-              <p className="text-yellow-800">
-                Register 4 weeks before cohort start date and save ₦100,000 on
-                tuition fees. Limited spots available for each cohort.
+              <p className="text-green-800">
+                Apply before July 24 and save ₦50,000 on tuition fees. Payment
+                validates registration after acceptance.
               </p>
             </div>
           </div>

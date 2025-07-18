@@ -24,9 +24,9 @@ export default function GrowthMarketingBootcampPage() {
       <Navbar />
       <BootcampOverlay
         title="Growth Marketing"
-        description="Master the art of growth marketing through hands-on training and real-world projects designed to prepare you for the tech industry"
+        description="Learn What Drives Real Growth - Not Just Clicks. A 12-week, cohort-based experience for professionals who want to master full-funnel marketing, run data-driven campaigns, and scale revenue."
         icon={<TrendingUp className="text-white text-base md:text-2xl" />}
-        backgroundImage="/trainings/growth.jpg"
+        backgroundImage="/bootcamp/growth-marketing.jpg"
       />
       <ContentSection />
       <Footer />

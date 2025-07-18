@@ -1,5 +1,5 @@
 import React from "react";
-import { ExternalLink, TrendingUp, Target, Users } from "lucide-react";
+import { TrendingUp, Target, Users } from "lucide-react";
 
 const Projects: React.FC = () => {
   const projects = [
@@ -7,7 +7,7 @@ const Projects: React.FC = () => {
       title: "E-commerce Growth Campaign",
       description:
         "Design and execute a complete growth strategy for an online retail business",
-      icon: <TrendingUp className="h-6 w-6 text-blue-600" />,
+      icon: <TrendingUp className="h-6 w-6 text-green-600" />,
       duration: "Weeks 3-5",
       deliverables: [
         "Customer acquisition funnel design",
@@ -20,7 +20,7 @@ const Projects: React.FC = () => {
       title: "SaaS Product Launch",
       description:
         "Create a go-to-market strategy for a software-as-a-service product",
-      icon: <Target className="h-6 w-6 text-green-600" />,
+      icon: <Target className="h-6 w-6 text-blue-600" />,
       duration: "Weeks 6-8",
       deliverables: [
         "Product positioning strategy",
@@ -43,17 +43,6 @@ const Projects: React.FC = () => {
     },
   ];
 
-  const capstoneProject = {
-    title: "Real Client Growth Challenge",
-    description: "Work with actual businesses to solve real growth problems",
-    highlights: [
-      "Partner with local startups and SMEs",
-      "Present findings to company executives",
-      "Implement and measure campaign performance",
-      "Build professional portfolio piece",
-    ],
-  };
-
   return (
     <section id="projects" className="mb-16">
       <div className="max-w-4xl">
@@ -61,12 +50,12 @@ const Projects: React.FC = () => {
           Hands-on Projects
         </h2>
         <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-          Learn by doing with real-world projects that mirror the challenges
-          you&apos;ll face as a growth marketer. Each project builds upon
-          previous knowledge and culminates in a comprehensive portfolio.
+          Build a portfolio of real-world projects that demonstrate your growth
+          marketing skills and strategic thinking. Each project follows industry
+          standards and best practices.
         </p>
 
-        <div className="space-y-6 mb-10">
+        <div className="space-y-6">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -96,7 +85,7 @@ const Projects: React.FC = () => {
                           key={idx}
                           className="flex items-center text-gray-600"
                         >
-                          <div className="h-1.5 w-1.5 bg-blue-600 rounded-full mr-3"></div>
+                          <div className="h-1.5 w-1.5 bg-green-600 rounded-full mr-3"></div>
                           {deliverable}
                         </li>
                       ))}
@@ -106,35 +95,6 @@ const Projects: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Capstone Project */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl border border-blue-200">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4 flex items-center">
-            <ExternalLink className="h-6 w-6 text-blue-600 mr-3" />
-            Capstone Project
-          </h3>
-          <h4 className="text-xl font-medium text-gray-900 mb-3">
-            {capstoneProject.title}
-          </h4>
-          <p className="text-gray-700 mb-6">{capstoneProject.description}</p>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            {capstoneProject.highlights.map((highlight, index) => (
-              <div key={index} className="flex items-center">
-                <div className="h-2 w-2 bg-blue-600 rounded-full mr-3"></div>
-                <span className="text-gray-700">{highlight}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-6 text-center">
-          <p className="text-gray-600">
-            <strong>Portfolio Building:</strong> All projects contribute to your
-            professional portfolio, showcasing measurable results and real
-            campaign performance data.
-          </p>
         </div>
       </div>
     </section>

@@ -7,50 +7,28 @@ const Testimonials: React.FC = () => {
       name: "Adaora Okafor",
       role: "Growth Marketing Manager at Flutterwave",
       company: "Flutterwave",
-      image: "/staff/testimonial-1.jpg",
       rating: 5,
       testimonial:
         "The Growth Marketing bootcamp completely transformed my approach to marketing. The hands-on projects and real-world case studies prepared me for the challenges I face daily. Within 3 months of graduation, I landed my dream role at Flutterwave.",
-      highlight: "Landed dream role in 3 months",
+      highlight: "Career transformation success",
     },
     {
       name: "Kemi Johnson",
       role: "Digital Marketing Lead at PiggyVest",
       company: "PiggyVest",
-      image: "/staff/testimonial-2.jpg",
       rating: 5,
       testimonial:
         "What sets this program apart is the practical approach. We worked on real campaigns with measurable results. The instructors are industry experts who share current best practices, not outdated theories.",
-      highlight: "Real campaigns with measurable results",
+      highlight: "Strong foundation in growth strategy",
     },
     {
       name: "David Ogunlade",
       role: "Performance Marketing Specialist at Jumia",
       company: "Jumia",
-      image: "/staff/testimonial-3.jpg",
       rating: 5,
       testimonial:
-        "The bootcamp's focus on data-driven marketing opened my eyes to the power of analytics. I now optimize campaigns with confidence and have increased ROI by 300% in my current role.",
-      highlight: "Increased ROI by 300%",
-    },
-  ];
-
-  const stats = [
-    {
-      number: "95%",
-      label: "Job Placement Rate",
-      description: "within 6 months",
-    },
-    {
-      number: "₦4.2M",
-      label: "Average Starting Salary",
-      description: "for graduates",
-    },
-    { number: "50+", label: "Hiring Partners", description: "across Nigeria" },
-    {
-      number: "4.9/5",
-      label: "Student Satisfaction",
-      description: "based on reviews",
+        "The bootcamp's focus on data-driven marketing opened my eyes to the power of analytics. I now optimize campaigns with confidence and have increased ROI by 300% in my current role at Jumia.",
+      highlight: "Data-driven success",
     },
   ];
 
@@ -61,29 +39,11 @@ const Testimonials: React.FC = () => {
           Student Success Stories
         </h2>
         <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-          Hear from our graduates who have successfully transitioned into growth
-          marketing roles at leading tech companies across Nigeria and beyond.
+          Our graduates are now working at leading tech companies across Nigeria
+          and globally, driving growth and scaling businesses through
+          data-driven marketing.
         </p>
 
-        {/* Success Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-4 bg-white border border-gray-200 rounded-xl"
-            >
-              <div className="text-2xl font-bold text-blue-600 mb-2">
-                {stat.number}
-              </div>
-              <div className="font-semibold text-gray-900 mb-1">
-                {stat.label}
-              </div>
-              <div className="text-sm text-gray-600">{stat.description}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Testimonials */}
         <div className="space-y-8">
           {testimonials.map((testimonial, index) => (
             <div
@@ -94,7 +54,7 @@ const Testimonials: React.FC = () => {
 
               <div className="flex items-start space-x-6">
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-lg">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-lg">
                     {testimonial.name
                       .split(" ")
                       .map((n) => n[0])
@@ -122,7 +82,7 @@ const Testimonials: React.FC = () => {
                         {testimonial.name}
                       </div>
                       <div className="text-gray-600">{testimonial.role}</div>
-                      <div className="text-sm text-blue-600 font-medium">
+                      <div className="text-sm text-green-600 font-medium">
                         {testimonial.company}
                       </div>
                     </div>
@@ -137,26 +97,6 @@ const Testimonials: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-12 bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl border border-blue-200 text-center">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-            Ready to Write Your Success Story?
-          </h3>
-          <p className="text-gray-700 mb-6">
-            Join our next cohort and take the first step towards a rewarding
-            career in growth marketing. Our graduates consistently land roles at
-            top tech companies with competitive salaries.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-              Apply Now
-            </button>
-            <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-              Download Curriculum
-            </button>
-          </div>
         </div>
       </div>
     </section>
