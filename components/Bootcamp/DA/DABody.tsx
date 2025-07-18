@@ -5,12 +5,12 @@ import SideNavigation from "./SideNavigation";
 import DataExperience from "./sections/DataExperience";
 import WhatYoullLearn from "./sections/WhatYoullLearn";
 import TuitionDates from "./sections/TuitionDates";
-// Import other sections when created
-// import Projects from "./sections/Projects";
-// import DailySchedule from "./sections/DailySchedule";
-// import CareerPrep from "./sections/CareerPrep";
-// import Admissions from "./sections/Admissions";
-// import FAQs from "./sections/FAQs";
+import Projects from "./sections/Projects";
+import DailySchedule from "./sections/DailySchedule";
+import CareerPrep from "./sections/CareerPrep";
+import Admissions from "./sections/Admissions";
+import Testimonials from "./sections/Testimonials";
+import FAQs from "./sections/FAQs";
 
 const ContentSection: React.FC = () => {
   const [activeSection, setActiveSection] = useState("data-experience");
@@ -29,7 +29,12 @@ const ContentSection: React.FC = () => {
         "data-experience",
         "what-youll-learn",
         "tuition-dates",
-        // Add more sections as they're created
+        "projects",
+        "daily-schedule",
+        "career-prep",
+        "admissions",
+        "testimonials",
+        "faqs",
       ];
 
       const scrollPosition = window.scrollY + 200;
@@ -62,12 +67,12 @@ const ContentSection: React.FC = () => {
           <DataExperience />
           <WhatYoullLearn />
           <TuitionDates />
-          {/* Add more sections as they're created */}
-          {/* <Projects />
+          <Projects />
           <DailySchedule />
           <CareerPrep />
           <Admissions />
-          <FAQs /> */}
+          <Testimonials />
+          <FAQs />
         </div>
       </div>
     </div>
