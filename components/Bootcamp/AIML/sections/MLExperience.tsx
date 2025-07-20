@@ -33,7 +33,7 @@ const MLExperience: React.FC = () => {
     <section id="ml-experience" className="mb-16">
       <div className="max-w-4xl">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">
-          Machine Learning / AI Experience
+          AI & Machine Learning Experience
         </h2>
         <p className="text-lg text-gray-700 mb-8 leading-relaxed">
           Join the AI revolution by mastering machine learning. From algorithms
