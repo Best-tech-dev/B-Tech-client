@@ -4,13 +4,13 @@ import React, { useState, useEffect } from "react";
 import SideNavigation from "./SideNavigation";
 import CloudExperience from "./sections/CloudExperience";
 import WhatYoullLearn from "./sections/WhatYoullLearn";
+import Projects from "./sections/Projects";
+import DailySchedule from "./sections/DailySchedule";
+import CareerPrep from "./sections/CareerPrep";
 import TuitionDates from "./sections/TuitionDates";
-// Import other sections when created
-// import Projects from "./sections/Projects";
-// import DailySchedule from "./sections/DailySchedule";
-// import CareerPrep from "./sections/CareerPrep";
-// import Admissions from "./sections/Admissions";
-// import FAQs from "./sections/FAQs";
+import Admissions from "./sections/Admissions";
+import Testimonials from "./sections/Testimonials";
+import FAQs from "./sections/FAQs";
 
 const ContentSection: React.FC = () => {
   const [activeSection, setActiveSection] = useState("cloud-experience");
@@ -29,7 +29,12 @@ const ContentSection: React.FC = () => {
         "cloud-experience",
         "what-youll-learn",
         "tuition-dates",
-        // Add more sections as they're created
+        "projects",
+        "daily-schedule",
+        "career-prep",
+        "admissions",
+        "testimonials",
+        "faqs",
       ];
 
       const scrollPosition = window.scrollY + 200;
@@ -62,12 +67,12 @@ const ContentSection: React.FC = () => {
           <CloudExperience />
           <WhatYoullLearn />
           <TuitionDates />
-          {/* Add more sections as they're created */}
-          {/* <Projects />
+          <Projects />
           <DailySchedule />
           <CareerPrep />
           <Admissions />
-          <FAQs /> */}
+          <Testimonials />
+          <FAQs />
         </div>
       </div>
     </div>
