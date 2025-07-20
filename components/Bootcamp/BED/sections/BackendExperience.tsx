@@ -1,110 +1,80 @@
 import React from "react";
-import { Star, Briefcase, Users } from "lucide-react";
-import Link from "next/link";
-import { FaUsersGear } from "react-icons/fa6";
-import { IoCheckmarkDone } from "react-icons/io5";
-import { FaCode } from "react-icons/fa";
+import { Server, Database, Shield, Layers } from "lucide-react";
 
-const BackendExperience = () => {
+const BackendExperience: React.FC = () => {
+  const highlights = [
+    {
+      icon: <Server className="h-6 w-6 text-blue-600" />,
+      title: "API Development",
+      description:
+        "Master RESTful and GraphQL APIs with authentication and security best practices",
+    },
+    {
+      icon: <Database className="h-6 w-6 text-green-600" />,
+      title: "Database Architecture",
+      description:
+        "Design and optimize relational and NoSQL databases for high-performance applications",
+    },
+    {
+      icon: <Layers className="h-6 w-6 text-purple-600" />,
+      title: "Server Infrastructure",
+      description:
+        "Build scalable server systems using Node.js, microservices, and cloud technologies",
+    },
+    {
+      icon: <Shield className="h-6 w-6 text-orange-600" />,
+      title: "System Security",
+      description:
+        "Implement authentication, authorization, and data protection in enterprise-grade applications",
+    },
+  ];
+
   return (
-    <section
-      id="backend-experience"
-      className="py-12 scroll-mt-28"
-      aria-labelledby="backend-experience-title"
-    >
-      <h2 className="text-lg md:text-3xl font-bold capitalize mb-3">
-        Passionate teachers and an in-demand curriculum define the Best
-        Technologies Ltd. experience
-      </h2>
-      <p className="text-sm md:text-base text-gray-700 mb-10">
-        Our 3-month Full-Time Backend Development Immersive program offers a
-        comprehensive and challenging journey for aspiring backend developers,
-        designed to rapidly advance your skills and launch your career.
-      </p>
-      <h2
-        id="backend-experience-title"
-        className="text-lg md:text-3xl font-bold mb-6"
-      >
-        Our Academy Experience
-      </h2>
+    <section id="backend-experience" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Backend Development Experience
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Build powerful server-side systems and become a professional backend
+          engineer. Our immersive bootcamp takes you from API fundamentals to
+          scalable system architecture, preparing you for impactful roles at
+          leading tech companies and high-growth startups.
+        </p>
 
-      {/* First Row */}
-      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
-        <ExperienceCard
-          icon={<Star className="h-8 w-8 text-brand-primary" />}
-          title="Top-Rated Full-Time Coding Bootcamp"
-          description={
-            <>
-              The Best Technologies Ltd. is a{" "}
-              <span className="text-primary-two font-medium">highly-rated</span>{" "}
-              coding school in Nigeria, and our{" "}
-              <Link
-                href="/trainings?scroll=student-spotlight"
-                className="text-brand-primary underline font-medium"
-              >
-                student reviews
-              </Link>{" "}
-              reflect that.
-            </>
-          }
-        />
-        <ExperienceCard
-          icon={<Briefcase className="h-8 w-8 text-brand-primary" />}
-          title="Get 1:1 Personalized Career Coaching and Job-Search Support"
-          description="Receive tailored career coaching and job search support to help you secure your ideal tech role."
-        />
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {highlights.map((highlight, index) => (
+            <div
+              key={index}
+              className="flex items-start space-x-4 p-6 bg-gray-50 rounded-xl"
+            >
+              <div className="flex-shrink-0">{highlight.icon}</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  {highlight.title}
+                </h3>
+                <p className="text-gray-600">{highlight.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl border border-blue-100">
+          <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            Why Choose Backend Development?
+          </h3>
+          <p className="text-gray-700 leading-relaxed">
+            Backend development powers every digital application behind the
+            scenes. From processing payments to managing user data, backend
+            engineers build the foundation that makes modern software possible.
+            As businesses scale digitally, the demand for skilled backend
+            developers who can create secure, efficient, and scalable systems
+            continues to surge across all industries.
+          </p>
+        </div>
       </div>
-
-      {/* Second Row */}
-      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
-        <ExperienceCard
-          icon={<FaUsersGear className="h-8 w-8 text-brand-primary" />}
-          title="Industry-Experienced Instructors"
-          description="Learn from passionate programmers with tech industry experience. From large open-source libraries to quantum computer simulators, they've programmed it all."
-        />
-        <ExperienceCard
-          icon={<IoCheckmarkDone className="h-8 w-8 text-brand-primary" />}
-          title="In-Demand Curriculum"
-          description="Graduate job-ready with a rigorous curriculum built by working tech practitioners and industry-experienced professionals."
-        />
-      </div>
-
-      {/* Third Row */}
-      <div className="grid md:grid-cols-2 gap-8 gap-x-16 mb-12">
-        <ExperienceCard
-          icon={<FaCode className="h-8 w-8 text-brand-primary" />}
-          title="Real-World Coding Tools"
-          description="Use popular developer tools like Git, GitHub, React, and VS Code. Plus, you'll learn how to integrate generative AI tech to optimize, automate, and expand your coding workflow."
-        />
-        <ExperienceCard
-          icon={<Users className="h-8 w-8 text-brand-primary" />}
-          title="Culture of Collaboration"
-          description="Work with others to improve your code and learn how to present it at the same time."
-        />
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };
-
-const ExperienceCard = ({
-  icon,
-  title,
-  description,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: React.ReactNode;
-}) => (
-  <div>
-    <div className="flex flex-col items-start gap-4 mb-4">
-      {icon}
-      <h3 className="text-base font-semibold">{title}</h3>
-    </div>
-    <p className="text-gray-700 text-base leading-relaxed">{description}</p>
-  </div>
-);
 
 export default BackendExperience;

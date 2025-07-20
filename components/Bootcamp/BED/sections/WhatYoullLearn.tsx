@@ -1,144 +1,93 @@
-"use client";
+import React from "react";
+import { CheckCircle } from "lucide-react";
 
-import React, { useState } from "react";
-import { Plus } from "lucide-react";
-
-const WhatYoullLearn = () => {
-  const [expandedUnit, setExpandedUnit] = useState<string | null>(null);
-
-  const toggleExpand = (unit: string) => {
-    setExpandedUnit((prev) => (prev === unit ? null : unit));
-  };
+const WhatYoullLearn: React.FC = () => {
+  const learningModules = [
+    {
+      category: "Server-Side Programming",
+      skills: [
+        "Node.js and Express.js fundamentals",
+        "Asynchronous programming and event loops",
+        "Error handling and logging best practices",
+        "Performance optimization techniques",
+      ],
+    },
+    {
+      category: "API Design & Development",
+      skills: [
+        "RESTful API architecture and design",
+        "GraphQL implementation and optimization",
+        "API versioning and documentation",
+        "Rate limiting and caching strategies",
+      ],
+    },
+    {
+      category: "Database Systems & Management",
+      skills: [
+        "SQL databases with PostgreSQL and MySQL",
+        "NoSQL databases with MongoDB and Redis",
+        "Database design and normalization",
+        "Query optimization and indexing",
+      ],
+    },
+    {
+      category: "Security & Authentication",
+      skills: [
+        "JWT tokens and session management",
+        "OAuth and third-party authentication",
+        "Data encryption and secure communication",
+        "Input validation and SQL injection prevention",
+      ],
+    },
+  ];
 
   return (
-    <section id="what-youll-learn" className="py-12 scroll-mt-28">
-      <h2 className="text-lg md:text-3xl font-bold mb-6">
-        What You&apos;ll Learn
-      </h2>
-
-      <div className="mb-8">
-        <p className="text-sm md:text-base text-gray-700 mb-4">
-          Best Technologies Ltd.&apos;s Backend Development Bootcamp features an
-          in-demand, JavaScript-based core curriculum.
+    <section id="what-youll-learn" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          What You&apos;ll Learn
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Our curriculum is built by senior backend engineers from top tech
+          companies and takes you through the complete server-side development
+          lifecycle—from building your first API to architecting distributed
+          systems that handle millions of requests.
         </p>
-        <p className="text-sm md:text-base text-gray-700">
-          You&apos;ll also have the opportunity to learn generative AI
-          applications in web development through a free elective course,
-          exploring tools such as ChatGPT and Bing AI.
-        </p>
-      </div>
 
-      <div className="space-y-8">
-        {/* Accordion Unit Block */}
-        {[
-          {
-            id: "unit1",
-            title: "Back-End Foundations",
-            unit: "Unit 1",
-            content: [
-              "Node.js fundamentals",
-              "Express.js framework",
-              "RESTful API development",
-              "Authentication and authorization",
-              "Database design (SQL & NoSQL)",
-              "ORM tools (Sequelize, Mongoose)",
-              "Server-side rendering",
-              "Version control with Git",
-            ],
-          },
-          {
-            id: "unit2",
-            title: "Back-End Core",
-            unit: "Unit 2",
-            content: [
-              "Capstone project development",
-              "Performance optimization",
-              "Deployment strategies",
-              "CI/CD pipelines",
-              "Cloud services (AWS, Firebase)",
-              "Containerization with Docker",
-              "Microservices architecture",
-            ],
-          },
-        ].map(({ id, title, unit, content }) => (
-          <div
-            key={id}
-            className="relative border border-gray-200 rounded-lg overflow-hidden"
-          >
-            <header
-              role="button"
-              tabIndex={0}
-              aria-expanded={expandedUnit === id}
-              onClick={() => toggleExpand(id)}
-              onKeyDown={(e) => e.key === "Enter" && toggleExpand(id)}
-              className="flex flex-col-reverse items-start md:flex-row md:items-center md:justify-between p-6 cursor-pointer focus:outline-none rounded-lg"
-            >
-              <div className="flex items-center space-x-8">
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-brand-primary/10 shrink-0">
-                  <Plus
-                    className={`w-6 h-6 text-brand-primary transition-transform duration-300 ${
-                      expandedUnit === id ? "rotate-45" : ""
-                    }`}
-                  />
-                </div>
-                <h3 className="text-sm md:text-xl font-medium">{title}</h3>
-              </div>
-              <div className="rounded-full px-4 py-1 border border-brand-primary text-brand-primary text-xs md:text-sm mb-4 md:mb-0">
-                {unit}
-              </div>
-            </header>
-
+        <div className="space-y-8">
+          {learningModules.map((module, index) => (
             <div
-              className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                expandedUnit === id
-                  ? "max-h-[1000px] opacity-100"
-                  : "max-h-0 opacity-0"
-              }`}
+              key={index}
+              className="bg-white border border-gray-200 rounded-xl p-6"
             >
-              <div className="p-6 border-t border-gray-200">
-                <header>
-                  <h4 className="text-sm md:text-lg font-semibold mb-2">
-                    In this unit, you will learn:
-                  </h4>
-                </header>
-                <ul className="list-disc pl-6 space-y-2">
-                  {content.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                {module.category}
+              </h3>
+              <div className="grid md:grid-cols-2 gap-3">
+                {module.skills.map((skill, skillIndex) => (
+                  <div key={skillIndex} className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                    <span className="text-gray-700">{skill}</span>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <div className="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-100">
+          <h3 className="text-lg font-semibold text-blue-900 mb-3">
+            Portfolio-Driven Learning
+          </h3>
+          <p className="text-blue-800">
+            Every API, service, or system you build contributes to a
+            professional-grade backend portfolio. By graduation, you&apos;ll
+            have 5–7 production-ready backend systems—including APIs,
+            microservices, and database architectures—that demonstrate your
+            server-side expertise to future employers.
+          </p>
+        </div>
       </div>
-
-      <h3 className="text-lg md:text-3xl font-semibold mt-12 mb-6">
-        Backend Development Immersive Tools and Technologies
-      </h3>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          "JavaScript",
-          "Node.js",
-          "Express.js",
-          "SQL",
-          "Git",
-          "GitHub",
-          "MongoDB",
-          "NPM/PNPM",
-          "ORMs",
-        ].map((tech) => (
-          <div
-            key={tech}
-            className="border border-gray-200 rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow"
-          >
-            {tech}
-          </div>
-        ))}
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };

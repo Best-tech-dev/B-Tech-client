@@ -1,102 +1,79 @@
-"use client";
+import React from "react";
+import { Clock, Coffee, Users, BookOpen, Settings } from "lucide-react";
 
-import React, { useState } from "react";
-
-const DailySchedule = () => {
-  const [activeTab, setActiveTab] = useState("review");
-
-  const scheduleData = {
-    review: {
-      time: "10:00AM - 10:30AM",
-      title: "Review",
+const DailySchedule: React.FC = () => {
+  const scheduleItems = [
+    {
+      time: "6:00 PM - 6:15 PM",
+      activity: "Check-in & Daily Standup",
       description:
-        "Your morning starts with a self-led review of notes and other learning materials to prepare for class.",
+        "Review progress, discuss backend challenges, and set daily coding goals",
+      icon: <Users className="h-5 w-5 text-blue-600" />,
     },
-    "live-instruction": {
-      time: "10:30AM - 12:30PM",
-      title: "Live Instruction & Demo",
+    {
+      time: "6:15 PM - 7:30 PM",
+      activity: "Core Backend Session",
       description:
-        "You'll receive live instruction from a Best Technologies Ltd. instructor, followed by a real-time demonstration of each new tool or technology and a live Q&A.",
+        "Interactive lessons on backend architecture, databases, and API development",
+      icon: <BookOpen className="h-5 w-5 text-green-600" />,
     },
-    "guided-practice": {
-      time: "1:30PM - 2:00PM",
-      title: "Guided Practice & Workshop",
+    {
+      time: "7:30 PM - 7:45 PM",
+      activity: "Break",
+      description: "Networking and code reviews with peers",
+      icon: <Coffee className="h-5 w-5 text-orange-600" />,
+    },
+    {
+      time: "7:45 PM - 8:45 PM",
+      activity: "Hands-on Coding",
       description:
-        "Work through coding exercises with guidance from instructors. Apply what you've learned through hands-on workshops and collaborative problem-solving.",
+        "API development, database queries, and practical backend implementation",
+      icon: <Clock className="h-5 w-5 text-purple-600" />,
     },
-    break: {
-      time: "2:00PM - 3:00PM",
-      title: "Break",
-      description: "You'll take an hour-long break to recharge and refuel.",
+    {
+      time: "8:45 PM - 9:00 PM",
+      activity: "Review & Feedback",
+      description: "Code reviews and preview of next session",
+      icon: <Settings className="h-5 w-5 text-red-600" />,
     },
-    support: {
-      time: "3:00PM - 6:00PM",
-      title: "Open Instructional Support",
-      description:
-        "Get help with challenging concepts, work on assignments, or collaborate with peers during open support hours with teaching assistants and instructors available.",
-    },
-  };
-
-  const tabs = Object.entries(scheduleData);
+  ];
 
   return (
-    <section
-      id="daily-schedule"
-      className="py-12 px-4 sm:px-6 lg:px-12 scroll-mt-28"
-    >
-      <h2 className="text-3xl font-bold mb-6">
-        Full-Time Backend Development Immersive Daily Schedule
-      </h2>
+    <section id="daily-schedule" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Daily Schedule
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Our structured approach ensures comprehensive learning while balancing
+          theory with practical backend development. Each session is carefully
+          crafted to build upon previous knowledge.
+        </p>
 
-      <p className="text-sm md:text-base text-gray-700 mb-10 max-w-3xl">
-        Every day in our Backend Development Bootcamp is a little different, but
-        you can count on a lively on-site classroom with your classmates,
-        instructors, and teaching assistants. You&apos;ll learn through a mix of
-        live lessons, coding practice, and team projects. Here&apos;s a sample
-        of what a typical day involves.
-      </p>
-
-      <div className="border border-gray-300 rounded-lg overflow-hidden shadow-sm">
-        {/* Tab Navigation */}
-        <div className="flex overflow-x-auto scrollbar-hide border-b border-b-gray-300 bg-gray-100">
-          {tabs.map(([key, value]) => (
-            <button
-              key={key}
-              onClick={() => setActiveTab(key)}
-              className={`whitespace-nowrap px-4 sm:px-6 py-3 text-sm sm:text-base transition-colors duration-300 border-b-2 ${
-                activeTab === key
-                  ? "border-brand-primary text-brand-primary bg-white font-medium"
-                  : "border-transparent text-gray-600 hover:text-brand-primary hover:cursor-pointer"
-              }`}
+        <div className="space-y-4">
+          {scheduleItems.map((item, index) => (
+            <div
+              key={index}
+              className="flex items-start space-x-4 p-4 bg-white border border-gray-200 rounded-lg"
             >
-              {value.title}
-            </button>
+              <div className="flex-shrink-0 p-2 bg-gray-50 rounded-lg">
+                {item.icon}
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-semibold text-gray-900">
+                    {item.activity}
+                  </h4>
+                  <span className="text-sm text-gray-500 font-mono">
+                    {item.time}
+                  </span>
+                </div>
+                <p className="text-gray-600">{item.description}</p>
+              </div>
+            </div>
           ))}
         </div>
-
-        {/* Tab Content */}
-        <div className="p-6 md:p-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-2">
-            <span className="text-gray-500 text-sm uppercase tracking-wider">
-              Timeline (WAT)
-            </span>
-            <div className="bg-brand-primary text-white text-sm px-4 py-2 rounded-full shadow inline-block">
-              {scheduleData[activeTab as keyof typeof scheduleData].time}
-            </div>
-          </div>
-
-          <h3 className="text-base font-semibold mb-4">
-            {scheduleData[activeTab as keyof typeof scheduleData].title}
-          </h3>
-
-          <p className="text-gray-700 text-sm md:text-base leading-relaxed">
-            {scheduleData[activeTab as keyof typeof scheduleData].description}
-          </p>
-        </div>
       </div>
-
-      {/* Divider */}
-      <div className="border-t border-gray-200 mt-16"></div>
     </section>
   );
 };

@@ -1,102 +1,98 @@
 import React, { useState } from "react";
-import { Plus } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
-const FAQs = () => {
-  const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
-
-  const toggleFaq = (id: string) => {
-    if (expandedFaq === id) {
-      setExpandedFaq(null);
-    } else {
-      setExpandedFaq(id);
-    }
-  };
+const FAQs: React.FC = () => {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(0);
 
   const faqs = [
     {
-      id: "faq1",
-      question: "What is a backend development bootcamp?",
-      answer:
-        "A backend development bootcamp is an intensive, accelerated learning program designed to equip students with practical coding skills in a short timeframe, typically 6-12 weeks. These programs focus on hands-on projects and real-world applications rather than theoretical knowledge, preparing graduates for immediate entry into the tech workforce.",
-    },
-    {
-      id: "faq2",
-      question: "What is covered in the backend development bootcamp?",
-      answer:
-        "Our bootcamp covers backend web development aspects including HTML, CSS, JavaScript, React, API integration, authentication, deployment strategies, and modern development practices. The curriculum is regularly updated to reflect industry demands.",
-    },
-    {
-      id: "faq3",
-      question: "Are backend development bootcamps still worth it?",
-      answer:
-        "Absolutely! While the tech landscape evolves, the demand for skilled developers continues to grow. Our bootcamp offers focused, practical training that many employers value. With our career support services and industry connections, graduates enter the job market with real-world skills, professional portfolios, and networking opportunities that position them competitively.",
-    },
-    {
-      id: "faq4",
-      question: "How much does a backend development bootcamp cost?",
-      answer:
-        "Our full-time bootcamp tuition is ₦10,995 (reduced from ₦13,995 for early registration). We offer various payment options including installment plans, loan financing, income share agreements, and scholarships to make education accessible to qualified students.",
-    },
-    {
-      id: "faq5",
       question:
-        "Will I get a certificate after completing the backend development bootcamp?",
+        "Do I need prior programming experience to join the backend bootcamp?",
       answer:
-        "Yes, all graduates receive an official certificate of completion that validates their acquired skills. Additionally, you'll graduate with a comprehensive portfolio of projects that demonstrates your technical capabilities to potential employers, which many hiring managers find even more valuable than the certificate itself.",
+        "Basic programming knowledge is recommended but not strictly required. Our program starts with fundamentals and gradually builds up to advanced concepts. We welcome participants from all backgrounds - the only requirement is dedication and willingness to learn.",
     },
     {
-      id: "faq6",
-      question: "Who should attend this backend development bootcamp?",
+      question: "What backend technologies will I learn during the bootcamp?",
       answer:
-        "Our bootcamp is ideal for motivated individuals who are passionate about technology and committed to an intensive learning experience. Whether you're a career changer, a college graduate seeking practical skills, or someone looking to upskill, the program is designed for those with strong problem-solving abilities and a growth mindset. No prior coding experience is required for our beginner-friendly cohorts.",
+        "You'll master industry-standard technologies including Python, Node.js, databases (SQL and NoSQL), API development, cloud services, and DevOps tools. We provide access to premium development environments during the course.",
     },
     {
-      id: "faq7",
-      question:
-        "What is the application process for this backend development bootcamp?",
+      question: "Will I have a portfolio by the end of the bootcamp?",
       answer:
-        "The application process involves submitting an online application, completing a logic assessment (no coding experience required), and participating in an interview with our admissions team. We evaluate candidates based on their problem-solving abilities, commitment, and cultural fit rather than technical background.",
+        "Absolutely! You'll complete 3-5 comprehensive backend projects that showcase your development process, problem-solving skills, and technical solutions. Our instructors provide detailed feedback to ensure your portfolio meets industry standards.",
     },
     {
-      id: "faq8",
-      question:
-        "What makes Best Technologies Ltd. one of the best backend development bootcamps for learners?",
+      question: "How is this different from online programming courses?",
       answer:
-        "Best Technologies Ltd. backend development Bootcamp stands out for its comprehensive curriculum, experienced instructors from the industry, career support services, strong alumni network, and proven track record of graduate success. Our program emphasizes pair programming, real-world projects, and job preparation, while maintaining small class sizes to ensure personalized attention and community building.",
+        "Our bootcamp provides live mentorship, real-time code reviews, collaborative projects, and structured portfolio development. You'll work on actual development challenges and receive personalized feedback that online courses can't provide.",
+    },
+    {
+      question: "What career support do you provide after graduation?",
+      answer:
+        "We offer portfolio reviews, technical interview preparation, coding challenge practice, and direct introductions to hiring partners. Our career services team supports you until you land a backend development role.",
     },
   ];
 
+  const toggleFAQ = (index: number) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
   return (
-    <section id="faqs" className="py-12 scroll-mt-28">
-      <h2 className="text-base md:text-3xl font-bold mb-8">FAQs</h2>
+    <section id="faqs" className="mb-16">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+          Frequently Asked Questions
+        </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Have questions about our Backend Development bootcamp? Here are
+          answers to the most common questions from prospective students.
+        </p>
 
-      <div className="space-y-4">
-        {faqs.map((faq) => (
-          <div
-            key={faq.id}
-            className="border border-gray-300 shadow-md rounded-lg overflow-hidden"
-          >
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
             <div
-              className="flex items-center justify-between p-6 cursor-pointer bg-white"
-              onClick={() => toggleFaq(faq.id)}
+              key={index}
+              className="bg-white border border-gray-200 rounded-xl"
             >
-              <h3 className="text-base font-bold pr-6">{faq.question}</h3>
-              <button className="flex-shrink-0">
-                <Plus
-                  className={`h-5 w-5 text-brand-primary transition-transform ${
-                    expandedFaq === faq.id ? "rotate-45" : ""
-                  }`}
-                />
+              <button
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                onClick={() => toggleFAQ(index)}
+              >
+                <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                  {faq.question}
+                </h3>
+                {openFAQ === index ? (
+                  <ChevronUp className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                )}
               </button>
+              {openFAQ === index && (
+                <div className="px-6 pb-4">
+                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                </div>
+              )}
             </div>
+          ))}
+        </div>
 
-            {expandedFaq === faq.id && (
-              <div className="p-6 border-t border-t-gray-300 bg-gray-50">
-                <p className="text-gray-700">{faq.answer}</p>
-              </div>
-            )}
+        <div className="mt-8 bg-blue-50 p-6 rounded-xl border border-blue-200 text-center">
+          <h4 className="font-semibold text-blue-900 mb-3">
+            Ready to Start Your Backend Journey?
+          </h4>
+          <p className="text-blue-800 mb-4">
+            Join our next cohort and transform your coding skills into a
+            rewarding career in backend development.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              Apply Now
+            </button>
+            <button className="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+              Download Curriculum
+            </button>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );
