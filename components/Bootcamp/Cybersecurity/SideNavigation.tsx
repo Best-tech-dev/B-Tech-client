@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/ui/button";
 import { ChevronRight } from "lucide-react";
@@ -26,10 +26,59 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
   activeSection,
   onSectionChange,
 }) => {
+  const [isSticky, setIsSticky] = useState(false);
+  const navRef = React.useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if we've scrolled past the hero section
+      const scrollPosition = window.scrollY;
+      setIsSticky(scrollPosition > 780);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll to active section in navigation when activeSection changes
+  useEffect(() => {
+    if (navRef.current && activeSection) {
+      const activeIndex = sections.findIndex(
+        (section) => section.id === activeSection
+      );
+      if (activeIndex !== -1) {
+        const navElement = navRef.current;
+        const activeElement = navElement.children[
+          activeIndex * 2
+        ] as HTMLElement; // *2 because of dividers
+
+        if (activeElement) {
+          const navRect = navElement.getBoundingClientRect();
+          const activeRect = activeElement.getBoundingClientRect();
+          const scrollLeft = navElement.scrollLeft;
+
+          // Calculate the position to center the active element
+          const targetScrollLeft =
+            scrollLeft +
+            activeRect.left -
+            navRect.left -
+            navRect.width / 2 +
+            activeRect.width / 2;
+
+          navElement.scrollTo({
+            left: Math.max(0, targetScrollLeft),
+            behavior: "smooth",
+          });
+        }
+      }
+    }
+  }, [activeSection]);
+
   const handleSectionClick = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 80; // Adjust for header
+      // Adjust for navbar (80px) + side navigation on mobile (approximately 60px)
+      const offsetTop = element.offsetTop - 140;
       window.scrollTo({
         top: offsetTop,
         behavior: "smooth",
@@ -40,24 +89,45 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
 
   return (
     <>
-      {/* Horizontal scrollable nav for mobile/tablet */}
-      <nav className="lg:hidden sticky top-20 bg-white z-50 border-b border-gray-200 shadow-sm overflow-x-auto">
-        <ul className="flex space-x-6 px-4 py-2 whitespace-nowrap overflow-x-scroll scrollbar-hide">
-          {sections.map((section) => (
-            <li
-              key={section.id}
-              className={`cursor-pointer pb-2 border-b-2 transition-colors duration-300 ${
-                activeSection === section.id
-                  ? "text-red-600 border-red-600 font-semibold"
-                  : "border-transparent text-gray-700 hover:text-red-600"
-              }`}
-              onClick={() => handleSectionClick(section.id)}
-            >
-              {section.title}
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {/* Horizontal scrollable nav for mobile/tablet - Fixed position when sticky */}
+      <div className="lg:hidden">
+        <div
+          className={`${
+            isSticky ? "fixed top-24 left-0 right-0 z-30" : "relative"
+          } transition-all duration-200`}
+        >
+          <div className="mx-4 mt-2">
+            <nav className="bg-white border border-gray-200 shadow-lg rounded-xl overflow-hidden">
+              <ul
+                ref={navRef}
+                className="flex px-4 py-3 overflow-x-scroll scrollbar-hide"
+              >
+                {sections.map((section, index) => (
+                  <React.Fragment key={section.id}>
+                    <li
+                      className={`cursor-pointer pb-2 border-b-2 transition-colors duration-300 flex-shrink-0 whitespace-nowrap ${
+                        activeSection === section.id
+                          ? "text-red-600 border-red-600 font-semibold"
+                          : "border-transparent text-gray-700 hover:text-red-600"
+                      }`}
+                      onClick={() => handleSectionClick(section.id)}
+                    >
+                      {section.title}
+                    </li>
+                    {index < sections.length - 1 && (
+                      <div className="flex-shrink-0 mx-4 self-center">
+                        <div className="w-px h-4 bg-gray-300"></div>
+                      </div>
+                    )}
+                  </React.Fragment>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </div>
+        {/* Spacer div when navigation is fixed to prevent content jump */}
+        {isSticky && <div className="h-20"></div>}
+      </div>
 
       {/* Stacked nav for desktop */}
       <aside className="hidden lg:block sticky top-24 lg:top-[116px]">
