@@ -26,7 +26,7 @@ export default function GrowthMarketingBootcampPage() {
         title="Growth Marketing"
         description="Learn What Drives Real Growth - Not Just Clicks. A 12-week, cohort-based experience for professionals who want to master full-funnel marketing, run data-driven campaigns, and scale revenue."
         icon={<TrendingUp className="text-white text-base md:text-2xl" />}
-        backgroundImage="/bootcamp/growth-marketing.jpg"
+        backgroundImage="/bootcamp/growth.jpg"
       />
       <ContentSection />
       <Footer />
