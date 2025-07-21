@@ -10,7 +10,7 @@ const AnimatedHero = () => {
   const { scrollToElement } = useSmoothScroll();
 
   return (
-    <section className="relative min-h-screen max-h-none md:max-h-[780px] flex items-center justify-center overflow-hidden py-26 md:py-0 lg:pt-8">
+    <section className="relative h-screen md:max-h-[780px] flex items-center justify-center overflow-hidden py-26 md:py-0 lg:pt-8">
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>

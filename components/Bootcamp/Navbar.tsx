@@ -12,6 +12,7 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [isPastHero, setIsPastHero] = useState(false);
 
   const router = useRouter();
 
@@ -21,6 +22,8 @@ const Navbar: React.FC = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
       setIsScrolled(currentScrollY > 50);
+      // Check if user has scrolled past the hero section (780px max height)
+      setIsPastHero(currentScrollY > 780);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -78,11 +81,11 @@ const Navbar: React.FC = () => {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <Image
-                src="/logo-main.png"
+                src={isPastHero ? "/logo-black.png" : "/logo-main.png"}
                 width={140}
                 height={35}
                 alt="Best Technologies Ltd"
-                className="h-8 w-auto"
+                className="h-8 w-auto transition-all duration-200"
                 priority
               />
             </Link>
@@ -91,7 +94,11 @@ const Navbar: React.FC = () => {
             <div className="hidden lg:flex items-center space-x-8">
               <Link
                 href="/trainings"
-                className="text-white/90 hover:text-white hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2"
+                className={`${
+                  isPastHero
+                    ? "text-gray-800/90 hover:text-gray-900"
+                    : "text-white/90 hover:text-white"
+                } hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2`}
               >
                 <span className="relative z-10">Trainings</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
@@ -99,7 +106,11 @@ const Navbar: React.FC = () => {
 
               <Link
                 href="/trainings/bootcamp"
-                className="text-white/90 hover:text-white hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2"
+                className={`${
+                  isPastHero
+                    ? "text-gray-800/90 hover:text-gray-900"
+                    : "text-white/90 hover:text-white"
+                } hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2`}
               >
                 <span className="relative z-10">Bootcamp</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
@@ -107,7 +118,11 @@ const Navbar: React.FC = () => {
 
               <Link
                 href="/trainings/courses"
-                className="text-white/90 hover:text-white hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2"
+                className={`${
+                  isPastHero
+                    ? "text-gray-800/90 hover:text-gray-900"
+                    : "text-white/90 hover:text-white"
+                } hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2`}
               >
                 <span className="relative z-10">Courses</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
@@ -115,7 +130,11 @@ const Navbar: React.FC = () => {
 
               <Link
                 href="/trainings/about"
-                className="text-white/90 hover:text-white hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2"
+                className={`${
+                  isPastHero
+                    ? "text-gray-800/90 hover:text-gray-900"
+                    : "text-white/90 hover:text-white"
+                } hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2`}
               >
                 <span className="relative z-10">About</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
@@ -123,7 +142,11 @@ const Navbar: React.FC = () => {
 
               <Link
                 href="/auth/login/student"
-                className="text-white/90 hover:text-white hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2"
+                className={`${
+                  isPastHero
+                    ? "text-gray-800/90 hover:text-gray-900"
+                    : "text-white/90 hover:text-white"
+                } hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2`}
               >
                 <span className="relative z-10">Sign In</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
@@ -134,7 +157,11 @@ const Navbar: React.FC = () => {
             <div className="hidden lg:block">
               <Button
                 onClick={handleApplyNowClick}
-                className="bg-transparent border border-brand-primary/60 text-white hover:bg-brand-primary hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-brand-primary/25 transition-all duration-300 rounded-full px-6 backdrop-blur-sm"
+                className={`bg-transparent border border-brand-primary/60 ${
+                  isPastHero
+                    ? "text-gray-800 hover:text-white"
+                    : "text-white hover:text-white"
+                } hover:bg-brand-primary hover:scale-105 hover:shadow-lg hover:shadow-brand-primary/25 transition-all duration-300 rounded-full px-6 backdrop-blur-sm`}
               >
                 Register Now
               </Button>
@@ -145,7 +172,11 @@ const Navbar: React.FC = () => {
               variant="ghost"
               size="icon"
               onClick={toggleMenu}
-              className="lg:hidden text-white hover:bg-white/10"
+              className={`lg:hidden ${
+                isPastHero
+                  ? "text-gray-800 hover:bg-gray-200/20"
+                  : "text-white hover:bg-white/10"
+              } transition-colors duration-200`}
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" />

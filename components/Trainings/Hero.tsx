@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative bg-[#161a25] text-white overflow-hidden pt-28 pb-20 lg:pb-36 h-screen max-h-[780px] ">
+    <section className="relative bg-[#161a25] text-white overflow-hidden pt-28 pb-20 lg:pb-36 h-screen max-h-[780px]">
       {/* Glowing Sun SVG */}
       <Sun className="absolute top-[-100px] left-[-100px] w-[300px] h-[300px] opacity-30 blur-3xl z-0 animate-pulse" />
 
