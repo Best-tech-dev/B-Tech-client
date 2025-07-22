@@ -23,9 +23,9 @@ const TuitionDates: React.FC = () => {
 
   const pricingOptions = [
     {
-      plan: "Early Cohort Rate",
-      price: "₦150,000",
-      savings: "Save ₦50,000",
+      plan: "Full Payment",
+      price: "₦350,000",
+      savings: "Save ₦10,000",
       features: [
         "12 weeks of live instructions",
         "All recordings, templates, and resources",
@@ -35,9 +35,9 @@ const TuitionDates: React.FC = () => {
       ],
     },
     {
-      plan: "Standard Tuition",
-      price: "₦200,000",
-      savings: "Regular pricing",
+      plan: "Installment",
+      price: "₦140,000 × 3",
+      savings: "Total: ",
       features: [
         "12 weeks of live instructions",
         "All recordings, templates, and resources",
@@ -226,7 +226,7 @@ const TuitionDates: React.FC = () => {
                   lineHeight: "1.5",
                 }}
               >
-                Apply before July 24 and save ₦50,000 on tuition fees. Payment
+                Apply before July 24 and save ₦10,000 on tuition fees. Payment
                 validates registration after acceptance.
               </p>
             </div>

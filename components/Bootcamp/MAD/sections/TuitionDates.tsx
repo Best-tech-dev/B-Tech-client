@@ -26,9 +26,9 @@ const TuitionDates: React.FC = () => {
   const pricingOptions = [
     {
       plan: "Full Payment",
-      price: "₦950,000",
-      originalPrice: "₦1,200,000",
-      savings: "Save ₦250,000",
+      price: "₦450,000",
+      originalPrice: "₦460,000",
+      savings: "Save ₦10,000",
       features: [
         "12-week intensive program",
         "Live instruction from industry professionals",
@@ -40,9 +40,9 @@ const TuitionDates: React.FC = () => {
     },
     {
       plan: "Installment Plan",
-      price: "₦400,000 × 3",
+      price: "₦160,000 × 3",
       originalPrice: "",
-      savings: "Total: ₦1,200,000",
+      savings: "Total: ₦480,000",
       features: [
         "Pay in 3 equal installments",
         "12-week intensive program",
@@ -161,7 +161,7 @@ const TuitionDates: React.FC = () => {
                 Early Bird Discount Available
               </h4>
               <p className="text-yellow-800">
-                Register 4 weeks before cohort start date and save ₦100,000 on
+                Register 4 weeks before cohort start date and save ₦10,000 on
                 tuition fees. Limited spots available for each cohort.
               </p>
             </div>

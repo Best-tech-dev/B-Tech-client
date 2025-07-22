@@ -16,8 +16,8 @@ const TuitionDates: React.FC = () => {
   const pricingOptions = [
     {
       plan: "Full Payment",
-      price: "₦550,000",
-      savings: "Save ₦50,000",
+      price: "₦600,000",
+      savings: "Save ₦10,000",
       features: [
         "Complete bootcamp access",
         "Premium AI/ML tools & software licenses",
@@ -28,8 +28,8 @@ const TuitionDates: React.FC = () => {
     },
     {
       plan: "Installment Plan",
-      price: "₦200,000 × 3",
-      savings: "Total: ₦600,000",
+      price: "₦210,000 × 3",
+      savings: "Total: ₦630,000",
       features: [
         "Pay in 3 installments",
         "Complete bootcamp access",
@@ -218,7 +218,7 @@ const TuitionDates: React.FC = () => {
                   lineHeight: "1.6",
                 }}
               >
-                Register 4 weeks before cohort start date and save ₦50,000 on
+                Register 4 weeks before cohort start date and save ₦10,000 on
                 tuition fees. Limited spots available for each cohort.
               </p>
             </div>

@@ -36,9 +36,9 @@ const TuitionDates: React.FC = () => {
   const pricingOptions = [
     {
       plan: "Full Payment",
-      price: "₦150,995",
-      originalPrice: "₦200,995",
-      savings: "Save ₦50,000",
+      price: "₦400,000",
+      originalPrice: "₦410,000",
+      savings: "Save ₦10,000",
       features: [
         "16-week immersive program",
         "Live instruction from industry professionals",
@@ -50,9 +50,9 @@ const TuitionDates: React.FC = () => {
     },
     {
       plan: "Installment Plan",
-      price: "₦62,664 × 3",
+      price: "₦140,000 × 3",
       originalPrice: "",
-      savings: "Total: ₦187,995",
+      savings: "Total: ₦420,000",
       features: [
         "Pay in 3 equal installments",
         "16-week immersive program",
