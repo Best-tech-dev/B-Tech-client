@@ -51,13 +51,13 @@ const Navbar: React.FC = () => {
     <>
       <nav
         className={cn(
-          "fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-700 ease-in-out",
-          isScrolled ? "w-[95%] max-w-6xl" : "w-[90%] max-w-7xl"
+          "fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-700 ease-in-out",
+          isScrolled ? "w-[95%] max-w-[1140px]" : "w-[90%] max-w-[1140px]"
         )}
       >
         <div
           className={cn(
-            "relative px-6 py-4 transition-all duration-700 ease-in-out",
+            "relative px-4 py-3 sm:px-6 sm:py-4 transition-all duration-700 ease-in-out",
             isScrolled
               ? "backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl shadow-2xl before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-r before:from-white/5 before:to-transparent before:pointer-events-none"
               : "bg-transparent border-transparent"
@@ -85,20 +85,20 @@ const Navbar: React.FC = () => {
                 width={140}
                 height={35}
                 alt="Best Technologies Ltd"
-                className="h-8 w-auto transition-all duration-200"
+                className="h-6 w-auto sm:h-8 transition-all duration-200"
                 priority
               />
             </Link>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               <Link
                 href="/trainings"
                 className={`${
                   isPastHero
                     ? "text-gray-800/90 hover:text-gray-900"
                     : "text-white/90 hover:text-white"
-                } hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2`}
+                } hover:scale-105 transition-all duration-200 font-medium relative group px-2 py-2 lg:px-3 text-sm lg:text-base`}
               >
                 <span className="relative z-10">Trainings</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
                   isPastHero
                     ? "text-gray-800/90 hover:text-gray-900"
                     : "text-white/90 hover:text-white"
-                } hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2`}
+                } hover:scale-105 transition-all duration-200 font-medium relative group px-2 py-2 lg:px-3 text-sm lg:text-base`}
               >
                 <span className="relative z-10">Bootcamp</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
@@ -122,7 +122,7 @@ const Navbar: React.FC = () => {
                   isPastHero
                     ? "text-gray-800/90 hover:text-gray-900"
                     : "text-white/90 hover:text-white"
-                } hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2`}
+                } hover:scale-105 transition-all duration-200 font-medium relative group px-2 py-2 lg:px-3 text-sm lg:text-base`}
               >
                 <span className="relative z-10">Courses</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
@@ -134,7 +134,7 @@ const Navbar: React.FC = () => {
                   isPastHero
                     ? "text-gray-800/90 hover:text-gray-900"
                     : "text-white/90 hover:text-white"
-                } hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2`}
+                } hover:scale-105 transition-all duration-200 font-medium relative group px-2 py-2 lg:px-3 text-sm lg:text-base`}
               >
                 <span className="relative z-10">About</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
                   isPastHero
                     ? "text-gray-800/90 hover:text-gray-900"
                     : "text-white/90 hover:text-white"
-                } hover:scale-105 transition-all duration-200 font-medium relative group px-3 py-2`}
+                } hover:scale-105 transition-all duration-200 font-medium relative group px-2 py-2 lg:px-3 text-sm lg:text-base`}
               >
                 <span className="relative z-10">Sign In</span>
                 <div className="absolute inset-0 bg-brand-primary/20 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 -z-10"></div>
@@ -161,7 +161,7 @@ const Navbar: React.FC = () => {
                   isPastHero
                     ? "text-gray-800 hover:text-white"
                     : "text-white hover:text-white"
-                } hover:bg-brand-primary hover:scale-105 hover:shadow-lg hover:shadow-brand-primary/25 transition-all duration-300 rounded-full px-6 backdrop-blur-sm`}
+                } hover:bg-brand-primary hover:scale-105 hover:shadow-lg hover:shadow-brand-primary/25 transition-all duration-300 rounded-full px-4 py-2 lg:px-6 text-sm lg:text-base backdrop-blur-sm`}
               >
                 Register Now
               </Button>
@@ -198,51 +198,51 @@ const Navbar: React.FC = () => {
           />
 
           {/* Mobile Menu */}
-          <div className="fixed top-0 right-0 h-full w-80 bg-gray-900/95 backdrop-blur-lg border-l border-white/10 shadow-2xl transform transition-transform">
-            <div className="p-6 pt-20 space-y-6">
+          <div className="fixed top-0 right-0 h-full w-72 sm:w-80 bg-gray-900/95 backdrop-blur-lg border-l border-white/10 shadow-2xl transform transition-transform max-w-[90vw]">
+            <div className="p-4 sm:p-6 pt-16 sm:pt-20 space-y-4 sm:space-y-6">
               <Link
                 href="/trainings"
-                className="block py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-4 transition-all duration-200"
+                className="block py-2.5 sm:py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-3 sm:px-4 transition-all duration-200 text-sm sm:text-base font-medium"
                 onClick={toggleMenu}
               >
                 Trainings
               </Link>
               <Link
                 href="/trainings/bootcamp"
-                className="block py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-4 transition-all duration-200"
+                className="block py-2.5 sm:py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-3 sm:px-4 transition-all duration-200 text-sm sm:text-base font-medium"
                 onClick={toggleMenu}
               >
                 Bootcamp
               </Link>
               <Link
                 href="/trainings/courses"
-                className="block py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-4 transition-all duration-200"
+                className="block py-2.5 sm:py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-3 sm:px-4 transition-all duration-200 text-sm sm:text-base font-medium"
                 onClick={toggleMenu}
               >
                 Courses
               </Link>
               <Link
                 href="/trainings/tuition-dates"
-                className="block py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-4 transition-all duration-200"
+                className="block py-2.5 sm:py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-3 sm:px-4 transition-all duration-200 text-sm sm:text-base font-medium"
                 onClick={toggleMenu}
               >
                 Tuition & Dates
               </Link>
               <Link
                 href="/trainings/about"
-                className="block py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-4 transition-all duration-200"
+                className="block py-2.5 sm:py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-3 sm:px-4 transition-all duration-200 text-sm sm:text-base font-medium"
                 onClick={toggleMenu}
               >
                 About
               </Link>
 
-              <div className="pt-6 border-t border-white/10">
+              <div className="pt-4 sm:pt-6 border-t border-white/10">
                 <Button
                   onClick={() => {
                     handleApplyNowClick();
                     toggleMenu();
                   }}
-                  className="w-full bg-transparent border border-brand-primary/60 text-white hover:bg-brand-primary hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-brand-primary/25 transition-all duration-300 rounded-full px-6 backdrop-blur-sm"
+                  className="w-full bg-transparent border border-brand-primary/60 text-white hover:bg-brand-primary hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-brand-primary/25 transition-all duration-300 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium backdrop-blur-sm"
                 >
                   Register Now
                 </Button>

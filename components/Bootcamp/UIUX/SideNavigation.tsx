@@ -93,30 +93,33 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
       <div className="lg:hidden">
         <div
           className={`${
-            isSticky ? "fixed top-24 left-0 right-0 z-30" : "relative"
+            isSticky ? "fixed top-20 sm:top-24 left-0 right-0 z-30" : "relative"
           } transition-all duration-200`}
         >
-          <div className="mx-4 mt-2">
-            <nav className="bg-white border border-gray-200 shadow-lg rounded-xl overflow-hidden">
+          <div className="mx-3 sm:mx-4 mt-2">
+            <nav className="bg-white border border-gray-200 shadow-md rounded-lg overflow-hidden">
               <ul
                 ref={navRef}
-                className="flex px-4 py-3 overflow-x-scroll scrollbar-hide"
+                className="flex px-3 sm:px-4 py-2.5 sm:py-3 overflow-x-auto scrollbar-hide gap-1 sm:gap-2"
               >
                 {sections.map((section, index) => (
                   <React.Fragment key={section.id}>
                     <li
-                      className={`cursor-pointer pb-2 border-b-2 transition-colors duration-300 flex-shrink-0 whitespace-nowrap ${
+                      className={`cursor-pointer pb-1.5 sm:pb-2 border-b-2 transition-colors duration-300 flex-shrink-0 whitespace-nowrap px-1.5 sm:px-2 ${
                         activeSection === section.id
                           ? "text-purple-600 border-purple-600 font-semibold"
                           : "border-transparent text-gray-700 hover:text-purple-600"
                       }`}
+                      style={{
+                        fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)",
+                      }}
                       onClick={() => handleSectionClick(section.id)}
                     >
                       {section.title}
                     </li>
                     {index < sections.length - 1 && (
-                      <div className="flex-shrink-0 mx-4 self-center">
-                        <div className="w-px h-4 bg-gray-300"></div>
+                      <div className="flex-shrink-0 mx-2 sm:mx-3 self-center">
+                        <div className="w-px h-3 sm:h-4 bg-gray-300"></div>
                       </div>
                     )}
                   </React.Fragment>
@@ -126,28 +129,31 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
           </div>
         </div>
         {/* Spacer div when navigation is fixed to prevent content jump */}
-        {isSticky && <div className="h-20"></div>}
+        {isSticky && <div className="h-16 sm:h-20"></div>}
       </div>
 
       {/* Stacked nav for desktop */}
-      <aside className="hidden lg:block sticky top-24 lg:top-[116px]">
-        <div className="mb-4 uppercase tracking-wider text-gray-600 text-sm font-semibold px-2">
+      <aside className="hidden lg:block sticky top-20 xl:top-24">
+        <div className="mb-3 lg:mb-4 uppercase tracking-wider text-gray-600 text-xs lg:text-sm font-semibold px-2">
           Contents
         </div>
-        <div className="bg-white shadow rounded-lg overflow-hidden border border-gray-200">
+        <div className="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 max-w-sm">
           {sections.map((section) => (
             <button
               key={section.id}
-              className={`w-full text-left px-4 py-3 text-sm font-medium hover:bg-gray-50 transition-colors border-b border-b-gray-100 flex items-center justify-between group cursor-pointer ${
+              className={`w-full text-left px-3 lg:px-4 py-2.5 lg:py-3 font-medium hover:bg-gray-50 transition-colors border-b border-b-gray-100 flex items-center justify-between group cursor-pointer ${
                 activeSection === section.id
                   ? "bg-purple-50 text-purple-700 font-semibold border-l-4 border-purple-600"
                   : "text-gray-700"
               }`}
+              style={{
+                fontSize: "clamp(0.75rem, 1.5vw, 0.875rem)",
+              }}
               onClick={() => handleSectionClick(section.id)}
             >
               <span>{section.title}</span>
               <ChevronRight
-                className={`h-4 w-4 transition-colors ${
+                className={`h-3 w-3 lg:h-4 lg:w-4 transition-colors ${
                   activeSection === section.id
                     ? "text-purple-600"
                     : "text-gray-400 group-hover:text-gray-600"
@@ -155,10 +161,10 @@ const SideNavigation: React.FC<SideNavigationProps> = ({
               />
             </button>
           ))}
-          <div className="p-4">
+          <div className="p-3 lg:p-4">
             <Button
               asChild
-              className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white text-xs lg:text-sm font-medium py-2.5 px-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
               <Link href="/trainings/curriculum">GET MY SYLLABUS</Link>
             </Button>

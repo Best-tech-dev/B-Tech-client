@@ -32,10 +32,10 @@ const GrowthExperience: React.FC = () => {
   return (
     <section id="growth-experience" className="mb-16">
       <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">
           Growth Marketing Experience
         </h2>
-        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+        <p className="text-base text-gray-700 mb-8 leading-relaxed">
           Transform your marketing approach into a systematic growth engine. Our
           comprehensive bootcamp covers everything from acquisition strategies
           to optimization tactics used by modern growth teams.
@@ -62,7 +62,7 @@ const GrowthExperience: React.FC = () => {
           <h3 className="text-xl font-semibold text-gray-900 mb-4">
             Why Choose Growth Marketing?
           </h3>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-base text-gray-700 leading-relaxed">
             Growth marketing isn&apos;t about guesswork - it&apos;s a system.
             Whether you&apos;re working at a startup, scaling an existing
             product, or pivoting into a performance-driven role, this program

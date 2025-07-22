@@ -55,15 +55,15 @@ const ContentSection: React.FC = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-2 md:px-6 lg:px-8 pb-16">
-      <div className="flex flex-col lg:flex-row gap-8 mt-8">
+    <div className="w-full max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 mt-8">
         <div className="w-full lg:w-1/4">
           <SideNavigation
             activeSection={activeSection}
             onSectionChange={handleSectionChange}
           />
         </div>
-        <div className="w-full lg:w-3/4 lg:ps-16">
+        <div className="w-full lg:w-3/4 lg:ps-8 xl:ps-16">
           <MobileExperience />
           <WhatYoullLearn />
           <TuitionDates />
