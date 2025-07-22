@@ -41,10 +41,22 @@ const DailySchedule: React.FC = () => {
   return (
     <section id="daily-schedule" className="mb-16">
       <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2
+          className="font-bold text-gray-900 mb-6"
+          style={{
+            fontSize: "clamp(1.25rem, 4vw, 1.875rem)",
+            lineHeight: "1.2",
+          }}
+        >
           Daily Schedule
         </h2>
-        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+        <p
+          className="text-gray-700 mb-8 leading-relaxed"
+          style={{
+            fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
+            lineHeight: "1.6",
+          }}
+        >
           Our structured approach ensures comprehensive learning while balancing
           theory with practical ML work. Each session is carefully crafted to
           build upon previous knowledge.
@@ -54,21 +66,41 @@ const DailySchedule: React.FC = () => {
           {scheduleItems.map((item, index) => (
             <div
               key={index}
-              className="flex items-start space-x-4 p-4 bg-white border border-gray-200 rounded-lg"
+              className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-4 p-4 bg-white border border-gray-200 rounded-lg"
             >
-              <div className="flex-shrink-0 p-2 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0 p-2 bg-gray-50 rounded-lg mb-2 sm:mb-0">
                 {item.icon}
               </div>
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-semibold text-gray-900">
+              <div className="flex-1 w-full">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                  <h4
+                    className="font-semibold text-gray-900"
+                    style={{
+                      fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
+                      lineHeight: "1.4",
+                    }}
+                  >
                     {item.activity}
                   </h4>
-                  <span className="text-sm text-gray-500 font-mono">
+                  <span
+                    className="text-gray-500 font-mono mt-1 sm:mt-0"
+                    style={{
+                      fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)",
+                      lineHeight: "1.4",
+                    }}
+                  >
                     {item.time}
                   </span>
                 </div>
-                <p className="text-gray-600">{item.description}</p>
+                <p
+                  className="text-gray-600"
+                  style={{
+                    fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)",
+                    lineHeight: "1.5",
+                  }}
+                >
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}

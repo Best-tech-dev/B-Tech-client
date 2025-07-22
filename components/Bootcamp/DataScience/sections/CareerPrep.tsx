@@ -29,10 +29,10 @@ const CareerPrep: React.FC = () => {
   return (
     <section id="career-prep" className="mb-16">
       <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
           Career Preparation
         </h2>
-        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+        <p className="text-base text-gray-700 mb-8 leading-relaxed">
           Our comprehensive career support prepares you for success in the
           competitive data science industry with portfolio reviews, interview
           preparation, and job placement assistance.

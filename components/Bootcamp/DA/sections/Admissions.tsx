@@ -30,10 +30,10 @@ const Admissions: React.FC = () => {
   return (
     <section id="admissions" className="mb-16">
       <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
           Admissions Process
         </h2>
-        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+        <p className="text-base text-gray-700 mb-8 leading-relaxed">
           We welcome analytical individuals from all backgrounds. No prior data
           experience is required - just passion for uncovering insights and
           solving problems with data.
@@ -45,7 +45,7 @@ const Admissions: React.FC = () => {
               key={index}
               className="flex items-start space-x-4 p-6 bg-white border border-gray-200 rounded-xl"
             >
-              <div className="flex-shrink-0 p-2 bg-gray-50 rounded-lg">
+              <div className="flex-shrink-0 p-2 bg-gray-50 rounded-lg w-10 h-10 flex items-center justify-center sm:w-12 sm:h-12">
                 {requirement.icon}
               </div>
               <div>

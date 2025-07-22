@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar, Clock } from "lucide-react";
+import { Calendar, Clock, DollarSign, CheckCircle } from "lucide-react";
 
 const TuitionDates: React.FC = () => {
   const upcomingCohorts = [

@@ -39,10 +39,10 @@ const FAQs: React.FC = () => {
   return (
     <section id="faqs" className="mb-16">
       <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
           Frequently Asked Questions
         </h2>
-        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+        <p className="text-base text-gray-700 mb-8 leading-relaxed">
           Considering our Machine Learning / AI bootcamp? Here&apos;s what most
           prospective students ask before applying.
         </p>
@@ -57,7 +57,7 @@ const FAQs: React.FC = () => {
                 className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 onClick={() => toggleFAQ(index)}
               >
-                <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                <h3 className="text-base lg:text-lg font-semibold text-gray-900 pr-4">
                   {faq.question}
                 </h3>
                 {openFAQ === index ? (
@@ -68,7 +68,9 @@ const FAQs: React.FC = () => {
               </button>
               {openFAQ === index && (
                 <div className="px-6 pb-4">
-                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                  <p className="text-sm lg:text-base text-gray-700 leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               )}
             </div>

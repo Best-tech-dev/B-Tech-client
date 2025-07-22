@@ -65,10 +65,10 @@ const FAQs: React.FC = () => {
   return (
     <section id="faqs" className="mb-16">
       <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
           Frequently Asked Questions
         </h2>
-        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+        <p className="text-base text-gray-700 mb-8 leading-relaxed">
           Have questions about our Full-Stack Development bootcamp? Here are
           answers to the most common questions from prospective students.
         </p>

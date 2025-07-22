@@ -46,31 +46,60 @@ const WhatYoullLearn: React.FC = () => {
   ];
 
   return (
-    <section id="what-youll-learn" className="mb-16">
+    <section id="what-youll-learn" className="mb-12 lg:mb-16">
       <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2
+          className="font-bold text-gray-900 mb-4 lg:mb-6"
+          style={{
+            fontSize: "clamp(1.5rem, 4vw, 2.25rem)",
+            lineHeight: "1.3",
+          }}
+        >
           What You&apos;ll Learn
         </h2>
-        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+        <p
+          className="text-gray-700 mb-6 lg:mb-8 leading-relaxed"
+          style={{
+            fontSize: "clamp(1rem, 2vw, 1.125rem)",
+            lineHeight: "1.6",
+          }}
+        >
           Designed by industry security experts, our curriculum equips you with
           the knowledge and tools needed to secure digital systems, identify
           vulnerabilities, and defend against real-world cyber threats.
         </p>
 
-        <div className="space-y-8">
+        <div className="space-y-6 lg:space-y-8">
           {learningModules.map((module, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200 rounded-xl p-6"
+              className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-4 lg:p-6"
             >
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3
+                className="font-semibold text-gray-900 mb-3 lg:mb-4"
+                style={{
+                  fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)",
+                  lineHeight: "1.4",
+                }}
+              >
                 {module.category}
               </h3>
-              <div className="grid md:grid-cols-2 gap-3">
+              <div className="grid sm:grid-cols-2 gap-3">
                 {module.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-red-600 flex-shrink-0" />
-                    <span className="text-gray-700">{skill}</span>
+                  <div
+                    key={skillIndex}
+                    className="flex items-center space-x-2 sm:space-x-3"
+                  >
+                    <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-red-600 flex-shrink-0" />
+                    <span
+                      className="text-gray-700"
+                      style={{
+                        fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
+                        lineHeight: "1.5",
+                      }}
+                    >
+                      {skill}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -78,11 +107,23 @@ const WhatYoullLearn: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-8 bg-red-50 p-6 rounded-xl border border-red-100">
-          <h3 className="text-lg font-semibold text-red-900 mb-3">
+        <div className="mt-6 lg:mt-8 bg-red-50 p-4 lg:p-6 rounded-lg border border-red-100 shadow-md">
+          <h3
+            className="font-semibold text-red-900 mb-2 lg:mb-3"
+            style={{
+              fontSize: "clamp(1rem, 2vw, 1.125rem)",
+              lineHeight: "1.4",
+            }}
+          >
             Skills-Verified Projects
           </h3>
-          <p className="text-red-800">
+          <p
+            className="text-red-800"
+            style={{
+              fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
+              lineHeight: "1.6",
+            }}
+          >
             Each security challenge, simulation, and audit you complete adds to
             a portfolio of hands-on work. By the end of the program, you&apos;ll
             have 5–7 case studies that showcase your threat analysis,

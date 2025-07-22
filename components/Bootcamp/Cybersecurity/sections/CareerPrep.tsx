@@ -28,10 +28,10 @@ const CareerPrep: React.FC = () => {
   return (
     <section id="career-prep" className="mb-16">
       <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
           Career Preparation
         </h2>
-        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+        <p className="text-base text-gray-700 mb-8 leading-relaxed">
           Get industry-ready with resume reviews, red-team/blue-team scenarios,
           and security certification guidance. We help you showcase your skills
           and land your first role in cybersecurity operations or consulting.

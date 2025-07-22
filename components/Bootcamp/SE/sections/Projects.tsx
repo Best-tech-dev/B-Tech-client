@@ -75,10 +75,10 @@ const Projects = () => {
   return (
     <section id="projects" className="mb-16">
       <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
           Hands-on Projects
         </h2>
-        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+        <p className="text-base text-gray-700 mb-8 leading-relaxed">
           Build a portfolio of real-world projects that demonstrate your
           full-stack development skills and problem-solving abilities. Each
           project follows industry standards and best practices.
@@ -88,22 +88,24 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-200 rounded-xl p-6"
+              className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6"
             >
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 p-3 bg-gray-50 rounded-lg">
+              <div className="flex flex-col sm:flex-row items-start sm:space-x-4 space-y-4 sm:space-y-0">
+                <div className="flex-shrink-0 p-3 bg-gray-50 rounded-lg self-start">
                   {project.icon}
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-semibold text-gray-900">
+                <div className="flex-1 w-full">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 space-y-2 sm:space-y-0">
+                    <h3 className="text-lg font-semibold text-gray-900">
                       {project.title}
                     </h3>
-                    <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                    <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full mt-1 sm:mt-0">
                       {project.duration}
                     </span>
                   </div>
-                  <p className="text-gray-700 mb-4">{project.description}</p>
+                  <p className="text-gray-700 mb-4 text-base sm:text-base">
+                    {project.description}
+                  </p>
                   <div>
                     <h4 className="font-medium text-gray-900 mb-2">
                       Key Deliverables:

@@ -30,12 +30,24 @@ const MobileExperience: React.FC = () => {
   ];
 
   return (
-    <section id="mobile-experience" className="mb-16">
+    <section id="mobile-experience" className="mb-12 lg:mb-16">
       <div className="max-w-4xl">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        <h2
+          className="font-bold text-gray-900 mb-4 lg:mb-6"
+          style={{
+            fontSize: "clamp(1.5rem, 4vw, 2.25rem)",
+            lineHeight: "1.3",
+          }}
+        >
           Mobile App Development Bootcamp
-        </h1>
-        <p className="text-lg text-gray-700 mb-12 leading-relaxed">
+        </h2>
+        <p
+          className="text-gray-700 mb-6 lg:mb-8 leading-relaxed"
+          style={{
+            fontSize: "clamp(1rem, 2vw, 1.125rem)",
+            lineHeight: "1.6",
+          }}
+        >
           Transform your innovative ideas into profitable mobile applications.
           Our comprehensive bootcamp covers everything from native iOS and
           Android development to cross-platform solutions, preparing you for
@@ -43,28 +55,54 @@ const MobileExperience: React.FC = () => {
           ventures.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 gap-4 lg:gap-6 mb-6 lg:mb-8">
           {highlights.map((highlight, index) => (
             <div
               key={index}
-              className="flex items-start space-x-4 p-6 bg-gray-50 rounded-xl"
+              className="flex items-start space-x-3 sm:space-x-4 p-4 lg:p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
             >
               <div className="flex-shrink-0">{highlight.icon}</div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <h3
+                  className="font-semibold text-gray-900 mb-2"
+                  style={{
+                    fontSize: "clamp(1rem, 2vw, 1.125rem)",
+                    lineHeight: "1.4",
+                  }}
+                >
                   {highlight.title}
                 </h3>
-                <p className="text-gray-600">{highlight.description}</p>
+                <p
+                  className="text-gray-600"
+                  style={{
+                    fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
+                    lineHeight: "1.5",
+                  }}
+                >
+                  {highlight.description}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="bg-green-50 border border-green-200 rounded-xl p-6">
-          <h3 className="text-xl font-semibold text-green-900 mb-3">
+        <div className="bg-green-50 border border-green-200 rounded-lg p-6 lg:p-8 shadow-md">
+          <h3
+            className="font-semibold text-green-900 mb-3 lg:mb-4"
+            style={{
+              fontSize: "clamp(1.125rem, 2.5vw, 1.5rem)",
+              lineHeight: "1.4",
+            }}
+          >
             Why Choose Mobile App Development?
           </h3>
-          <p className="text-green-800 leading-relaxed">
+          <p
+            className="text-green-800 leading-relaxed"
+            style={{
+              fontSize: "clamp(0.875rem, 1.5vw, 1rem)",
+              lineHeight: "1.6",
+            }}
+          >
             Mobile app development is at the forefront of the digital
             revolution. With over 6 billion smartphone users worldwide,
             businesses and entrepreneurs need skilled developers who can create

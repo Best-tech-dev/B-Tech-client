@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Calendar, Clock, DollarSign } from "lucide-react";
+import { Calendar, Clock, DollarSign, CheckCircle } from "lucide-react";
 
 const TuitionDates = () => {
   const upcomingCohorts = [
@@ -53,13 +53,13 @@ const TuitionDates = () => {
   return (
     <section id="tuition-dates" className="mb-16">
       <div className="max-w-4xl">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">
+        <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
           Tuition & Dates
         </h2>
 
         {/* Upcoming Cohorts */}
         <div className="mb-10">
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+          <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-6">
             Upcoming Cohorts
           </h3>
           <div className="space-y-4">
@@ -107,7 +107,7 @@ const TuitionDates = () => {
 
         {/* Pricing */}
         <div>
-          <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+          <h3 className="text-lg lg:text-2xl font-semibold text-gray-900 mb-6">
             Investment Options
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
