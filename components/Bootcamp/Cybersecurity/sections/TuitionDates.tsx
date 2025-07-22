@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Calendar, Clock, DollarSign, CheckCircle } from "lucide-react";
+import { Calendar, Clock, DollarSign } from "lucide-react";
 
 const TuitionDates = () => {
   const upcomingCohorts = [
