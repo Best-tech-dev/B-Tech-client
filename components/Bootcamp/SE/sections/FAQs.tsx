@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const FAQs: React.FC = () => {
@@ -110,12 +111,18 @@ const FAQs: React.FC = () => {
             full-stack development skills.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+            <Link
+              href="/trainings/register"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center"
+            >
               Apply Now
-            </button>
-            <button className="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+            </Link>
+            <Link
+              href="/trainings/curriculum"
+              className="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-blue-50 transition-colors flex items-center justify-center"
+            >
               Download Curriculum
-            </button>
+            </Link>
           </div>
         </div>
       </div>

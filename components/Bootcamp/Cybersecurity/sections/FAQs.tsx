@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from "next/link";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const FAQs: React.FC = () => {
@@ -93,12 +94,18 @@ const FAQs: React.FC = () => {
             cybersecurity skills in ethical hacking and digital defense.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-red-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors">
+            <Link
+              href="/trainings/register"
+              className="bg-red-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors flex items-center justify-center"
+            >
               Apply Now
-            </button>
-            <button className="border border-red-600 text-red-600 px-6 py-2 rounded-lg font-medium hover:bg-red-50 transition-colors">
+            </Link>
+            <Link
+              href="/trainings/curriculum"
+              className="border border-red-600 text-red-600 px-6 py-2 rounded-lg font-medium hover:bg-red-50 transition-colors flex items-center justify-center"
+            >
               Download Curriculum
-            </button>
+            </Link>
           </div>
         </div>
       </div>
