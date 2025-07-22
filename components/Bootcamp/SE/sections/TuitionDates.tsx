@@ -6,31 +6,31 @@ import { Calendar, Clock, DollarSign } from "lucide-react";
 const TuitionDates = () => {
   const upcomingCohorts = [
     {
-      cohort: "Cohort #8",
-      startDate: "January 15, 2025",
-      endDate: "June 6, 2025",
+      cohort: "Cohort #2",
+      startDate: "September 1, 2025",
+      endDate: "August 28, 2026",
       schedule: "Weekdays (Mon-Fri)",
-      time: "6:00 PM - 9:00 PM WAT",
+      time: "9:00 AM - 5:00 PM WAT",
       status: "Early Bird Active",
     },
     {
-      cohort: "Cohort #9",
-      startDate: "April 7, 2025",
-      endDate: "August 29, 2025",
+      cohort: "Cohort #3",
+      startDate: "January 5, 2026",
+      endDate: "June 26, 2026",
       schedule: "Weekdays (Mon-Fri)",
-      time: "6:00 PM - 9:00 PM WAT",
-      status: "Registration Open",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Upcoming",
     },
   ];
 
   const pricingOptions = [
     {
       plan: "Full Payment",
-      price: "₦250,000",
-      savings: "Save ₦100,000",
+      price: "₦600,000",
+      savings: "Save ₦30,000",
       features: [
         "Complete bootcamp access",
-        "20-week intensive program",
+        "52-week intensive program",
         "Live instruction & mentorship",
         "Career support & job placement",
         "Certificate of completion",
@@ -38,12 +38,12 @@ const TuitionDates = () => {
     },
     {
       plan: "Installment Plan",
-      price: "₦130,000 × 2",
-      savings: "Total: ₦260,000",
+      price: "₦210,000 × 3",
+      savings: "Total: ₦630,000",
       features: [
-        "Pay in 2 installments",
+        "Pay in 3 installments",
         "Complete bootcamp access",
-        "20-week intensive program",
+        "52-week intensive program",
         "Live instruction & mentorship",
         "Career support & job placement",
       ],
@@ -148,7 +148,7 @@ const TuitionDates = () => {
                 Early Bird Discount Available
               </h4>
               <p className="text-yellow-800">
-                Register 4 weeks before cohort start date and save ₦100,000 on
+                Register 4 weeks before cohort start date and save ₦10,000 on
                 tuition fees. Limited spots available for each cohort.
               </p>
             </div>
