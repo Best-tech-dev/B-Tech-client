@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/ui/button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -190,66 +191,84 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
-            onClick={toggleMenu}
-          />
+        <motion.div
+          initial={{ x: "-100%" }}
+          animate={{ x: isMenuOpen ? 0 : "-100%" }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="fixed top-0 left-0 w-full h-full bg-slate-900/95 backdrop-blur-md text-white flex flex-col z-50 lg:hidden"
+        >
+          {/* Header with Close Button */}
+          <div className="flex justify-between items-center p-6 border-b border-white/10">
+            <h2 className="text-xl font-semibold">Menu</h2>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleMenu}
+              className="text-white hover:bg-white/10"
+            >
+              <X className="h-6 w-6" />
+            </Button>
+          </div>
 
-          {/* Mobile Menu */}
-          <div className="fixed top-0 right-0 h-full w-72 sm:w-80 bg-gray-900/95 backdrop-blur-lg border-l border-white/10 shadow-2xl transform transition-transform max-w-[90vw]">
-            <div className="p-4 sm:p-6 pt-16 sm:pt-20 space-y-4 sm:space-y-6">
-              <Link
-                href="/trainings"
-                className="block py-2.5 sm:py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-3 sm:px-4 transition-all duration-200 text-sm sm:text-base font-medium"
-                onClick={toggleMenu}
-              >
-                Trainings
-              </Link>
-              <Link
-                href="/trainings/bootcamp"
-                className="block py-2.5 sm:py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-3 sm:px-4 transition-all duration-200 text-sm sm:text-base font-medium"
-                onClick={toggleMenu}
-              >
-                Bootcamp
-              </Link>
-              <Link
-                href="/trainings/courses"
-                className="block py-2.5 sm:py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-3 sm:px-4 transition-all duration-200 text-sm sm:text-base font-medium"
-                onClick={toggleMenu}
-              >
-                Courses
-              </Link>
-              <Link
-                href="/trainings/tuition-dates"
-                className="block py-2.5 sm:py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-3 sm:px-4 transition-all duration-200 text-sm sm:text-base font-medium"
-                onClick={toggleMenu}
-              >
-                Tuition & Dates
-              </Link>
-              <Link
-                href="/trainings/about"
-                className="block py-2.5 sm:py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-lg px-3 sm:px-4 transition-all duration-200 text-sm sm:text-base font-medium"
-                onClick={toggleMenu}
-              >
-                About
-              </Link>
+          {/* Navigation Links */}
+          <div className="flex flex-col gap-2 px-6 py-4 overflow-y-auto max-h-[85vh]">
+            <Link
+              href="/trainings"
+              className="block py-3 text-white hover:text-brand-primary transition-colors duration-200 font-medium"
+              onClick={toggleMenu}
+            >
+              Trainings
+            </Link>
+            <Link
+              href="/trainings/bootcamp"
+              className="block py-3 text-white hover:text-brand-primary transition-colors duration-200 font-medium"
+              onClick={toggleMenu}
+            >
+              Bootcamp
+            </Link>
+            <Link
+              href="/trainings/courses"
+              className="block py-3 text-white hover:text-brand-primary transition-colors duration-200 font-medium"
+              onClick={toggleMenu}
+            >
+              Courses
+            </Link>
+            <Link
+              href="/trainings/tuition-dates"
+              className="block py-3 text-white hover:text-brand-primary transition-colors duration-200 font-medium"
+              onClick={toggleMenu}
+            >
+              Tuition & Dates
+            </Link>
+            <Link
+              href="/trainings/about"
+              className="block py-3 text-white hover:text-brand-primary transition-colors duration-200 font-medium"
+              onClick={toggleMenu}
+            >
+              About
+            </Link>
+            <Link
+              href="/auth/login/student"
+              className="block py-3 text-white hover:text-brand-primary transition-colors duration-200 font-medium"
+              onClick={toggleMenu}
+            >
+              Sign In
+            </Link>
 
-              <div className="pt-4 sm:pt-6 border-t border-white/10">
-                <Button
-                  onClick={() => {
-                    handleApplyNowClick();
-                    toggleMenu();
-                  }}
-                  className="w-full bg-transparent border border-brand-primary/60 text-white hover:bg-brand-primary hover:text-white hover:scale-105 hover:shadow-lg hover:shadow-brand-primary/25 transition-all duration-300 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base font-medium backdrop-blur-sm"
-                >
-                  Register Now
-                </Button>
-              </div>
+            {/* Register Now Button */}
+            <div className="mt-8 pt-6 border-t border-white/10">
+              <Button
+                onClick={() => {
+                  handleApplyNowClick();
+                  toggleMenu();
+                }}
+                className="w-full bg-transparent border border-brand-primary text-white hover:bg-brand-primary hover:text-white transition-all duration-200"
+              >
+                Register Now
+              </Button>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );
