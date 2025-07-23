@@ -32,7 +32,7 @@ const TuitionDates = () => {
         "Complete bootcamp access",
         "52-week intensive program",
         "Live instruction & mentorship",
-        "Career support & job placement",
+        "Career support",
         "Certificate of completion",
       ],
     },
@@ -45,7 +45,7 @@ const TuitionDates = () => {
         "Complete bootcamp access",
         "52-week intensive program",
         "Live instruction & mentorship",
-        "Career support & job placement",
+        "Career support",
       ],
     },
   ];
@@ -146,7 +146,7 @@ const TuitionDates = () => {
               lineHeight: "1.4",
             }}
           >
-            Investment Options
+            Payment Options
           </h3>
           <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
             {pricingOptions.map((option, index) => (

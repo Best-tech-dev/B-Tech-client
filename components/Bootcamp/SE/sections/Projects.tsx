@@ -10,7 +10,6 @@ const Projects = () => {
       description:
         "Full-stack marketplace with payment integration, user authentication, and admin dashboard",
       icon: <Monitor className="h-6 w-6 text-blue-600" />,
-      duration: "Weeks 3-5",
       deliverables: [
         "User authentication system",
         "Payment processing integration",
@@ -23,7 +22,6 @@ const Projects = () => {
       description:
         "Collaborative project management tool with real-time updates and team features",
       icon: <Smartphone className="h-6 w-6 text-green-600" />,
-      duration: "Weeks 6-8",
       deliverables: [
         "Real-time collaboration features",
         "Task assignment system",
@@ -36,7 +34,6 @@ const Projects = () => {
       description:
         "Analytics platform for managing multiple social media accounts with automated posting",
       icon: <Globe className="h-6 w-6 text-purple-600" />,
-      duration: "Weeks 9-11",
       deliverables: [
         "Multi-platform API integration",
         "Analytics and reporting",
@@ -49,7 +46,6 @@ const Projects = () => {
       description:
         "Educational platform with course creation, progress tracking, and interactive content",
       icon: <Code className="h-6 w-6 text-orange-600" />,
-      duration: "Weeks 12-14",
       deliverables: [
         "Course creation interface",
         "Student progress tracking",
@@ -62,7 +58,6 @@ const Projects = () => {
       description:
         "Property listing platform with advanced search, virtual tours, and agent tools",
       icon: <Database className="h-6 w-6 text-red-600" />,
-      duration: "Weeks 15-17",
       deliverables: [
         "Property search and filtering",
         "Agent management system",
@@ -95,13 +90,10 @@ const Projects = () => {
                   {project.icon}
                 </div>
                 <div className="flex-1 w-full">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 space-y-2 sm:space-y-0">
+                  <div className="mb-3">
                     <h3 className="text-lg font-semibold text-gray-900">
                       {project.title}
                     </h3>
-                    <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full mt-1 sm:mt-0">
-                      {project.duration}
-                    </span>
                   </div>
                   <p className="text-gray-700 mb-4 text-base sm:text-base">
                     {project.description}

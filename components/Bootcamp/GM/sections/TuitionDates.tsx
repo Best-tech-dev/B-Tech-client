@@ -27,23 +27,23 @@ const TuitionDates: React.FC = () => {
       price: "₦350,000",
       savings: "Save ₦10,000",
       features: [
-        "12 weeks of live instructions",
-        "All recordings, templates, and resources",
-        "Dedicated mentorship",
-        "Lifetime access to alumni network",
-        "Certificate of Completion",
+        "Complete bootcamp access",
+        "52-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
+        "Certificate of completion",
       ],
     },
     {
-      plan: "Installment",
-      price: "₦140,000 × 3",
-      savings: "Total: ",
+      plan: "Installment Plan",
+      price: "₦120,000 × 3",
+      savings: "Total: ₦360,000",
       features: [
-        "12 weeks of live instructions",
-        "All recordings, templates, and resources",
-        "Dedicated mentorship",
-        "Lifetime access to alumni network",
-        "Certificate of Completion",
+        "Complete bootcamp access",
+        "52-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
+        "Certificate of completion",
       ],
     },
   ];
@@ -144,7 +144,7 @@ const TuitionDates: React.FC = () => {
               lineHeight: "1.4",
             }}
           >
-            Investment Options
+            Payment Options
           </h3>
           <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
             {pricingOptions.map((option, index) => (

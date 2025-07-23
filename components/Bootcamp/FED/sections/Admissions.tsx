@@ -1,5 +1,5 @@
 import React from "react";
-import { GraduationCap, Clock, FileCheck, Brain } from "lucide-react";
+import { Clock, Brain } from "lucide-react";
 
 const Admissions: React.FC = () => {
   const requirements = [
@@ -11,20 +11,20 @@ const Admissions: React.FC = () => {
     },
     {
       title: "Time Commitment",
-      description: "Ability to dedicate 20-25 hours per week for 10 weeks",
+      description: "Ability to dedicate 20-25 hours per week for 6 months",
       icon: <Clock className="h-6 w-6 text-green-600" />,
     },
-    {
-      title: "Application Materials",
-      description:
-        "Completed application form, CV, and personal motivation statement",
-      icon: <FileCheck className="h-6 w-6 text-purple-600" />,
-    },
-    {
-      title: "Educational Background",
-      description: "Minimum of SSCE or equivalent qualification",
-      icon: <GraduationCap className="h-6 w-6 text-orange-600" />,
-    },
+    // {
+    //   title: "Application Materials",
+    //   description:
+    //     "Completed application form, CV, and personal motivation statement",
+    //   icon: <FileCheck className="h-6 w-6 text-purple-600" />,
+    // },
+    // {
+    //   title: "Educational Background",
+    //   description: "Minimum of SSCE with strong analytical skills",
+    //   icon: <GraduationCap className="h-6 w-6 text-orange-600" />,
+    // },
   ];
 
   return (

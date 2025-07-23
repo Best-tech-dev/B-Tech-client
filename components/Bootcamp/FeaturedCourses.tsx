@@ -12,7 +12,7 @@ const courses = [
     desc: "Master frontend and backend in our popular defacto fullstack bootcamp.",
     img: "/bootcamp/software-development.jpg",
     url: "/trainings/bootcamp/fullstack-web-development",
-    duration: "9 months",
+    duration: "12 months",
     level: "Beginner to Advanced",
   },
   {
@@ -84,7 +84,7 @@ const courses = [
     desc: "Build intelligent systems using Python, TensorFlow, and modern AI frameworks.",
     img: "/bootcamp/ai-ml.jpg",
     url: "/trainings/bootcamp/ai-ml",
-    duration: "8 months",
+    duration: "9 months",
     level: "Advanced",
   },
   {
@@ -178,7 +178,9 @@ const FeaturedCourses = () => {
                 </div>
                 <div className="flex items-center gap-1">
                   <Award className="w-3 h-3 sm:w-4 sm:h-4" />
-                  <span className="text-xs sm:text-sm">{course.level}</span>
+                  <span className="text-xs sm:text-sm">
+                    {course.level.length > 16 ? "All Levels" : course.level}
+                  </span>
                 </div>
               </div>
 

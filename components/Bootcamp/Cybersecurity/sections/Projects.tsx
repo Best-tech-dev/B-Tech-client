@@ -10,7 +10,6 @@ const Projects = () => {
       description:
         "Conduct a full vulnerability scan and generate a remediation report",
       icon: <Bug className="h-6 w-6 text-red-600" />,
-      duration: "Weeks 3–5",
       deliverables: [
         "Threat modeling",
         "Nmap & Nessus scan logs",
@@ -23,7 +22,6 @@ const Projects = () => {
       description:
         "Simulate a real-world attack on a web app and document all findings",
       icon: <Shield className="h-6 w-6 text-orange-600" />,
-      duration: "Weeks 6–8",
       deliverables: [
         "Exploitation walkthrough",
         "Screenshots of compromised systems",
@@ -36,7 +34,6 @@ const Projects = () => {
       description:
         "Design automated security scripts and simulate a real-time incident response",
       icon: <AlertTriangle className="h-6 w-6 text-blue-600" />,
-      duration: "Weeks 9–11",
       deliverables: [
         "Python scripts for log parsing",
         "SIEM alerts and dashboard",
@@ -81,7 +78,7 @@ const Projects = () => {
                   {project.icon}
                 </div>
                 <div className="flex-1 w-full">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 space-y-2 sm:space-y-0">
+                  <div className="mb-3">
                     <h3
                       className="font-semibold text-gray-900"
                       style={{
@@ -91,15 +88,6 @@ const Projects = () => {
                     >
                       {project.title}
                     </h3>
-                    <span
-                      className="text-gray-500 bg-gray-100 px-3 py-1 rounded-full w-fit"
-                      style={{
-                        fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)",
-                        lineHeight: "1.4",
-                      }}
-                    >
-                      {project.duration}
-                    </span>
                   </div>
                   <p
                     className="text-gray-700 mb-4"

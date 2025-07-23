@@ -8,7 +8,6 @@ const Projects: React.FC = () => {
       description:
         "Design and execute a complete growth strategy for an online retail business",
       icon: <TrendingUp className="h-6 w-6 text-green-600" />,
-      duration: "Weeks 3-5",
       deliverables: [
         "Customer acquisition funnel design",
         "Multi-channel marketing campaign",
@@ -21,7 +20,6 @@ const Projects: React.FC = () => {
       description:
         "Create a go-to-market strategy for a software-as-a-service product",
       icon: <Target className="h-6 w-6 text-blue-600" />,
-      duration: "Weeks 6-8",
       deliverables: [
         "Product positioning strategy",
         "Content marketing calendar",
@@ -33,7 +31,6 @@ const Projects: React.FC = () => {
       title: "Community-Driven Growth",
       description: "Build and scale a community around a brand or product",
       icon: <Users className="h-6 w-6 text-purple-600" />,
-      duration: "Weeks 9-11",
       deliverables: [
         "Community engagement strategy",
         "Viral marketing campaigns",
@@ -66,14 +63,9 @@ const Projects: React.FC = () => {
                   {project.icon}
                 </div>
                 <div className="flex-1 w-full">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 space-y-2 sm:space-y-0">
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-                      {project.title}
-                    </h3>
-                    <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full w-fit">
-                      {project.duration}
-                    </span>
-                  </div>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">
+                    {project.title}
+                  </h3>
                   <p className="text-gray-700 mb-4 text-base sm:text-base">
                     {project.description}
                   </p>

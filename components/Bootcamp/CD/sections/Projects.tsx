@@ -8,7 +8,6 @@ const Projects: React.FC = () => {
       description:
         "Deploy and configure infrastructure across AWS and Azure platforms",
       icon: <Briefcase className="h-6 w-6 text-blue-600" />,
-      duration: "Weeks 2-3",
       deliverables: [
         "VPC setup with subnets and security groups",
         "Load balancer configuration",
@@ -20,7 +19,6 @@ const Projects: React.FC = () => {
       title: "Container Orchestration Platform",
       description: "Build a complete Kubernetes deployment pipeline",
       icon: <FileText className="h-6 w-6 text-green-600" />,
-      duration: "Weeks 5-6",
       deliverables: [
         "Docker container optimization",
         "Kubernetes cluster setup",
@@ -32,7 +30,6 @@ const Projects: React.FC = () => {
       title: "CI/CD Pipeline Automation",
       description: "Create automated deployment workflows with monitoring",
       icon: <Award className="h-6 w-6 text-purple-600" />,
-      duration: "Weeks 8-9",
       deliverables: [
         "Jenkins/GitHub Actions pipeline",
         "Infrastructure as Code templates",
@@ -77,7 +74,7 @@ const Projects: React.FC = () => {
                   {project.icon}
                 </div>
                 <div className="flex-1 w-full">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 space-y-2 sm:space-y-0">
+                  <div className="mb-3">
                     <h3
                       className="font-semibold text-gray-900"
                       style={{
@@ -87,15 +84,6 @@ const Projects: React.FC = () => {
                     >
                       {project.title}
                     </h3>
-                    <span
-                      className="text-gray-500 bg-gray-100 px-3 py-1 rounded-full w-fit"
-                      style={{
-                        fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)",
-                        lineHeight: "1.4",
-                      }}
-                    >
-                      {project.duration}
-                    </span>
                   </div>
                   <p
                     className="text-gray-700 mb-4"

@@ -8,7 +8,6 @@ const Projects: React.FC = () => {
       description:
         "Build comprehensive sales dashboards using Power BI to analyze revenue trends, customer behavior, and sales performance metrics.",
       icon: <BarChart className="h-6 w-6 text-blue-600" />,
-      duration: "Weeks 3-5",
       deliverables: [
         "Data collection and cleaning",
         "Interactive Power BI dashboard",
@@ -21,7 +20,6 @@ const Projects: React.FC = () => {
       description:
         "Analyze customer datasets to identify patterns, segment customers, and provide actionable business insights using Python and SQL.",
       icon: <Database className="h-6 w-6 text-green-600" />,
-      duration: "Weeks 6-8",
       deliverables: [
         "Customer segmentation model",
         "Python data analysis scripts",
@@ -34,7 +32,6 @@ const Projects: React.FC = () => {
       description:
         "Create automated financial reports and KPI dashboards that track business performance and provide data-driven recommendations.",
       icon: <FileSpreadsheet className="h-6 w-6 text-blue-600" />,
-      duration: "Weeks 9-11",
       deliverables: [
         "Automated reporting system",
         "KPI tracking dashboard",
@@ -79,26 +76,15 @@ const Projects: React.FC = () => {
                   {project.icon}
                 </div>
                 <div className="flex-1 w-full">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 space-y-2 sm:space-y-0">
-                    <h3
-                      className="font-semibold text-gray-900"
-                      style={{
-                        fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
-                        lineHeight: "1.4",
-                      }}
-                    >
-                      {project.title}
-                    </h3>
-                    <span
-                      className="text-gray-500 bg-gray-100 px-3 py-1 rounded-full w-fit"
-                      style={{
-                        fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)",
-                        lineHeight: "1.4",
-                      }}
-                    >
-                      {project.duration}
-                    </span>
-                  </div>
+                  <h3
+                    className="font-semibold text-gray-900 mb-3"
+                    style={{
+                      fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
+                      lineHeight: "1.4",
+                    }}
+                  >
+                    {project.title}
+                  </h3>
                   <p
                     className="text-gray-700 mb-4"
                     style={{

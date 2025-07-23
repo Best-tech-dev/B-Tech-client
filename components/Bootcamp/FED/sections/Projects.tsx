@@ -8,7 +8,6 @@ const Projects: React.FC = () => {
       description:
         "Create a fully responsive business landing page with animations and interactive elements",
       icon: <Monitor className="h-6 w-6 text-blue-600" />,
-      duration: "Weeks 2-4",
       deliverables: [
         "Responsive HTML/CSS structure",
         "JavaScript interactivity",
@@ -21,7 +20,6 @@ const Projects: React.FC = () => {
       description:
         "Build a full-featured task management application with CRUD operations and local storage",
       icon: <Smartphone className="h-6 w-6 text-green-600" />,
-      duration: "Weeks 5-7",
       deliverables: [
         "Interactive user interface",
         "Local data persistence",
@@ -34,7 +32,6 @@ const Projects: React.FC = () => {
       description:
         "Develop a complete e-commerce website frontend with shopping cart and checkout flow",
       icon: <ShoppingCart className="h-6 w-6 text-purple-600" />,
-      duration: "Weeks 8-10",
       deliverables: [
         "Product catalog system",
         "Shopping cart functionality",
@@ -79,26 +76,15 @@ const Projects: React.FC = () => {
                   {project.icon}
                 </div>
                 <div className="flex-1 w-full">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 space-y-2 sm:space-y-0">
-                    <h3
-                      className="font-semibold text-gray-900"
-                      style={{
-                        fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
-                        lineHeight: "1.4",
-                      }}
-                    >
-                      {project.title}
-                    </h3>
-                    <span
-                      className="text-gray-500 bg-gray-100 px-3 py-1 rounded-full w-fit"
-                      style={{
-                        fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)",
-                        lineHeight: "1.4",
-                      }}
-                    >
-                      {project.duration}
-                    </span>
-                  </div>
+                  <h3
+                    className="font-semibold text-gray-900 mb-3"
+                    style={{
+                      fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
+                      lineHeight: "1.4",
+                    }}
+                  >
+                    {project.title}
+                  </h3>
                   <p
                     className="text-gray-700 mb-4"
                     style={{

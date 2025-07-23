@@ -8,7 +8,6 @@ const Projects: React.FC = () => {
       description:
         "Build a scalable e-commerce backend with microservices architecture, payment processing, and real-time inventory management.",
       icon: <Server className="h-6 w-6 text-blue-600" />,
-      duration: "Weeks 3-5",
       deliverables: [
         "RESTful API endpoints",
         "Payment gateway integration",
@@ -21,7 +20,6 @@ const Projects: React.FC = () => {
       description:
         "Develop a social media analytics backend with user authentication, data aggregation, and real-time notifications.",
       icon: <Database className="h-6 w-6 text-green-600" />,
-      duration: "Weeks 6-8",
       deliverables: [
         "User authentication system",
         "Real-time data aggregation",
@@ -34,7 +32,6 @@ const Projects: React.FC = () => {
       description:
         "Create a secure banking API with advanced encryption, two-factor authentication, and transaction monitoring.",
       icon: <Shield className="h-6 w-6 text-red-600" />,
-      duration: "Weeks 9-11",
       deliverables: [
         "Security architecture",
         "Two-factor authentication",
@@ -79,7 +76,7 @@ const Projects: React.FC = () => {
                   {project.icon}
                 </div>
                 <div className="flex-1 w-full">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 space-y-2 sm:space-y-0">
+                  <div className="mb-3">
                     <h3
                       className="font-semibold text-gray-900"
                       style={{
@@ -89,15 +86,6 @@ const Projects: React.FC = () => {
                     >
                       {project.title}
                     </h3>
-                    <span
-                      className="text-gray-500 bg-gray-100 px-3 py-1 rounded-full w-fit"
-                      style={{
-                        fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)",
-                        lineHeight: "1.4",
-                      }}
-                    >
-                      {project.duration}
-                    </span>
                   </div>
                   <p
                     className="text-gray-700 mb-4"
