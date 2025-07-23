@@ -4,20 +4,20 @@ import { Calendar, Clock, DollarSign } from "lucide-react";
 const TuitionDates: React.FC = () => {
   const upcomingCohorts = [
     {
-      cohort: "Cohort 1",
-      startDate: "September 23, 2024",
-      endDate: "February 14, 2025",
+      cohort: "Cohort #2",
+      startDate: "September 2025",
+      endDate: "February 2026",
       schedule: "Weekdays (Mon-Fri)",
-      time: "9:00 AM - 4:00 PM WAT",
-      status: "Open for Registration",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Early Bird Active",
     },
     {
-      cohort: "Cohort 2",
-      startDate: "January 27, 2025",
-      endDate: "June 20, 2025",
+      cohort: "Cohort #3",
+      startDate: "March 2026",
+      endDate: "August 2026",
       schedule: "Weekdays (Mon-Fri)",
-      time: "9:00 AM - 4:00 PM WAT",
-      status: "Early Bird Available",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Upcoming",
     },
   ];
 
@@ -25,13 +25,13 @@ const TuitionDates: React.FC = () => {
     {
       plan: "Full Payment",
       price: "₦400,000",
-      savings: "Save ₦10,000",
+      savings: "Save ₦20,000",
       features: [
         "Complete bootcamp access",
-        "Python & SQL training",
-        "1-on-1 data project reviews",
-        "Job placement assistance",
-        "Lifetime alumni network access",
+        "26-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
+        "Certificate of completion",
       ],
     },
     {
@@ -39,11 +39,11 @@ const TuitionDates: React.FC = () => {
       price: "₦140,000 × 3",
       savings: "Total: ₦420,000",
       features: [
-        "Pay in 3 installments",
         "Complete bootcamp access",
-        "Python & SQL training",
-        "1-on-1 data project reviews",
-        "Job placement assistance",
+        "26-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
+        "Certificate of completion",
       ],
     },
   ];
@@ -106,7 +106,7 @@ const TuitionDates: React.FC = () => {
         {/* Pricing */}
         <div>
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-            Investment Options
+            Payment Options
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
             {pricingOptions.map((option, index) => (
@@ -146,8 +146,8 @@ const TuitionDates: React.FC = () => {
                 Early Bird Discount Available
               </h4>
               <p className="text-yellow-800">
-                Register 4 weeks before cohort start date and save ₦10,000 on
-                tuition fees. Limited spots available for each cohort.
+                Register early and you could be eligible for a ₦10,000 discount
+                on your tuition fees! Terms and Conditions apply, though.
               </p>
             </div>
           </div>

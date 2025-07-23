@@ -4,12 +4,20 @@ import { Calendar, Clock, DollarSign } from "lucide-react";
 const TuitionDates: React.FC = () => {
   const upcomingCohorts = [
     {
-      cohort: "Cohort 3",
-      startDate: "March 22, 2025",
-      endDate: "Sept 14, 2025",
+      cohort: "Cohort #2",
+      startDate: "September 2025",
+      endDate: "August 2026",
       schedule: "Weekdays (Mon-Fri)",
-      time: "6:00 PM - 9:00 PM WAT",
-      status: "Open for Registration",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Early Bird Active",
+    },
+    {
+      cohort: "Cohort #3",
+      startDate: "January 2026",
+      endDate: "June 2026",
+      schedule: "Weekdays (Mon-Fri)",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Upcoming",
     },
   ];
 
@@ -17,13 +25,13 @@ const TuitionDates: React.FC = () => {
     {
       plan: "Full Payment",
       price: "₦600,000",
-      savings: "Save ₦10,000",
+      savings: "Save ₦30,000",
       features: [
         "Complete bootcamp access",
-        "Premium AI/ML tools & software licenses",
-        "1-on-1 project or portfolio reviews",
-        "Job placement assistance",
-        "Lifetime alumni network access",
+        "38-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
+        "Certificate of completion",
       ],
     },
     {
@@ -33,9 +41,9 @@ const TuitionDates: React.FC = () => {
       features: [
         "Pay in 3 installments",
         "Complete bootcamp access",
-        "Premium AI/ML tools & software licenses",
-        "1-on-1 project or portfolio reviews",
-        "Job placement assistance",
+        "38-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
       ],
     },
   ];
@@ -136,7 +144,7 @@ const TuitionDates: React.FC = () => {
               lineHeight: "1.4",
             }}
           >
-            Investment Options
+            Payment Options
           </h3>
           <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
             {pricingOptions.map((option, index) => (
@@ -218,8 +226,8 @@ const TuitionDates: React.FC = () => {
                   lineHeight: "1.6",
                 }}
               >
-                Register 4 weeks before cohort start date and save ₦10,000 on
-                tuition fees. Limited spots available for each cohort.
+                Register early and you could be eligible for a ₦10,000 discount
+                on your tuition fees! Terms and Conditions apply, though.
               </p>
             </div>
           </div>

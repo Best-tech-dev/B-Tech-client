@@ -4,22 +4,22 @@ import { Calendar, Clock } from "lucide-react";
 const TuitionDates: React.FC = () => {
   const upcomingCohorts = [
     {
-      cohort: "August Cohort",
-      startDate: "August 5, 2025",
-      endDate: "December 20, 2025",
+      cohort: "Cohort #2",
+      startDate: "September 2025",
+      endDate: "February 2026",
       schedule: "Weekdays (Mon-Fri)",
       time: "9:00 AM - 5:00 PM WAT",
-      status: "Open for Registration",
-      deadline: "Application Deadline: July 15",
+      status: "Early Bird Active",
+      // deadline: "Application Deadline: July 15",
     },
     {
-      cohort: "January Cohort",
-      startDate: "January 6, 2026",
-      endDate: "May 22, 2026",
+      cohort: "Cohort #3",
+      startDate: "March 2026",
+      endDate: "August 2026",
       schedule: "Weekdays (Mon-Fri)",
       time: "9:00 AM - 5:00 PM WAT",
-      status: "Early Bird Available",
-      deadline: "Application Deadline: Sept. 15",
+      status: "Upcoming",
+      // deadline: "Application Deadline: Sept. 15",
     },
   ];
 
@@ -27,27 +27,24 @@ const TuitionDates: React.FC = () => {
     {
       plan: "Full Payment",
       price: "₦450,000",
-      originalPrice: "₦460,000",
-      savings: "Save ₦10,000",
+      savings: "Save ₦30,000",
       features: [
-        "12-week intensive program",
-        "Live instruction from industry professionals",
-        "All course materials and resources",
-        "Career coaching and job placement assistance",
-        "Access to alumni network and events",
+        "Complete bootcamp access",
+        "26-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
         "Certificate of completion",
       ],
     },
     {
       plan: "Installment Plan",
       price: "₦160,000 × 3",
-      originalPrice: "",
       savings: "Total: ₦480,000",
       features: [
-        "Pay in 3 equal installments",
-        "12-week intensive program",
-        "Live instruction from industry professionals",
-        "Career coaching and job placement assistance",
+        "Complete bootcamp access",
+        "26-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
         "Certificate of completion",
       ],
     },
@@ -59,6 +56,11 @@ const TuitionDates: React.FC = () => {
         <h2 className="text-3xl font-bold text-gray-900 mb-6">
           Tuition & Dates
         </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Best Technologies Ltd. is committed to making tech education more
+          accessible, which is why we offer several payment options to help you
+          invest in your bootcamp education.
+        </p>
 
         {/* Upcoming Cohorts */}
         <div className="mb-10">
@@ -89,9 +91,9 @@ const TuitionDates: React.FC = () => {
                           {cohort.schedule}, {cohort.time}
                         </span>
                       </div>
-                      <div className="text-sm text-gray-500">
+                      {/* <div className="text-sm text-gray-500">
                         {cohort.deadline}
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                   <div className="text-right">
@@ -114,7 +116,7 @@ const TuitionDates: React.FC = () => {
         {/* Pricing */}
         <div>
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-            Investment Options
+            Payment Options
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
             {pricingOptions.map((option, index) => (
@@ -133,11 +135,11 @@ const TuitionDates: React.FC = () => {
                   <div className="text-3xl font-bold text-gray-900 mb-1">
                     {option.price}
                   </div>
-                  {option.originalPrice && (
+                  {/* {option.originalPrice && (
                     <div className="text-lg text-gray-500 line-through mb-1">
                       {option.originalPrice}
                     </div>
-                  )}
+                  )} */}
                   <p className="text-sm text-gray-600">{option.savings}</p>
                 </div>
                 <ul className="space-y-3">
@@ -161,8 +163,8 @@ const TuitionDates: React.FC = () => {
                 Early Bird Discount Available
               </h4>
               <p className="text-yellow-800">
-                Register 4 weeks before cohort start date and save ₦10,000 on
-                tuition fees. Limited spots available for each cohort.
+                Register early and you could be eligible for a ₦10,000 discount
+                on your tuition fees! Terms and Conditions apply, though.
               </p>
             </div>
           </div>

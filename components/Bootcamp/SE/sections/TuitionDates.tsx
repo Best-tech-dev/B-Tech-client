@@ -7,16 +7,16 @@ const TuitionDates = () => {
   const upcomingCohorts = [
     {
       cohort: "Cohort #2",
-      startDate: "September 1, 2025",
-      endDate: "August 28, 2026",
+      startDate: "September 2025",
+      endDate: "August 2026",
       schedule: "Weekdays (Mon-Fri)",
       time: "9:00 AM - 5:00 PM WAT",
       status: "Early Bird Active",
     },
     {
       cohort: "Cohort #3",
-      startDate: "January 5, 2026",
-      endDate: "June 26, 2026",
+      startDate: "January 2026",
+      endDate: "June 2026",
       schedule: "Weekdays (Mon-Fri)",
       time: "9:00 AM - 5:00 PM WAT",
       status: "Upcoming",
@@ -62,6 +62,11 @@ const TuitionDates = () => {
         >
           Tuition & Dates
         </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Best Technologies Ltd. is committed to making tech education more
+          accessible, which is why we offer several payment options to help you
+          invest in your bootcamp education.
+        </p>
 
         {/* Upcoming Cohorts */}
         <div className="mb-8 lg:mb-10">
@@ -118,11 +123,7 @@ const TuitionDates = () => {
                   </div>
                   <div className="md:text-right">
                     <span
-                      className={`inline-block px-2 lg:px-3 py-1 rounded-full font-medium ${
-                        cohort.status === "Early Bird Active"
-                          ? "bg-blue-100 text-blue-800"
-                          : "bg-green-100 text-green-800"
-                      }`}
+                      className="inline-block px-2 lg:px-3 py-1 rounded-full font-medium bg-blue-100 text-blue-800"
                       style={{
                         fontSize: "clamp(0.75rem, 1.2vw, 0.875rem)",
                         lineHeight: "1.4",
@@ -226,8 +227,8 @@ const TuitionDates = () => {
                   lineHeight: "1.5",
                 }}
               >
-                Register 4 weeks before cohort start date and save ₦10,000 on
-                tuition fees. Limited spots available for each cohort.
+                Register early and you could be eligible for a ₦10,000 discount
+                on your tuition fees! Terms and Conditions apply, though.
               </p>
             </div>
           </div>

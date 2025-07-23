@@ -4,20 +4,20 @@ import { Calendar, Clock, DollarSign, CheckCircle } from "lucide-react";
 const TuitionDates: React.FC = () => {
   const upcomingCohorts = [
     {
-      cohort: "Cohort 3",
-      startDate: "March 22, 2025",
-      endDate: "September 14, 2025",
+      cohort: "Cohort #2",
+      startDate: "September 2025",
+      endDate: "February 2026",
       schedule: "Weekdays (Mon-Fri)",
-      time: "6:00 PM - 9:00 PM WAT",
-      status: "Open for Registration",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Early Bird Active",
     },
     {
-      cohort: "Cohort 4",
-      startDate: "October 6, 2025",
-      endDate: "March 28, 2026",
+      cohort: "Cohort #3",
+      startDate: "March 2026",
+      endDate: "August 2026",
       schedule: "Weekdays (Mon-Fri)",
-      time: "6:00 PM - 9:00 PM WAT",
-      status: "Early Bird Available",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Upcoming",
     },
   ];
 
@@ -28,22 +28,22 @@ const TuitionDates: React.FC = () => {
       savings: "Save ₦10,000",
       features: [
         "Complete bootcamp access",
-        "Premium development tools & licenses",
-        "1-on-1 project and portfolio reviews",
-        "Job placement assistance",
-        "Lifetime alumni network access",
+        "26-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
+        "Certificate of completion",
       ],
     },
     {
       plan: "Installment Plan",
-      price: "₦180,000 × 3",
-      savings: "Total: ₦540,000",
+      price: "₦170,000 × 3",
+      savings: "Total: ₦510,000",
       features: [
-        "Pay in 3 installments",
         "Complete bootcamp access",
-        "Premium development tools & licenses",
-        "1-on-1 project and portfolio reviews",
-        "Job placement assistance",
+        "26-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
+        "Certificate of completion",
       ],
     },
   ];
@@ -60,6 +60,11 @@ const TuitionDates: React.FC = () => {
         >
           Tuition & Dates
         </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Best Technologies Ltd. is committed to making tech education more
+          accessible, which is why we offer several payment options to help you
+          invest in your bootcamp education.
+        </p>
 
         {/* Upcoming Cohorts */}
         <div className="mb-8 lg:mb-10">
@@ -144,7 +149,7 @@ const TuitionDates: React.FC = () => {
               lineHeight: "1.4",
             }}
           >
-            Investment Options
+            Payment Options
           </h3>
           <div className="grid sm:grid-cols-2 gap-4 lg:gap-6">
             {pricingOptions.map((option, index) => (
@@ -224,8 +229,8 @@ const TuitionDates: React.FC = () => {
                   lineHeight: "1.5",
                 }}
               >
-                Register 4 weeks before cohort start date and save ₦10,000 on
-                tuition fees. Limited spots available for each cohort.
+                Register early and you could be eligible for a ₦10,000 discount
+                on your tuition fees! Terms and Conditions apply, though.
               </p>
             </div>
           </div>

@@ -6,12 +6,20 @@ import { Calendar, Clock, DollarSign } from "lucide-react";
 const TuitionDates = () => {
   const upcomingCohorts = [
     {
-      cohort: "Cohort #3",
-      startDate: "March 22, 2025",
-      endDate: "September 14, 2025",
+      cohort: "Cohort #2",
+      startDate: "September 2025",
+      endDate: "February 2026",
       schedule: "Weekdays (Mon-Fri)",
-      time: "6:00 PM - 9:00 PM WAT",
-      status: "Open for Registration",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Early Bird Active",
+    },
+    {
+      cohort: "Cohort #3",
+      startDate: "March 2026",
+      endDate: "August 2026",
+      schedule: "Weekdays (Mon-Fri)",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Upcoming",
     },
   ];
 
@@ -22,22 +30,22 @@ const TuitionDates = () => {
       savings: "Save ₦10,000",
       features: [
         "Complete bootcamp access",
-        "Premium tools & software licenses (e.g., Kali Linux, Burp Suite)",
-        "1-on-1 project or portfolio reviews",
-        "Job placement assistance",
-        "Lifetime alumni network access",
+        "26-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
+        "Certificate of completion",
       ],
     },
     {
       plan: "Installment Plan",
-      price: "₦180,000 × 3",
-      savings: "Total: ₦540,000",
+      price: "₦170,000 × 3",
+      savings: "Total: ₦510,000",
       features: [
-        "Pay in 3 installments",
-        "Full bootcamp access",
-        "Premium tools & software licenses",
-        "1-on-1 project or portfolio reviews",
-        "Job placement assistance",
+        "Complete bootcamp access",
+        "26-week intensive program",
+        "Live instruction & mentorship",
+        "Career support",
+        "Certificate of completion",
       ],
     },
   ];
@@ -81,7 +89,7 @@ const TuitionDates = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <span className="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="inline-block bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
                       {cohort.status}
                     </span>
                   </div>
@@ -94,7 +102,7 @@ const TuitionDates = () => {
         {/* Pricing */}
         <div>
           <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-            Investment Options
+            Payment Options
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
             {pricingOptions.map((option, index) => (
@@ -134,8 +142,8 @@ const TuitionDates = () => {
                 Early Bird Discount Available
               </h4>
               <p className="text-yellow-800">
-                Register 4 weeks before cohort start date and save ₦10,000 on
-                tuition fees. Limited spots available for each cohort.
+                Register early and you could be eligible for a ₦10,000 discount
+                on your tuition fees! Terms and Conditions apply, though.
               </p>
             </div>
           </div>

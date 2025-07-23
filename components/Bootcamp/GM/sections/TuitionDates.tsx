@@ -4,20 +4,20 @@ import { Calendar, Clock, DollarSign, CheckCircle } from "lucide-react";
 const TuitionDates: React.FC = () => {
   const upcomingCohorts = [
     {
-      cohort: "Cohort 1",
-      startDate: "August 12, 2025",
-      endDate: "November 4, 2025",
-      schedule: "Remote-first, Global-friendly",
-      time: "6–8 hours/week commitment",
-      status: "Open for Registration",
+      cohort: "Cohort #2",
+      startDate: "September 2025",
+      endDate: "February 2026",
+      schedule: "Weekdays (Mon-Fri)",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Early Bird Active",
     },
     {
-      cohort: "Cohort 2",
-      startDate: "November 18, 2025",
-      endDate: "February 10, 2026",
-      schedule: "Remote-first, Global-friendly",
-      time: "6–8 hours/week commitment",
-      status: "Early Bird Available",
+      cohort: "Cohort #3",
+      startDate: "March 2026",
+      endDate: "August 2026",
+      schedule: "Weekdays (Mon-Fri)",
+      time: "9:00 AM - 5:00 PM WAT",
+      status: "Upcoming",
     },
   ];
 
@@ -28,7 +28,7 @@ const TuitionDates: React.FC = () => {
       savings: "Save ₦10,000",
       features: [
         "Complete bootcamp access",
-        "52-week intensive program",
+        "26-week intensive program",
         "Live instruction & mentorship",
         "Career support",
         "Certificate of completion",
@@ -40,7 +40,7 @@ const TuitionDates: React.FC = () => {
       savings: "Total: ₦360,000",
       features: [
         "Complete bootcamp access",
-        "52-week intensive program",
+        "26-week intensive program",
         "Live instruction & mentorship",
         "Career support",
         "Certificate of completion",
@@ -60,6 +60,11 @@ const TuitionDates: React.FC = () => {
         >
           Tuition & Dates
         </h2>
+        <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+          Best Technologies Ltd. is committed to making tech education more
+          accessible, which is why we offer several payment options to help you
+          invest in your bootcamp education.
+        </p>
 
         {/* Upcoming Cohorts */}
         <div className="mb-8 lg:mb-10">
@@ -226,8 +231,8 @@ const TuitionDates: React.FC = () => {
                   lineHeight: "1.5",
                 }}
               >
-                Apply before July 24 and save ₦10,000 on tuition fees. Payment
-                validates registration after acceptance.
+                Register early and you could be eligible for a ₦10,000 discount
+                on your tuition fees! Terms and Conditions apply, though.
               </p>
             </div>
           </div>
