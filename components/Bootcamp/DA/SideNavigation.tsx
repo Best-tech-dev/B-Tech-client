@@ -15,7 +15,6 @@ const sections = [
   { id: "what-youll-learn", title: "What You'll Learn" },
   { id: "tuition-dates", title: "Tuition & Dates" },
   { id: "projects", title: "Projects" },
-  { id: "daily-schedule", title: "Daily Schedule" },
   { id: "career-prep", title: "Career Prep" },
   { id: "admissions", title: "Admissions" },
   { id: "testimonials", title: "Testimonials" },

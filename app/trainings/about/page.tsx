@@ -16,7 +16,7 @@ export default function TrainingAboutPage() {
     {
       icon: Code,
       title: "Bootcamps",
-      duration: "4-9 months",
+      duration: "6-12 months",
       description:
         "Intensive, immersive programs designed to take you from beginner to job-ready in the shortest time possible. Our bootcamps combine theoretical knowledge with hands-on practice.",
       features: [

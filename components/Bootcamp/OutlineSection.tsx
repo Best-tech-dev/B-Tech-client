@@ -60,7 +60,7 @@ export default function OutlineSection() {
               You&apos;ll gain full-stack development knowledge alongside
               relevant tooling and best practices used by today&apos;s top tech
               companies. Our curriculum is designed to take you from beginner to
-              job-ready in just 4-6 months.
+              job-ready in just 6-12 months.
             </p>
             <p className="text-base sm:text-lg leading-relaxed">
               You&apos;ll also learn how to apply generative AI in real-world
