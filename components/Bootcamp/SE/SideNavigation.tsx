@@ -11,7 +11,7 @@ interface SideNavigationProps {
 }
 
 const sections = [
-  { id: "fullstack-experience", title: "Full-Stack Development Experience" },
+  { id: "fullstack-experience", title: "Software Engineering Experience" },
   { id: "what-youll-learn", title: "What You'll Learn" },
   { id: "tuition-dates", title: "Tuition & Dates" },
   { id: "projects", title: "Projects" },
