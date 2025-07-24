@@ -17,10 +17,10 @@ const courses = [
   },
   {
     id: 2,
-    title: "Fullstack Web Development",
-    desc: "Master frontend and backend in our popular defacto fullstack bootcamp.",
+    title: "Software Engineering",
+    desc: "Master frontend and backend in our popular defacto software engineering bootcamp.",
     img: "/bootcamp/software-development.jpg",
-    url: "/trainings/bootcamp/fullstack-web-development",
+    url: "/trainings/bootcamp/software-engineering",
     duration: "12 months",
     level: "Beginner to Advanced",
   },
