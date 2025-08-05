@@ -15,6 +15,7 @@ import {
   CheckCircle,
   ChevronLeft,
   ChevronRight,
+  Loader2,
 } from "lucide-react";
 import { Button } from "@/ui/button";
 import {
@@ -26,15 +27,27 @@ import {
   DialogDescription,
 } from "@/ui/dialog";
 import Image from "next/image";
+import { newsletterApi } from "@/lib/api";
+import { useApiRequest } from "@/hooks/useApiRequest";
+import { SuccessModal, ErrorModal } from "@/components/ui/ApiModal";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [email, setEmail] = useState("");
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
   const [scrollPositions, setScrollPositions] = useState<
     Record<string, number>
   >({});
+
+  const {
+    loading,
+    error,
+    execute: subscribeToNewsletter,
+    reset,
+  } = useApiRequest(newsletterApi.subscribe);
 
   const categories = [
     { id: "all", name: "All Posts", count: 12 },
@@ -399,20 +412,58 @@ const Blog = () => {
     }
   };
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim() && email.includes("@")) {
-      // Handle newsletter signup
-      console.log("Newsletter signup:", email);
+
+    if (!email.trim()) {
+      return;
+    }
+
+    const result = await subscribeToNewsletter(email);
+
+    if (result?.success) {
       setEmail("");
-      setIsSubscriptionModalOpen(true);
-    } else {
-      console.log("Please enter a valid email address");
+      setShowSuccessModal(true);
+    } else if (error) {
+      setShowErrorModal(true);
     }
   };
 
   const handleModalClose = () => {
     setIsSubscriptionModalOpen(false);
+  };
+
+  const handleSuccessModalClose = () => {
+    setShowSuccessModal(false);
+    reset();
+  };
+
+  const handleErrorModalClose = () => {
+    setShowErrorModal(false);
+    reset();
+  };
+
+  const handleRetry = () => {
+    setShowErrorModal(false);
+    reset();
+    // Create a synthetic form event to trigger resubmission
+    const form = document.querySelector(
+      "[data-newsletter-form]"
+    ) as HTMLFormElement;
+    if (form) {
+      const syntheticEvent = {
+        ...new Event("submit"),
+        currentTarget: form,
+        target: form,
+        preventDefault: () => {},
+        stopPropagation: () => {},
+        nativeEvent: new Event("submit"),
+        isDefaultPrevented: () => false,
+        isPropagationStopped: () => false,
+        persist: () => {},
+      } as React.FormEvent<HTMLFormElement>;
+      handleNewsletterSubmit(syntheticEvent);
+    }
   };
 
   // const filteredPosts = blogPosts.filter((post) => {
@@ -843,6 +894,7 @@ const Blog = () => {
                 in technology and innovation.
               </p>
               <form
+                data-newsletter-form
                 onSubmit={handleNewsletterSubmit}
                 className="flex flex-col sm:flex-row gap-3 md:gap-4 max-w-md mx-auto"
               >
@@ -852,13 +904,22 @@ const Blog = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="flex-1 px-3 md:px-4 py-2 md:py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white focus:border-brand-primary focus:outline-none transition-colors text-sm md:text-base"
+                  disabled={loading}
+                  className="flex-1 px-3 md:px-4 py-2 md:py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white focus:border-brand-primary focus:outline-none transition-colors text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 />
                 <Button
                   type="submit"
-                  className="bg-brand-primary text-white px-4 md:px-6 py-4 md:py-6 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 text-sm md:text-base"
+                  disabled={loading || !email.trim()}
+                  className="bg-brand-primary text-white px-4 md:px-6 py-4 md:py-6 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand-primary/30 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Subscribe
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin mr-2" />
+                      Subscribing...
+                    </>
+                  ) : (
+                    "Subscribe"
+                  )}
                 </Button>
               </form>
             </div>
@@ -866,7 +927,28 @@ const Blog = () => {
         </section>
       </main>
 
-      {/* Newsletter Subscription Modal */}
+      {/* Success Modal */}
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={handleSuccessModalClose}
+        title="Subscription Successful!"
+        description="Thank you for subscribing to our newsletter. You'll receive the latest tech insights and updates directly in your inbox."
+      />
+
+      {/* Error Modal */}
+      <ErrorModal
+        isOpen={showErrorModal}
+        onClose={handleErrorModalClose}
+        onRetry={handleRetry}
+        retryLabel="Try Again"
+        title="Subscription Failed"
+        description={
+          error ||
+          "Something went wrong while subscribing to our newsletter. Please try again."
+        }
+      />
+
+      {/* Legacy Newsletter Subscription Modal */}
       <Dialog
         open={isSubscriptionModalOpen}
         onOpenChange={setIsSubscriptionModalOpen}

@@ -26,15 +26,62 @@ export interface NewsletterData {
 
 // Get in touch form types
 export const GetInTouchSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  phone: z.string().min(1, "Phone number is required"),
+  fullName: z.string().min(1, "Full name is required"),
   email: z.string().email("Please enter a valid email address"),
-  company: z.string().optional(),
-  service: z.string().min(1, "Please select a service"),
+  companyName: z.string().optional(),
+  phoneNumber: z.string().min(1, "Phone number is required"),
+  subject: z.enum(
+    [
+      "general_enquiry",
+      "sales_and_partnership",
+      "technical_support",
+      "careers_and_hr",
+      "media_and_press",
+    ],
+    {
+      errorMap: () => ({ message: "Please select a valid subject" }),
+    }
+  ),
+  proposedBudget: z
+    .enum([
+      "five_hundred_thousand",
+      "one_million",
+      "three_million",
+      "five_million",
+      "ten_million",
+      "thwenty_five_million",
+      "fifty_million",
+      "hundred_million",
+    ])
+    .optional(),
+  projectTimeline: z
+    .enum([
+      "asap",
+      "one_to_three_months",
+      "three_to_six_months",
+      "six_to_twelve_months",
+      "flexible",
+    ])
+    .optional(),
   projectDetails: z.string().min(1, "Project details are required"),
 });
 
 export type GetInTouchRequest = z.infer<typeof GetInTouchSchema>;
+
+export interface ContactFormData {
+  id: string;
+  fullName: string;
+  email: string;
+  companyName?: string;
+  phoneNumber: string;
+  subject: string;
+  proposedBudget?: string;
+  projectTimeline?: string;
+  projectDetails: string;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+}
 
 // API Error types
 export interface ApiError {
@@ -144,13 +191,15 @@ export const newsletterApi = {
 
 // Get in touch API functions
 export const contactApi = {
-  submitForm: async (formData: GetInTouchRequest): Promise<ApiResponse> => {
+  submitForm: async (
+    formData: GetInTouchRequest
+  ): Promise<ApiResponse<ContactFormData>> => {
     // Validate input
     const validatedData = GetInTouchSchema.parse(formData);
 
     // Check if contact API is enabled
     if (FEATURES.ENABLE_CONTACT_API) {
-      return apiRequest(ENDPOINTS.CONTACT_SUBMIT, {
+      return apiRequest<ContactFormData>(ENDPOINTS.CONTACT_SUBMIT, {
         method: "POST",
         body: JSON.stringify(validatedData),
       });
@@ -161,9 +210,14 @@ export const contactApi = {
           resolve({
             statusCode: 201,
             success: true,
-            message:
-              "Message sent successfully! We'll get back to you within 24 hours.",
-            data: { id: `temp_${Date.now()}`, ...validatedData },
+            message: "Contact us entry created successfully",
+            data: {
+              id: `temp_${Date.now()}`,
+              ...validatedData,
+              status: "initiated",
+              createdAt: new Date().toISOString(),
+              updatedAt: new Date().toISOString(),
+            } as ContactFormData,
           });
         }, 2000); // Simulate network delay
       });

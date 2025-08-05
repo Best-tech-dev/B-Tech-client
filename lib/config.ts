@@ -11,7 +11,7 @@ export const API_CONFIG = {
 // Endpoints
 export const ENDPOINTS = {
   NEWSLETTER_SUBSCRIBE: "/newsletter/subscribe",
-  CONTACT_SUBMIT: "/contact/submit", // Placeholder for future use
+  CONTACT_SUBMIT: "/admin/contact-us",
 } as const;
 
 // Environment-specific settings
