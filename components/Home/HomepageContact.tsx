@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "@/ui/button";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import {
   Dialog,
@@ -12,6 +12,9 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/ui/dialog";
+import { contactApi, GetInTouchRequest } from "@/lib/api";
+import { useApiRequest } from "@/hooks/useApiRequest";
+import { SuccessModal, ErrorModal } from "@/components/ui/ApiModal";
 
 const services = [
   "Web Development",
@@ -27,6 +30,8 @@ const HomepageContact = () => {
   const { toast } = useToast();
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -35,7 +40,14 @@ const HomepageContact = () => {
     projectDetails: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const {
+    loading,
+    error,
+    execute: submitContactForm,
+    reset,
+  } = useApiRequest(contactApi.submitForm);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!selectedService) {
@@ -47,8 +59,18 @@ const HomepageContact = () => {
       return;
     }
 
-    // Show success modal
-    setIsModalOpen(true);
+    const requestData: GetInTouchRequest = {
+      ...formData,
+      service: selectedService,
+    };
+
+    const result = await submitContactForm(requestData);
+
+    if (result?.success) {
+      setShowSuccessModal(true);
+    } else if (error) {
+      setShowErrorModal(true);
+    }
   };
 
   const handleModalClose = () => {
@@ -70,6 +92,46 @@ const HomepageContact = () => {
       description:
         "Thank you for your inquiry. We&apos;ll get back to you within 24 hours.",
     });
+  };
+
+  const handleSuccessModalClose = () => {
+    setShowSuccessModal(false);
+
+    // Reset form after success
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      company: "",
+      projectDetails: "",
+    });
+    setSelectedService(null);
+    reset();
+
+    // Show toast notification
+    toast({
+      title: "Message Sent!",
+      description:
+        "Thank you for your inquiry. We'll get back to you within 24 hours.",
+    });
+  };
+
+  const handleErrorModalClose = () => {
+    setShowErrorModal(false);
+    reset();
+  };
+
+  const handleRetry = () => {
+    setShowErrorModal(false);
+    reset();
+    // Re-trigger form submission
+    if (selectedService) {
+      const requestData: GetInTouchRequest = {
+        ...formData,
+        service: selectedService,
+      };
+      submitContactForm(requestData);
+    }
   };
 
   const handleChange = (
@@ -244,7 +306,8 @@ const HomepageContact = () => {
                     <Button
                       key={service}
                       type="button"
-                      className={`px-3 md:px-4 py-2 text-xs md:text-sm border rounded-lg transition-all duration-200 ${
+                      disabled={loading}
+                      className={`px-3 md:px-4 py-2 text-xs md:text-sm border rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed ${
                         selectedService === service
                           ? "border-brand-primary bg-brand-primary/20 text-brand-primary"
                           : "border-gray-600 bg-gray-800/50 text-gray-300 hover:border-brand-primary/50"
@@ -266,7 +329,8 @@ const HomepageContact = () => {
                     onChange={handleChange}
                     placeholder="Your name*"
                     required
-                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base"
+                    disabled={loading}
+                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                 </div>
 
@@ -277,7 +341,8 @@ const HomepageContact = () => {
                     onChange={handleChange}
                     placeholder="Your phone*"
                     required
-                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base"
+                    disabled={loading}
+                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                   />
                 </div>
               </div>
@@ -290,7 +355,8 @@ const HomepageContact = () => {
                   onChange={handleChange}
                   placeholder="Your email*"
                   required
-                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base"
+                  disabled={loading}
+                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
 
@@ -300,7 +366,8 @@ const HomepageContact = () => {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Your company (optional)"
-                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base"
+                  disabled={loading}
+                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
 
@@ -311,17 +378,28 @@ const HomepageContact = () => {
                   onChange={handleChange}
                   placeholder="Tell us about your project..."
                   required
-                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 resize-none text-sm md:text-base"
+                  disabled={loading}
+                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors duration-200 resize-none text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                   rows={4}
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full bg-gradient-to-r from-brand-primary to-brand-accent text-white font-semibold py-4 md:py-6 px-6 rounded-lg hover:from-brand-primary/90 hover:to-brand-accent/90 transition-all duration-200 flex items-center justify-center gap-2 text-sm md:text-base"
+                disabled={loading || !selectedService}
+                className="w-full bg-gradient-to-r from-brand-primary to-brand-accent text-white font-semibold py-4 md:py-6 px-6 rounded-lg hover:from-brand-primary/90 hover:to-brand-accent/90 transition-all duration-200 flex items-center justify-center gap-2 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <Send className="w-4 h-4 md:w-5 md:h-5" />
-                Send Message
+                {loading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" />
+                    Sending Message...
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4 md:w-5 md:h-5" />
+                    Send Message
+                  </>
+                )}
               </Button>
             </form>
           </div>
@@ -329,6 +407,27 @@ const HomepageContact = () => {
       </div>
 
       {/* Success Modal */}
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={handleSuccessModalClose}
+        title="Message Sent Successfully!"
+        description="Thank you for reaching out to us. We've received your message and will get back to you within 24 hours."
+      />
+
+      {/* Error Modal */}
+      <ErrorModal
+        isOpen={showErrorModal}
+        onClose={handleErrorModalClose}
+        onRetry={handleRetry}
+        retryLabel="Try Again"
+        title="Message Failed to Send"
+        description={
+          error ||
+          "Something went wrong while sending your message. Please try again."
+        }
+      />
+
+      {/* Legacy Success Modal - Keep for backward compatibility if needed */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="bg-white border-gray-700 text-black max-w-md">
           <DialogHeader className="text-center">
