@@ -29,7 +29,11 @@ import {
 import Image from "next/image";
 import { newsletterApi } from "@/lib/api";
 import { useApiRequest } from "@/hooks/useApiRequest";
-import { SuccessModal, ErrorModal } from "@/components/ui/ApiModal";
+import {
+  SuccessModal,
+  ErrorModal,
+  DuplicateEmailModal,
+} from "@/components/ui/ApiModal";
 
 const Blog = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -38,6 +42,8 @@ const Blog = () => {
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showDuplicateModal, setShowDuplicateModal] = useState(false);
+  const [duplicateEmail, setDuplicateEmail] = useState("");
   const [scrollPositions, setScrollPositions] = useState<
     Record<string, number>
   >({});
@@ -425,7 +431,14 @@ const Blog = () => {
       setEmail("");
       setShowSuccessModal(true);
     } else if (error) {
-      setShowErrorModal(true);
+      // Check if it's a 409 duplicate email error
+      if (error.toLowerCase().includes("already subscribed")) {
+        setDuplicateEmail(email.trim());
+        setShowDuplicateModal(true);
+        setEmail("");
+      } else {
+        setShowErrorModal(true);
+      }
     }
   };
 
@@ -440,6 +453,12 @@ const Blog = () => {
 
   const handleErrorModalClose = () => {
     setShowErrorModal(false);
+    reset();
+  };
+
+  const handleDuplicateModalClose = () => {
+    setShowDuplicateModal(false);
+    setDuplicateEmail("");
     reset();
   };
 
@@ -946,6 +965,13 @@ const Blog = () => {
           error ||
           "Something went wrong while subscribing to our newsletter. Please try again."
         }
+      />
+
+      {/* Duplicate Email Modal */}
+      <DuplicateEmailModal
+        isOpen={showDuplicateModal}
+        onClose={handleDuplicateModalClose}
+        email={duplicateEmail}
       />
 
       {/* Legacy Newsletter Subscription Modal */}
