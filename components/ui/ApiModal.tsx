@@ -114,10 +114,10 @@ export function DuplicateEmailModal({
 }: DuplicateEmailModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="bg-white border-gray-700 text-black max-w-md">
+      <DialogContent className="bg-white border-yellow-700 text-black max-w-md">
         <DialogHeader className="text-center">
-          <div className="mx-auto mb-4 w-16 h-16 bg-orange-500/20 rounded-full flex items-center justify-center">
-            <AlertCircle className="w-8 h-8 text-orange-600" />
+          <div className="mx-auto mb-4 w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center">
+            <AlertCircle className="w-8 h-8 text-yellow-600" />
           </div>
           <DialogTitle className="text-2xl font-bold text-gray-900 text-center">
             Already Subscribed!
@@ -126,7 +126,7 @@ export function DuplicateEmailModal({
             {email ? (
               <>
                 The email address{" "}
-                <span className="font-semibold text-orange-600">{email}</span>{" "}
+                <span className="font-semibold text-yellow-600">{email}</span>{" "}
                 is already subscribed to our newsletter. You&apos;re all set to
                 receive our latest updates!
               </>
@@ -138,7 +138,7 @@ export function DuplicateEmailModal({
         <DialogFooter className="mt-6">
           <Button
             onClick={onClose}
-            className="w-full bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-primary/90 hover:to-brand-accent/90 text-white font-semibold py-3 rounded-lg transition-all duration-200"
+            className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold py-3 rounded-lg transition-all duration-200 border-yellow-500 hover:border-yellow-600"
           >
             Got it!
           </Button>

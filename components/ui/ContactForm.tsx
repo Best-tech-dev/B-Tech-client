@@ -380,7 +380,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         retryLabel="Try Again"
         title="Message Failed to Send"
         description={
-          error ||
+          error?.message ||
           "Something went wrong while sending your message. Please try again."
         }
       />

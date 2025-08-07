@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { getErrorMessage } from "@/lib/api";
+import { getErrorMessage, ApiException } from "@/lib/api";
 
 interface UseApiRequestState {
   loading: boolean;
-  error: string | null;
+  error: { message: string; statusCode?: number } | null;
   success: boolean;
 }
 
@@ -42,9 +42,11 @@ export function useApiRequest<T, TArgs extends unknown[]>(
         return result;
       } catch (error) {
         const errorMessage = getErrorMessage(error);
+        const statusCode =
+          error instanceof ApiException ? error.statusCode : undefined;
         setState({
           loading: false,
-          error: errorMessage,
+          error: { message: errorMessage, statusCode },
           success: false,
         });
         return null;

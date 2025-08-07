@@ -432,7 +432,7 @@ const Blog = () => {
       setShowSuccessModal(true);
     } else if (error) {
       // Check if it's a 409 duplicate email error
-      if (error.toLowerCase().includes("already subscribed")) {
+      if (error.statusCode === 409) {
         setDuplicateEmail(email.trim());
         setShowDuplicateModal(true);
         setEmail("");
@@ -962,7 +962,7 @@ const Blog = () => {
         retryLabel="Try Again"
         title="Subscription Failed"
         description={
-          error ||
+          error?.message ||
           "Something went wrong while subscribing to our newsletter. Please try again."
         }
       />

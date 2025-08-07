@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/ApiModal";
 import {
   Users,
-  DollarSign,
+  BanknoteArrowDown,
   Zap,
   RefreshCw,
   ArrowRight,
@@ -56,7 +56,7 @@ const PartnerWithUs = () => {
       setEmail("");
     } else if (newsletterError) {
       // Check if it's a 409 duplicate email error
-      if (newsletterError.toLowerCase().includes("already subscribed")) {
+      if (newsletterError.statusCode === 409) {
         setDuplicateEmail(email.trim());
         setShowDuplicateModal(true);
         setEmail("");
@@ -128,7 +128,7 @@ const PartnerWithUs = () => {
       title: "You Get Paid",
       description:
         "Once payment is made, we send you 15% commission - no delays, no drama",
-      icon: DollarSign,
+      icon: BanknoteArrowDown,
     },
   ];
 
@@ -140,7 +140,7 @@ const PartnerWithUs = () => {
     },
     {
       title: "Earn on every successful project",
-      icon: DollarSign,
+      icon: BanknoteArrowDown,
       color: "from-yellow-500 to-orange-500",
     },
     {
@@ -262,18 +262,18 @@ const PartnerWithUs = () => {
                 <div className="relative bg-gradient-to-br from-brand-primary to-brand-accent p-1 rounded-2xl">
                   <div className="bg-white rounded-xl p-8">
                     <Image
-                      src="/imgs/service-banner-01.jpg"
+                      src="/imgs/refer-and-earn.png"
                       alt="Partnership Program"
-                      width={600}
-                      height={400}
-                      className="w-full h-auto rounded-lg"
+                      width={400}
+                      height={200}
+                      className="w-full h-[400px] rounded-lg object-cover"
                       priority
                     />
                   </div>
                 </div>
                 {/* Floating elements */}
                 <div className="absolute -top-6 -left-6 bg-brand-primary text-white p-4 rounded-xl shadow-xl">
-                  <DollarSign className="w-8 h-8" />
+                  <BanknoteArrowDown className="w-8 h-8" />
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-brand-accent text-white p-4 rounded-xl shadow-xl">
                   <Users className="w-8 h-8" />
@@ -425,15 +425,6 @@ const PartnerWithUs = () => {
         {/* Contact Form Section */}
         <section id="partner-contact-form" className="py-20 px-4 md:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Ready to Start Earning?
-              </h2>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Join our referral program today and start earning 15% commission
-                on every successful project referral
-              </p>
-            </div>
             <ContactForm
               title="Join Our Partner Program"
               description="Fill out the form below to get started with our referral program. We'll contact you with all the details and resources you need to begin earning."
@@ -472,7 +463,7 @@ const PartnerWithUs = () => {
                 <Button
                   type="submit"
                   disabled={newsletterLoading || !email.trim()}
-                  className="bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-primary/90 hover:to-brand-accent/90 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-brand-primary/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="bg-gradient-to-r from-brand-primary to-brand-accent hover:from-brand-primary/90 hover:to-brand-accent/90 text-white font-semibold px-6 py-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-brand-primary/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   {newsletterLoading ? (
                     <>
@@ -510,7 +501,7 @@ const PartnerWithUs = () => {
         retryLabel="Try Again"
         title="Subscription Failed"
         description={
-          newsletterError ||
+          newsletterError?.message ||
           "Something went wrong while subscribing to our newsletter. Please try again."
         }
       />
