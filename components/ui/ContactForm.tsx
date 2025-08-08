@@ -373,7 +373,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             onChange={handleInputChange}
             disabled={loading}
             className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white focus:border-brand-primary focus:outline-none transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-            placeholder="Tell us about your project, goals, and any specific requirements..."
+            placeholder="Tell us about your project, goals, partnership and any specific requirements..."
           />
         </div>
 

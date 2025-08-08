@@ -427,7 +427,7 @@ const PartnerWithUs = () => {
           <div className="max-w-4xl mx-auto">
             <ContactForm
               title="Join Our Partner Program"
-              description="Fill out the form below to get started with our referral program. We'll contact you with all the details and resources you need to begin earning."
+              description="Ready to refer clients and earn commissions? Fill out the form below to join our referral program. Choose 'General Enquiry' as the project type and let us know how you'd like to partner with us in the text area."
             />
           </div>
         </section>
