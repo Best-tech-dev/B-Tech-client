@@ -8,12 +8,18 @@ import { Mail, ArrowRight, Sparkles, Zap, Star, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { newsletterApi } from "@/lib/api";
 import { useApiRequest } from "@/hooks/useApiRequest";
-import { SuccessModal, ErrorModal } from "@/components/ui/ApiModal";
+import {
+  SuccessModal,
+  ErrorModal,
+  DuplicateEmailModal,
+} from "@/components/ui/ApiModal";
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState("");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
+  const [showDuplicateModal, setShowDuplicateModal] = useState(false);
+  const [duplicateEmail, setDuplicateEmail] = useState("");
 
   const {
     loading,
@@ -35,7 +41,14 @@ export default function NewsletterSection() {
       setEmail("");
       setShowSuccessModal(true);
     } else if (error) {
-      setShowErrorModal(true);
+      // Check if it's a 409 duplicate email error
+      if (error.statusCode === 409) {
+        setDuplicateEmail(email.trim());
+        setShowDuplicateModal(true);
+        setEmail("");
+      } else {
+        setShowErrorModal(true);
+      }
     }
   };
 
@@ -50,7 +63,14 @@ export default function NewsletterSection() {
       setEmail("");
       setShowSuccessModal(true);
     } else if (error) {
-      setShowErrorModal(true);
+      // Check if it's a 409 duplicate email error
+      if (error.statusCode === 409) {
+        setDuplicateEmail(email.trim());
+        setShowDuplicateModal(true);
+        setEmail("");
+      } else {
+        setShowErrorModal(true);
+      }
     }
   };
 
@@ -67,6 +87,12 @@ export default function NewsletterSection() {
 
   const handleCloseErrorModal = () => {
     setShowErrorModal(false);
+    reset();
+  };
+
+  const handleCloseDuplicateModal = () => {
+    setShowDuplicateModal(false);
+    setDuplicateEmail("");
     reset();
   };
 
@@ -404,9 +430,16 @@ export default function NewsletterSection() {
                     retryLabel="Try Again"
                     title="Subscription Failed"
                     description={
-                      error ||
+                      error?.message ||
                       "Something went wrong while subscribing to our newsletter. Please try again."
                     }
+                  />
+
+                  {/* Duplicate Email Modal */}
+                  <DuplicateEmailModal
+                    isOpen={showDuplicateModal}
+                    onClose={handleCloseDuplicateModal}
+                    email={duplicateEmail}
                   />
                 </div>
 

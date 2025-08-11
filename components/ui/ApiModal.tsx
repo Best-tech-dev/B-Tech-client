@@ -99,3 +99,51 @@ export function SuccessModal(props: Omit<SuccessModalProps, "type">) {
 export function ErrorModal(props: Omit<ErrorModalProps, "type">) {
   return <ApiModal {...props} type="error" />;
 }
+
+// Duplicate Email Modal Component
+interface DuplicateEmailModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  email?: string;
+}
+
+export function DuplicateEmailModal({
+  isOpen,
+  onClose,
+  email,
+}: DuplicateEmailModalProps) {
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="bg-white border-yellow-700 text-black max-w-md">
+        <DialogHeader className="text-center">
+          <div className="mx-auto mb-4 w-16 h-16 bg-yellow-500/20 rounded-full flex items-center justify-center">
+            <AlertCircle className="w-8 h-8 text-yellow-600" />
+          </div>
+          <DialogTitle className="text-2xl font-bold text-gray-900 text-center">
+            Already Subscribed!
+          </DialogTitle>
+          <DialogDescription className="text-gray-700 mt-2 text-center">
+            {email ? (
+              <>
+                The email address{" "}
+                <span className="font-semibold text-yellow-600">{email}</span>{" "}
+                is already subscribed to our newsletter. You&apos;re all set to
+                receive our latest updates!
+              </>
+            ) : (
+              "This email address is already subscribed to our newsletter. You're all set to receive our latest updates!"
+            )}
+          </DialogDescription>
+        </DialogHeader>
+        <DialogFooter className="mt-6">
+          <Button
+            onClick={onClose}
+            className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold py-3 rounded-lg transition-all duration-200 border-yellow-500 hover:border-yellow-600"
+          >
+            Got it!
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}

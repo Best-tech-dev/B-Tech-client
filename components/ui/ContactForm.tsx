@@ -29,9 +29,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
     email: "",
     companyName: "",
     phoneNumber: "",
-    subject: "" as GetInTouchRequest["subject"],
-    proposedBudget: "" as GetInTouchRequest["proposedBudget"],
-    projectTimeline: "" as GetInTouchRequest["projectTimeline"],
+    projectType: "",
+    proposedBudget: "",
+    projectTimeline: "",
     projectDetails: "",
   });
 
@@ -42,12 +42,20 @@ const ContactForm: React.FC<ContactFormProps> = ({
     reset,
   } = useApiRequest(contactApi.submitForm);
 
-  const subjectOptions = [
-    { value: "general_enquiry", label: "General Inquiry" },
-    { value: "sales_and_partnership", label: "Sales & Partnerships" },
-    { value: "technical_support", label: "Technical Support" },
-    { value: "careers_and_hr", label: "Careers & HR" },
-    { value: "media_and_press", label: "Media & Press" },
+  const projectTypeOptions = [
+    { value: "ai_ml_development", label: "AI & Machine Learning Development" },
+    { value: "web_development", label: "Web Development" },
+    { value: "full_stack_marketing", label: "Full Stack Marketing" },
+    { value: "mobile_app_development", label: "Mobile App Development" },
+    { value: "it_solutions", label: "IT Solutions" },
+    { value: "bootcamps_and_training", label: "Bootcamps & Training" },
+    { value: "desktop_app_development", label: "Desktop App Development" },
+    { value: "website_development", label: "Website Development" },
+    { value: "e_commerce_development", label: "E-commerce Development" },
+    { value: "saas_development", label: "SaaS Development" },
+    { value: "blockchain_development", label: "Blockchain Development" },
+    { value: "data_science_and_analytics", label: "Data Science & Analytics" },
+    { value: "general_enquiry", label: "General Enquiry" },
   ];
 
   const budgetOptions = [
@@ -78,13 +86,28 @@ const ContactForm: React.FC<ContactFormProps> = ({
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Helper function to check if all required fields are filled
+  const areAllFieldsFilled = () => {
+    return (
+      formData.fullName.trim() !== "" &&
+      formData.email.trim() !== "" &&
+      formData.companyName.trim() !== "" &&
+      formData.phoneNumber.trim() !== "" &&
+      formData.projectType !== "" &&
+      formData.proposedBudget !== "" &&
+      formData.projectTimeline !== "" &&
+      formData.projectDetails.trim() !== ""
+    );
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.subject) {
+    // Check if all fields are filled
+    if (!areAllFieldsFilled()) {
       toast({
-        title: "Subject Required",
-        description: "Please select a subject for your inquiry.",
+        title: "All Fields Required",
+        description: "Please fill in all fields before submitting.",
         variant: "destructive",
       });
       return;
@@ -93,11 +116,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
     const requestData: GetInTouchRequest = {
       fullName: formData.fullName,
       email: formData.email,
-      companyName: formData.companyName || undefined,
+      companyName: formData.companyName,
       phoneNumber: formData.phoneNumber,
-      subject: formData.subject,
-      proposedBudget: formData.proposedBudget || undefined,
-      projectTimeline: formData.projectTimeline || undefined,
+      subject: "general_enquiry", // Always send general_enquiry for subject
+      projectType: formData.projectType as GetInTouchRequest["projectType"],
+      proposedBudget:
+        formData.proposedBudget as GetInTouchRequest["proposedBudget"],
+      projectTimeline:
+        formData.projectTimeline as GetInTouchRequest["projectTimeline"],
       projectDetails: formData.projectDetails,
     };
 
@@ -119,9 +145,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
       email: "",
       companyName: "",
       phoneNumber: "",
-      subject: "" as GetInTouchRequest["subject"],
-      proposedBudget: "" as GetInTouchRequest["proposedBudget"],
-      projectTimeline: "" as GetInTouchRequest["projectTimeline"],
+      projectType: "",
+      proposedBudget: "",
+      projectTimeline: "",
       projectDetails: "",
     });
     reset();
@@ -143,15 +169,18 @@ const ContactForm: React.FC<ContactFormProps> = ({
     setShowErrorModal(false);
     reset();
     // Re-trigger form submission
-    if (formData.subject) {
+    if (areAllFieldsFilled()) {
       const requestData: GetInTouchRequest = {
         fullName: formData.fullName,
         email: formData.email,
-        companyName: formData.companyName || undefined,
+        companyName: formData.companyName,
         phoneNumber: formData.phoneNumber,
-        subject: formData.subject,
-        proposedBudget: formData.proposedBudget || undefined,
-        projectTimeline: formData.projectTimeline || undefined,
+        subject: "general_enquiry", // Always send general_enquiry for subject
+        projectType: formData.projectType as GetInTouchRequest["projectType"],
+        proposedBudget:
+          formData.proposedBudget as GetInTouchRequest["proposedBudget"],
+        projectTimeline:
+          formData.projectTimeline as GetInTouchRequest["projectTimeline"],
         projectDetails: formData.projectDetails,
       };
       submitContactForm(requestData);
@@ -217,12 +246,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
               htmlFor="companyName"
               className="block text-sm font-semibold text-brand-primary mb-2"
             >
-              Company Name
+              Company Name *
             </label>
             <input
               type="text"
               id="companyName"
               name="companyName"
+              required
               value={formData.companyName}
               onChange={handleInputChange}
               disabled={loading}
@@ -253,22 +283,22 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
           <div>
             <label
-              htmlFor="subject"
+              htmlFor="projectType"
               className="block text-sm font-semibold text-brand-primary mb-2"
             >
-              Subject *
+              Project Type *
             </label>
             <select
-              id="subject"
-              name="subject"
+              id="projectType"
+              name="projectType"
               required
-              value={formData.subject}
+              value={formData.projectType}
               onChange={handleInputChange}
               disabled={loading}
               className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white focus:border-brand-primary focus:outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <option value="">Select a subject</option>
-              {subjectOptions.map((option) => (
+              <option value="">Select project type</option>
+              {projectTypeOptions.map((option) => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>
@@ -281,11 +311,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
               htmlFor="proposedBudget"
               className="block text-sm font-semibold text-brand-primary mb-2"
             >
-              Project Budget
+              Project Budget *
             </label>
             <select
               id="proposedBudget"
               name="proposedBudget"
+              required
               value={formData.proposedBudget}
               onChange={handleInputChange}
               disabled={loading}
@@ -306,11 +337,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
             htmlFor="projectTimeline"
             className="block text-sm font-semibold text-brand-primary mb-2"
           >
-            Project Timeline
+            Project Timeline *
           </label>
           <select
             id="projectTimeline"
             name="projectTimeline"
+            required
             value={formData.projectTimeline}
             onChange={handleInputChange}
             disabled={loading}
@@ -341,13 +373,22 @@ const ContactForm: React.FC<ContactFormProps> = ({
             onChange={handleInputChange}
             disabled={loading}
             className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white focus:border-brand-primary focus:outline-none transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-            placeholder="Tell us about your project, goals, and any specific requirements..."
+            placeholder="Tell us about your project, goals, partnership and any specific requirements..."
           />
         </div>
 
+        {/* Helper text for form completion */}
+        {!areAllFieldsFilled() && (
+          <div className="mb-4 text-center">
+            <p className="text-xs text-brand-primary">
+              *Fill all fields to activate this submit button
+            </p>
+          </div>
+        )}
+
         <Button
           type="submit"
-          disabled={loading || !formData.subject}
+          disabled={loading || !areAllFieldsFilled()}
           className="w-full bg-brand-primary text-white py-6 rounded-md font-semibold text-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/40 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? (
@@ -380,7 +421,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         retryLabel="Try Again"
         title="Message Failed to Send"
         description={
-          error ||
+          error?.message ||
           "Something went wrong while sending your message. Please try again."
         }
       />

@@ -28,22 +28,44 @@ export interface NewsletterData {
 export const GetInTouchSchema = z.object({
   fullName: z.string().min(1, "Full name is required"),
   email: z.string().email("Please enter a valid email address"),
-  companyName: z.string().optional(),
+  companyName: z.string().min(1, "Company name is required"),
   phoneNumber: z.string().min(1, "Phone number is required"),
-  subject: z.enum(
+  subject: z
+    .enum(
+      [
+        "general_enquiry",
+        "sales_and_partnership",
+        "technical_support",
+        "careers_and_hr",
+        "media_and_press",
+      ],
+      {
+        errorMap: () => ({ message: "Please select a valid subject" }),
+      }
+    )
+    .optional(),
+  projectType: z.enum(
     [
+      "ai_ml_development",
+      "web_development",
+      "full_stack_marketing",
+      "mobile_app_development",
+      "it_solutions",
+      "bootcamps_and_training",
+      "desktop_app_development",
+      "website_development",
+      "e_commerce_development",
+      "saas_development",
+      "blockchain_development",
+      "data_science_and_analytics",
       "general_enquiry",
-      "sales_and_partnership",
-      "technical_support",
-      "careers_and_hr",
-      "media_and_press",
     ],
     {
-      errorMap: () => ({ message: "Please select a valid subject" }),
+      errorMap: () => ({ message: "Please select a valid project type" }),
     }
   ),
-  proposedBudget: z
-    .enum([
+  proposedBudget: z.enum(
+    [
       "five_hundred_thousand",
       "one_million",
       "three_million",
@@ -52,17 +74,23 @@ export const GetInTouchSchema = z.object({
       "thwenty_five_million",
       "fifty_million",
       "hundred_million",
-    ])
-    .optional(),
-  projectTimeline: z
-    .enum([
+    ],
+    {
+      errorMap: () => ({ message: "Please select a budget range" }),
+    }
+  ),
+  projectTimeline: z.enum(
+    [
       "asap",
       "one_to_three_months",
       "three_to_six_months",
       "six_to_twelve_months",
       "flexible",
-    ])
-    .optional(),
+    ],
+    {
+      errorMap: () => ({ message: "Please select a project timeline" }),
+    }
+  ),
   projectDetails: z.string().min(1, "Project details are required"),
 });
 
@@ -72,11 +100,12 @@ export interface ContactFormData {
   id: string;
   fullName: string;
   email: string;
-  companyName?: string;
+  companyName: string;
   phoneNumber: string;
-  subject: string;
-  proposedBudget?: string;
-  projectTimeline?: string;
+  subject?: string;
+  projectType: string;
+  proposedBudget: string;
+  projectTimeline: string;
   projectDetails: string;
   status: string;
   createdAt: string;

@@ -3,6 +3,7 @@
 import React from "react";
 import ContactForm from "@/components/ui/ContactForm";
 import { Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 
 const HomepageContact = () => {
   return (
@@ -110,7 +111,7 @@ const HomepageContact = () => {
                   referrerPolicy="no-referrer-when-downgrade"
                   className="w-full h-full transition-all duration-300 group-hover:scale-105"
                 />
-                <a
+                <Link
                   href="https://maps.app.goo.gl/5bEbmmjPmwd8xr148"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -119,7 +120,7 @@ const HomepageContact = () => {
                   <div className="bg-brand-primary text-white px-4 py-2 rounded-lg text-sm font-medium shadow-lg">
                     Open in Google Maps
                   </div>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
