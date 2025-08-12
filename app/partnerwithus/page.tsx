@@ -17,7 +17,10 @@ import {
 // TypeScript declarations for Facebook Pixel
 declare global {
   interface Window {
-    fbq: any;
+    fbq: ((...args: unknown[]) => void) & {
+      loaded?: boolean;
+      queue?: unknown[];
+    };
   }
 }
 import {
@@ -227,6 +230,7 @@ const PartnerWithUs = () => {
       />
 
       <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           height="1"
           width="1"
