@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React from "react";
 
-import { ArrowRight, Sparkles, Zap, Star } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Star, Download } from "lucide-react";
 
 const NewLandingPageHero = () => {
   return (
@@ -78,12 +78,14 @@ const NewLandingPageHero = () => {
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-200" />
           </Link>
 
-          <Link
-            href="/contact"
-            className="group border-2 border-brand-primary/50 hover:border-brand-primary text-brand-neutral-off-white hover:text-white font-semibold px-6 sm:px-10 py-3 sm:py-[10px] text-sm sm:text-base rounded-xl transition-all duration-300 hover:bg-brand-primary/5 flex items-center justify-center w-full sm:w-auto"
+          <a
+            href="/portfolio/BEST TECHNOLOGIES LTD Services.pdf"
+            rel="noopener noreferrer"
+            className="group border-2 border-brand-primary/50 hover:border-brand-primary text-brand-neutral-off-white hover:text-white font-semibold px-6 sm:px-10 py-3 sm:py-[10px] text-sm sm:text-base rounded-xl transition-all duration-300 hover:bg-brand-primary/5 flex items-center gap-2 sm:gap-3 justify-center w-full sm:w-auto"
           >
-            Contact Us
-          </Link>
+            View Project Portfolio
+            <Download className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-y-1 transition-transform duration-200" />
+          </a>
         </div>
       </div>
     </section>
